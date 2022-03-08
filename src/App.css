@@ -1,0 +1,321 @@
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper{
+    margin: 6rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: center;
+}
+
+.card{
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px;
+    border-radius: .4rem;
+    min-width: 15rem;
+    display: flex;
+
+}
+
+.card_module{
+     font-size: 1.3rem;
+     font-weight: 550;
+     padding-top: 1.4rem;
+     padding-left: .7rem;
+     color: #979796;
+}
+
+.card_title{
+     font-size: 1.7rem;
+     font-style: bold;
+     font-weight: 600;
+     padding-top: 1.1rem;
+     padding-left: .7rem;
+     color: #36474f;
+}
+
+.card_info{
+    display: flex;
+    justify-content: space-between;
+    margin: 3rem 5rem 2.6rem .7rem;
+}
+
+.time, .score{
+    display: flex;
+}
+
+.score{
+    margin-left: -.6rem;
+}
+
+.time_passed, .rating{
+     font-size: 1rem;
+     font-style: bold;
+     font-weight: 600;
+     padding-left: .4rem;
+}
+
+
+@media screen and (max-width: 636px){
+    .time_passed, .rating{
+        font-size: .8rem;
+        font-style: bold;
+        font-weight: 600;
+        padding-left: .7rem;
+   }
+}
+
+
+
+.card_btn{
+     background: #f4b51a;
+     color: white;
+     border: none;
+     height: 2.5rem;
+     width: 10rem;
+     border-radius: 2rem;
+     text-shadow: .1rem;
+     font-weight: 900;
+     margin-bottom: 2rem;
+}
+
+.card_btn_home{
+    background: #75a8da;
+    color: white;
+    border: none;
+    height: 2.5rem;
+    width: 7rem;
+    border-radius: 2rem;
+    text-shadow: .1rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+}
+
+.Divider_line{
+     height: 1.3rem;
+     width: cover;
+     border-radius: .3rem;
+     background-color: #808181;
+}
+
+.card_image{
+    width: cover;
+    height: 8rem;
+    object-fit: cover;
+}
+
+@media screen and (max-width: 767px){
+    .wrapper{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .card{
+        min-width: 15rem;
+    }
+}
+
+/*--------------------------------------- download card on resources page -------------*/
+
+.pdf_wrapper{
+    margin: 3rem;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+}
+
+
+@media screen and (max-width: 767px){
+    .pdf_wrapper{
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .type_text{
+         margin-top: 1rem;
+   }
+
+     .type{
+         height: 1rem;
+     }
+}
+
+.pdf_card_image{
+    width: cover;
+    height: 18rem;
+    object-fit: cover;
+}
+
+.pdf_card_info{
+    display: flex;
+    margin-top: 1.3rem;
+    padding-left: .7rem;
+}
+
+.title_text{
+     font-size: 1.5rem;
+     font-style: bold;
+     font-weight: 600;
+}
+
+.type{
+    background-color: rgb(122, 132, 141);
+    margin-left: 1.5rem;
+    border-radius: 6rem;
+    padding: auto;
+    height: 5rem;
+    width: 10rem;
+    margin-right: 1rem;
+    text-align:center;
+}
+
+.type_text{
+     width: fit-content;
+     font-weight: 600;
+     padding: .4rem;
+}
+
+.pdf_text{
+    margin-top: 1.4rem;
+     font-size: 1rem;
+     padding-left: .7rem;
+     margin-bottom: 3.3rem;
+}
+
+.pdf_btn{
+    background: #f4b51a;
+     color: white;
+     border: none;
+     height: 2.5rem;
+     width: 10rem;
+     border-radius: 2rem;
+     text-shadow: .1rem;
+     font-weight: 900;
+     margin-bottom: 1rem;
+}
+
+@media screen and (min-width: 1500px){
+    .type{
+        height: 3.4rem;
+    }
+}
+
+
+@media screen and (max-width: 587px){
+    .type{
+        margin-left: 1.5rem;
+        border-radius: 6rem;
+        width: 20rem;
+    }
+}
+
+
+/*--------------------------------- Units ------------------------------------*/
+.unit_buttons{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+@media screen and (max-width: 1192px){
+    .unit_buttons{
+      display: block;
+    }
+    .unit_btn1{
+        margin-bottom: .6rem;
+    }
+    .unit_btn2{
+        margin-left: -.8rem;
+    }
+
+}
+
+
+
+/*--------------------------------- profile content ------------------------------------*/
+.profile_card{
+     box-shadow: none;
+     border: none;
+     margin: 5rem 0rem;
+}
+
+.profile_delete_btn{
+    background: #f4777c;
+    color: white;
+    border: none;
+    height: 2.5rem;
+    width: 13rem;
+    border-radius: 2rem;
+    text-shadow: .1rem;
+    font-weight: 900;
+    margin-bottom: 2rem;
+}
+
+.form_lable{
+      font-style: bold;
+      font-weight: 700;
+      color: #808181;
+}
+
+.form_validation_text{
+     font-size: .9rem;
+     font-style: italic;
+     font-weight: 600;
+     color: #bcc2c8;
+}
+
+.profile_validate_btn{
+     background: #f4b51a;
+     color: white;
+     border: none;
+     height: 2.5rem;
+     width: 8rem;
+     border-radius: 2rem;
+     text-shadow: .1rem;
+     font-weight: 900;
+     margin-bottom: 1rem;
+}
+
+
+.profile_navigation{
+     margin-bottom: -3rem;
+     margin-top: 2rem;
+}
+
+.profile_navigation p{
+     font-weight: 900;
+}
+
+.profile_navigation p .home:hover{
+     cursor: pointer;
+     font-style: underline;
+}
+
+
+/*--------------------------------- profile content ------------------------------------*/
+.attestation_card{
+    padding: 0rem 16.5rem;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

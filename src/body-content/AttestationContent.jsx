@@ -7,7 +7,7 @@ import { FaLine } from "react-icons/fa";
 function AttestationContent (){
     return(
         <>
-            <main className=" ms-sm-auto px-md-5">
+            <main className=" ms-sm-auto px-md-5 ml-4 mt-4">
                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 className="h2">Attestation page</h1>
                     
@@ -93,3 +93,4 @@ const tdStyle = {
     fontSize: '1.3rem',
     fontWeight: 'bold'
 }
+

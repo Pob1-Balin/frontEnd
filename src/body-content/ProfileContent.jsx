@@ -7,7 +7,7 @@ import { FaLine } from "react-icons/fa";
 function ProfileContent (){
     return(
         <>
-            <main className="ms-sm-auto px-md-4">
+            <main className="ms-sm-auto px-md-4 mt-4">
                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 className="h2">Profile page</h1>
                     

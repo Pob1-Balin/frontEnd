@@ -2,19 +2,20 @@ import React from "react";
 import "../App.css";
 import { Link } from 'react-router-dom';
 import { Form, Row, Col} from "react-bootstrap";
-import { FaLine } from "react-icons/fa";
+import Footer from '../components/Footer';
+import DeleteIcon from '@mui/icons-material/Delete';
 
 function ProfileContent (){
     return(
         <>
-            <main className="ms-sm-auto px-md-4 mt-4">
-                <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 className="h2">Profile page</h1>
+            <main className="ms-sm-auto px-md-4">
+                <div style={{marginTop: '1.3rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <h1 className="heading">Profile page</h1>
                     
                 </div>
 
-                <div className="profile_navigation">
-                     <p><Link style={{textDecoration: 'none'}} to='/'><span style={{color: "#f2a654"}} className="home">Home</span></Link> <span style={{color: "#f2a654"}}>/</span> <span>My Profile</span></p>
+                <div className="Home_navigation">
+                     <p><Link style={{textDecoration: 'none'}} to='/'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span>My Profile</span></p>
                 </div>
 
 
@@ -23,8 +24,8 @@ function ProfileContent (){
                     <div className="card profile_card" style={{padding: "3rem"}}>
 
                        <div style={{display: "flex", justifyContent: "space-between", marginTop: "-1rem"}}>
-                             <h5 style={{marginLeft: "-1.2rem", color: "#36474f"}}><b>My information</b></h5>
-                             <div><button className="profile_delete_btn"><FaLine size='1.3rem' style={{marginBottom: '.1rem'}} />Delete my account</button></div>
+                             <h5 className="profile_title profile_title_responsive" style={{marginLeft: "-1.2rem"}}><b>My information</b></h5>
+                             <div><button className="profile_delete_btn"><DeleteIcon  />Delete my account</button></div>
                        </div>
 
                         <Form className="form" >
@@ -56,7 +57,7 @@ function ProfileContent (){
                     <div className="card profile_card" style={{padding: "3rem", marginTop: "-3rem"}}>
 
                        <div style={{marginLeft: "-1.2rem", marginTop: "-1rem", marginBottom: "3.2rem"}}>
-                             <h5 style={{color: "#36474f"}}><b>Change password</b></h5>
+                             <h5 className="profile_title" ><b>Change password</b></h5>
                        </div>
 
                         <Form className="form" style={{marginTop: "-1rem"}}>
@@ -102,11 +103,7 @@ function ProfileContent (){
 
                 </div>
 
-                <div className="footer" style={{backgroundColor: "#ffffff", display: "flex", justifyContent: "space-between", height: "3.4rem", marginLeft: "-2rem", marginRight: "-2rem", padding: "2rem", paddingTop: "1.1rem"}}>
-                     <p style={{color: "#808181"}}><b>&copy; 2022 Cyberzone</b></p>
-                     <p style={{color: "#4b86c6"}}><b>Mentions legales</b></p> 
-                </div>
-
+                <Footer />
             </main>
         </>
     )

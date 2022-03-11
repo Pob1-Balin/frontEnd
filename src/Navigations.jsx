@@ -9,6 +9,7 @@ import Module1Page from './pages/Module1Page'
 import Module2Page from './pages/Module2Page'
 import Module3Page from './pages/Module3Page'
 import Module4Page from './pages/Module4Page'
+import UnitHome from './unitsDashboard/pages/UnitHome'
 function Navigation (){
     return(
         <BrowserRouter>
@@ -21,6 +22,7 @@ function Navigation (){
                  <Route path='/module2' exact element={<Module2Page/>}/>
                  <Route path='/module3' exact element={<Module3Page/>}/>
                  <Route path='/module4' exact element={<Module4Page/>}/>
+                 <Route path='/unite' exact element={<UnitHome/>}/>
             </Routes>
         </BrowserRouter>
     )

@@ -3,14 +3,8 @@
     font-weight: bold;
 }
 
-.list:hover{
-    padding-left: 10px;
-    color: cyan;
-}
 
-li:visited{
-    color: red;
-}
+
 .test{
     color: #fff;
 }
@@ -28,3 +22,21 @@ li:visited{
     font-weight: bold;
     
 }
+
+.Links{
+    cursor: pointer;
+    font-weight: bold;
+}
+
+a:hover{
+    color: red;
+    padding-left: 20px;
+}
+a:active{
+    color: green;
+}
+
+a:visited{
+    color: blue;
+}
+

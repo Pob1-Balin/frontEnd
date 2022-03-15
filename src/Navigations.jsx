@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import HomePage from './pages/HomePage'
 import MyProfile from './pages/MyProfile'
@@ -10,6 +10,8 @@ import Module2Page from './pages/Module2Page'
 import Module3Page from './pages/Module3Page'
 import Module4Page from './pages/Module4Page'
 import LegalNoticePage from './pages/LegalNoticePage'
+import UnitHome from './unitsDashboard/pages/UnitHome'
+import Tespage from './unitsDashboard/pages/Tespage'
 function Navigation (){
     return(
         <BrowserRouter>
@@ -23,6 +25,10 @@ function Navigation (){
                  <Route path='/module3' exact element={<Module3Page/>}/>
                  <Route path='/module4' exact element={<Module4Page/>}/>
                  <Route path='/legalnotice' exact element={<LegalNoticePage />}/>
+                 <Route path='/unite' exact element={<UnitHome />}/>
+                 <Route path='/unit-home' exact element={<Tespage />}/>
+                 
+                
             </Routes>
         </BrowserRouter>
     )

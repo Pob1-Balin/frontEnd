@@ -1,0 +1,14 @@
+[
+    {
+        "Title": "Introduction",
+        "Icon": "unit-home"
+    },
+    {
+        "Title":"Lesson one",
+        "Icon":"unite"
+    },
+    {
+        "Title": "Lesson two",
+        "Icon": "lesson-two"
+    }
+]

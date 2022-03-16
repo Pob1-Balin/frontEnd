@@ -4,45 +4,40 @@ import { Carousel} from 'react-bootstrap'
 function CarouselCard(props){
     return(
         <>  
-           <div className="">
-           <Carousel>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="./images/Cature.PNG"
-      alt="First slide"
-    />
-    <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="./images/Cature.PNG"
-      alt="Second slide"
-    />
+               <Carousel>
+                 <Carousel.Item>
+                   <div className="carousel_card" style={{background: "white", height: '45rem'}}>
+                     <div style={{textAlign: 'center'}}>
+                         <img className="carousel_card_image" src={props.image_one}/>
+                     </div>
+                     <div style={{marginLeft: '2rem', marginRight: '2rem'}}>
+                       <p className='carousel-text'>{props.carousel_text_one}</p>
+                     </div>
+                   </div>
+                 </Carousel.Item>
 
-    <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-  <Carousel.Item>
-    <img
-      className="d-block w-100"
-      src="./images/Cature.PNG"
-      alt="Third slide"
-    />
-
-    <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
-    </Carousel.Caption>
-  </Carousel.Item>
-</Carousel>
-           </div>
+                 <Carousel.Item>
+                   <div className="carousel_card" style={{background: "white", height: '38rem'}}>
+                     <div style={{textAlign: 'center'}}>
+                         <img className="carousel_card_image" src={props.image_two}/>
+                     </div>
+                     <div style={{marginLeft: '2rem', marginRight: '2rem'}}>
+                       <p className='carousel-text'>{props.carousel_text_two}</p>
+                     </div>
+                   </div>
+                 </Carousel.Item>
+                 
+                 <Carousel.Item>
+                   <div className="carousel_card" style={{background: "white", height: '35rem'}}>
+                     <div style={{textAlign: 'center'}}>
+                     <img className="carousel_card_image" src={props.image_three}/>
+                     </div>
+                     <div style={{marginLeft: '2rem', marginRight: '2rem'}}>
+                       <p className='carousel-text'>{props.carousel_text_three}</p>
+                     </div>
+                   </div>
+                 </Carousel.Item>
+               </Carousel>
         </>
     );
 }

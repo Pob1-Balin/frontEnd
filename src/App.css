@@ -498,6 +498,21 @@
     color: green;
   }
 
+  .second-footer{
+    background-color:rgba(0, 0, 0, 0.3);
+    height: 3rem;
+    color: white;
+    border: none;
+    margin-top: 2rem;
+    font-style: bold;
+    font-weight: 500;
+}
+
+.Unit-second-footer-card{
+    height: 10rem;
+    margin-bottom: -1.6rem;
+}
+
 
   /*----------------------------- units video card -------------------------------*/
 
@@ -513,7 +528,11 @@
 .unites_card_image{
      min-width: 45rem;
      box-shadow: none;
-     height: 50rem;
+     
+}
+
+.unit_card_images{
+    height: 25rem;
 }
 
 .unites_divider_line{
@@ -522,6 +541,60 @@
     height: 3px;
     background-color: black;
     max-width: 12rem;
+}
+
+/*----------------------------- Carousel -------------------------------*/
+
+.carousel_card{
+    margin-top: 1.7rem;
+    border-radius: .4rem;
+    min-width: 10rem;
+    max-width: 40rem;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+/* .to-page-number{
+    height: 3.1rem;
+    background: blue;
+    width: 3rem;
+    text-align: center;
+    color: white;
+    font-style: bold;
+    font-weight: 900;
+    font-size: 1.5rem;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: .5rem;
+    padding-top: -20rem;
+} */
+
+
+.carousel_card_body{
+    background: gray;
+    height: 8rem;
+    margin-top: 1rem;
+  
+}
+
+.carousel_card_image{
+    margin-top: 4rem;
+    max-width: 70rem;
+    height: 20rem;
+}
+
+.carousel-wrapper{
+    justify-content: center;
+    
+}
+
+.carousel-text{
+    display: block;
+}
+.carousel_card p{
+    font-style: bold;
+    font-size: 1rem;
+    line-height: 1.5rem;
 }
 
 

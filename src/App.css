@@ -56,16 +56,17 @@
 }
 
 .card_module{
-     font-size: 1.1rem;
+     font-size: .8rem;
      font-weight: 600;
      color: #979796;
+     margin-top: -.6rem;
 }
 
 .card_title{
-     font-size: 1.5rem;
+     font-size: 1.2rem;
      font-style: bold;
      font-weight: 600;
-     padding-top: .7rem;
+     padding-top: .5rem;
      color: #36474f;
 }
 
@@ -83,7 +84,7 @@
 }
 
 .time_passed, .rating{
-     font-size: 1rem;
+     font-size: .7rem;
      font-style: bold;
      font-weight: 500;
     
@@ -95,8 +96,9 @@
 
 .module_units_button p{
      font-style: bold;
-     font-size: large;
+     font-size: 12px;
      font-weight: 700;
+
 }
 .module_units_button {
      display: flex;
@@ -105,7 +107,7 @@
 
 .card_image{
     width: cover;
-    height: 15rem;
+    height: 11rem;
     object-fit: cover;
 }
 
@@ -514,7 +516,10 @@
 }
 
 
-  /*----------------------------- units video card -------------------------------*/
+  /*----------------------------- units dashboard card image -------------------------------*/
+ 
+
+
 
 
 
@@ -528,7 +533,6 @@
 .unites_card_image{
      min-width: 45rem;
      box-shadow: none;
-     
 }
 
 .unit_card_images{
@@ -545,30 +549,19 @@
 
 /*----------------------------- Carousel -------------------------------*/
 
+.carousel-wrapper{
+    text-align: center;
+    justify-content: center;
+}
+
 .carousel_card{
     margin-top: 1.7rem;
     border-radius: .4rem;
-    min-width: 10rem;
+    min-width: 30rem;
     max-width: 40rem;
-    margin-left:auto;
-    margin-right:auto;
+    width: cover;
+    object-fit: cover;
 }
-
-/* .to-page-number{
-    height: 3.1rem;
-    background: blue;
-    width: 3rem;
-    text-align: center;
-    color: white;
-    font-style: bold;
-    font-weight: 900;
-    font-size: 1.5rem;
-    margin-right: auto;
-    margin-left: auto;
-    border-radius: .5rem;
-    padding-top: -20rem;
-} */
-
 
 .carousel_card_body{
     background: gray;
@@ -583,10 +576,7 @@
     height: 20rem;
 }
 
-.carousel-wrapper{
-    justify-content: center;
-    
-}
+
 
 .carousel-text{
     display: block;

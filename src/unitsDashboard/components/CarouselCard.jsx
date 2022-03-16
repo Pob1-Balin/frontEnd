@@ -6,7 +6,7 @@ function CarouselCard(props){
         <>  
                <Carousel>
                  <Carousel.Item>
-                   <div className="carousel_card" style={{background: "white", height: '45rem'}}>
+                   <div className="carousel_card col-sm-8" style={{background: "white", height: '45rem'}}>
                      <div style={{textAlign: 'center'}}>
                          <img className="carousel_card_image" src={props.image_one}/>
                      </div>

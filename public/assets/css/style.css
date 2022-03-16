@@ -1,0 +1,34 @@
+body {
+    background-color: rgb(236, 236, 236);
+}
+
+.sider-1 {
+    background-color: #08143c;
+    text-align: center;
+}
+
+.sidebar-header {
+    background-color: #030d2e;
+}
+
+.img-side {
+    background-color: #08143c;
+    text-align: center;
+}
+
+.img-side h1 {
+    font-weight: bold;
+}
+
+.form-group button {
+    background-color: #08143c;
+    border-radius: 7px;
+}
+
+.flex-img {
+    display: flex;
+}
+
+.imgs {
+    padding-left: 12%;
+}

@@ -1,0 +1,16 @@
+body{
+    font-family: Century Gothic;
+}
+
+@font-face {
+    font-family: gb;
+    src: url(gothicb.ttf);
+  }
+
+li{
+    padding: 10rem 0rem 0rem 0rem;
+    font-family: gb;
+    color: #fff;
+    list-style: none;
+    text-decoration: none;
+}

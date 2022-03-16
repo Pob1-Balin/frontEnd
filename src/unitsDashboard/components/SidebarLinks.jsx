@@ -50,43 +50,34 @@ import './sidebar.css'
 function SidebarLinks() {
     return (
       <>
-        {/* <aside>
-        <li className="nav-item list" style={{fontSize: '1.2rem', color:'gray'}}>
-          
-          <Link to='/' className='ml-2 test fs-5 row' style={{textDecoration:'none',color:'gray'}}>
-            <NotesIcon className=''/>{data.map((link) => <h6>{link.Title}</h6>)}
-          </Link>
-        </li>
-
-        </aside> */}
-
-<aside className="sidebar sidebar-icons-left sidebar-icons-boxed sidebar-expand-lg sidebar-color-info sider-1 pt-0 bg-light">
-        <header className="sidebar-header bg-light SideHeader position-" style={{minHeight:'40vh'}}>
-            <h2 className="text-left fs-33 text-white letter-spacing-1 mx-auto">hyperconnected <br /> digital world</h2>
-        </header>
-
-        <nav className="sidebar-navigation" style={{overflowY:'scroll'}}>
-            <ul className="menu menu-bordery text-left mt-4 pl-4">
-                {data.map((link) => <li className='Links sidelist pt-2'> <NavLink to={"/"+link.Icon} activeStyle={{ color: 'red' }}><NotesIcon className='mr-4'/>{link.Title}</NavLink> </li>)}       
-            </ul>
-        </nav>
-
-
-    </aside>
-
+        <div className="border-end bg-white position-static" id="sidebar-wrapper" style={{minHeight:'100vh'}}>
+                <div className="list-group list-group-flush">
+                  <header className="sidebar-header bg-light SideHeader position-" style={{minHeight:'35vh'}}>
+                    <h2 className="text-left fs-33 text-white letter-spacing-1 mx-auto">hyperconnected <br /> digital world</h2>
+                  </header>
+                  <div className="list-group list-group-flush">
+                    {data.map((link) => <NavLink to={"/"+link.Icon} activeStyle={{ color: 'red' }} className="list-group-item fs-15 fw-bold list-group-item-action list-group-item-light p-3"><NotesIcon className='mr-4'/>{link.Title}</NavLink> )}
+                  </div>
+                </div>
+            </div>
       </>
     )
 
   }
 
-  var header = document.getElementById("myDIV");
-  var btns = document.getElementsByClassName("sidelist");
-for (var i = 0; i < btns.length; i++) {
-  btns[i].addEventListener("click", function() {
-  var current = document.getElementsByClassName("active");
-  current[0].className = current[0].className.replace(" active", "");
-  this.className += " active";
-  });
-}
+//   var header = document.getElementById("myDIV");
+//   var btns = document.getElementsByClassName("sidelist");
+// for (var i = 0; i < btns.length; i++) {
+//   btns[i].addEventListener("click", function() {
+//   var current = document.getElementsByClassName("active");
+//   current[0].className = current[0].className.replace(" active", "");
+//   this.className += " active";
+//   });
+// }
 
 export default SidebarLinks;
+
+
+const style={
+  
+}

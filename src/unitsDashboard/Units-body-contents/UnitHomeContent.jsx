@@ -10,9 +10,7 @@ function UnitHomeContent (){
         <>
             <main className="ms-sm-auto  px-md-4">
 
-                <div className="Unit-Dashboard-wrapper">
-                     <HeaderSection destination='Home' header_title='Bienvenue' />
-                </div>
+                
 
                 <div className="units-dashboard-footer-wrapper">
                      <FooterSection />

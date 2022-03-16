@@ -415,7 +415,8 @@
     }
 
     .Unit-header-card{
-         min-width: 45rem;
+         width: auto;
+         margin: 0% -2.3%;
     }
     
 

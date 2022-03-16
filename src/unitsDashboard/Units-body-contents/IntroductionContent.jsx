@@ -9,12 +9,7 @@ function IntroductionContent(){
         <>
             <main className="ms-sm-auto  px-md-4">
 
-                <div className="Unit-Dashboard-wrapper">
-                     <HeaderSection destination='Leçon 1 - Bienvenue' header_title='Introduction' />
-                </div>
-
-                <ImageCard />
-
+                <HeaderSection/>
                 <div className="units-dashboard-footer-wrapper">
                      <FooterSection />
                  </div>

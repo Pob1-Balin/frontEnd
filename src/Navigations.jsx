@@ -11,6 +11,7 @@ import Module3Page from './pages/Module3Page'
 import Module4Page from './pages/Module4Page'
 import LegalNoticePage from './pages/LegalNoticePage'
 import UnitHome from './unitsDashboard/pages/UnitHome'
+import IntroductionPage from './unitsDashboard/pages/IntroductionPage'
 import Tespage from './unitsDashboard/pages/Tespage'
 function Navigation (){
     return(

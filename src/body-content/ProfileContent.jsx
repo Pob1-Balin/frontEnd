@@ -9,7 +9,7 @@ function ProfileContent (){
     return(
         <>
             <main className="ms-sm-auto px-md-4">
-                <div style={{marginTop: '1.3rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <div style={{marginTop: '-.5rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 className="heading">Profile page</h1>
                     
                 </div>

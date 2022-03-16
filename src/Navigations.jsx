@@ -27,8 +27,7 @@ function Navigation (){
                  <Route path='/legalnotice' exact element={<LegalNoticePage />}/>
                  <Route path='/unite' exact element={<UnitHome />}/>
                  <Route path='/unit-home' exact element={<Tespage />}/>
-                 
-                
+                 <Route path='/introduction' exact element={<IntroductionPage />}/>
             </Routes>
         </BrowserRouter>
     )

@@ -13,7 +13,6 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import NotesIcon from '@mui/icons-material/Notes';
 import data from './sidebarList.json'
 import SidebarLinks from './SidebarLinks';
-import './sidebar.css'
 
 // {HomeIcon, AccountBalanceIcon DocumentScannerIcon, AccountCircleIcon}
 
@@ -21,14 +20,14 @@ function UnitSidebar() {
     return (
       <>
       <SidebarLinks/>
-
+{/* 
 
     <header className="topbar bg-light col-md-12 px-3 d-lg-none"  style={{minHeight:'15vh'}}>
         <div className="topbar-left d-flex justify-content-between">
             <span className="topbar-btn sidebar-toggler"><AccountBalanceIcon/></span>
            
         </div>
-    </header>
+    </header> */}
       </>
     )
   }

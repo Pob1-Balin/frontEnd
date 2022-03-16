@@ -1,16 +1,16 @@
 import React from 'react'
 import UnitSidebar from '../components/Sidebar';
-import UnitHomeContent from '../Units-body-contents/UnitHomeContent';
+import TechnologiesContent from '../Units-body-contents/TechnologiesContent';
 
-function UnitHome(){
+function TechnologiesPage(){
     return(
         <>
             <UnitSidebar/>
             <main>
-                <UnitHomeContent />
+                <TechnologiesContent />
             </main>
         </>
     )
 }
 
-export default UnitHome;
+export default TechnologiesPage;

@@ -8,11 +8,7 @@ function Module1Content (){
     return(
         <>
             <main className=" ms-sm-auto px-md-4">
-<<<<<<< HEAD
                 <div style={{marginTop: '-.5rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-=======
-                <div style={{marginTop: '1.3rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
->>>>>>> fc6b51d9057e886cbcbf8ad6cc6ca53f984dd042
                     <h1 className="heading">Module 1 : Panorama de la SSI</h1>
                 </div>
 

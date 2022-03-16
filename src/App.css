@@ -16,11 +16,7 @@
 
 
 .wrapper{
-<<<<<<< HEAD
     margin: 5rem 0rem;
-=======
-    margin: 6rem 0rem;
->>>>>>> fc6b51d9057e886cbcbf8ad6cc6ca53f984dd042
     display: grid;
     gap: 1.5rem;
     grid-template-columns: repeat(3, 1fr);
@@ -60,29 +56,16 @@
 }
 
 .card_module{
-<<<<<<< HEAD
-     font-size: .7rem;
-     font-weight: 600;
-     margin-top: -.5rem;
-=======
      font-size: 1.1rem;
      font-weight: 600;
->>>>>>> fc6b51d9057e886cbcbf8ad6cc6ca53f984dd042
      color: #979796;
 }
 
 .card_title{
-<<<<<<< HEAD
-     font-size: 1rem;
-     font-style: bold;
-     font-weight: 600;
-     padding-top: .4rem;
-=======
      font-size: 1.5rem;
      font-style: bold;
      font-weight: 600;
      padding-top: .7rem;
->>>>>>> fc6b51d9057e886cbcbf8ad6cc6ca53f984dd042
      color: #36474f;
 }
 
@@ -94,10 +77,6 @@
 .time, .score{
     display: flex;
 }
-<<<<<<< HEAD
-.time_passed, .rating{
-     font-size: .7rem;
-=======
 
 .score{
     
@@ -105,7 +84,6 @@
 
 .time_passed, .rating{
      font-size: 1rem;
->>>>>>> fc6b51d9057e886cbcbf8ad6cc6ca53f984dd042
      font-style: bold;
      font-weight: 500;
     
@@ -117,14 +95,8 @@
 
 .module_units_button p{
      font-style: bold;
-<<<<<<< HEAD
-     font-size: .7rem;
-     font-weight: 700;
-     margin-left: -.4rem;
-=======
      font-size: large;
      font-weight: 700;
->>>>>>> fc6b51d9057e886cbcbf8ad6cc6ca53f984dd042
 }
 .module_units_button {
      display: flex;
@@ -133,11 +105,7 @@
 
 .card_image{
     width: cover;
-<<<<<<< HEAD
-    height: 11.5rem;
-=======
     height: 15rem;
->>>>>>> fc6b51d9057e886cbcbf8ad6cc6ca53f984dd042
     object-fit: cover;
 }
 
@@ -169,11 +137,7 @@
 
 .pdf_card_image{
     width: cover;
-<<<<<<< HEAD
-    height: 10rem;
-=======
     height: 14rem;
->>>>>>> fc6b51d9057e886cbcbf8ad6cc6ca53f984dd042
     object-fit: cover;
 }
 
@@ -274,19 +238,11 @@
     margin-top: 1.4rem;
      font-size: 1rem;
      padding-left: .7rem;
-<<<<<<< HEAD
-     margin-bottom: 2rem;
-}
-
-.pdf_btn{
-     background: #f4b51a;
-=======
      margin-bottom: 3.3rem;
 }
 
 .pdf_btn{
     background: #f4b51a;
->>>>>>> fc6b51d9057e886cbcbf8ad6cc6ca53f984dd042
      color: white;
      border: none;
      height: 2.5rem;
@@ -409,13 +365,6 @@
 
 
 /*--------------------------------- attestation content ------------------------------------*/
-<<<<<<< HEAD
-
-=======
-.attestation_card{
-    
-}
->>>>>>> fc6b51d9057e886cbcbf8ad6cc6ca53f984dd042
 
 /*--------------------------------- footer content ------------------------------------*/
 
@@ -440,15 +389,9 @@
 
 
 
-<<<<<<< HEAD
 /* .legalnotice_wrapper{
 
 } */
-=======
-.legalnotice_wrapper{
-
-}
->>>>>>> fc6b51d9057e886cbcbf8ad6cc6ca53f984dd042
 
 .legalnotice_card{
         padding: 0rem 5rem;
@@ -463,7 +406,6 @@
 
 
 
-<<<<<<< HEAD
 /*////////////////////////////////////////// UNITS DASHBOARD ////////////////////////////////////////////*/
 
 /*----------------------------- units dashboard header -------------------------------*/
@@ -585,11 +527,3 @@
 
 
   
-=======
-
-
-
-
-
-
->>>>>>> fc6b51d9057e886cbcbf8ad6cc6ca53f984dd042

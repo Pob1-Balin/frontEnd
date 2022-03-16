@@ -1,38 +1,3 @@
-// import React from 'react'
-// import { Link } from 'react-router-dom'; 
-
-// import '../styles/layout.css'
-// function Sidebar (){
-//     return(
-//         <>
-//             <nav id="sidebarMenu" className="col-md-3 col-lg-2 d-md-block sidebar collapse position-fixed" style={{minHeight:'100vh', background:'#0b426a'}}>
-//             <div className="position-sticky pt-3 pl-4">
-//                 <ul className="nav flex-column pt-5 mx-auto pl-4">
-//                     <li className="nav-item pt-3" style={{fontSize: '1.2rem'}}>
-//                         <Link to='/' className='text-white' style={{textDecoration:'none'}}>Home</Link>
-//                     </li>
-//                     <li className="nav-item pt-3 " style={{fontSize: '1.2rem'}}>
-//                         <Link to='/res' className='text-white' style={{textDecoration:'none'}}>My resources</Link>
-//                     </li>
-//                     <li className="nav-item pt-3" style={{fontSize: '1.2rem'}}>
-//                         <Link to='/attest' className='text-white' style={{textDecoration:'none'}}>My attestation</Link>
-//                     </li>
-
-//                     <li className="nav-item pt-3" style={{fontSize: '1.2rem'}}>
-//                         <Link to='/profile' className='text-white' style={{textDecoration:'none'}}>My profile</Link>
-//                     </li>
-                    
-//                 </ul>
-//             </div>
-//             </nav>
-//         </>
-//     );
-// }
-
-// export default Sidebar;
-
-
-
 import React from 'react';
 import { Link } from 'react-router-dom'; 
 import logo from './log.png'
@@ -85,14 +50,9 @@ function Sidebar() {
     </aside>
 
 
-    <header className="topbar bg-light col-md-12 px-3"  style={{minHeight:'15vh'}}>
+    <header className="topbar bg-light col-md-12 px-3"  style={{minHeight:'10vh'}}>
         <div className="topbar-left">
             <span className="topbar-btn sidebar-toggler"><i>&#9776;</i></span>
-            {/* <form className="lookup lookup-circle" target="index.html">
-                <input type="text" name="s" id="s"/>
-                <label className="ml-2" for="s">Search</label>
-            </form> */}
-            
         </div>
         <h2 className='text-black mx-auto d-lg-none pt-2 '><img src={logo} width={100} height={100}/></h2>
         <div className="topbar-right">

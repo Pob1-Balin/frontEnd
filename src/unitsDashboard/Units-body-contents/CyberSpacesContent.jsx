@@ -40,7 +40,7 @@ function CyberSpacesContent(){
 
             </div>
         </>
-    )                   
+    )
 }
 
 export default CyberSpacesContent ;

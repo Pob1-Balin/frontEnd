@@ -6,7 +6,55 @@
     padding: 0;
 }
 
+.card_module{
+     font-size: .8rem;
+     font-weight: 600;
+     color: #979796;
+     margin-top: -.6rem;
+}
 
+.card_title{
+     font-size: 1.2rem;
+     font-style: bold;
+     font-weight: 600;
+     padding-top: .5rem;
+     color: #36474f;
+}
+
+
+.time, .score{
+    display: flex;
+}
+
+
+
+.time_passed, .rating{
+     font-size: .7rem;
+     font-style: bold;
+     font-weight: 500;
+    
+}
+
+.time_passed, .rating{
+  padding-left: .5rem; 
+}
+
+.module_units_button p{
+     font-style: bold;
+     font-size: 12px;
+     font-weight: 700;
+
+}
+.module_units_button {
+     display: flex;
+     color: #75a8da;
+}
+
+.card_image{
+    width: cover;
+    height: 11rem;
+    object-fit: cover;
+}
 
 .wrapper{
     margin: 5rem 0rem;
@@ -48,59 +96,14 @@
 
 }
 
-.card_module{
-     font-size: 1.1rem;
-     font-weight: 600;
-     color: #979796;
-}
 
-.card_title{
-     font-size: 1.5rem;
-     font-style: bold;
-     font-weight: 600;
-     padding-top: .7rem;
-     color: #36474f;
-}
+
 
 .card_info{
     display: block;
     color: #979796;
 }
 
-.time, .score{
-    display: flex;
-}
-
-.score{
-    
-}
-
-.time_passed, .rating{
-     font-size: 1rem;
-     font-style: bold;
-     font-weight: 500;
-    
-}
-
-.time_passed, .rating{
-  padding-left: .5rem; 
-}
-
-.module_units_button p{
-     font-style: bold;
-     font-size: large;
-     font-weight: 700;
-}
-.module_units_button {
-     display: flex;
-     color: #75a8da;
-}
-
-.card_image{
-    width: cover;
-    height: 15rem;
-    object-fit: cover;
-}
 
 
 /*--------------------------------------- download card on resources page -------------*/

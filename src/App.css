@@ -78,9 +78,6 @@
     display: flex;
 }
 
-.score{
-    
-}
 
 .time_passed, .rating{
      font-size: 1rem;
@@ -522,8 +519,7 @@
   /*----------------------------- Technologies page -------------------------------*/
 
 .units-dashboard-image-wrapper{
-     margin-left: -2rem;
-     margin-right: -2rem;
+     background-color: none;
 }
 
 .unites_card_image{
@@ -554,22 +550,6 @@
     margin-left:auto;
     margin-right:auto;
 }
-
-/* .to-page-number{
-    height: 3.1rem;
-    background: blue;
-    width: 3rem;
-    text-align: center;
-    color: white;
-    font-style: bold;
-    font-weight: 900;
-    font-size: 1.5rem;
-    margin-right: auto;
-    margin-left: auto;
-    border-radius: .5rem;
-    padding-top: -20rem;
-} */
-
 
 .carousel_card_body{
     background: gray;

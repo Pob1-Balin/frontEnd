@@ -7,14 +7,19 @@ import '../../App.css'
 function IntroductionContent(){
     return(
         <>
-            <main className="ms-sm-auto  px-md-4">
+            <div className="ms-sm-auto Header_Section ml-2">
 
-                <HeaderSection/>
+            <div className="Unit-Dashboard-wrapper">
+                     <HeaderSection destination='Leçon 1 - Bienvenue' header_title='Introduction' />
+                </div>
+
+                {/* <ImageCard /> */}
+
                 <div className="units-dashboard-footer-wrapper">
                      <FooterSection />
                  </div>
 
-            </main>
+            </div>
         </>
     )
 }

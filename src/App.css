@@ -7,13 +7,6 @@
 }
 
 
-@media screen and (max-width: 767px){
-    body{
-        margin-left: 2rem;
-        margin-right: 2rem;
-    }
-}
-
 
 .wrapper{
     margin: 5rem 0rem;
@@ -410,11 +403,15 @@
          margin: 1.4rem -2rem;
          justify-content: center;
     }
-
+    /* .Header_Section{
+        margin-left: -3000px;
+        background: #000;
+    } */
     .Unit-header-card{
-         width: auto;
-         margin: 0% -2.3%;
+        min-width: 20rem;
     }
+
+    
     
 
     .header-link{
@@ -463,40 +460,43 @@
 /*----------------------------- units dashboard footer -------------------------------*/
 
 .units-dashboard-footer-wrapper{
-     margin: 1.4rem -2rem;
+     margin-left: -2rem; 
      justify-content: center;
+     min-width: 10rem;
 }
 
 .Unit-footer-card{
     background-color: white;
-    height: 13rem;
-    min-width: 45rem;
+    height: 10rem;
+    min-width: 20rem;
+    padding: 0% -5%;
 }
 
 .unit-dashboard-footer-button{
      border: 2px solid black;
      background-color: white;
      color: black;
-     padding: 14px 28px;
+     padding: 2% 4%;
      font-size: 16px;
      cursor: pointer;
-     width: 45rem;
+     width: 47%;
      margin-top: 2.5rem;
      height: 4rem;
 }
 
-@media screen and (max-width: 749px){
+/* @media screen and (max-width: 749px){
     .success{
-          width: 40rem;
+          min-width: 10rem;
     }
- }
+ } */
 
 .success {
     border-color: #04AA6D;
     color: green;
+    min-width: 10rem;
   }
 
-  .second-footer{
+  /* .second-footer{
     background-color:rgba(0, 0, 0, 0.3);
     height: 3rem;
     color: white;
@@ -504,11 +504,11 @@
     margin-top: 2rem;
     font-style: bold;
     font-weight: 500;
-}
+} */
 
 .Unit-second-footer-card{
     height: 10rem;
-    margin-bottom: -1.6rem;
+    /* margin-bottom: -1.6rem; */
 }
 
 
@@ -519,17 +519,24 @@
   /*----------------------------- Technologies page -------------------------------*/
 
 .units-dashboard-image-wrapper{
-     background-color: none;
+     margin-left: -1rem;
+     margin-right: -2rem;
 }
 
 .unites_card_image{
-     min-width: 45rem;
+     min-width: 10rem;
      box-shadow: none;
+     min-height: 65%;
      
 }
 
+.card_images{
+    min-height: 15rem;
+    max-height: 20rem;
+}
+
 .unit_card_images{
-    height: 25rem;
+    min-height: 10rem;
 }
 
 .unites_divider_line{
@@ -546,9 +553,7 @@
     margin-top: 1.7rem;
     border-radius: .4rem;
     min-width: 10rem;
-    max-width: 40rem;
-    margin-left:auto;
-    margin-right:auto;
+    margin: 3% 5% 10% 5%;
 }
 
 .carousel_card_body{

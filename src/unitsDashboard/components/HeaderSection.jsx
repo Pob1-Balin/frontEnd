@@ -7,7 +7,7 @@ import ToggleButton from "./toggleButton"
 function HeaderSection(props){
     return(
         <>
-             <div className='Unit-header-card mt-2 px-0'>
+             <div className='Unit-header-card mt-2 px-0 ml-4'>
                  <div className='header-link'>
                      <Link to='/'>
                          <KeyboardArrowUpIcon style={{marginTop: '-1.8rem'}} />

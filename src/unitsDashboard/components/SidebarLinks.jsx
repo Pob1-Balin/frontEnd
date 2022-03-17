@@ -50,7 +50,7 @@ import './sidebar.css'
 function SidebarLinks() {
     return (
       <>
-        <div className="border-end bg-white position-static" id="sidebar-wrapper" style={{Height:'100vh', overflowY:'hidden'}}>
+        <div className="border-end bg-white position-static" id="sidebar-wrapper" style={{Height:'100vh', position:"fixed"}}>
                 <div className="list-group list-group-flush">
                   <header className="sidebar-header bg-light SideHeader position-" style={{minHeight:'35vh'}}>
                     <h2 className="text-left fs-33 text-white letter-spacing-1 mx-auto">hyperconnected <br /> digital world</h2>

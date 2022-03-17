@@ -9,10 +9,10 @@ import '../../App.css'
 
 
 
-function UnitHomeContent (){
+function TechnologyContent (){
     return(
         <>
-            <main className="ms-sm-auto  px-md-4">
+            <div className="ms-sm-auto Header_Section ml-n2">
 
                 
                 <div className="Unit-Dashboard-wrapper">
@@ -37,9 +37,9 @@ Un bracelet connecté, par exemple, n'est jamais très loin du téléphone auque
                      <SecondUnitFooter direction='SUIVANT' />
                  </div>
 
-            </main>
+            </div>
         </>
     )
 }
 
-export default UnitHomeContent;
+export default TechnologyContent;

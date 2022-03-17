@@ -12,7 +12,7 @@ import '../../App.css'
 function CyberSpacesContent(){
     return(
         <>
-            <main className="ms-sm-auto  px-md-4" style={{marginLeft:'20%'}}>
+            <div className="ms-sm-auto Header_Section ml-2">
 
                 <div className="Unit-Dashboard-wrapper">
                      <HeaderSection destination="Leçon 3 - Une diversité d'équipements et de technologies" header_title="Le cyberespace, nouvel espace de vie" />
@@ -38,7 +38,7 @@ function CyberSpacesContent(){
                      <SecondUnitFooter direction='SUIVANT' />
                  </div>
 
-            </main>
+            </div>
         </>
     )                   
 }

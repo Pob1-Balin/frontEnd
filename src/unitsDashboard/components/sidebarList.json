@@ -1,14 +1,14 @@
 [
     {
         "Title": "Introduction",
-        "Icon": "unit-home"
+        "component": "introduction"
     },
     {
-        "Title":"Lesson one",
-        "Icon":"unite"
+        "Title":"Cyberspace",
+        "component":"cyberspace"
     },
     {
-        "Title": "Lesson two",
-        "Icon": "introduction"
+        "Title": "Technologies",
+        "component": "technologies"
     }
 ]

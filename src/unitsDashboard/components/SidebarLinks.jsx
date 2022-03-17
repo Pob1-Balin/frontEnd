@@ -50,13 +50,13 @@ import './sidebar.css'
 function SidebarLinks() {
     return (
       <>
-        <div className="border-end bg-white position-static" id="sidebar-wrapper" style={{minHeight:'100vh'}}>
+        <div className="border-end bg-white position-fixed" id="sidebar-wrapper" style={{Height:'100vh', overflowY:'hidden'}}>
                 <div className="list-group list-group-flush">
                   <header className="sidebar-header bg-light SideHeader position-" style={{minHeight:'35vh'}}>
                     <h2 className="text-left fs-33 text-white letter-spacing-1 mx-auto">hyperconnected <br /> digital world</h2>
                   </header>
                   <div className="list-group list-group-flush">
-                    {data.map((link) => <NavLink to={"/"+link.Icon} activeStyle={{ color: 'red' }} className="list-group-item fs-15 fw-bold list-group-item-action list-group-item-light p-3"><NotesIcon className='mr-4'/>{link.Title}</NavLink> )}
+                    {data.map((link) => <NavLink to={"/"+link.component} activeStyle={{ color: 'red' }} className="list-group-item fs-15 fw-bold list-group-item-action list-group-item-light p-3"><NotesIcon className='mr-4'/>{link.Title}</NavLink> )}
                   </div>
                 </div>
             </div>

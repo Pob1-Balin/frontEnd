@@ -8,15 +8,19 @@ import '../../App.css'
 function UnitHomeContent (){
     return(
         <>
-            <main className="ms-sm-auto  px-md-4">
+            <div className="ms-sm-auto  Header_Section ml-2">
+                <div className="Unit-Dashboard-wrapper">
+                     <HeaderSection destination="Leçon 2 - Introduction" header_title="Une diversité d'équipements et de technologies" />
+                </div>
 
+                <div className="unites_divider_line"></div>
                 
 
                 <div className="units-dashboard-footer-wrapper">
                      <FooterSection />
                  </div>
 
-            </main>
+            </div>
         </>
     )                   
 }

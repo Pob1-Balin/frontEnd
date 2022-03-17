@@ -68,7 +68,9 @@ function Sidebar() {
 
             {/* <div className="topbar-divider"></div> */}
         </div>
-
+        <div className='d-none d-lg-block logout' style={{marginLeft:'-57%'}}>
+            <ExitToAppIcon/>
+        </div>
     </header>
       </>
     )

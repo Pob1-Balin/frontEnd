@@ -10,5 +10,9 @@
     {
         "Title": "Technologies",
         "component": "technologies"
+    },
+    {
+        "Title": "Findings",
+        "component": "findings"
     }
 ]

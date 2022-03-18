@@ -58,7 +58,7 @@ function Sidebar() {
         <div className="topbar-right">
             <ul className="topbar-btns">
                 <li className="dropdown">
-                    <span className="topbar-btn" data-toggle="dropdown" aria-expanded="false"><h5 className="fs-12"><ExitToAppIcon/> {/*dropdwon<i className="ti ti-angle-down ml-2"></i>*/}</h5></span>
+                    {/* <span className="topbar-btn" data-toggle="dropdown" aria-expanded="false"><h5 className="fs-12"><ExitToAppIcon/> dropdwon<i className="ti ti-angle-down ml-2"></i></h5></span> */}
                     <div className="dropdown-menu dropdown-menu-right" x-placement="bottom-end">
                       {/* <div className="dropdown-divider"></div> */}
                         <a className="dropdown-item" href="#"><i className="ti-power-off"></i> <ExitToAppIcon/></a>

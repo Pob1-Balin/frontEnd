@@ -564,12 +564,6 @@ font-style: bold;
     }
  }
 
-
-
-
-
-
-
 .carousel_card_body{
     background: gray;
     height: 8rem;
@@ -577,7 +571,8 @@ font-style: bold;
 }
 
 .carousel_card_image{
-    margin-top: 4rem;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
     max-width: 70rem;
     height: 20rem;
 }
@@ -594,6 +589,23 @@ font-style: bold;
     line-height: 1.5rem;
 }
 
+/*----------------------------- Lawlessness -------------------------------*/
 
+.Unit-middle-section{
+    background-color: white;
+}
 
+.text_imaeg{
+     display: flex;
+     justify-content: space-between;
+     padding-left: 6rem;
+     padding-right: 6rem;
+}
+
+.middle-section-text{
+    font-style: bold;
+    font-weight: 600;
+    font-size: 1.2rem;
+    margin: auto 0;
+}
 

@@ -6,9 +6,7 @@
     padding: 0;
 }
 
-<<<<<<< HEAD
 
-=======
 .card_module{
      font-size: .8rem;
      font-weight: 600;
@@ -58,7 +56,6 @@
     height: 11rem;
     object-fit: cover;
 }
->>>>>>> 9acb0a7f20af51ee767aefdbf799bc146ed7fe0d
 
 .wrapper{
     margin: 5rem 0rem;
@@ -100,32 +97,14 @@
 
 }
 
-<<<<<<< HEAD
-.card_module{
-     font-size: .8rem;
-     font-weight: 600;
-     color: #979796;
-     margin-top: -.7rem;
-}
-
-.card_title{
-     font-size: 1rem;
-     font-style: bold;
-     font-weight: 600;
-     padding-top: .5rem;
-     color: #36474f;
-}
-=======
 
 
->>>>>>> 9acb0a7f20af51ee767aefdbf799bc146ed7fe0d
 
 .card_info{
     display: block;
     color: #979796;
 }
 
-<<<<<<< HEAD
 .time, .score{
 
     display: flex;
@@ -156,8 +135,6 @@ font-style: bold;
     height: 12rem;
     object-fit: cover;
 }
-=======
->>>>>>> 9acb0a7f20af51ee767aefdbf799bc146ed7fe0d
 
 
 /*--------------------------------------- download card on resources page -------------*/
@@ -470,26 +447,18 @@ font-style: bold;
     .Unit-header-card{
         min-width: 20rem;
     }
-<<<<<<< HEAD
-=======
 
     
     
 
->>>>>>> 9acb0a7f20af51ee767aefdbf799bc146ed7fe0d
     .header-link{
          background-color: #f0f0f0;
          min-height: 2.5rem;
          text-align: center;
     }
-<<<<<<< HEAD
-    .header-text-section{
-         min-height: 16rem;
-=======
     
     .header-text-section{
          min-height: 13rem;
->>>>>>> 9acb0a7f20af51ee767aefdbf799bc146ed7fe0d
          background-color: white;
          padding-top: .8rem;
     }
@@ -502,10 +471,6 @@ font-style: bold;
 
     .header-title-divider-line-section{
         padding-left: 15%;
-<<<<<<< HEAD
-        padding-top: 4rem;
-=======
->>>>>>> 9acb0a7f20af51ee767aefdbf799bc146ed7fe0d
     }
 
     @media screen and (max-width: 166px){
@@ -532,11 +497,7 @@ font-style: bold;
 /*----------------------------- units dashboard footer -------------------------------*/
 
 .units-dashboard-footer-wrapper{
-<<<<<<< HEAD
-     margin-left: -2rem;
-=======
      margin-left: -2rem; 
->>>>>>> 9acb0a7f20af51ee767aefdbf799bc146ed7fe0d
      justify-content: center;
      min-width: 10rem;
 }
@@ -552,20 +513,6 @@ font-style: bold;
      border: 2px solid black;
      background-color: white;
      color: black;
-<<<<<<< HEAD
-     font-size: 16px;
-     cursor: pointer;
-     width: 75%;
-     margin-top: 2rem;
-     height: 4rem;
-}
-
-@media screen and (min-width: 2067px){
-    .unit-dashboard-footer-button{
-        font-size: 1.5rem;
-    }
- }
-=======
      padding: 2% 4%;
      font-size: 16px;
      cursor: pointer;
@@ -579,7 +526,6 @@ font-style: bold;
           min-width: 10rem;
     }
  } */
->>>>>>> 9acb0a7f20af51ee767aefdbf799bc146ed7fe0d
 
 .success {
     border-color: #04AA6D;
@@ -587,25 +533,11 @@ font-style: bold;
     min-width: 10rem;
   }
 
-<<<<<<< HEAD
-  .second-footer{
-=======
   /* .second-footer{
->>>>>>> 9acb0a7f20af51ee767aefdbf799bc146ed7fe0d
     background-color:rgba(0, 0, 0, 0.3);
     height: 3rem;
     color: white;
     border: none;
-<<<<<<< HEAD
-    margin-top: .5rem;
-    font-style: bold;
-    font-weight: 500;
-    padding: auto;
-}
-
-.Unit-second-footer-card{
-    height: 10rem;
-=======
     margin-top: 2rem;
     font-style: bold;
     font-weight: 500;
@@ -614,7 +546,6 @@ font-style: bold;
 .Unit-second-footer-card{
     height: 10rem;
     /* margin-bottom: -1.6rem; */
->>>>>>> 9acb0a7f20af51ee767aefdbf799bc146ed7fe0d
 }
 
 
@@ -632,12 +563,8 @@ font-style: bold;
 .unites_card_image{
      min-width: 10rem;
      box-shadow: none;
-<<<<<<< HEAD
-     min-height: 100%;
-=======
      min-height: 65%;
      
->>>>>>> 9acb0a7f20af51ee767aefdbf799bc146ed7fe0d
 }
 
 .card_images{
@@ -660,27 +587,6 @@ font-style: bold;
 /*----------------------------- Carousel -------------------------------*/
 
 .carousel_card{
-<<<<<<< HEAD
-    margin-top: 1.5rem;
-    border-radius: .4rem;
-    min-width: 10rem;
-    margin: 3% 18% 10% 18%;
-    min-height: 36rem;
-    padding-bottom: 2rem;
-}
-
-
-@media screen and (max-width: 958px){
-    .carousel_card{
-         margin: 3% 11% 10% 11%;
-    }
- }
-@media screen and (max-width: 958px){
-    .carousel_card{
-         margin: 3% 9% 10% 9%;
-    }
- }
-=======
     margin-top: 1.7rem;
     border-radius: .4rem;
     min-width: 10rem;
@@ -706,38 +612,25 @@ font-style: bold;
     padding-top: -20rem;
 } */
 
->>>>>>> 9acb0a7f20af51ee767aefdbf799bc146ed7fe0d
 
 .carousel_card_body{
     background: gray;
     height: 8rem;
     margin-top: 1rem;
-<<<<<<< HEAD
-}
-
-.carousel_card_image{
-    margin-top: 3rem;
-    margin-bottom: 1.5rem;
-=======
   
 }
 
 .carousel_card_image{
     margin-top: 4rem;
->>>>>>> 9acb0a7f20af51ee767aefdbf799bc146ed7fe0d
     max-width: 70rem;
     height: 20rem;
 }
 
 .carousel-wrapper{
     justify-content: center;
-<<<<<<< HEAD
-}
-=======
     
 }
 
->>>>>>> 9acb0a7f20af51ee767aefdbf799bc146ed7fe0d
 .carousel-text{
     display: block;
 }
@@ -747,139 +640,6 @@ font-style: bold;
     line-height: 1.5rem;
 }
 
-<<<<<<< HEAD
-/*----------------------------- Lawlessness -------------------------------*/
-
-.Unit-middle-section{
-    background-color: white;
-}
-
-.text_imaeg{
-     display: flex;
-     justify-content: space-between;
-     padding-left: 8rem;
-     padding-right: 8rem;
-}
-
-.middle-section-text{
-    font-style: bold;
-    font-weight: 600;
-    font-size: 1.2rem;
-    margin: auto 0;
-}
-
-.location_text{
-     padding-top: 2rem;
-     padding-left: 10rem;
-     padding-right: 10rem;
-     margin-bottom: 1.5rem;
-}
-
-.location_text p{
-     font-size: 1.1rem;
-     line-height: 2rem;
-}
-
-@media screen and (max-width: 1086px){
-    .location_text{
-        padding-left: 7rem;
-        padding-right: 7rem;
-   }
-
-     .text_imaeg{
-        padding-left: 4rem;
-        padding-right: 4rem;
-     }
-
- }
-
- .middle-section-text{
-    width: 40%;
-}
-
-@media screen and (max-width: 515px){
-     .text_imaeg{
-       display: block;
-       padding-left: 0rem;
-       padding-right: 0rem;
-     }
-     .middle-section-text{
-        width: 100%;
-        padding-top: 2.5rem;
-    }
- }
-@media screen and (max-width: 992px){
-    .location_text{
-        padding-left: 5rem;
-        padding-right: 5rem;
-   }
-
-     .text_imaeg{
-        padding-left: 3rem;
-        padding-right: 3rem;
-     }
-
- }
-
-@media screen and (max-width: 767px){
-    .location_text{
-        padding-left: 100rem;
-        padding-right: 12rem;
-   }
-
-     .text_imaeg{
-        padding-left: 5rem;
-        padding-right: 5rem;
-     }
-
- }
-@media screen and (max-width: 769px){
-    .location_text{
-        padding-left: 4rem;
-        padding-right: 4rem;
-   }
- }
-
-.image_text{
-    display: flex;
-    justify-content: space-between;
-    padding-left: 6rem;
-    padding-right: 6rem;
-}
-
-.bottom-section-text{
-    padding-top: 1.7rem;
-    padding-bottom: 1.7rem;
-}
-
-.bottom-section-text ol p{
-    font-style: bold;
-    font-weight: 550;
-    font-size: 1rem;
-}
-
-.bottom-section-image .content_image{
-    width: cover;
-    object-fit: cover;
-}
-
-@media screen and (max-width: 767px){
-    .image_text{
-         display: block;
-    }
-    .bottom-section-image{
-        text-align: center;
-    }
- }
-@media screen and (max-width: 1020px){
-    .bottom-section-image .content_image{
-        height: 18rem;
-        width: 23rem;
-    }
- }
-
-=======
->>>>>>> 9acb0a7f20af51ee767aefdbf799bc146ed7fe0d
 
 
 

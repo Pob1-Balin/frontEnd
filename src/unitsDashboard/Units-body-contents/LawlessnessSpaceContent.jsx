@@ -24,7 +24,7 @@ function CyberSpacesContent(){
                 </div>
 
 
-               <div className="carousel-wrapper">
+               <div className="carousel-wrapper" style={{marginLeft:'15%'}}>
                     <CarouselCard2 image_one='./images/crR7aKXpVBv-zRnE_C17A4iNjaZq5fSzH-_NOPROCESS_avion.png' image_two='./images/--3grECISzjVhCqs_VwrsTHJ_RT-9z2Ls-_NOPROCESS_satellite.png' image_three='./images/pWvYI3C6urHiwf81_G8Tkq6N81vgHzxGF-_NOPROCESS_connexion.png' image_four="./images/WYZJa9W5mqNusgX9_JtJcM2KRB6LUIk4s-_NOPROCESS_controle_reseau.png" carousel_text_one="Contrairement à ce que l’on pourrait penser, ce cyberespace n'est pas totalement libre et désordonné.
                         Cependant, la nature décentralisée d’Internet fait de lui un espace « contrôlé » par plusieurs organismes, états ou entreprises. 
                         À tous les échelons, de nombreux organismes exercent ou peuvent exercer un contrôle ou une censure sur les informations qui y circulent.

@@ -69,16 +69,15 @@
 }
 
 .time, .score{
+
     display: flex;
 }
-
-
 .time_passed, .rating{
      font-size: .7rem;
-     font-style: bold;
+font-style: bold;
      font-weight: 500;
-    
 }
+
 
 .time_passed, .rating{
   padding-left: .5rem; 
@@ -411,16 +410,11 @@
     .Unit-header-card{
         min-width: 20rem;
     }
-
-    
-    
-
     .header-link{
          background-color: #f0f0f0;
          min-height: 2.5rem;
          text-align: center;
     }
-    
     .header-text-section{
          min-height: 16rem;
          background-color: white;
@@ -462,7 +456,7 @@
 /*----------------------------- units dashboard footer -------------------------------*/
 
 .units-dashboard-footer-wrapper{
-     margin-left: -2rem; 
+     margin-left: -2rem;
      justify-content: center;
      min-width: 10rem;
 }
@@ -490,12 +484,6 @@
         font-size: 1.5rem;
     }
  }
-
-/* @media screen and (max-width: 749px){
-    .success{
-          min-width: 10rem;
-    }
- } */
 
 .success {
     border-color: #04AA6D;
@@ -534,7 +522,6 @@
      min-width: 10rem;
      box-shadow: none;
      min-height: 100%;
-     
 }
 
 .card_images{
@@ -587,7 +574,6 @@
     background: gray;
     height: 8rem;
     margin-top: 1rem;
-  
 }
 
 .carousel_card_image{
@@ -598,9 +584,7 @@
 
 .carousel-wrapper{
     justify-content: center;
-    
 }
-
 .carousel-text{
     display: block;
 }

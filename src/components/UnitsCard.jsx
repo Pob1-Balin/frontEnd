@@ -24,11 +24,11 @@ function UnitsCard(props){
                      </div>
                     
                          <div className='units_buttons' style={{marginTop: "2rem"}}>
-                            <Link to={props.module_page} style={{textDecoration: "none", marginRight: ".3rem"}}>
-                                 <Button>Button</Button>{' '}
+                            <Link to={'/unite'} style={{textDecoration: "none", marginRight: ".3rem"}}>
+                                 <Button>Module Detail</Button>{' '}
                             </Link>
                             <Link to={props.module_page} style={{textDecoration: "none"}}>
-                                 <Button >Button</Button>{' '}
+                                 <Button>Next Module</Button>{' '}
                             </Link>
                          </div>
                   

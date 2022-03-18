@@ -28,7 +28,7 @@ function HeaderSection(props){
 
              <div className='image_text'>
                  <div className='bottom-section-image'>
-                     <img src='./images/VNnII2FFEWXcJIAj_MUK77A3VoGPkmHcm-_NOPROCESS_number4.png' height='300rem' width="380rem" />
+                     <img className='content_image' src='./images/VNnII2FFEWXcJIAj_MUK77A3VoGPkmHcm-_NOPROCESS_number4.png' />
                  </div>
 
                  <div className='bottom-section-text'>

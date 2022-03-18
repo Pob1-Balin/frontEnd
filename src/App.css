@@ -699,12 +699,23 @@ font-style: bold;
     font-size: 1rem;
 }
 
+.bottom-section-image .content_image{
+    width: cover;
+    object-fit: cover;
+}
+
 @media screen and (max-width: 767px){
     .image_text{
          display: block;
     }
     .bottom-section-image{
         text-align: center;
+    }
+ }
+@media screen and (max-width: 1020px){
+    .bottom-section-image .content_image{
+        height: 18rem;
+        width: 23rem;
     }
  }
 

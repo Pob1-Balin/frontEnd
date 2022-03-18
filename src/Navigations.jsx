@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter, Routes, Route} from 'react-router-dom'
+import {BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import HomePage from './pages/HomePage'
 import MyProfile from './pages/MyProfile'
@@ -10,6 +10,13 @@ import Module2Page from './pages/Module2Page'
 import Module3Page from './pages/Module3Page'
 import Module4Page from './pages/Module4Page'
 import LegalNoticePage from './pages/LegalNoticePage'
+import UnitHome from './unitsDashboard/pages/UnitHome'
+import TechnologiesPage from './unitsDashboard/pages/TechnologiesPage'
+import IntroductionPage from './unitsDashboard/pages/IntroductionPage'
+import Tespage from './unitsDashboard/pages/Tespage'
+import CyberSpacesPage from './unitsDashboard/pages/CyberSpacesPage'
+import PlayerExample from './unitsDashboard/components/VideoCard';
+import FindingsPage from './unitsDashboard/pages/FindingsPage';
 function Navigation (){
     return(
         <BrowserRouter>
@@ -23,6 +30,12 @@ function Navigation (){
                  <Route path='/module3' exact element={<Module3Page/>}/>
                  <Route path='/module4' exact element={<Module4Page/>}/>
                  <Route path='/legalnotice' exact element={<LegalNoticePage />}/>
+                 <Route path='/unite' exact element={<UnitHome />}/>
+                 <Route path='/technologies' exact element={<TechnologiesPage />}/>
+                 {/* <Route path='/unit-home' exact element={<Tespage />}/> */}
+                 <Route path='/introduction' exact element={<IntroductionPage />}/>
+                 <Route path='/cyberspace' exact element={<CyberSpacesPage />}/>
+                 <Route path='/findings' exact element={<FindingsPage />}/>
             </Routes>
         </BrowserRouter>
     )

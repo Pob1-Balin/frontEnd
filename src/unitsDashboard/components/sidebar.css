@@ -1,0 +1,42 @@
+/* .list{
+    color: #fff;
+    font-weight: bold;
+}
+
+
+
+.test{
+    color: #fff;
+}
+
+.test:hover{
+    color: cyan;
+} */
+
+.SideHeader{
+    background:linear-gradient(0deg, #55535498, #55535498), url('./bg.png');
+    background-size:cover;
+    
+}
+.SideHeader h2{
+    font-weight: bold;
+    
+}
+
+/* .Links{
+    cursor: pointer;
+    font-weight: bold;
+}
+
+a:hover{
+    color: red;
+    padding-left: 20px;
+}
+a:active{
+    color: green;
+}
+
+a:visited{
+    color: blue;
+}
+ */

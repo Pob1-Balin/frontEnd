@@ -18,3 +18,12 @@ li:visited{
 .test:hover{
     color: cyan;
 }
+
+@media screen and (min-width: 992px){
+    .logout{
+        display: inline-block;
+        margin-right: 20%;
+        margin-left: 40%;
+    }
+}
+    

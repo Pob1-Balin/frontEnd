@@ -6,14 +6,6 @@ function AttestationPage() {
   return (
     
     <>
-      {/* <Header/>
-      <div className='container-fluid'>
-        <div className='row' style={{backgroundColor: "#f4f7f8"}}>
-          <Sidebar/>
-          <AttestationContent/>
-        </div>
-      </div> */}
-
       <Sidebar/>
       <main>
         <AttestationContent/>

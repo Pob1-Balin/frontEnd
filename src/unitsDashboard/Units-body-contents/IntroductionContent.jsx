@@ -11,7 +11,7 @@ function IntroductionContent(){
             <div className="ms-sm-auto Header_Section ml-2">
 
             <div className="Unit-Dashboard-wrapper">
-                     <HeaderSection destination='Leçon 1 - Bienvenue' header_title='Introduction' />
+                     <HeaderSection  prev="/" destination='Leçon 1 - Bienvenue' header_title='Introduction' />
                 </div>
 
                 <PlayerExample/>

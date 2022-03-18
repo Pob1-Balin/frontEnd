@@ -6,13 +6,10 @@ function Module3Page() {
   return (
     
     <>
-      {/* <Header/> */}
-      <div className='container-fluid' style={{backgroundColor: "#f4f7f8"}}>
-        <div className='row'>
-          <Sidebar/>
-          <Module3Content/>
-        </div>
-      </div>
+      <Sidebar/>
+      <main>
+      <Module3Content/>
+      </main>
     </>
   );
 }

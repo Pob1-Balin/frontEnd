@@ -8,7 +8,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 function ProfileContent (){
     return(
         <>
-            <main className="ms-sm-auto px-md-4">
+            <div className="ms-sm-auto px-md-4 ml-3">
                 <div style={{marginTop: '-.5rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 className="heading">Profile page</h1>
                     
@@ -104,7 +104,7 @@ function ProfileContent (){
                 </div>
 
                 <Footer />
-            </main>
+            </div>
         </>
     )
 }

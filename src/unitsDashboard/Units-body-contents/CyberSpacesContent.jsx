@@ -15,7 +15,7 @@ function CyberSpacesContent(){
             <div className="ms-sm-auto Header_Section ml-2">
 
                 <div className="Unit-Dashboard-wrapper">
-                     <HeaderSection destination="Leçon 3 - Une diversité d'équipements et de technologies" header_title="Le cyberespace, nouvel espace de vie" />
+                     <HeaderSection prev="/introduction" destination="Leçon 3 - Une diversité d'équipements et de technologies" header_title="Le cyberespace, nouvel espace de vie" />
                 </div>
 
                 <div className="unites_divider_line"></div>

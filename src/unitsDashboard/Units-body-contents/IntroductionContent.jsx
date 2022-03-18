@@ -17,7 +17,7 @@ function IntroductionContent(){
                 <PlayerExample/>
 
                 <div className="units-dashboard-footer-wrapper">
-                     <FooterSection />
+                     <FooterSection footer_text="Visionnez la vidéo pour continuer" />
                  </div>
 
             </div>

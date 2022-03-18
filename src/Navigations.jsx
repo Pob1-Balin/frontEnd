@@ -15,6 +15,7 @@ import TechnologiesPage from './unitsDashboard/pages/TechnologiesPage'
 import IntroductionPage from './unitsDashboard/pages/IntroductionPage'
 import Tespage from './unitsDashboard/pages/Tespage'
 import CyberSpacesPage from './unitsDashboard/pages/CyberSpacesPage'
+import LawlessnessSpacePage from './unitsDashboard/pages/LawlessnessSpacePage'
 import PlayerExample from './unitsDashboard/components/VideoCard';
 import FindingsPage from './unitsDashboard/pages/FindingsPage';
 function Navigation (){
@@ -35,6 +36,7 @@ function Navigation (){
                  {/* <Route path='/unit-home' exact element={<Tespage />}/> */}
                  <Route path='/introduction' exact element={<IntroductionPage />}/>
                  <Route path='/cyberspace' exact element={<CyberSpacesPage />}/>
+                 <Route path='/lawlessness' exact element={<LawlessnessSpacePage />}/>
                  <Route path='/findings' exact element={<FindingsPage />}/>
             </Routes>
         </BrowserRouter>

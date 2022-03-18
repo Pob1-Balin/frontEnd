@@ -11,14 +11,14 @@ function UnitHomeContent (){
         <>
             <div className="ms-sm-auto  Header_Section ml-2">
                 <div className="Unit-Dashboard-wrapper">
-                     <HeaderSection destination="Leçon 2 - Introduction" header_title="Une diversité d'équipements et de technologies" />
+                     <HeaderSection destination="Accueil" header_title="Bienvenue" />
                 </div>
 
                 <div className="unites_divider_line"></div>
                 <PlayerExample/>
 
                 <div className="units-dashboard-footer-wrapper">
-                     <FooterSection />
+                     <FooterSection footer_text="Visionnez la vidéo pour continuer" />
                  </div>
 
             </div>

@@ -49,16 +49,17 @@
 }
 
 .card_module{
-     font-size: 1.1rem;
+     font-size: .8rem;
      font-weight: 600;
      color: #979796;
+     margin-top: -.7rem;
 }
 
 .card_title{
-     font-size: 1.5rem;
+     font-size: 1rem;
      font-style: bold;
      font-weight: 600;
-     padding-top: .7rem;
+     padding-top: .5rem;
      color: #36474f;
 }
 
@@ -73,7 +74,7 @@
 
 
 .time_passed, .rating{
-     font-size: 1rem;
+     font-size: .7rem;
      font-style: bold;
      font-weight: 500;
     
@@ -95,7 +96,7 @@
 
 .card_image{
     width: cover;
-    height: 15rem;
+    height: 12rem;
     object-fit: cover;
 }
 
@@ -421,7 +422,7 @@
     }
     
     .header-text-section{
-         min-height: 13rem;
+         min-height: 16rem;
          background-color: white;
          padding-top: .8rem;
     }
@@ -434,6 +435,7 @@
 
     .header-title-divider-line-section{
         padding-left: 15%;
+        padding-top: 4rem;
     }
 
     @media screen and (max-width: 166px){
@@ -476,13 +478,18 @@
      border: 2px solid black;
      background-color: white;
      color: black;
-     padding: 2% 4%;
      font-size: 16px;
      cursor: pointer;
-     width: 47%;
-     margin-top: 2.5rem;
+     width: 75%;
+     margin-top: 2rem;
      height: 4rem;
 }
+
+@media screen and (min-width: 2067px){
+    .unit-dashboard-footer-button{
+        font-size: 1.5rem;
+    }
+ }
 
 /* @media screen and (max-width: 749px){
     .success{
@@ -496,19 +503,19 @@
     min-width: 10rem;
   }
 
-  /* .second-footer{
+  .second-footer{
     background-color:rgba(0, 0, 0, 0.3);
     height: 3rem;
     color: white;
     border: none;
-    margin-top: 2rem;
+    margin-top: .5rem;
     font-style: bold;
     font-weight: 500;
-} */
+    padding: auto;
+}
 
 .Unit-second-footer-card{
     height: 10rem;
-    /* margin-bottom: -1.6rem; */
 }
 
 
@@ -526,7 +533,7 @@
 .unites_card_image{
      min-width: 10rem;
      box-shadow: none;
-     min-height: 65%;
+     min-height: 100%;
      
 }
 
@@ -550,11 +557,31 @@
 /*----------------------------- Carousel -------------------------------*/
 
 .carousel_card{
-    margin-top: 1.7rem;
+    margin-top: 1.5rem;
     border-radius: .4rem;
     min-width: 10rem;
-    margin: 3% 5% 10% 5%;
+    margin: 3% 18% 10% 18%;
+    min-height: 36rem;
+    padding-bottom: 2rem;
 }
+
+
+@media screen and (max-width: 958px){
+    .carousel_card{
+         margin: 3% 11% 10% 11%;
+    }
+ }
+@media screen and (max-width: 958px){
+    .carousel_card{
+         margin: 3% 9% 10% 9%;
+    }
+ }
+
+
+
+
+
+
 
 .carousel_card_body{
     background: gray;

@@ -699,3 +699,15 @@ font-style: bold;
     font-size: 1rem;
 }
 
+@media screen and (max-width: 767px){
+    .image_text{
+         display: block;
+    }
+    .bottom-section-image{
+        text-align: center;
+    }
+ }
+
+
+
+

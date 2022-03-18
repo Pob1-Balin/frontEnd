@@ -23,7 +23,7 @@ function UnitHomeContent (){
 
             </div>
         </>
-    )                   
+    )
 }
 
 export default UnitHomeContent;

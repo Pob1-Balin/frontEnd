@@ -16,7 +16,25 @@ function HeaderSection(props){
              </div>
 
              <div className='location'>
+                 <p>La loi n°78-17 du 6 janvier 1978 relative à l’informatique, aux fichiers et aux libertés, plus connue sous le nom de « loi informatique et libertés », est une loi française qui règlemente la liberté de traitement des données personnelles, c’est-à-dire la liberté de ficher les personnes.
 
+                    Les données personnelles correspondent à toute information relative à une personne physique.
+
+                    Ces moyens d’identification sont nombreux : nom, prénom, adresse (physique et électronique), numéro de téléphone, lieu et date de naissance, numéro de sécurité sociale, numéro de carte de paiement, plaque d’immatriculation d’un véhicule, photo, empreinte digitale, données médicales et génétiques, etc.  
+
+                    LA CNIL a 4 missions principales :
+                 </p>
+             </div>
+
+
+             <div className='image_text'>
+                 <div className='bottom-section-image'>
+                     <img src='./images/biUF-F7i042AZvrL_M0ZugloA4ZIfbq0T-_NOPROCESS_CNIL.png' height='210rem' width="300rem" />
+                 </div>
+
+                 <div className='bottom-section-text'>
+
+                 </div>
              </div>
 
 

@@ -112,23 +112,22 @@
      color: #36474f;
 }
 
-
-
 .card_info{
     display: block;
     color: #979796;
 }
 
 .time, .score{
-
     display: flex;
 }
+
+
 .time_passed, .rating{
      font-size: .7rem;
-font-style: bold;
+     font-style: bold;
      font-weight: 500;
+    
 }
-
 
 .time_passed, .rating{
   padding-left: .5rem; 
@@ -459,14 +458,14 @@ font-style: bold;
     }
 
 
+
     .header-link{
          background-color: #f0f0f0;
          min-height: 2.5rem;
          text-align: center;
     }
-    .header-text-section{
-         min-height: 16rem;
-    }
+
+    
     .header-text-section{
          min-height: 13rem;
          background-color: white;
@@ -508,7 +507,8 @@ font-style: bold;
 /*----------------------------- units dashboard footer -------------------------------*/
 
 .units-dashboard-footer-wrapper{
-     margin-left: -2rem;
+
+
      margin-left: -2rem; 
      justify-content: center;
      min-width: 10rem;
@@ -537,6 +537,7 @@ font-style: bold;
         font-size: 1.5rem;
     }
  }
+
      /* padding: 2% 4%;
      font-size: 16px;
      cursor: pointer;
@@ -570,6 +571,7 @@ font-style: bold;
 
 .Unit-second-footer-card{
     height: 10rem;
+
     margin-top: 2rem;
     font-style: bold;
     font-weight: 500;
@@ -596,7 +598,9 @@ font-style: bold;
      min-width: 10rem;
      box-shadow: none;
      min-height: 100%;
+
      min-height: 65%;
+
      
 }
 
@@ -644,18 +648,29 @@ font-style: bold;
     background: gray;
     height: 8rem;
     margin-top: 1rem;
+
+  
+}
+
+.carousel_card_image{
+    margin-top: 4rem;
+
 }
 
 .carousel_card_image{
     margin-top: 3rem;
     margin-bottom: 1.5rem;
+
     max-width: 70rem;
     height: 20rem;
 }
 
 .carousel-wrapper{
     justify-content: center;
+  
 }
+
+
 .carousel-text{
     display: block;
 }
@@ -664,6 +679,7 @@ font-style: bold;
     font-size: 1rem;
     line-height: 1.5rem;
 }
+
 
 /*----------------------------- Lawlessness -------------------------------*/
 

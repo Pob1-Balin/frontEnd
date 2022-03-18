@@ -37,6 +37,17 @@ function CarouselCard(props){
                      </div>
                    </div>
                  </Carousel.Item>
+
+                 <Carousel.Item>
+                   <div className="carousel_card carousel_card_four" style={{background: "white"}}>
+                     <div style={{textAlign: 'center'}}>
+                     <img className="carousel_card_image" src={props.image_four} width='50%' height='55%'/>
+                     </div>
+                     <div style={{marginLeft: '2rem', marginRight: '2rem'}}>
+                       <p className='carousel-text'>{props.carousel_text_four}</p>
+                     </div>
+                   </div>
+                 </Carousel.Item>
                </Carousel>
         </>
     );

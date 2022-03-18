@@ -15,6 +15,11 @@ function HeaderSection(props){
                  </div>
              </div>
 
+             <div className='location'>
+
+             </div>
+
+
              </div>
         </>
     );

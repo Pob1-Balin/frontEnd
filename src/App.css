@@ -6,6 +6,10 @@
     padding: 0;
 }
 
+a{
+    color: 4ab2cc;
+}
+
 
 .card_module{
      font-size: .8rem;
@@ -100,7 +104,7 @@
 .card_module{
      font-size: .8rem;
      font-weight: 600;
-     color: #979796;
+     color: #686868;
      margin-top: -.7rem;
 }
 
@@ -109,12 +113,12 @@
      font-style: bold;
      font-weight: 600;
      padding-top: .5rem;
-     color: #36474f;
+     color: #0b426a;
 }
 
 .card_info{
     display: block;
-    color: #979796;
+    color: #686868;
 }
 
 .time, .score{
@@ -130,7 +134,7 @@
 }
 
 .time_passed, .rating{
-  padding-left: .5rem; 
+  padding-left: .5rem;
 }
 
 .module_units_button p{
@@ -140,7 +144,7 @@
 }
 .module_units_button {
      display: flex;
-     color: #75a8da;
+     color: #4ab2cc;
 }
 
 .card_image{
@@ -282,7 +286,7 @@
 }
 
 .pdf_btn{
-    background: #f4b51a;
+    background:#4ab2cc;
      color: white;
      border: none;
      height: 2.5rem;
@@ -309,9 +313,30 @@
 }
 
 
+@media screen and (min-width: 1223px){
+    .pdf-card{
+        width: 30rem;
+    }
+    .pdf_card_title{
+         margin-top: -.1rem;
+    }
+    .title_text{
+        margin-right: 3rem;
+    }
+}
+
+/* @media screen and (min-width: 1932px){
+    .wrapper{
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+   }
+   .body-content{
+       margin-top: 10rem;
+   }
+} */
+
+
 /*--------------------------------- Units ------------------------------------*/
-
-
 
 /*--------------------------------- profile content ------------------------------------*/
 .profile_card{
@@ -323,7 +348,7 @@
 
 
 .profile_title{
-    color: #36474f;
+    color: #0d3360;
     font-style: bold;
     font-size: 1.5rem;
     font-weight: 900;
@@ -344,8 +369,8 @@
 
 .form_lable{
      font-style: bold;
-     font-weight: 600;
-     color: #808181;
+     font-weight: 550;
+     color: #686868;
      font-size: 1rem;
 }
 
@@ -357,7 +382,7 @@
 }
 
 .profile_validate_btn{
-    background: #f4b51a;
+    background: #4ab2cc;
     color: white;
     border: none;
     height: 2.5rem;
@@ -397,6 +422,14 @@
     font-size: 1.3rem;
 }
 
+.return-home{
+      color: #4ab2cc;
+}
+
+.return-home:hover{
+      color: #0d3360;
+}
+
 .profile_navigation p .home:hover{
     cursor: pointer;
     font-style: underline;
@@ -415,6 +448,15 @@
    cursor: pointer;
 }
 
+.footer .Mentions-footer{
+     color: #686868;
+}
+
+.footer .Mentions-footer:hover{
+     color: #4ab2cc;
+     font-style: underline;
+}
+
 
 /*--------------------------- Headings ----------------------------*/
 
@@ -427,11 +469,31 @@
 
 /*---------------------------------------- LegalNotice ---------------------------*/
 
+.legal-heading{
+    font-style: bold;
+    font-weight: 600;
+    font-size: 1.5rem;
+    padding-top: 2.5rem;
+}
 
+.legal-heading-text{
+    font-style: bold;
+    font-weight: 600;
+    font-size: .9rem;
+    line-height: 2rem;
+}
 
-/* .legalnotice_wrapper{
+.legalnotice_wrapper ul {
+    list-style: none;
+    margin-left: -2rem;
+   line-height: -2rem;
+}
 
-} */
+.legalnotice_wrapper ul p{
+     font-style: bold;
+     font-weight: 600;
+     font-size: .9rem;
+}
 
 .legalnotice_card{
         padding: 0rem 5rem;
@@ -455,6 +517,7 @@
     }
     .Unit-header-card{
         min-width: 20rem;
+        min-height: 18rem;
     }
 
 
@@ -465,9 +528,8 @@
          text-align: center;
     }
 
-    
     .header-text-section{
-         min-height: 13rem;
+         min-height: 16rem;
          background-color: white;
          padding-top: .8rem;
     }
@@ -537,20 +599,6 @@
         font-size: 1.5rem;
     }
  }
-
-     /* padding: 2% 4%;
-     font-size: 16px;
-     cursor: pointer;
-     width: 47%;
-     margin-top: 2.5rem;
-     height: 4rem; */
-/* } */
-
-/* @media screen and (max-width: 749px){
-    .success{
-          min-width: 10rem;
-    }
- } */
 
 .success {
     border-color: #04AA6D;

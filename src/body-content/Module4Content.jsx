@@ -9,13 +9,13 @@ function Module4Content (){
         <>
             <main className=" ms-sm-auto px-md-4">
                 <div style={{marginTop: '-.5rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 className="heading">Module 4 : Sécurité du poste de travail et nomadisme</h1>
+                    <h1 className="heading" style={{color: '#0d3360'}}>Module 4 : Sécurité du poste de travail et nomadisme</h1>
                     <div className="btn-toolbar mb-2 mb-md-0">
                     </div>
                 </div>
 
                 <div style={{marginBottom: "-3.4rem"}} className="Home_navigation">
-                     <p><Link style={{textDecoration: 'none'}} to='/'><span className="home">Home /</span></Link> <span>Module 4</span></p>
+                     <p><Link className="return-home" style={{textDecoration: 'none'}} to='/'><span className="home">Home /</span></Link> <span>Module 4</span></p>
                 </div>
 
                 <div className="wrapper">

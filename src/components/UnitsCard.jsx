@@ -22,16 +22,14 @@ function UnitsCard(props){
                              <div className='score1'><p className='rating'>Score : 0%</p></div>
                          </div>
                      </div>
-                    
                          <div className='units_buttons' style={{marginTop: "2rem"}}>
                             <Link to={'/unite'} style={{textDecoration: "none", marginRight: ".3rem"}}>
-                                 <Button>Module Detail</Button>{' '}
+                                 <Button style={{fontSize: ".7rem", backgroundColor: '#4ab2cc'}}>To start</Button>{' '}
                             </Link>
                             <Link to={props.module_page} style={{textDecoration: "none"}}>
-                                 <Button>Next Module</Button>{' '}
+                                 <Button style={{fontSize: ".7rem", backgroundColor: '#4ab2cc'}}>Assess yourself</Button>{' '}
                             </Link>
                          </div>
-                  
                  </div>
            </div>
         </>

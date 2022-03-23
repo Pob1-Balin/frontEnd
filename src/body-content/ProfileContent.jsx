@@ -10,12 +10,12 @@ function ProfileContent (){
         <>
             <div className="ms-sm-auto px-md-4 ml-3">
                 <div style={{marginTop: '-.5rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 className="heading">Profile page</h1>
+                    <h1 className="heading" style={{color: '#0d3360'}}>Profile page</h1>
                     
                 </div>
 
                 <div className="Home_navigation">
-                     <p><Link style={{textDecoration: 'none'}} to='/'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span>My Profile</span></p>
+                     <p><Link className="return-home" style={{textDecoration: 'none'}} to='/'><span className="home">Home /</span></Link> <span style={{color: '#0d3360'}}>My Profile</span></p>
                 </div>
 
 
@@ -24,7 +24,7 @@ function ProfileContent (){
                     <div className="card profile_card" style={{padding: "3rem"}}>
 
                        <div style={{display: "flex", justifyContent: "space-between", marginTop: "-1rem"}}>
-                             <h5 className="profile_title profile_title_responsive" style={{marginLeft: "-1.2rem"}}><b>My information</b></h5>
+                             <h5 className="profile_title profile_title_responsive" style={{marginLeft: "-1.2rem", color: '#0d3360'}}><b>My information</b></h5>
                              <div><button className="profile_delete_btn"><DeleteIcon  />Delete my account</button></div>
                        </div>
 

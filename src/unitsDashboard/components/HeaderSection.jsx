@@ -19,7 +19,7 @@ function HeaderSection(props){
                      {/* <ToggleButton/>
                      <Link className='hamburger-manu' to='/'><MenuOutlinedIcon /></Link> */}
                      <div className='header-title-divider-line-section'>
-                         <div className='header-title'><b>{props.header_title}</b></div>
+                         <div className='header-title' id='title'><b>{props.header_title}</b></div>
                          <div className='divider-line'></div>
                      </div>
                  </div>

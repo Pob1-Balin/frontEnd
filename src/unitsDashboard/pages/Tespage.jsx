@@ -4,19 +4,23 @@ import ToggleButton from '../components/toggleButton';
 import SidebarLinks from '../components/SidebarLinks';
 
 function Tespage(){
-    return(
-        <>
-            {/* <UnitSidebar/> */}
-            {/* <main>
-                
-                <h1>tesy Page</h1>
-            </main> */}
-            <div className="d-flex" id="wrapper">
-                <SidebarLinks/>  
-                
-            
+    function openNav() {
+            document.getElementById("mySidebar").style.width = "15rem";
+            document.getElementById("BodyContent").style.marginLeft = "15rem";
+          }
 
-                <div id="page-content-wrapper">
+          function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("BodyContent").style.marginLeft= "0";
+          }
+    return(
+
+        
+        <>
+          
+            <div className="">
+                <SidebarLinks/>  
+                <div id="BodyContent">
                     <ToggleButton/>
                     <div className="container-fluid">
                         <h1 className="mt-4">Simple Sidebar</h1>

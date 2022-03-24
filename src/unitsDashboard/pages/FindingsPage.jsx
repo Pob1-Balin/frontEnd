@@ -2,18 +2,30 @@ import React from 'react'
 import SidebarLinks from '../components/SidebarLinks';
 import ToggleButton from '../components/toggleButton';
 import FindingsContent from '../Units-body-contents/FindingsContent';
+import '../components/styey.css'
 
 function FindingsPage(){
+    function openNav() {
+            document.getElementById("mySidebar").style.width = "15rem";
+            document.getElementById("BodyContent").style.marginLeft = "15rem";
+          }
+
+          function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("BodyContent").style.marginLeft= "0";
+          }
     return(
+
+        
         <>
           
-            <div className="d-flex px-0" id="wrapper">
+            <div className="" id="per">
                 <SidebarLinks/>  
-                <div id="page-content-wrapper">
+                <div id="BodyContent">
                     <div>
                         <ToggleButton/>
                     </div>
-                    <div className="container-fluid px-0">
+                    <div className="">
                     <FindingsContent />
                     </div>
                 </div>

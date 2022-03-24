@@ -19,7 +19,7 @@ function FindingsPage(){
         
         <>
           
-            <div className="" id="per">
+            <div className="">
                 <SidebarLinks/>  
                 <div id="BodyContent">
                     <div>

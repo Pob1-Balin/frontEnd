@@ -18,7 +18,6 @@ function SidebarLinks() {
               <div className="list-group list-group-flush">
 
                 <button onClick={closeNav} className="closebtn">close</button>
-                
                   <header className="sidebar-header bg-light SideHeader position-" style={{minHeight:'35vh'}}>
                     <h2 className="text-left fs-33 text-white letter-spacing-1 mx-auto">hyperconnected <br /> digital world</h2>
                   </header>

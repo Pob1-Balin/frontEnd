@@ -521,10 +521,13 @@ a{
         min-width: 20rem;
         min-height: 18rem;
     }
+<<<<<<< HEAD
     
 
 
 
+=======
+>>>>>>> b93b98aac65cce3e875038c685bd28930f8ed8ad
     .header-link{
          background-color: #f0f0f0;
          min-height: 2.5rem;
@@ -566,8 +569,8 @@ a{
          width: 9.5rem;
          background-color: #36474f;
          margin-top: 2.7rem;
-
      }
+
 
 /*----------------------------- units dashboard footer -------------------------------*/
 
@@ -860,7 +863,17 @@ a{
         width: 23rem;
     }
  }
+ .unites_divider_line_threats{
+    width: 1000rem;
+}
 
 
+/*///////////////////////////// module1 unites 2 ///////////////////////*/
 
-
+.unites_threats_divider{
+ height: 3px;
+ background-color: black;
+ width: 80%;
+ margin-top: -1.4rem;
+ margin-left: -3rem;
+}

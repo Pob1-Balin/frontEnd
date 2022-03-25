@@ -18,6 +18,9 @@ import CyberSpacesPage from './unitsDashboard/pages/CyberSpacesPage'
 import LawlessnessSpacePage from './unitsDashboard/pages/LawlessnessSpacePage'
 import PlayerExample from './unitsDashboard/components/VideoCard';
 import FindingsPage from './unitsDashboard/pages/FindingsPage';
+import Module1_Unit2_Home from './unitsDashboard/pages/Module1_Unit2_Home';
+import Module1Unit2ThreatsPage from './unitsDashboard/pages/Module1Unit2ThreatsPage';
+
 function Navigation (){
     return(
         <BrowserRouter>
@@ -38,6 +41,8 @@ function Navigation (){
                  <Route path='/cyberspace' exact element={<CyberSpacesPage />}/>
                  <Route path='/lawlessness' exact element={<LawlessnessSpacePage />}/>
                  <Route path='/findings' exact element={<FindingsPage />}/>
+                 <Route path='/unit2homepage' exact element={<Module1_Unit2_Home />}/>
+                 <Route path='/unit2threats' exact element={<Module1Unit2ThreatsPage />}/>
             </Routes>
         </BrowserRouter>
     )

@@ -7,13 +7,13 @@ import { Link } from 'react-router-dom';
 function Module2Content (){
     return(
         <>
-            <main className="ms-sm-auto px-md-4">
+            <main className="wrapper2 px-md-4">
                 <div style={{marginTop: '-.5rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 className="heading" >Module 2 : Sécurité de l’authentification</h1>
+                    <h1 className="heading" style={{color: '#0d3360'}}>Module 2 : Sécurité de l’authentification</h1>
                 </div>
 
                 <div style={{marginBottom: "-3.4rem"}} className="Home_navigation">
-                     <p><Link style={{textDecoration: 'none'}} to='/'><span className="home">Home /</span></Link> <span>Module 2</span></p>
+                     <p><Link className="return-home" style={{textDecoration: 'none'}} to='/'><span className="home">Home /</span></Link> <span>Module 2</span></p>
                 </div>
 
 

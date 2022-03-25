@@ -6,13 +6,10 @@ function Module2Page() {
   return (
     
     <>
-      {/* <Header/> */}
-      <div className='container-fluid' style={{backgroundColor: "#f4f7f8"}}>
-        <div className='row'>
-          <Sidebar/>
-          <Module2Content/>
-        </div>
-      </div>
+      <Sidebar/>
+      <main>
+      <Module2Content/>
+      </main>
     </>
   );
 }

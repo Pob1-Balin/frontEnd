@@ -16,7 +16,7 @@ function TechnologyContent (){
 
                 
                 <div className="Unit-Dashboard-wrapper">
-                     <HeaderSection destination="Leçon 2 - Introduction" header_title="Une diversité d'équipements et de technologies" />
+                     <HeaderSection  prev="/cyberspace" destination="Leçon 2 - Cyberspace" header_title="Une diversité d'équipements et de technologies" />
                 </div>
 
                 <div className="unites_divider_line"></div>

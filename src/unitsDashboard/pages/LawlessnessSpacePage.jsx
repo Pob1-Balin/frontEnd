@@ -5,11 +5,23 @@ import ToggleButton from '../components/toggleButton';
 import SidebarLinks from '../components/SidebarLinks';
 
 function LawlessnessSpacePage(){
+    function openNav() {
+            document.getElementById("mySidebar").style.width = "15rem";
+            document.getElementById("BodyContent").style.marginLeft = "15rem";
+          }
+
+          function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("BodyContent").style.marginLeft= "0";
+          }
     return(
+
+        
         <>
-            <div className="d-flex px-0" id="wrapper">
+          
+            <div className="">
                 <SidebarLinks/>  
-                <div id="page-content-wrapper">
+                <div id="BodyContent" style={{marginLeft:'15rem'}}>
                     <div>
                         <ToggleButton/>
                     </div>

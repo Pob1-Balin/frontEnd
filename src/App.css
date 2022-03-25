@@ -640,8 +640,7 @@ a{
   /*----------------------------- Technologies page -------------------------------*/
 
 .units-dashboard-image-wrapper{
-     margin-left: -1rem;
-     margin-right: -2rem;
+     width: 100%;
 }
 
 .unites_card_image{

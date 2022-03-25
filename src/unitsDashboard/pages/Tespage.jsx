@@ -20,7 +20,7 @@ function Tespage(){
           
             <div className="">
                 <SidebarLinks/>  
-                <div id="BodyContent">
+                <div id="BodyContent" style={{marginLeft:'15rem'}}>
                     <ToggleButton/>
                     <div className="container-fluid">
                         <h1 className="mt-4">Simple Sidebar</h1>

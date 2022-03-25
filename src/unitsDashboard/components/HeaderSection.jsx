@@ -7,7 +7,7 @@ import ToggleButton from "./toggleButton"
 function HeaderSection(props){
     return(
         <>
-             <div className='Unit-header-card mt-2 px-0 ml-4'>
+             <div className='Unit-header-card mt-2'>
                  <div className='header-link'>
                      <Link to={props.prev}>
                          <KeyboardArrowUpIcon style={{marginTop: '-1.8rem'}} />
@@ -16,8 +16,6 @@ function HeaderSection(props){
                  </div>
 
                  <div className='header-text-section'>
-                     {/* <ToggleButton/>
-                     <Link className='hamburger-manu' to='/'><MenuOutlinedIcon /></Link> */}
                      <div className='header-title-divider-line-section'>
                          <div className='header-title' id='title'><b>{props.header_title}</b></div>
                          <div className='divider-line'></div>

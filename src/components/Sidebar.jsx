@@ -23,21 +23,21 @@ function Sidebar() {
             <ul className="menu menu-bordery pt- mt-5 text-left pl-4">
 
                     <li className="nav-item pt-5 list" style={{fontSize: '1.2rem'}}>
-                        <HomeIcon className=''/>
-                        <Link to='/' className='ml-4 test' style={{textDecoration:'none'}}>Home</Link>
+                        
+                        <Link to='/' className='ml-4 test' style={{textDecoration:'none'}}><HomeIcon className=''/>Home</Link>
                     </li>
                     <li className="nav-item pt-4 list" style={{fontSize: '1.2rem'}}>
-                        <AccountBalanceIcon className=''/>
-                        <Link to='/res' className=' ml-4 test' style={{textDecoration:'none'}}>My resources</Link>
+                        
+                        <Link to='/res' className=' ml-4 test' style={{textDecoration:'none'}}><AccountBalanceIcon className=''/>My resources</Link>
                     </li>
                     <li className="nav-item pt-4 list" style={{fontSize: '1.2rem'}}>
-                        <DocumentScannerIcon className=''/>
-                        <Link to='/attest' className='ml-4 test' style={{textDecoration:'none'}}>My attestation</Link>
+                        
+                        <Link to='/attest' className='ml-4 test' style={{textDecoration:'none'}}><DocumentScannerIcon className=''/>My attestation</Link>
                     </li>
 
                     <li className="nav-item pt-4 list active" style={{fontSize: '1.2rem'}}>
-                        <AccountCircleIcon className=''/>
-                        <Link to='/profile' className=' ml-4 test' style={{textDecoration:'none'}}>My profile</Link>
+                        
+                        <Link to='/profile' className=' ml-4 test' style={{textDecoration:'none'}}> <AccountCircleIcon className=''/> My profile</Link>
                     </li>
             </ul>
         </nav>

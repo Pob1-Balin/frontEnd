@@ -14,7 +14,7 @@ function SidebarLinks() {
     return (
       <>
 
-            <div id="mySidebar" className="side_bar border-end bg-white">
+            <div id="mySidebar" className="side_bar border-end bg-white" style={{width:'15rem'}}>
               <div className="list-group list-group-flush">
 
                 <button onClick={closeNav} className="closebtn">close</button>

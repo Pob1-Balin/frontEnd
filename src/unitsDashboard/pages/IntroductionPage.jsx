@@ -22,7 +22,7 @@ function IntroductionPage(){
           
             <div className="">
                 <SidebarLinks/>  
-                <div id="BodyContent">
+                <div id="BodyContent" style={{marginLeft:'15rem'}}>
                     <div>
                         <ToggleButton/>
                     </div>

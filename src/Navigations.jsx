@@ -21,6 +21,24 @@ import FindingsPage from './unitsDashboard/pages/FindingsPage';
 import Module1_Unit2_Home from './unitsDashboard/pages/Module1_Unit2_Home';
 import Module1Unit2ThreatsPage from './unitsDashboard/pages/Module1Unit2ThreatsPage';
 
+/*============================= Admin dashboard =================================*/
+import AdminHomePage from './AdminDashboard/pages/HomePage';
+import ProfilePage from './AdminDashboard/pages/ProfilePage';
+import ClientsPage from './AdminDashboard/pages/ClientsPage';
+import AdminHomePagee from './AAModules/pages/HomePage';
+import AddModulePage from './AAModules/pages/AddModulePage';
+import EditModule1Content from './AAModules/pages/Module1Page';
+import EditLegalNoticePage from './AAModules/pages/LegalNoticePage';
+import EditNoticePage from './AAModules/pages/EditNoticePage';
+import EditResourcesContent from './AAModules/pages/ResourcesPage';
+import EditResourcesContentForm from './AAModules/pages/EditRourcePage';
+import AddClientsPage from './AdminDashboard/pages/AddClientsPage';
+import ServicePage from './AdminDashboard/pages/ServicesPage';
+import LoginPage from './AdminDashboard/pages/LoginPage';
+import SignUpPage from './AdminDashboard/pages/SignUpPage';
+import EditServicePage from './AdminDashboard/pages/EditServicePage';
+import SpecificClientPage from './AdminDashboard/pages/SpecificClientPage';
+
 function Navigation (){
     return(
         <BrowserRouter>
@@ -43,6 +61,25 @@ function Navigation (){
                  <Route path='/findings' exact element={<FindingsPage />}/>
                  <Route path='/unit2homepage' exact element={<Module1_Unit2_Home />}/>
                  <Route path='/unit2threats' exact element={<Module1Unit2ThreatsPage />}/>
+
+                 {/*============================= Admin dashboard =============================*/}
+                 <Route path='/admindashboard' exact element={<AdminHomePage />}/>
+                 <Route path='/clients' exact element={<ClientsPage />}/>
+                 <Route path='/adminprofile' exact element={<ProfilePage />}/>
+                 <Route path='/adminmodulepage' exact element={<AdminHomePagee />}/>
+                 <Route path='/addmodule' exact element={<AddModulePage />}/>
+                 <Route path='/editmodule1' exact element={<EditModule1Content />}/>
+                 <Route path='/editlegalnotice' exact element={<EditLegalNoticePage />}/>
+                 <Route path='/legalnoticeedit' exact element={<EditNoticePage />}/>
+                 <Route path='/editresources' exact element={<EditResourcesContent />}/>
+                 <Route path='/editresourcesform' exact element={<EditResourcesContentForm />}/>
+                 <Route path='/editresourcesform' exact element={<EditResourcesContentForm />}/>
+                 <Route path='/addclients' exact element={<AddClientsPage />}/>
+                 <Route path='/services' exact element={<ServicePage />}/>
+                 <Route path='/login' exact element={<LoginPage />}/>
+                 <Route path='/signup' exact element={<SignUpPage />}/>
+                 <Route path='/editservice' exact element={<EditServicePage />}/>
+                 <Route path='/specificclient' exact element={<SpecificClientPage />}/>
             </Routes>
         </BrowserRouter>
     )

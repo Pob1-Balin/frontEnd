@@ -54,7 +54,7 @@ function Sidebar() {
         <div className="topbar-left">
             <span className="topbar-btn sidebar-toggler"><i>&#9776;</i></span>
         </div>
-        <h2 className='text-black mx-auto d-lg-none pt-2 '><img src={logo} width={100} height={100}/></h2>
+        <h2 className='text-black mx-auto d-lg-none pt-2 '><img src={logo} width={70} height={70}/></h2>
         <div className="topbar-right">
             <ul className="topbar-btns">
                 <li className="dropdown">

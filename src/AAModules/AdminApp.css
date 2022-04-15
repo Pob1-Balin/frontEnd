@@ -6,8 +6,34 @@
     padding: 0;
 }
 
+.units_buttons Button{
+     margin-top: .2rem;
+     text-decoration: none;
+     border: none;
+}
+
 a{
     color: 4ab2cc;
+}
+/*---------------- all ------------*/
+.add-buttons{
+    background: #4ab2cc;
+    border: none;
+    border-radius: .2rem;
+    width: 8rem;
+    font-size: 1rem;
+    font-style: bold;
+    font-weight: 550;
+    color: white;
+    height: 2.5rem;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 767px){
+   .border-bottom{
+       margin-right: 1rem;
+       margin-left: 1.3rem;
+   }
 }
 
 
@@ -62,7 +88,7 @@ a{
 }
 
 .wrapper{
-    margin: 5rem 0rem;
+    margin: 2rem 0rem;
     display: grid;
     gap: 1.5rem;
     grid-template-columns: repeat(3, 1fr);
@@ -503,7 +529,7 @@ a{
 }
 
 .Legalmoticepage{
-     background-image: url('../public/images/bg_anssi.jpg');
+     background-image: url('../../public/images/bg_anssi.jpg');
      margin: 0;
 }
 
@@ -868,4 +894,8 @@ a{
  width: 80%;
  margin-top: -1.4rem;
  margin-left: -3rem;
+}
+
+.form-group input:focus{
+ border-color: #4ab2cc;
 }

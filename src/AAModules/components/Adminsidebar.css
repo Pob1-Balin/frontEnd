@@ -1,0 +1,29 @@
+.list{
+    color: #fff;
+    font-weight: bold;
+}
+
+.list:hover{
+    padding-left: 10px;
+    color: #4ab2cc;
+}
+
+li:visited{
+    color: red;
+}
+.test{
+    color: #fff;
+}
+
+.test:hover{
+    color:#4ab2cc;
+}
+
+@media screen and (min-width: 992px){
+    .logout{
+        display: inline-block;
+        margin-right: 20%;
+        margin-left: 40%;
+    }
+}
+    

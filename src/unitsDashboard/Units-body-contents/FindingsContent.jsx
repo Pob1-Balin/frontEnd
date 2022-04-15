@@ -7,7 +7,7 @@ import { NavLink } from "react-router-dom";
 function FindingsContent(){
     return(
         <>
-            <div className="ms-sm-auto Header_Section">
+            <div className="">
 
                 <div className="Unit-Dashboard-wrapper">
                      <HeaderSection  prev="#" destination='Leçon 1 - Findings' header_title='To know more' />

@@ -12,7 +12,7 @@ import '../../App.css'
 function TechnologyContent (){
     return(
         <>
-            <div className="ms-sm-auto Header_Section ml-n2">
+            <div className="">
 
                 
                 <div className="Unit-Dashboard-wrapper">
@@ -21,7 +21,7 @@ function TechnologyContent (){
 
                 <div className="unites_divider_line"></div>
 
-                <div className="units-dashboard-image-wrapper">
+                <div className="">
                      <ImageCard image="./images/UGJzyDY0w-2RNZOS_FptiMt_OHRGvgl_e-_NOPROCESS_people_img_centered.png"/>
                 </div>
 
@@ -33,7 +33,7 @@ function TechnologyContent (){
                         Un bracelet connecté, par exemple, n'est jamais très loin du téléphone auquel il transfère ses données." carousel_text_three=" Cependant, ces technologies ne sont pas exemptes de risques puisque là encore ces réseaux rejoignent la toile mondiale, le plus souvent au travers du modem ADSL / boitier fibre qui joue le rôle de passerelle." />
                </div>
 
-                <div className="units-dashboard-footer-wrapper">
+                <div className="mr-n3 ml-2">
                      <SecondUnitFooter direction='SUIVANT' />
                  </div>
 

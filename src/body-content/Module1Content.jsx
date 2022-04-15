@@ -3,10 +3,14 @@ import UnitsCard from '../components/UnitsCard';
 import Footer from '../components/Footer';
 import "../App.css";
 import { Link } from 'react-router-dom';
+import unitsData from './modules.json'
 
 function Module1Content (){
+    
+    
     return(
         <>
+            
             <main className="px-md-4 wrapper2">
                 <div style={{marginTop: '-.5rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h1 className="heading" style={{color: '#0d3360'}}>Module 1 : Panorama de la SSI</h1>
@@ -17,6 +21,29 @@ function Module1Content (){
                 </div>
 
                 <div className="wrapper">
+
+                    {/* {
+                        unitsData.forEach(element => element.unitInfo.forEach(info=>{
+                            var me = []
+                           me =  me.push(info);
+                            console.log(me)
+                            
+                        }))
+                    } */}
+                {/* {
+                    unitsData.map((module) =>{
+                        var me = []
+                        // module.unitInfo.forEach(element => {
+                        //     me.push(element);
+                        //     console.log(me)
+                            
+                        // });
+                        // if(module.id == 1)
+                            return <UnitsCard image="./images/Module1_Unit1.png" module_name={module.unitInfo[0]?.uniteName} title="Un monde numérique hyper-connecté" module_page="/module1"/>
+                    }    
+                  
+                )} */}
+
                      <UnitsCard image="./images/Module1_Unit1.png" module_name="UNITÉ 1" title="Un monde numérique hyper-connecté" module_page="/module1"/>
                      <UnitsCard image="./images/Module1_Unit2.png" module_name="UNITÉ 2" title="Un monde à hauts risques" module_page="/module2"/>
                      <UnitsCard image="./images/Module1_Unit3.png" module_name="UNITÉ 3" title="Les acteurs de la cybersécurité" module_page="/module3"/>

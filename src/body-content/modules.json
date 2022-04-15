@@ -1,0 +1,88 @@
+[
+    {
+        "id": 1,
+        "image":"./images/Module1.png",
+        "moduleName": "Module 1",
+        "title": "Panorama de la SSI",
+        "module_page":"/module1",
+        "unitInfo":
+            [
+                {
+                    "uniteName":"UNITÉ 1 test 1",
+                    "unitTitle":"Un monde numérique hyper-connecté",
+                    "unitPage":"/module1",
+                    "unitImage":"./images/Module1_Unit1.png"
+                },{
+                    "uniteName":"UNITÉ 1 test",
+                    "unitTitle":"Un monde numérique hyper-connecté",
+                    "unitPage":"/module1",
+                    "unitImage":"./images/Module1_Unit1.png"
+                }
+            ]
+    },
+
+    {
+        "image":"./images/Module2.png",
+        "moduleName": "Module 2",
+        "title": "Sécurité de l’authentification",
+        "module_page":"/module2",
+        "unitInfo":{
+                "uniteName":"UNITÉ 2",
+                "unitTitle":"Un monde numérique hyper-connecté",
+                "unitPage":"/module1",
+                "unitImage":"./images/Module1_Unit1.png"
+            }
+    },
+
+    {
+        "image":"./images/Module3.png",
+        "moduleName": "Module 3",
+        "title": "Sécurité sur Internet",
+        "module_page":"/module3",
+        "unitInfo":{
+            "uniteName":"UNITÉ 3",
+            "unitTitle":"Un monde numérique hyper-connecté",
+            "unitPage":"/module1",
+            "unitImage":"./images/Module1_Unit1.png"
+        }
+    },
+
+    {
+        "image":"./images/Module4.png",
+        "moduleName": "Module 4",
+        "title": "Sécurité du poste de travail et nomadisme",
+        "module_page":"/module4",
+        "unitInfo":{
+            "uniteName":"UNITÉ 4",
+            "unitTitle":"Un monde numérique hyper-connecté",
+            "unitPage":"/module1",
+            "unitImage":"./images/Module1_Unit1.png"
+        }
+    },
+
+    {
+        "image":"./images/Module2.png",
+        "moduleName": "Module 2",
+        "title": "Sécurité de l’authentification",
+        "module_page":"/module2",
+        "unitInfo":{
+            "uniteName":"UNITÉ 5",
+            "unitTitle":"Un monde numérique hyper-connecté",
+            "unitPage":"/module1",
+            "unitImage":"./images/Module1_Unit1.png"
+        }
+    },
+
+    {
+        "image":"./images/Module3.png",
+        "moduleName": "Module 3",
+        "title": "Panorama de la SSI",
+        "module_page":"/module3",
+        "unitInfo":{
+            "uniteName":"UNITÉ 6",
+            "unitTitle":"Un monde numérique hyper-connecté",
+            "unitPage":"/module1",
+            "unitImage":"./images/Module1_Unit1.png"
+        }
+    }
+]

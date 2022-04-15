@@ -12,7 +12,7 @@ import '../../App.css'
 function CyberSpacesContent(){
     return(
         <>
-            <div className="ms-sm-auto Header_Section ml-2">
+            <div className="">
 
                 <div className="Unit-Dashboard-wrapper">
                      <HeaderSection prev="/introduction" destination="Leçon 3 - Une diversité d'équipements et de technologies" header_title="Le cyberespace, nouvel espace de vie" />

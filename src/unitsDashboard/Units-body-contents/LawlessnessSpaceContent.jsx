@@ -11,7 +11,7 @@ import '../../App.css'
 function CyberSpacesContent(){
     return(
         <>
-            <div className="ms-sm-auto Header_Section ml-2">
+            <div className="">
 
                 <div className="Unit-Dashboard-wrapper">
                      <HeaderSection prev='/cyberspace' destination="Leçon 4 - Le cyberespace, nouvel espace de vie" header_title="Un espace de non-droit" />

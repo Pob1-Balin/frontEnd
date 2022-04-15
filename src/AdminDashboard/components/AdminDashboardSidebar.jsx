@@ -1,0 +1,87 @@
+import React from 'react';
+import { Link } from 'react-router-dom'; 
+import logo from './log.png'
+import HomeIcon from '@mui/icons-material/Home';
+import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
+import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
+import './Admindashboardsidebar.css'
+
+function AdminDashboardSidebar() {
+    return (
+      <>
+    <aside className="sidebar sidebar-icons-left sidebar-icons-boxed sidebar-expand-lg sider-1 pt-0" style={{maxWidth: '14rem'}}>
+        <header className="sidebar-header" style={{minHeight:'20vh', background:"white", boder:'none'}}>
+            <h2 className="text-center text-white font-roboto fw-300 fs-18 letter-spacing-2 mx-auto"><img src={logo} width={110} height={120} className='my-5'/></h2>
+        </header>
+
+        <nav className="sidebar-navigation" style={{background: 'white', marginLeft: "-1rem", color:'gray'}}>
+            <ul className="menu menu-bordery pt- text-left pl-4" style={{color:'gray'}}>
+                    <li className="nav-item pt-5 list" style={{fontSize: '1rem', marginTop: '-2rem', color:'white'}}>
+                        <Link to='/admindashboard' className='ml-4 test1' style={{textDecoration:'none'}}><HomeIcon className='nav-icons'/>Dashboard</Link>
+                    </li>
+                    <li className="nav-item pt-4 list" style={{fontSize: '1rem'}}>
+                        
+                        <Link to='/services' className=' ml-4 test1' style={{textDecoration:'none'}}><AccountBalanceIcon className='nav-icons'/>Services</Link>
+                    </li>
+                    <li className="nav-item pt-4 list" style={{fontSize: '1rem'}}>
+                        
+                        <Link to='/clients' className='ml-4 test1' style={{textDecoration:'none'}}><DocumentScannerIcon className='nav-icons'/>Clients</Link>
+                    </li>
+            </ul>
+        </nav>
+
+    </aside>
+
+    <header className="topbar col-md-12 px-3"  style={{minHeight:'11vh', marginLeft: '-.1rem'}}>
+        <div className="topbar-left">
+            <span style={{color:'gray'}} className="topbar-btn sidebar-toggler"><i>&#9776;</i></span>
+        </div>
+        <h2 className='text-black mx-auto d-lg-none pt-2 '><img src={logo} width={70} height={70}/></h2>
+        <div className="topbar-right">
+        </div>
+            <div class="header-right-info mr-4 headerTop">
+                <ul class="nav navbar-nav mai-top-nav header-right-menu">
+                    <li class="nav-item">
+                                <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link">
+                                <img src="./images/logo.jpg" alt="" />
+                                <span class="admin-name" style={{color:'white'}}>Mr Baron</span>
+                                <i style={{color:'white'}} class="fa fa-angle-down edu-icon edu-down-arrow admin-profile-arrow"></i>
+                            </a>
+                        <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                            <li><a href="/adminprofile"><span class="edu-icon edu-user-rounded author-log-ic"></span>My Profile</a>
+                            </li>
+                            <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+    </header>
+
+
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header-right-info mr-4 headerBottom" style={{marginTop:'4rem',width:'100%', height:'14vh', background:'#31aed0', textColor:'white'}}>
+    <ul class="nav navbar-nav mai-top-nav header-right-menu text-white mx-auto d-lg-none pt-2  px-3">
+        <li class="nav-item">
+                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link">
+                    <img src="./images/logo.jpg" alt="" />
+                    <span style={{color:'white'}} class="admin-name">Mr Baron</span>
+                    <i style={{color:'white'}} class="fa fa-angle-down edu-icon edu-down-arrow admin-profile-arrow"></i>
+                </a>
+            <ul role="menu menu2" class="dropdown-header-top author-log dropdown-menu animated zoomIn" style={{marginLeft:'40%'}}>
+                <li><a href="/adminprofile"><span class="edu-icon edu-user-rounded author-log-ic"></span>My Profile</a>
+                </li>
+                <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+   </div>
+
+ 
+      </>
+    )
+  }
+
+export default AdminDashboardSidebar;
+
+

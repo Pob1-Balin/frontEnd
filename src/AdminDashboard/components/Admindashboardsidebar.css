@@ -1,0 +1,34 @@
+.list{
+    color: white;
+    font-weight: bold;
+}
+
+.list:hover{
+    padding-left: 10px;
+    color: #4ab2cc;
+}
+
+li:visited{
+    color: red;
+}
+.test1{
+    color: gray;
+    font-weight: 500;
+}
+
+.nav-icons{
+    margin-right: .6rem;
+}
+
+.test:hover{
+    color:#4ab2cc;
+}
+
+@media screen and (min-width: 992px){
+    .logout{
+        display: inline-block;
+        margin-right: 20%;
+        margin-left: 40%;
+    }
+}
+

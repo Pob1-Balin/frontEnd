@@ -62,4 +62,4 @@ function CyberSpacesContent(){
     )
 }
 
-export default CyberSpacesContent ;
+export default CyberSpacesContent;

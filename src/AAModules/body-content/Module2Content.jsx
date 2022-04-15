@@ -8,14 +8,14 @@ function Module2Content (){
     return(
         <>
             <main className="wrapper2 px-md-4">
-                <div style={{marginTop: '-.5rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <h1 className="heading" style={{color: '#0d3360'}}>Module 2 : Sécurité de l’authentification</h1>
+                <div style={{marginTop: '-5rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <h4 style={{marginTop:'2rem'}}><p><Link className="return-home" style={{textDecoration: 'none'}} to='/adminmodulepage'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span>Module 2: Panorama de la SSI</span></p></h4>
+                <Link className="return-home" style={{textDecoration: 'none'}} to='/addunite'>
+                     <div>
+                         <button className="add-buttons">Add Unites</button>
+                     </div>
+                </Link>
                 </div>
-
-                <div style={{marginBottom: "-3.4rem"}} className="Home_navigation">
-                     <p><Link className="return-home" style={{textDecoration: 'none'}} to='/'><span className="home">Home /</span></Link> <span>Module 2</span></p>
-                </div>
-
 
                 <div className="wrapper">
                      <UnitsCard image="./images/Module2_Unit1.png" module_name="UNITÉ 1" title="Principes de l’authentification" module_page="/module1"/>

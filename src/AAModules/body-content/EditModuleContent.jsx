@@ -3,12 +3,12 @@ import Footer from '../components/Footer';
 import "../AdminApp.css";
 import { Link } from 'react-router-dom';
 
-function AddModuleContent(){
+function EditModuleContent(){
     return(
         <>
             <main className="px-md-4 wrapper2">
                 <div style={{marginTop: '-5rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h4 style={{marginTop:'2rem'}}><p><Link className="return-home" style={{textDecoration: 'none'}} to='/adminmodulepage'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span>Add Modules</span></p></h4>
+                <h4 style={{marginTop:'2rem'}}><p><Link className="return-home" style={{textDecoration: 'none'}} to='/adminmodulepage'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span>Edit Modules</span></p></h4>
                 </div>
 
                     <div class="single-pro-review-area mt-t-30 mg-b-15 mt-40">
@@ -16,7 +16,7 @@ function AddModuleContent(){
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="product-payment-inner-st">
-                                        <div><p className="mt-3 mb-4" style={{fontSize:'1.3rem', fontStyle:'bold', fontWeight:'550'}}>Add Module</p></div>
+                                        <div><p className="mt-3 mb-4" style={{fontSize:'1.3rem', fontStyle:'bold', fontWeight:'550'}}>Edit Module</p></div>
                                         <div id="myTabContent" class="tab-content custom-product-edit">
                                             <div class="product-tab-list">
                                                 <div class="row">
@@ -57,4 +57,4 @@ function AddModuleContent(){
     )
 }
 
-export default AddModuleContent;
+export default EditModuleContent;

@@ -3,8 +3,27 @@ import Modules from '../components/Modules';
 import Footer from '../components/Footer';
 import "../App.css";
 import modData from './modules.json'
+import { useState, useEffect } from "react";
+import axios from "axios";
+import {API} from '../config'
+
+
 
 function HomeContent (){
+  // const getAllModuls = () => API.get(`/modul`)
+    const [modul, setModul] = useState([]);
+  
+  useEffect(() => {
+    axios
+      .get(`${API}/signup`)
+      .then(({ data }) => {
+        setModul(data);
+        console.log(data)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }, []);
     return(
         <>
             <main className="px-md-4 wrapper2">

@@ -2,7 +2,7 @@ import React from "react";
 import "../admin.css";
 import Footer from '../components/Footer'
 
-function AddClientsContent(){
+function EditClientContent(){
     return(
         <>
             <main className="px-md-4 wrapper2 dashboard-pages">
@@ -23,7 +23,7 @@ function AddClientsContent(){
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 mobile-menu-links">
                                             <ul class="breadcome-menu">
                                                 <li><a style={{fontSize:'1rem', color:'#4ab2cc'}} href="admindashboard">Dashboard /</a></li>
-                                                <li style={{fontSize:'1rem', color:'gray'}}><span class="bread-blod">Edit Services</span></li>
+                                                <li style={{fontSize:'1rem', color:'gray'}}><span class="bread-blod">Edit Clients</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -37,7 +37,7 @@ function AddClientsContent(){
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="product-payment-inner-st">
-                                        <div><p className="mt-3 mb-4" style={{fontSize:'1.3rem', color:'gray', fontStyle:'bold', fontWeight:'550'}}>Edit service data</p></div>
+                                        <div><p className="mt-3 mb-4" style={{fontSize:'1.3rem', color:'gray', fontStyle:'bold', fontWeight:'550'}}>Edit Client Info</p></div>
                                         <div id="myTabContent" class="tab-content custom-product-edit">
                                             <div class="product-tab-list">
                                                 <div class="row">
@@ -50,7 +50,7 @@ function AddClientsContent(){
                                                                             <input type="text" class="form-control"/>
                                                                         </div>
                                                                         <div class="form-group">
-                                                               n             <input type="number" class="form-control"/>
+                                                                            <input type="number" class="form-control"/>
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <input type="password" class="form-control"/>
@@ -79,4 +79,4 @@ function AddClientsContent(){
     )
 }
 
-export default AddClientsContent;
+export default EditClientContent;

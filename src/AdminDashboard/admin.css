@@ -1138,6 +1138,33 @@ ul.country-state{
      background:#3363ad;
 }
 
+.servicee{
+    margin-bottom: -2.5rem;
+}
+
+.editService{
+    margin-left: -1.5rem;
+}
+@media screen and (max-width: 576px){
+    .editService{
+        margin-left: -2.5rem;
+    }
+ }
+@media screen and (max-width: 991px){
+    .editService{
+         margin-top: -.4rem;
+    }
+    .servicee{
+        margin-bottom: -.5rem;
+    }
+ }
+@media screen and (min-width: 992px){
+    .editService{
+         margin-top: 2rem;
+    }
+ }
+
+
 
 
 

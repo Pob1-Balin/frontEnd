@@ -2,13 +2,6 @@ import React from "react";
 import "../admin.css";
 import Footer from '../components/Footer'
 
-
-
-
-
-
-
-
 function HomepageContent (){
     return(
         <>
@@ -79,7 +72,7 @@ function HomepageContent (){
                                 </div>
                             </div>
                         </div>
-                    </div> 
+                    </div>
                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" style={{marginTop:'1.2rem', marginRight:'-1.5rem'}}>
                         <div class="analytics-sparkle-line table-mg-t-pro dk-res-t-pro-30">
                             <div class="analytics-content">
@@ -115,15 +108,13 @@ function HomepageContent (){
                                                         <p>All Earnings are in million $</p>
                                                     </div>
                                                 </div>
+
+
+                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                              
+                                                </div>
                                             </div>
                                         </div>
-
-                                      
-
-
-
-
-                                        
                                     </div>
                                 </div>
 

@@ -39,6 +39,7 @@ import EditResourcesContent from './AAModules/pages/ResourcesPage';
 import EditResourcesContentForm from './AAModules/pages/EditRourcePage';
 import AddClientsPage from './AdminDashboard/pages/AddClientsPage';
 import ServicePage from './AdminDashboard/pages/ServicesPage';
+import EditClientPage from './AdminDashboard/pages/EditClientPage';
 import LoginPage from './AdminDashboard/pages/LoginPage';
 import SignUpPage from './AdminDashboard/pages/SignUpPage';
 import EditServicePage from './AdminDashboard/pages/EditServicePage';
@@ -92,6 +93,7 @@ function Navigation (){
                  <Route path='/addunite' exact element={<AddUnitePage />}/>
                  <Route path='/editmodule' exact element={<EditModulePage/>}/>
                  <Route path='/editunite' exact element={<EditeUnitPage/>}/>
+                 <Route path='/editclient' exact element={<EditClientPage/>}/>
             </Routes>
         </BrowserRouter>
     )

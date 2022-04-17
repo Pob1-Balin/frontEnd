@@ -17,10 +17,10 @@ function HomeContent (){
                 </Link>
                 </div>
                 <div className="wrapper">
-                     <Modules image="./images/Module1.png" module_name="MODULE 1" title="Panorama de la SSI" module_page="/module1"/>
-                     <Modules image="./images/Module2.png" module_name="MODULE 2" title="Sécurité de l’authentification" module_page="/module2"/>
-                     <Modules image="./images/Module3.png" module_name="MODULE 3" title="Sécurité sur Internet" module_page="/module3"/>
-                     <Modules image="./images/Module4.png" module_name="MODULE 4" title="Sécurité du poste de travail et nomadisme" module_page="/module4"/>
+                     <Modules image="./images/Module1.png" module_name="MODULE 1" title="Panorama de la SSI" module_page="/editmodule1"/>
+                     <Modules image="./images/Module2.png" module_name="MODULE 2" title="Sécurité de l’authentification" module_page="/editmodule2"/>
+                     <Modules image="./images/Module3.png" module_name="MODULE 3" title="Sécurité sur Internet" module_page="/editmodule3"/>
+                     <Modules image="./images/Module4.png" module_name="MODULE 4" title="Sécurité du poste de travail et nomadisme" module_page="/editmodule4"/>
                 </div>
 
                 <Footer />

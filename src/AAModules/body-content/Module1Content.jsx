@@ -9,8 +9,8 @@ function Module1Content (){
         <>
             <main className="px-md-4 wrapper2">
             <div style={{marginTop: '-5rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                <h4 style={{marginTop:'2rem'}}><p><Link className="return-home" style={{textDecoration: 'none'}} to='/adminmodulepage'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span>Module1</span></p></h4>
-                <Link className="return-home" style={{textDecoration: 'none'}} to='/addmodule'>
+                <h4 style={{marginTop:'2rem'}}><p><Link className="return-home" style={{textDecoration: 'none'}} to='/adminmodulepage'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span>Module 1: Panorama de la SSI</span></p></h4>
+                <Link className="return-home" style={{textDecoration: 'none'}} to='/addunite'>
                      <div>
                          <button className="add-buttons">Add Unites</button>
                      </div>

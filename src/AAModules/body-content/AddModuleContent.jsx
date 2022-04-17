@@ -90,14 +90,14 @@ function AddModuleContent(){
                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div className="product-payment-inner-st">
                                         <div><p className="mt-3 mb-4" style={{fontSize:'1.3rem', fontStyle:'bold', fontWeight:'550'}}>Add Module</p></div>
-                                        <div id="myTabContent" className="tab-content custom-product-edit">
-                                            <div className="product-tab-list">
-                                                <div className="row">
-                                                    <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                        <div className="review-content-section">
-                                                            <div className="row">
-                                                                <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                                    <div className="devit-card-custom">
+                                        <div id="myTabContent" class="tab-content custom-product-edit">
+                                            <div class="product-tab-list">
+                                                <div class="row">
+                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <div class="review-content-section">
+                                                            <div class="row">
+                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                <div className="devit-card-custom">
                                                                         
                                                                         <div className="form-group">
                                                                             <input onChange={handleChange} type="text" className="form-control" placeholder="Enter module userID" name="userID" value={values.userID}/>

@@ -278,6 +278,15 @@ h1, h2, h3, h4, h5, h6 {
 .product-status-wrap img {
     width: 60px;
 }
+
+.pd-setting{
+    border: none;
+    color: #fff;
+    padding: 5px 15px;
+    font-size: 15px;
+    border-radius: 3px;
+	outline:none;
+}
 .product-status-wrap .pd-setting {
     border: none;
     color: #fff;
@@ -576,9 +585,7 @@ button.pd-setting-ed {
 
 
  /*================================= Profile =====================================*/
-.second-nav{
-  width: 100%;
-}
+
 
 
  .analysis-progrebar-ctn .progress {
@@ -1130,6 +1137,33 @@ ul.country-state{
 .product-buttons button.block{
      background:#3363ad;
 }
+
+.servicee{
+    margin-bottom: -2.5rem;
+}
+
+.editService{
+    margin-left: -1.5rem;
+}
+@media screen and (max-width: 576px){
+    .editService{
+        margin-left: -2.5rem;
+    }
+ }
+@media screen and (max-width: 991px){
+    .editService{
+         margin-top: -.4rem;
+    }
+    .servicee{
+        margin-bottom: -.5rem;
+    }
+ }
+@media screen and (min-width: 992px){
+    .editService{
+         margin-top: 2rem;
+    }
+ }
+
 
 
 

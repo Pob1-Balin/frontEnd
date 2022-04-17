@@ -27,17 +27,24 @@ import ProfilePage from './AdminDashboard/pages/ProfilePage';
 import ClientsPage from './AdminDashboard/pages/ClientsPage';
 import AdminHomePagee from './AAModules/pages/HomePage';
 import AddModulePage from './AAModules/pages/AddModulePage';
+import AddUnitePage from './AAModules/pages/AddUnitePage';
 import EditModule1Content from './AAModules/pages/Module1Page';
+import EditModule2Content from './AAModules/pages/Module2Page';
+import EditModule3Content from './AAModules/pages/Module3Page';
+import EditModule4Content from './AAModules/pages/Module4Page';
+import EditModulePage from './AAModules/pages/EditModulePage';
 import EditLegalNoticePage from './AAModules/pages/LegalNoticePage';
 import EditNoticePage from './AAModules/pages/EditNoticePage';
 import EditResourcesContent from './AAModules/pages/ResourcesPage';
 import EditResourcesContentForm from './AAModules/pages/EditRourcePage';
 import AddClientsPage from './AdminDashboard/pages/AddClientsPage';
 import ServicePage from './AdminDashboard/pages/ServicesPage';
+import EditClientPage from './AdminDashboard/pages/EditClientPage';
 import LoginPage from './AdminDashboard/pages/LoginPage';
 import SignUpPage from './AdminDashboard/pages/SignUpPage';
 import EditServicePage from './AdminDashboard/pages/EditServicePage';
 import SpecificClientPage from './AdminDashboard/pages/SpecificClientPage';
+import EditeUnitPage from './AAModules/pages/EditeUnitPage';
 
 function Navigation (){
     return(
@@ -69,6 +76,9 @@ function Navigation (){
                  <Route path='/adminmodulepage' exact element={<AdminHomePagee />}/>
                  <Route path='/addmodule' exact element={<AddModulePage />}/>
                  <Route path='/editmodule1' exact element={<EditModule1Content />}/>
+                 <Route path='/editmodule2' exact element={<EditModule2Content />}/>
+                 <Route path='/editmodule3' exact element={<EditModule3Content />}/>
+                 <Route path='/editmodule4' exact element={<EditModule4Content />}/>
                  <Route path='/editlegalnotice' exact element={<EditLegalNoticePage />}/>
                  <Route path='/legalnoticeedit' exact element={<EditNoticePage />}/>
                  <Route path='/editresources' exact element={<EditResourcesContent />}/>
@@ -80,6 +90,10 @@ function Navigation (){
                  <Route path='/signup' exact element={<SignUpPage />}/>
                  <Route path='/editservice' exact element={<EditServicePage />}/>
                  <Route path='/specificclient' exact element={<SpecificClientPage />}/>
+                 <Route path='/addunite' exact element={<AddUnitePage />}/>
+                 <Route path='/editmodule' exact element={<EditModulePage/>}/>
+                 <Route path='/editunite' exact element={<EditeUnitPage/>}/>
+                 <Route path='/editclient' exact element={<EditClientPage/>}/>
             </Routes>
         </BrowserRouter>
     )

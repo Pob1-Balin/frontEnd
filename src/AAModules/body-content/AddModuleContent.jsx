@@ -15,9 +15,7 @@ function AddModuleContent(){
         score: '',
         country: '',
         image:'',
-        hashed_password:'',
-
-        
+        hashed_password:'', 
     })
 
 
@@ -33,22 +31,7 @@ function AddModuleContent(){
     }
 
     const submitModule = (moduleInfo) => {
-        // console.log(name, title, serviceID, modID, moduleID)
-
-
-        // fetch(`${API}/signup`, {
-        //     method: "POST",
-        //     Headers: {
-        //         Accept: 'application/json',
-        //         "Content-Type": "application/json"
-        //     },
-        //     body: JSON.stringify(moduleInfo)
-        // })
-        // .then(res=>res.json())
         
-        // .catch( err => {
-        //     console.log(err)
-        // })
 
         axios.post(`${API}/modul`, moduleInfo)
             .then(res => {

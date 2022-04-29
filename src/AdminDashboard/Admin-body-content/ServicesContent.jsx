@@ -7,7 +7,7 @@ function ServicesContent(){
     return(
         <>
             <main className="px-md-4 wrapper2 dashboard-pages">
-                 <div class="breadcome-area clients-breadcome-area">
+                 <div class="breadcome-area clients-breadcome-area addservice-bread">
                      <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -35,21 +35,63 @@ function ServicesContent(){
                  </div>
 
 
+
+
+                 <div class="product-status mg-b-15 clients-product-status addservice">
+                     <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="product-status-wrap drp-lst" style={{background:'#f6f8fa'}}>
+                                    <div class="add-product">
+                                         <h4 style={{color:'gray'}}></h4>
+                                         <a style={{background:'#4ab2cc'}} href="addservice">Add Services</a>
+                                     </div>
+                                    <div class="asset-inner">
+
+
+
+                                    
+
+
+
+
+
+
+
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                  <div class="services-area">
                      <div class="container-fluid services">
                      <div class="row mg-b-15">
-                     <div class="row">
-                     <div class="row">
-                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                 
-                                     </div>
-                                     <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                      <Link to="/addservice"><button class="mt-15 btn waves-effect waves-light pd-setting btn-info">Add Services</button></Link>
-                                   </div>
-                                </div>
-                        </div>
-
-
                         <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                             <div class="courses-inner mg-t-30">
                                 <div class="courses-title">
@@ -215,11 +257,10 @@ function ServicesContent(){
                                 </div>
                             </div>
                         </div>
+
                      </div>
                      </div>
                  </div>
-                
-         
                  <Footer/>
             </main>
 

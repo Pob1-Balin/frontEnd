@@ -15,11 +15,22 @@
      margin-top: -5rem;
      padding-top: .5rem;
      text-align: center;
+     width: 150%;
  }
 
+ @media screen and (min-width: 401px){
+    .logoutcontainer{
+        margin-right: 1rem;
+    }
+ }
  @media screen and (min-width: 992px){
-    .headerBottom{
+    .logoutcontainer{
         display: none;
+    }
+ }
+ @media screen and (min-width: 576px){
+    .headerBottom{
+        width: 100000%;
     }
  }
 
@@ -159,6 +170,11 @@ ul.breadcome-menu li a:hover{
         margin-right: -2.5rem;
     }
  }
+
+ .home-page-breadcome-area{
+
+ }
+
 
 
  /*======================================= clients ======================================*/
@@ -410,6 +426,10 @@ button.pd-setting-ed {
      padding-right: 16px;
      padding-left: 16px;
  }
+ .clients-breadcome-area, .home-page-breadcome-area{
+     margin-top: -3.5rem;
+ }
+
  @media screen and (max-width: 995px){
     .clients-product-status{
          margin-right: -3.5rem;
@@ -1158,11 +1178,26 @@ ul.country-state{
         margin-bottom: -.5rem;
     }
  }
+
 @media screen and (min-width: 992px){
     .editService{
          margin-top: 2rem;
     }
  }
+
+ .addservice{
+    margin-bottom: 1.2rem;
+    margin-top: -1.5rem;
+}
+
+.addservice-bread{
+    margin-top: -4rem;
+}
+
+
+
+
+
 
 
 

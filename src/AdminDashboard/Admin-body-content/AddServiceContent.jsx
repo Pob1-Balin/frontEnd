@@ -104,20 +104,27 @@ function AddServiceContent(){
                                                             <div class="row">
                                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                     <div class="devit-card-custom">
+
+                                                                       <div class="form-group">
+                                                                            <input onChange={handleChange} type="text" class="form-control" placeholder="service id" name="service_id" value={values.dashboard_id}/>
+                                                                        </div>
+                                                                       <div class="form-group">
+                                                                            <input onChange={handleChange} type="text" class="form-control" placeholder="dashborad id" name="dashboard_id" value={values.dashboard_id}/>
+                                                                        </div>
                                                                         <div class="form-group">
                                                                             <input onChange={handleChange} type="text" class="form-control" placeholder="Enter service name" name="service_name" value={values.service_name}/>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <input onChange={handleChange} type="text" class="form-control" placeholder="Enter short description of service" name="short_description" value={values.short_description}/>
-                                                                        </div>
-                                                                        <div class="form-group">
-                                                                            <input onChange={handleChange} type="text" class="form-control" placeholder="dashborad id" name="dashboard_id" value={values.dashboard_id}/>
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <input onChange={handleChange} type="text" class="form-control" placeholder="service amount" name="service_amount" value={values.service_amount}/>
                                                                         </div>
                                                                         <div class="form-group">
                                                                             <input onChange={handleChange} type="text" class="form-control" placeholder="num of sub" name="number_of_subscribers" value={values.number_of_subscribers}/>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                            <input onChange={handleChange} type="text" class="form-control" placeholder="Enter short description of service" name="short_description" value={values.short_description}/>
+                                                                        </div>
+                                                                        <div class="form-group">
+                                                                             <input type="file" class="form-control" onchange="document.getElementById('prepend-big-btn').value = this.value;"/>
                                                                         </div>
                                                                         <button onClick={clickAddService} href="#!" class="mt-15 btn waves-effect waves-light pd-setting btn-info">Submit</button>
                                                                     </div>

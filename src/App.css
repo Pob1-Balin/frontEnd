@@ -503,7 +503,7 @@ a{
 }
 
 .Legalmoticepage{
-     background-image: url('../public/images/bg_anssi.jpg');
+     background-image: url('');
      margin: 0;
 }
 
@@ -689,7 +689,8 @@ a{
     }
  }
 
-.carousel_card_body{
+.carousel_card_
+{
     background: gray;
     height: 8rem;
     margin-top: 1rem;
@@ -869,3 +870,10 @@ a{
  margin-top: -1.4rem;
  margin-left: -3rem;
 }
+
+@media screen and (max-width: 872px){
+    .module-resizing{
+         margin-top: -2.7rem;
+    }
+}
+

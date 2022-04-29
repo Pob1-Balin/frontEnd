@@ -7,7 +7,7 @@ import { Button } from 'react-bootstrap';
 function UnitsCard(props){
     return(
         <>
-           <div className="card">
+           <div data-aos={props.aoss} data-aos-offset="400" className="card">
                  <img className="card_image" src={props.image} />
                  <div className="card_body">
                      <h3 className="card_module">{props.module_name}</h3>

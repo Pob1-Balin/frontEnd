@@ -5,6 +5,7 @@ import HomeIcon from '@mui/icons-material/Home';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import './Admindashboardsidebar.css'
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
 function AdminDashboardSidebar() {
     return (
@@ -39,7 +40,7 @@ function AdminDashboardSidebar() {
         <h2 className='text-black mx-auto d-lg-none pt-2 '><img src={logo} width={70} height={70}/></h2>
         <div className="topbar-right">
         </div>
-            <div class="header-right-info mr-4 headerTop">
+        <div class="header-right-info mr-4 headerTop">
                 <ul class="nav navbar-nav mai-top-nav header-right-menu">
                     <li class="nav-item">
                                 <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link">
@@ -55,17 +56,12 @@ function AdminDashboardSidebar() {
                         </ul>
                     </li>
                 </ul>
-            </div>
-    </header>
-
-
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 header-right-info mr-4 headerBottom" style={{marginTop:'4rem',width:'100%', height:'14vh', background:'#31aed0', textColor:'white'}}>
-    <ul class="nav navbar-nav mai-top-nav header-right-menu text-white mx-auto d-lg-none pt-2  px-3">
+        </div>
+        <div class="header-right-info logoutcontainer">
+        <ul class="nav navbar-nav mai-top-nav header-right-menu text-white mx-auto d-lg-none pt-2  px-3">
         <li class="nav-item">
                     <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link">
-                    <img src="./images/logo.jpg" alt="" />
-                    <span style={{color:'white'}} class="admin-name">Mr Baron</span>
-                    <i style={{color:'white'}} class="fa fa-angle-down edu-icon edu-down-arrow admin-profile-arrow"></i>
+                    <ExitToAppIcon className='logoutIcon' />
                 </a>
             <ul role="menu menu2" class="dropdown-header-top author-log dropdown-menu animated zoomIn" style={{marginLeft:'40%'}}>
                 <li><a href="/adminprofile"><span class="edu-icon edu-user-rounded author-log-ic"></span>My Profile</a>
@@ -77,7 +73,11 @@ function AdminDashboardSidebar() {
     </ul>
    </div>
 
- 
+
+
+
+    </header>
+
       </>
     )
   }

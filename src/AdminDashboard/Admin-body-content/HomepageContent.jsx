@@ -6,7 +6,7 @@ function HomepageContent (){
     return(
         <>
             <main className="px-md-4 wrapper2 dashboard-pages">
-                 <div class="breadcome-area">
+                 <div class="breadcome-area home-page-breadcome-area">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">

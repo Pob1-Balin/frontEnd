@@ -80,7 +80,7 @@ function AddServiceContent(){
                                         <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 mobile-menu-links">
                                             <ul class="breadcome-menu">
                                                 <li><a style={{fontSize:'1rem', color:'#4ab2cc'}} href="admindashboard">Dashboard /</a></li>
-                                                <li style={{fontSize:'1rem', color:'gray'}}><span class="bread-blod">Edit Services</span></li>
+                                                <li style={{fontSize:'1rem', color:'gray'}}><span class="bread-blod">Add Services</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -95,7 +95,7 @@ function AddServiceContent(){
                             <div class="row">
                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div class="product-payment-inner-st">
-                                        <div><p className="mt-3 mb-4" style={{fontSize:'1.3rem', color:'gray', fontStyle:'bold', fontWeight:'550'}}>Edit Service Data</p></div>
+                                        <div><p className="mt-3 mb-4" style={{fontSize:'1.3rem', color:'gray', fontStyle:'bold', fontWeight:'550'}}>Add Service</p></div>
                                         <div id="myTabContent" class="tab-content custom-product-edit">
                                             <div class="product-tab-list">
                                                 <div class="row">

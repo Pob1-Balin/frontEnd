@@ -44,6 +44,7 @@ import LoginPage from './AdminDashboard/pages/LoginPage';
 import SignUpPage from './AdminDashboard/pages/SignUpPage';
 import EditServicePage from './AdminDashboard/pages/EditServicePage';
 import SpecificClientPage from './AdminDashboard/pages/SpecificClientPage';
+import AddServicePage from './AdminDashboard/pages/AddServicePage';
 import EditeUnitPage from './AAModules/pages/EditeUnitPage';
 
 function Navigation (){
@@ -94,6 +95,7 @@ function Navigation (){
                  <Route path='/editmodule' exact element={<EditModulePage/>}/>
                  <Route path='/editunite' exact element={<EditeUnitPage/>}/>
                  <Route path='/editclient' exact element={<EditClientPage/>}/>
+                 <Route path='/addservice' exact element={<AddServicePage/>}/>
             </Routes>
         </BrowserRouter>
     )

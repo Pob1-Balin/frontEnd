@@ -529,7 +529,7 @@ a{
 }
 
 .Legalmoticepage{
-     background-image: url('../../public/images/bg_anssi.jpg');
+     background-image: url('/images/bg_anssi.jpg');
      margin: 0;
 }
 

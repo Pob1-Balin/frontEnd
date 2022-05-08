@@ -1,6 +1,7 @@
 import { Form } from "formik";
 import React from "react";
 import "../admin.css";
+import {useLocation} from 'react-router-dom';
 function SignUpContent(){
     return(
         <>

@@ -2,19 +2,22 @@ import React from "react";
 import "../admin.css";
 import Footer from '../components/Footer'
 import {API} from '../../config'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useState } from 'react';
 import axios from 'axios';
 
 function AddServiceContent(){
+    const location = useLocation()
+    var servOldInfo = location.state
+    console.log(servOldInfo)
     const navigate = useNavigate();
 
     const [values, setValues] = useState({
-        dashboard_id:'',
-        service_name: '',
-        service_amount: '',
-        number_of_subscribers: '',
-        short_description: '',
+        dashboard_id: servOldInfo.dashboard_id,
+        service_name: servOldInfo.service_name,
+        service_amount: servOldInfo.service_amount,
+        number_of_subscribers: servOldInfo.number_of_subscribers,
+        short_description: servOldInfo.short_description
     })
 
 
@@ -27,9 +30,9 @@ function AddServiceContent(){
             [event.target.name]: event.target.value
         })
     }
-
+    const id = servOldInfo.id;
     const submitService = (serviceInfo) => {
-            axios.post(`${API}/services/add/`, serviceInfo)
+            axios.put(`${API}/services/${id}`, serviceInfo)
             .then(res => {
                 alert(res)
                 // if (res.status === 200)

@@ -13,6 +13,7 @@ function AddServiceContent(){
     const navigate = useNavigate();
 
     const [values, setValues] = useState({
+        service_id: servOldInfo.service_id,
         dashboard_id: servOldInfo.dashboard_id,
         service_name: servOldInfo.service_name,
         service_amount: servOldInfo.service_amount,
@@ -49,8 +50,9 @@ function AddServiceContent(){
 
     const clickAddService = (event)=>{
         event.preventDefault();
-        const { dashboard_id, service_name, service_amount, number_of_subscribers, short_description} = values;
+        const { service_id, dashboard_id, service_name, service_amount, number_of_subscribers, short_description} = values;
         submitService({
+            service_id, 
             dashboard_id,
             service_name,
             service_amount,
@@ -108,8 +110,8 @@ function AddServiceContent(){
                                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                     <div class="devit-card-custom">
 
-                                                                       <div class="form-group">
-                                                                            <input onChange={handleChange} type="text" class="form-control" placeholder="service id" name="service_id" value={values.dashboard_id}/>
+                                                                    <div class="form-group">
+                                                                            <input onChange={handleChange} type="text" class="form-control" placeholder="service id" name="service_id" value={values.service_id}/>
                                                                         </div>
                                                                        <div class="form-group">
                                                                             <input onChange={handleChange} type="text" class="form-control" placeholder="dashborad id" name="dashboard_id" value={values.dashboard_id}/>

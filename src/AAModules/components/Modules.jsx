@@ -9,6 +9,8 @@ import useFetch from './useFetch';
 
 function Modules(props){
   const id = props.id;
+  const modulID = props.id;
+  const name = props.id;
   console.log(id)
   const deleteModule = () => {
     axios
@@ -29,10 +31,10 @@ function Modules(props){
                  <img className="card_image" src={props.image}/>
                  <div className="card_body">
                      <h3 className="card_module">{props.module_name}</h3>
-                     <h2 className="card_title">{props._id}</h2>
+                     <h2 className="card_title">{props.title}</h2>
 
                      {/*-- Modal =====*/}
-                     {/* <div class="modal fade" id="del" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                     <div class="modal fade" id="del" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                   <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                       <div class="modal-header">
@@ -46,14 +48,14 @@ function Modules(props){
                                       </div>
                                       <div class="modal-footer">
                                         <form action="php-code.php" method="POST">
-                                            <input type="hidden" name="service_id" value="<?php echo $row['service_id']; ?>"/>
+                                            <input type="hidden" name="service_id" value=""/>
                                              <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Close</button>
-                                             <button type="submit" name="delete_service" class="btn btn-info">Yes</button>
+                                             <button type="submit" name="delete_service" class="btn btn-info" onClick={deleteModule}>Yes</button>
                                         </form>
                                       </div>
                                     </div>
                                   </div>
-                     </div> */}
+                     </div>
 
                      {/*-- Modal =====*/}
                      <div class="modal fade" id="bl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -82,7 +84,7 @@ function Modules(props){
                      <div class="product-buttons" style={{marginTop:'1.5rem', marginBottom:"-.5rem"}}>
                          <Link to='/editmodule' style={{textDecoration:'none'}} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
                          <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Disable</button>
-                         <button type="button" class="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target="#del" onClick={deleteModule} >Delete</button>
+                         <button type="button" class="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target="#del"  >Delete</button>
                      </div>
                      <Link to={props.module_page} style={{textDecoration: "none"}}>
                         <div className='module_units_button' style={{marginTop: "1.8rem", marginBottom: '-1.5rem'}}>

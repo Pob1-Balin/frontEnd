@@ -1,12 +1,13 @@
 import React from "react";
 import Footer from '../components/Footer';
 import "../AdminApp.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import {API} from '../../config'
 import { useState } from 'react';
 import axios from 'axios';
 
 function AddModuleContent(){
+    const navigate = useNavigate();
     const [values, setValues] = useState({
         moduleID:'',
         name:'',
@@ -57,6 +58,7 @@ function AddModuleContent(){
             score: score,
             image: image
         })
+        navigate('/adminmodulepage');
     }
     return(
         <>
@@ -95,6 +97,9 @@ function AddModuleContent(){
                                                                         <div className="form-group">
                                                                             <input onChange={handleChange} type="number" className="form-control" placeholder="score" name="score" value={values.score}/>
                                                                         </div>
+                                                                        <div className="form-group">
+                                                                                <input onChange={handleChange} type="text" className="form-control" placeholder="Country" name="country" value={values.country}/>
+                                                                            </div>
                                                                         <div className="form-group">
                                                                             <input onChange={handleChange} type="text" className="form-control" placeholder="image" name="image" value={values.image}/>
                                                                         </div>

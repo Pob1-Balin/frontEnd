@@ -41,7 +41,7 @@ function HomeContent (){
                      <Modules image="./images/Module3.png" module_name="MODULE 3" title="Sécurité sur Internet" module_page="/editmodule3"/>
                      <Modules image="./images/Module4.png" module_name="MODULE 4" title="Sécurité du poste de travail et nomadisme" module_page="/editmodule4"/> */}
 
-                    {modul.map((module) => <Modules id={module._id} modulID={module.modulID} image={module.image} module_name={module.name} title={module.title} module_page={module.score} score={module.score} timePassed={module.timePassed}/>)}
+                    {modul.map((module) => <Modules id={module._id} modulID={module.moduleID} image={module.image} module_name={module.name} title={module.title} module_page={module.score} score={module.score} timePassed={module.timePassed}/>)}
                     {/* {modul.map((mod)=>{
                       console.log(mod._id)
                     })} */}

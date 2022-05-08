@@ -161,7 +161,7 @@ ul.breadcome-menu li a:hover{
         margin-top: -5rem;
     }
  }
-@media screen and (max-width: 576px){
+@media screen and (max-width: 577px){
     .mobile-menu-links{
          display: none;
     }
@@ -171,9 +171,7 @@ ul.breadcome-menu li a:hover{
     }
  }
 
- .home-page-breadcome-area{
 
- }
 
 
 
@@ -390,11 +388,6 @@ button.pd-setting-ed {
     }
  }
 
-@media screen and (min-width: 992px){
-    .add-clients-footer{
-        margin-left: -5rem;
-    }
- }
  .add-clients-page{
     margin-right: -1.5rem;
 }
@@ -426,8 +419,9 @@ button.pd-setting-ed {
      padding-right: 16px;
      padding-left: 16px;
  }
+
  .clients-breadcome-area, .home-page-breadcome-area{
-     margin-top: -3.5rem;
+     margin-top: -4.5rem;
  }
 
  @media screen and (max-width: 995px){
@@ -448,6 +442,26 @@ button.pd-setting-ed {
         margin-top: 2rem;
     }
  }
+ @media screen and (max-width: 991px){
+    .home-page-breadcome-area{
+         margin-top: -5rem;
+    }
+    .home-page-breadcome-area{
+        margin-right: -2.6rem;
+    }
+ }
+ @media screen and (max-width: 767px){
+    .home-page-breadcome-area{
+         margin-left: -2.1rem;
+    }
+ }
+
+ @media screen and (max-width: 577px){
+    .home-page-breadcome-area{
+         margin-right: -2.5rem;
+    }
+ }
+
 
 
  /*====================an*/
@@ -591,11 +605,7 @@ button.pd-setting-ed {
 	font-weight:300;
 }
 
-@media screen and (max-width: 996px){
-    .rightMargin{
-         margin-left: .5rem;
-    }
- }
+
 @media screen and (max-width: 996px){
     .dashboard-pages{
          margin-right: -2rem;
@@ -946,22 +956,18 @@ ul.cus-product-sl-rp li i{
         margin-right: -200000rem;
     }
  }
+@media screen and (max-width: 767px){
+    .graph-container{
+        margin-left: -2.2rem;
+    }
+ }
 @media screen and (max-width: 576px){
     .graph-container{
         margin-left: -2.2rem;
     }
  }
 
- .rightMargin{
-    margin-left: -1.5rem;
-    margin-right: -20000rem;
-    margin-top: -1.5rem;
- }
-@media screen and (max-width: 576px){
-    .rightMargin{
-        margin-left: -2.5rem;
-    }
- }
+ 
 
  .country-state .progress{
 	height:4px;
@@ -996,31 +1002,14 @@ ul.country-state{
     }
  }
 
- .rightMargin1{
-    margin-right: -7rem;
-    padding: 0rem;
-}
+
 @media screen and (min-width: 991px){
     .visits2{
          margin-left: -1rem;
          margin-right: -.5rem;
     }
  }
-@media screen and (max-width: 991px){
-    .rightMargin1{
-        margin-right: -6rem;
-    }
- }
-@media screen and (max-width: 767px){
-    .rightMargin1{
-        margin-right: -4rem;
-    }
- }
-@media screen and (max-width: 581px){
-    .rightMargin1{
-        margin-right: -5.7rem;
-    }
- }
+
 
 
 /*=============================== login and sign up ============= */
@@ -1193,6 +1182,25 @@ ul.country-state{
 .addservice-bread{
     margin-top: -4rem;
 }
+
+.homedashbaord{
+    margin-top: -1.8rem;
+     margin-left: -2.5rem;
+     margin-right: -2.5rem;
+}
+
+@media screen and (max-width: 767px){
+    .homedashbaord{
+        margin-left: -3.2rem;
+        margin-right: -3.6rem;
+   }
+ }
+
+
+
+
+
+
 
 
 

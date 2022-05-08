@@ -47,44 +47,12 @@ function ServicesContent(){
                                          <a style={{background:'#4ab2cc'}} href="addservice">Add Services</a>
                                      </div>
                                     <div class="asset-inner">
-
-
-
-                                    
-
-
-
-
-
-
-
-
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                </div> 
 
 
 
@@ -261,7 +229,7 @@ function ServicesContent(){
                      </div>
                      </div>
                  </div>
-                 <Footer/>
+                 <div style={{marginRight:"-1rem"}}><Footer/></div>
             </main>
 
         </>

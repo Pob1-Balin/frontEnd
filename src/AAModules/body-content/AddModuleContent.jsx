@@ -36,7 +36,7 @@ function AddModuleContent(){
         axios.post(`${API}/modul`, moduleInfo)
             .then(res => {
                 if (res.status === 200)
-                alert('user successfully created')
+                alert('Module successfully created')
                 else
                 Promise.reject()
             })

@@ -8,53 +8,28 @@ import { useState, useEffect } from "react";
 import useFetch from './useFetch';
 
 function Modules(props){
-  const id = props._id;
-  // const { moduleID} = props.obj;
-
-  
-  // const {id} = useParams()
-  // const {data: modul, error, isPending} = useFetch(`${API}/modul/:id/remove` + id)
+  const id = props.id;
+  console.log(id)
   const deleteModule = () => {
-    // axios
-    //   .delete(`${API}/modul/:id/remove`)
-    //   .then((res) => {
-    //     // if (res.status === 200) {
-    //     //   alert("Student successfully deleted");
-    //     //   window.location.reload();
-    //     // } else Promise.reject();
-    //   })
-    //   .catch((err) => alert("Something went wrong"));
-    console.log(props._id)
-
     axios
-      .delete(`${API}/modul/:` + id)
+      .delete(`${API}/modul/${id}`)
       .then((res) => {
         if (res.status === 200) {
-          alert("Student successfully deleted");
+          alert("Module successfully deleted");
           window.location.reload();
         } else Promise.reject();
       })
       .catch((err) => alert("Something went wrong"));
   }
-    
 
-//   const {id} = useParams()
-//   const {data: modul, error, isPending} = useFetch(`${API}/modul` + id);
-//   const deleteModule = () => {
-//     fetch(`${API}/modul/:id/remove` + modul.id, {
-//       method: 'DELETE'
-//     }).then()
-// };
-
-
-
+  console.log("These are:",props)
     return(
         <>
            <div className="card">
                  <img className="card_image" src={props.image}/>
                  <div className="card_body">
                      <h3 className="card_module">{props.module_name}</h3>
-                     <h2 className="card_title">{props.title}</h2>
+                     <h2 className="card_title">{props._id}</h2>
 
                      {/*-- Modal =====*/}
                      {/* <div class="modal fade" id="del" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -105,7 +80,7 @@ function Modules(props){
                      </div>
 
                      <div class="product-buttons" style={{marginTop:'1.5rem', marginBottom:"-.5rem"}}>
-                         <Link to='/editmodule' style={{textDecoration:'none'}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
+                         <Link to='/editmodule' style={{textDecoration:'none'}} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
                          <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Disable</button>
                          <button type="button" class="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target="#del" onClick={deleteModule} >Delete</button>
                      </div>

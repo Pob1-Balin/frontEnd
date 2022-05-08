@@ -15,7 +15,7 @@ function Services(props){
           .then((res) => {
             if (res.status === 200) {
               alert("Student successfully deleted");
-              // window.location.reload();
+              window.location.reload();
               console.log(`${API}/service/${id}`)
               navigate('/services')
             } else Promise.reject();
@@ -54,8 +54,8 @@ function Services(props){
                                          Are you sure you want to permanently delete this service?
                                       </div>
                                       <div class="modal-footer">
-                                        <form action="php-code.php" method="POST">
-                                            <input type="hidden" name="service_id" value="<?php echo $row['service_id']; ?>"/>
+                                        <form>
+                                            <input type="hidden" name="service_id" value=""/>
                                              <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Close</button>
                                              <button type="submit" name="delete_service" class="btn btn-info">Yes</button>
                                         </form>

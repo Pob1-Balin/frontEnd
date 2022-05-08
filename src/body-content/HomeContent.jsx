@@ -21,10 +21,10 @@ function HomeContent (){
 
   useEffect(() => {
     axios
-      .get(`${API}/signup`)
+      .get(`${API}/modul`)
       .then(({ data }) => {
-        setModul(data);
-        console.log(data)
+        setModul(data.data);
+        console.log(data.data)
       })
       .catch((error) => {
         console.log(error);
@@ -42,7 +42,8 @@ function HomeContent (){
                 <div className="module-resizing" style={{marginBottom: "1.2rem"}}></div>
 
                 <div className="wrapper">
-                    {modData.map((module) => <Modules image={module.image} module_name={module.moduleName} title={module.title} module_page={module.module_page}/>)}
+                    {/* {modData.map((module) => <Modules image={module.image} module_name={module.moduleName} title={module.title} module_page={module.module_page}/>)} */}
+                    {modul.map((module) => <Modules image={module.image} module_name={module.name} title={module.title} module_page={module.score} score={module.score} timePassed={module.timePassed}/>)}
                 </div>
 
                 <Footer />

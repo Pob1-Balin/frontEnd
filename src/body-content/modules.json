@@ -5,6 +5,8 @@
         "moduleName": "Module 1",
         "title": "Panorama de la SSI",
         "module_page":"/module1",
+        "timePassed": 20,
+        "score": 40,
         "unitInfo":
             [
                 {

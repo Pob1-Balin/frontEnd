@@ -8,20 +8,22 @@ import axios from 'axios';
 
 function AddModuleContent(){
     const [values, setValues] = useState({
-        moduleID:'',
-        name:'',
-        title: '',
-        timePassed: '',
-        score: '',
+        userID:'',
+        firstName:'',
+        lastName: '',
+        email: '',
+        phone: '',
         country: '',
         image:'',
-        hashed_password:'', 
+        hashed_password:'',
+
+        
     })
 
 
     // Destructing so as to be able to send to the backend
 
-    const {moduleID, name, title, timePassed, score, image} = values;
+    const {userID, firstName, lastName, email, phone, country, image, hashed_password} = values;
 
     const handleChange = event => { 
         setValues({
@@ -31,9 +33,24 @@ function AddModuleContent(){
     }
 
     const submitModule = (moduleInfo) => {
-        
+        // console.log(name, title, serviceID, modID, moduleID)
 
-        axios.post(`${API}/modul`, moduleInfo)
+
+        // fetch(`${API}/signup`, {
+        //     method: "POST",
+        //     Headers: {
+        //         Accept: 'application/json',
+        //         "Content-Type": "application/json"
+        //     },
+        //     body: JSON.stringify(moduleInfo)
+        // })
+        // .then(res=>res.json())
+        
+        // .catch( err => {
+        //     console.log(err)
+        // })
+
+        axios.post(`${API}/signup`, moduleInfo)
             .then(res => {
                 if (res.status === 200)
                 alert('user successfully created')
@@ -50,12 +67,14 @@ function AddModuleContent(){
     const clickSubmit = (event)=>{
         event.preventDefault();
         submitModule({
-            moduleID:moduleID,
-            name: name,
-            title: title,
-            timePassed: timePassed,
-            score: score,
-            image: image
+            userID:userID,
+            firstName: firstName,
+            lastName: lastName,
+            email: email,
+            phone: phone,
+            country: country,
+            image: image,
+            hashed_password: hashed_password,
         })
     }
     return(
@@ -71,32 +90,38 @@ function AddModuleContent(){
                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div className="product-payment-inner-st">
                                         <div><p className="mt-3 mb-4" style={{fontSize:'1.3rem', fontStyle:'bold', fontWeight:'550'}}>Add Module</p></div>
-                                        <div id="myTabContent" class="tab-content custom-product-edit">
-                                            <div class="product-tab-list">
-                                                <div class="row">
-                                                    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                        <div class="review-content-section">
-                                                            <div class="row">
-                                                                <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                                <div className="devit-card-custom">
+                                        <div id="myTabContent" className="tab-content custom-product-edit">
+                                            <div className="product-tab-list">
+                                                <div className="row">
+                                                    <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                        <div className="review-content-section">
+                                                            <div className="row">
+                                                                <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                    <div className="devit-card-custom">
                                                                         
                                                                         <div className="form-group">
-                                                                            <input onChange={handleChange} type="text" className="form-control" placeholder="Enter module moduleID" name="moduleID" value={values.moduleID}/>
+                                                                            <input onChange={handleChange} type="text" className="form-control" placeholder="Enter module userID" name="userID" value={values.userID}/>
                                                                         </div>
                                                                         <div className="form-group">
-                                                                            <input onChange={handleChange} type="text" className="form-control" placeholder="Enter module name" name="name" value={values.name}/>
+                                                                            <input onChange={handleChange} type="text" className="form-control" placeholder="Enter module firstName" name="firstName" value={values.firstName}/>
                                                                         </div>
                                                                         <div className="form-group">
-                                                                            <input onChange={handleChange} type="text" className="form-control" placeholder="title" name="title" value={values.title}/>
+                                                                            <input onChange={handleChange} type="text" className="form-control" placeholder="lastName" name="lastName" value={values.lastName}/>
                                                                         </div>
                                                                         <div className="form-group">
-                                                                            <input onChange={handleChange} type="number" className="form-control" placeholder="timePassed" name="timePassed" value={values.timePassed}/>
+                                                                            <input onChange={handleChange} type="number" className="form-control" placeholder="email" name="email" value={values.email}/>
                                                                         </div>
                                                                         <div className="form-group">
-                                                                            <input onChange={handleChange} type="number" className="form-control" placeholder="score" name="score" value={values.score}/>
+                                                                            <input onChange={handleChange} type="text" className="form-control" placeholder="phone" name="phone" value={values.phone}/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input onChange={handleChange} type="text" className="form-control" placeholder="country" name="country" value={values.country}/>
                                                                         </div>
                                                                         <div className="form-group">
                                                                             <input onChange={handleChange} type="text" className="form-control" placeholder="image" name="image" value={values.image}/>
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <input onChange={handleChange} type="text" className="form-control" placeholder="hashed_password" name="hashed_password" value={values.hashed_password}/>
                                                                         </div>
                                                                         <button onClick={clickSubmit} style={{background:'#4ab2cc', color:'white'}} href="#!" className="btn waves-effect waves-light">Submit</button>
                                                                     </div>

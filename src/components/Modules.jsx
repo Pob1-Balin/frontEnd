@@ -13,11 +13,11 @@ function Modules(props){
                      <div style={{marginTop: "1rem"}} className="card_info">
                          <div className="time">
                              <FaRegClock size='.9rem' style={{marginTop: ".2rem"}} color='#0b426a'/>
-                             <div><p className='time_passed'>Temps passé : 00:00:00</p></div>
+                             <div><p className='time_passed'>Temps passé :{props.timePassed}</p></div>
                          </div>
                          <div style={{marginTop: "-.7rem"}} className='score'>
                              <FaStar style={{paddingTop: ".2rem"}} size='1rem' color='#0b426a'/>
-                             <div className='score1'><p className='rating'>Score : 0%</p></div>
+                             <div className='score1'><p className='rating'>Score : {props.score}%</p></div>
                          </div>
                      </div>
 

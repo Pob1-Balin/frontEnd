@@ -1,12 +1,10 @@
 import { Form } from "formik";
 import React from "react";
 import "../admin.css";
-import ParticlesBackground from '../components/ParticlesBackground';
 function LoginContent(){
     return(
         <>
              <main className="">
-             <ParticlesBackground/>
 
              <div class="all-content-wrapper LoginCard">
                         <div class="container-fluid">

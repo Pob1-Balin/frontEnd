@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../admin.css";
 import Footer from '../components/Footer'
+import Chart from '../components/Chart';
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+
+
+
+
 
 function HomepageContent (){
+    useEffect(() => {
+          Aos.init({duration: 2000});
+      }, []);
+
     return(
         <>
             <main className="px-md-4 wrapper2 dashboard-pages">
@@ -33,7 +44,7 @@ function HomepageContent (){
                  
                  <div class="analytics-sparkle-area">
                     
-                 <div class="container-fluid">
+                 <div class="container-fluid" data-aos="zoom-in-down" data-aos-offset="400">
                 <div class="row homedashbaord">
                     <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" style={{marginTop:'1.2rem'}}>
                         <div class="analytics-sparkle-line">
@@ -116,7 +127,7 @@ function HomepageContent (){
 
 
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                              
+                                                  {/* <Chart /> */}
                                                 </div>
                                             </div>
                                         </div>

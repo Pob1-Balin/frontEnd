@@ -13,12 +13,15 @@ function HomeContent() {
   // const getAllModuls = () => API.get(`/modul`)
   const [modul, setModul] = useState([]);
 
+    
   useEffect(() => {
     axios
       .get(`${API}/modul`)
       .then(({ data }) => {
-        setModul(data.data);
-        console.log(data.data)
+        setModul(data.data)
+        const res = data.data
+        console.log(res);
+        setModul(res)
       })
       .catch((error) => {
         console.log(error);
@@ -39,9 +42,9 @@ function HomeContent() {
           {/* <Modules image="./images/Module1.png" module_name="MODULE 1" title="Panorama de la SSI" module_page="/editmodule1"/>
                      <Modules image="./images/Module2.png" module_name="MODULE 2" title="Sécurité de l’authentification" module_page="/editmodule2"/>
                      <Modules image="./images/Module3.png" module_name="MODULE 3" title="Sécurité sur Internet" module_page="/editmodule3"/>
-                     <Modules image="./images/Module4.png" module_name="MODULE 4" title="Sécurité du poste de travail et nomadisme" module_page="/editmodule4"/> */}
+                     <Modules image="./images/ModuleA4.png" module_name="MODULE 4" title="Sécurité du poste de travail et nomadisme" module_page="/editmodule4"/> */}
 
-          {modul.map((module) => <Modules id={module._id} modulID={module.moduleID} image={module.image} module_name={module.name} title={module.title} module_page={module.score} score={module.score} timePassed={module.timePassed} />)}
+          {modul.map((module) => <Modules key={module._id} id={module._id} modulID={module.moduleID} image={module.image} module_name={module.name} title={module.title} module_page={module.score} score={module.score} timePassed={module.timePassed} />)}
           {/* {modul.map((mod)=>{
                       console.log(mod._id)
                     })} */}

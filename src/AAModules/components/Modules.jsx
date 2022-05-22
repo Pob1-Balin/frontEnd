@@ -9,7 +9,6 @@ function Modules(props) {
   const id = props.id;
   const modulID = props.id;
   const name = props.id;
-  console.log(id)
   const deleteModule = () => {
     axios
       .delete(`${API}/modul/${id}`)
@@ -22,7 +21,6 @@ function Modules(props) {
       .catch((err) => alert("Something went wrong"));
   }
 
-  console.log("These are:", props)
   return (
     <>
       <div className="card">
@@ -84,7 +82,7 @@ function Modules(props) {
             <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Disable</button>
             <button type="button" class="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target="#del"  >Delete</button>
           </div>
-          <Link to={props.module_page} style={{ textDecoration: "none" }}>
+          <Link to="/" style={{ textDecoration: "none" }}>
             <div className='module_units_button' style={{ marginTop: "1.8rem", marginBottom: '-1.5rem' }}>
               <FaChevronCircleRight size='1.1rem' style={{ marginTop: '4.5px' }} />
               <p style={{ paddingLeft: ".7rem", paddingTop: ".1rem", fontSize: '.7rem' }}>View Units</p>

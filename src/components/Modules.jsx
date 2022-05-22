@@ -20,8 +20,8 @@ function Modules(props){
                              <div className='score1'><p className='rating'>Score : {props.score}%</p></div>
                          </div>
                      </div>
-
-                     <Link to={props.module_page} style={{textDecoration: "none"}}>
+{/* to={props.module_page} */}
+                     <Link  to={'unit2homepage'} style={{textDecoration: "none"}}>
                         <div className='module_units_button' style={{marginTop: "1.8rem", marginBottom: '-1.5rem'}}>
                              <FaChevronCircleRight size='1.1rem' style={{marginTop: '4.5px'}} />
                              <p style={{paddingLeft: ".7rem", paddingTop: ".1rem", fontSize: '.7rem'}}>View Units</p>

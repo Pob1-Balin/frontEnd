@@ -7,7 +7,9 @@
     padding-left: 10px;
     color: #4ab2cc;
 }
-
+.exitIcon:hover{
+cursor: pointer;
+}
 li:visited{
     color: red;
 }

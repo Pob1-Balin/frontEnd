@@ -4,6 +4,13 @@
      }
  }
 
+ .login video {
+     position: fixed;
+     top: 0;
+     left: 0;
+     object-fit: cover;
+ }
+
  @media screen and (max-width: 767px){
     .dashboard-pages{
         margin-left: 2.2rem;
@@ -107,6 +114,11 @@
 	width: 180px;
 	right: 0px;
 	transition: .5s ease-out;
+}
+
+.form-group:hover{
+    transform: scale(1.1);
+    transition-duration: 0.5s;
 }
 .sr-input-func a {
     position: absolute;
@@ -1045,13 +1057,12 @@ ul.country-state{
     color: gray;
 }
 
-.LoginCard{
-     margin-left: 10%;
-     margin-right: 10%;
+ .LoginCard{
      margin-top: 5rem;
+     margin-left: 34%;
 }
 
-
+/* 
 @media screen and (min-width: 1061px){
     .LoginCard{
          margin-left: 10%;
@@ -1086,7 +1097,7 @@ ul.country-state{
         margin-right: -.5rem;
         margin-top: 1.5rem;
    }
- }
+ } */
 
  @media screen and (min-width: 400px){
     .inner-card-container{

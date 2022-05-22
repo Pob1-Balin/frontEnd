@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom'; 
 import logo from './log.png'
 import HomeIcon from '@mui/icons-material/Home';
@@ -6,12 +6,50 @@ import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { useNavigate } from "react-router-dom";
+import { useCookies } from "react-cookie";
+import axios from "axios";
+import { toast, ToastContainer } from "react-toastify";
 
 import './sidebar.css'
 
 // {HomeIcon, AccountBalanceIcon DocumentScannerIcon, AccountCircleIcon}
 
 function Sidebar() {
+
+    const navigate = useNavigate();
+  const [cookies, setCookie, removeCookie] = useCookies([]);
+  useEffect(() => {
+    const verifyUser = async () => {
+      if (!cookies.jwt) {
+        navigate("/login");
+      } else {
+        const { data } = await axios.post(
+          "http://localhost:8000",
+          {},
+          {
+            withCredentials: true,
+          }
+        );
+        if (!data.status) {
+          removeCookie("jwt");
+          navigate("/login");
+        } else
+          toast(`Hi ${data.user} 🦄`, {
+            theme: "dark",
+          });
+      }
+    };
+    verifyUser();
+  }, [cookies, navigate, removeCookie]);
+
+  const logOut = () => {
+    removeCookie("jwt");
+    navigate("/login");
+  };
+
+
+
     return (
       <>
     <aside className="sidebar sidebar-icons-left sidebar-icons-boxed sidebar-expand-lg sidebar-color-info sider-1 pt-0">
@@ -61,7 +99,8 @@ function Sidebar() {
                     {/* <span className="topbar-btn" data-toggle="dropdown" aria-expanded="false"><h5 className="fs-12"><ExitToAppIcon/> dropdwon<i className="ti ti-angle-down ml-2"></i></h5></span> */}
                     <div className="dropdown-menu dropdown-menu-right" x-placement="bottom-end">
                       {/* <div className="dropdown-divider"></div> */}
-                        <a className="dropdown-item" href="#"><i className="ti-power-off"></i> <ExitToAppIcon/></a>
+                        <ExitToAppIcon className="exitIcon" onClick={logOut} />
+                        
                     </div>
                 </li>
             </ul>
@@ -69,9 +108,11 @@ function Sidebar() {
             {/* <div className="topbar-divider"></div> */}
         </div>
         <div className='d-none d-lg-block logout' style={{marginLeft:'-57%'}}>
-            <ExitToAppIcon/>
+        <button style={{border:"none"}} onClick={logOut} ><ExitToAppIcon /></button>
+            
         </div>
     </header>
+    <ToastContainer/>
       </>
     )
   }

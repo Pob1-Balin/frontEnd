@@ -1,5 +1,5 @@
 import React from "react";
-import BackgroundVideo  from "./cyberzone.mp4";
+// import BackgroundVideo  from "./cyberzone.mp4";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -60,9 +60,8 @@ function LoginContent(){
     return(
         <>
              <main className="login" style={{background:"white"}}>
-                 {/* <BackgroundVideo /> */}
                  <video autoPlay loop muted width="1350">
-                 <source src={BackgroundVideo} type="video/mp4"/>
+                 {/* <source src={BackgroundVideo} type="video/mp4"/> */}
                  </video>
                  <div className="all-content-wrapper LoginCard">
                  <div className="container-fluid">

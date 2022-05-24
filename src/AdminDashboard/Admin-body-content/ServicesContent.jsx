@@ -75,7 +75,7 @@ function ServicesContent(){
 
 
 
-                 <div class="services-area">
+                 <div class="container-fluid services-area">
                      <div class="container-fluid services">
                      <div class="row mg-b-15">
                         
@@ -86,6 +86,7 @@ function ServicesContent(){
                      </div>
                      </div>
                  </div>
+                 
                  <div style={{marginRight:"-1rem"}}><Footer/></div>
             </main>
 

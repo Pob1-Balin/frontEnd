@@ -39,6 +39,11 @@ import SpecificClientPage from './AdminDashboard/pages/SpecificClientPage';
 import AddServicePage from './AdminDashboard/pages/AddServicePage';
 import EditeUnitPage from './AAModules/pages/EditeUnitPage';
 
+
+/*========================= main site pages =======================*/
+import SiteHomePage from './CyberzoneWebsite/pages/SiteHomePage';
+
+
 function Navigation (){
     return(
         <BrowserRouter>
@@ -81,6 +86,10 @@ function Navigation (){
                  <Route path='/editunite' exact element={<EditeUnitPage/>}/>
                  <Route path='/editclient' exact element={<EditClientPage/>}/>
                  <Route path='/addservice' exact element={<AddServicePage/>}/>
+
+                 {/* main site home page */}
+                 <Route path='/mainhomepage' exact element={<SiteHomePage/>}/>
+                
             </Routes>
         </BrowserRouter>
     )

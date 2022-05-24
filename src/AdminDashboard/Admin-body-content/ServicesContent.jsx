@@ -81,7 +81,7 @@ function ServicesContent(){
                         
                         {
                         
-                        service.map(service => <Services id= {service._id} service_id={service.service_id} dashboard_id={service.dashboard_id} service_name={service.service_name} service_amount={service.service_amount} number_of_subscribers={service.number_of_subscribers} short_description={service.short_description}/>)}
+                        service.map(service => <Services key={service._id} id= {service._id} service_id={service.service_id} dashboard_id={service.dashboard_id} service_name={service.service_name} service_amount={service.service_amount} number_of_subscribers={service.number_of_subscribers} short_description={service.short_description}/>)}
                         
                      </div>
                      </div>

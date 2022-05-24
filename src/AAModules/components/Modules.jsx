@@ -4,9 +4,11 @@ import { Link, useParams } from "react-router-dom";
 import { Button } from 'react-bootstrap';
 import axios from "axios";
 import { API } from '../../config'
+import AdminUnits from '../body-content/unitsContent'
 
 function Modules(props) {
   const id = props.id;
+  const link = props.link
   const modulID = props.id;
   const name = props.id;
   const deleteModule = () => {
@@ -82,7 +84,7 @@ function Modules(props) {
             <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Disable</button>
             <button type="button" class="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target="#del"  >Delete</button>
           </div>
-          <Link to="/" style={{ textDecoration: "none" }}>
+          <Link to="/units" style={{ textDecoration: "none" }} state={props.id}>
             <div className='module_units_button' style={{ marginTop: "1.8rem", marginBottom: '-1.5rem' }}>
               <FaChevronCircleRight size='1.1rem' style={{ marginTop: '4.5px' }} />
               <p style={{ paddingLeft: ".7rem", paddingTop: ".1rem", fontSize: '.7rem' }}>View Units</p>

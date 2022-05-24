@@ -38,12 +38,18 @@ import EditServicePage from './AdminDashboard/pages/EditServicePage';
 import SpecificClientPage from './AdminDashboard/pages/SpecificClientPage';
 import AddServicePage from './AdminDashboard/pages/AddServicePage';
 import EditeUnitPage from './AAModules/pages/EditeUnitPage';
+import UnitsPage from './AAModules/pages/AdminUnitsPage'
+import UnitsClientPage from './pages/unitCardPage';
+
+
+import NotFoundPage from './unitsDashboard/pages/notFound';
 
 function Navigation (){
     return(
         <BrowserRouter>
             <Routes>
                  <Route path='/' exact element={<HomePage/>}/>
+                 
                  <Route path='/profile' exact element={<MyProfile/>}/>
                  <Route path='/res' exact element={<ResourcePage/>}/>
                  <Route path='/attest' exact element={<AttestationPage/>}/>
@@ -57,6 +63,8 @@ function Navigation (){
                  <Route path='/findings' exact element={<FindingsPage />}/>
                  <Route path='/unit2homepage' exact element={<Module1_Unit2_Home />}/>
                  <Route path='/unit2threats' exact element={<Module1Unit2ThreatsPage />}/>
+                 <Route path='/unitsclient' exact element={<UnitsClientPage />}/>
+                 
 
                  {/*============================= Admin dashboard =============================*/}
                  <Route path='/admindashboard' exact element={<AdminHomePage />}/>
@@ -64,6 +72,8 @@ function Navigation (){
                  <Route path='/adminprofile' exact element={<ProfilePage />}/>
                  <Route path='/adminmodulepage' exact element={<AdminHomePagee />}/>
                  <Route path='/addmodule' exact element={<AddModulePage />}/>
+
+                 <Route path='/units' exact element={<UnitsPage/>}/>
                  
                  <Route path='/editlegalnotice' exact element={<EditLegalNoticePage />}/>
                  <Route path='/legalnoticeedit' exact element={<EditNoticePage />}/>
@@ -81,6 +91,7 @@ function Navigation (){
                  <Route path='/editunite' exact element={<EditeUnitPage/>}/>
                  <Route path='/editclient' exact element={<EditClientPage/>}/>
                  <Route path='/addservice' exact element={<AddServicePage/>}/>
+                 <Route path='/*' exact element={<NotFoundPage/>}/>
             </Routes>
         </BrowserRouter>
     )

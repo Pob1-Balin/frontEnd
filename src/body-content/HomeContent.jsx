@@ -36,7 +36,7 @@ function HomeContent() {
         <div className="module-resizing" style={{ marginBottom: "1.2rem" }}></div>
 
         <div className="wrapper">
-          {modul.map((module) => <Modules image={module.image} module_name={module.name} title={module.title} module_page={module.score} score={module.score} timePassed={module.timePassed} />)}
+          {modul.map((module) => <Modules key={module._id} id={module._id} image={module.image} module_name={module.name} title={module.title} module_page={module.score} score={module.score} timePassed={module.timePassed} />)}
         </div>
 
         <Footer />

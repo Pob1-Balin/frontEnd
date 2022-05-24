@@ -21,7 +21,7 @@ function Modules(props){
                          </div>
                      </div>
 {/* to={props.module_page} */}
-                     <Link  to={'unit2homepage'} style={{textDecoration: "none"}}>
+                     <Link  to='/unitsclient' style={{textDecoration: "none"}} state={props.id}>
                         <div className='module_units_button' style={{marginTop: "1.8rem", marginBottom: '-1.5rem'}}>
                              <FaChevronCircleRight size='1.1rem' style={{marginTop: '4.5px'}} />
                              <p style={{paddingLeft: ".7rem", paddingTop: ".1rem", fontSize: '.7rem'}}>View Units</p>

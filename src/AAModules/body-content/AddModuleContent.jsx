@@ -1,15 +1,18 @@
 import React from "react";
 import Footer from '../components/Footer';
 import "../AdminApp.css";
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { API } from '../../config'
 import { useState } from 'react';
 import axios from 'axios';
 
 function AddModuleContent() {
+    const location = useLocation();
+    const sID = location.state
     const navigate = useNavigate();
     const [values, setValues] = useState({
         moduleID: '',
+        serviceID: sID,
         name: '',
         title: '',
         timePassed: '',
@@ -22,7 +25,7 @@ function AddModuleContent() {
 
     // Destructing so as to be able to send to the backend
 
-    const { moduleID, name, title, timePassed, score, image } = values;
+    const { moduleID, serviceID, name, title, timePassed, score, image } = values;
 
     const handleChange = event => {
         setValues({
@@ -52,6 +55,7 @@ function AddModuleContent() {
         event.preventDefault();
         submitModule({
             moduleID: moduleID,
+            serviceID: serviceID,
             name: name,
             title: title,
             timePassed: timePassed,

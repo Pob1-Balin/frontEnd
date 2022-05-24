@@ -10,7 +10,6 @@ import {API} from '../../config'
 function ServicesContent(){
 
     const [service, setSevice] = useState([]);
-  
   useEffect(() => {
     axios
       .get(`${API}/service`)
@@ -51,10 +50,6 @@ function ServicesContent(){
                         </div>
                      </div>
                  </div>
-
-
-
-
                  <div class="product-status mg-b-15 clients-product-status addservice">
                      <div class="container-fluid">
                         <div class="row">
@@ -70,23 +65,15 @@ function ServicesContent(){
                             </div>
                         </div>
                     </div>
-                </div> 
-
-
-
-
+                </div>
                  <div class="container-fluid services-area">
                      <div class="container-fluid services">
                      <div class="row mg-b-15">
-                        
                         {
-                        
-                        service.map(service => <Services id= {service._id} service_id={service.service_id} dashboard_id={service.dashboard_id} service_name={service.service_name} service_amount={service.service_amount} number_of_subscribers={service.number_of_subscribers} short_description={service.short_description}/>)}
-                        
+                        service.map(service => <Services key={service._id} id= {service._id} service_id={service.service_id} dashboard_id={service.dashboard_id} service_name={service.service_name} service_amount={service.service_amount} number_of_subscribers={service.number_of_subscribers} short_description={service.short_description}/>)}
                      </div>
                      </div>
                  </div>
-                 
                  <div style={{marginRight:"-1rem"}}><Footer/></div>
             </main>
 

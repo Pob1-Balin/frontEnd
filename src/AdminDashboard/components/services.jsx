@@ -93,7 +93,7 @@ function Services(props) {
 
 
                     <div class="product-buttons">
-                        <Link to='/adminmodulepage' style={{ textDecoration: 'none' }}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">Dashboard</button></Link>
+                        <Link to='/adminmodulepage' style={{ textDecoration: 'none' }} state={id}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">Dashboard</button></Link>
                         <Link to='/editservice' style={{ textDecoration: 'none' }} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
                         <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Block</button>
                         <button type="button" class="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target="#del">Delete</button>

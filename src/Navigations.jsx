@@ -38,6 +38,11 @@ import EditServicePage from './AdminDashboard/pages/EditServicePage';
 import SpecificClientPage from './AdminDashboard/pages/SpecificClientPage';
 import AddServicePage from './AdminDashboard/pages/AddServicePage';
 import EditeUnitPage from './AAModules/pages/EditeUnitPage';
+import UnitsPage from './AAModules/pages/AdminUnitsPage'
+import UnitsClientPage from './pages/unitCardPage';
+
+
+import NotFoundPage from './unitsDashboard/pages/notFound';
 
 
 /*========================= main site pages =======================*/
@@ -62,6 +67,7 @@ function Navigation (){
                  <Route path='/findings' exact element={<FindingsPage />}/>
                  <Route path='/unit2homepage' exact element={<Module1_Unit2_Home />}/>
                  <Route path='/unit2threats' exact element={<Module1Unit2ThreatsPage />}/>
+                 <Route path='/unitsclient' exact element={<UnitsClientPage />}/>
 
                  {/*============================= Admin dashboard =============================*/}
                  <Route path='/admindashboard' exact element={<AdminHomePage />}/>
@@ -69,7 +75,8 @@ function Navigation (){
                  <Route path='/adminprofile' exact element={<ProfilePage />}/>
                  <Route path='/adminmodulepage' exact element={<AdminHomePagee />}/>
                  <Route path='/addmodule' exact element={<AddModulePage />}/>
-                 
+
+                 <Route path='/units' exact element={<UnitsPage/>}/>
                  <Route path='/editlegalnotice' exact element={<EditLegalNoticePage />}/>
                  <Route path='/legalnoticeedit' exact element={<EditNoticePage />}/>
                  <Route path='/editresources' exact element={<EditResourcesContent />}/>
@@ -89,7 +96,7 @@ function Navigation (){
 
                  {/* main site home page */}
                  <Route path='/mainhomepage' exact element={<SiteHomePage/>}/>
-                
+                 <Route path='/*' exact element={<NotFoundPage/>}/>
             </Routes>
         </BrowserRouter>
     )

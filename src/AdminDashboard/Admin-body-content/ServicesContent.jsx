@@ -9,7 +9,7 @@ import {API} from '../../config'
 
 function ServicesContent(){
 
-    const [service, setSevice] = useState([]);
+  const [service, setSevice] = useState([]);
   useEffect(() => {
     axios
       .get(`${API}/service`)

@@ -7,19 +7,17 @@ import "../admin.css";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import "react-toastify/dist/ReactToastify.css"
-
-
 import { ToastContainer, toast } from "react-toastify";
 import { useCookies } from "react-cookie";
 
 function SignUpContent(){
 
-    useEffect(() => {
-        Aos.init({ duration: 3000 });
-      }, []);
+  useEffect(() => {
+     Aos.init({ duration: 3000 });
+  }, []);
 
 
-      const [cookies] = useCookies(["cookie-name"]);
+  const [cookies] = useCookies(["cookie-name"]);
   const navigate = useNavigate();
   useEffect(() => {
     if (cookies.jwt) {
@@ -27,10 +25,10 @@ function SignUpContent(){
     }
   }, [cookies, navigate]);
 
-  const [values, setValues] = useState({ email: "", password: "" });
+  const [values, setValues] = useState({firstName: "", lastName: "", gender: "", country: "", phone: "", email: "",  password: "" });
   const generateError = (error) =>
     toast.error(error, {
-      position: "bottom-right",
+      position: "top-right",
     });
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -44,8 +42,13 @@ function SignUpContent(){
       );
       if (data) {
         if (data.errors) {
-          const { email, password } = data.errors;
-          if (email) generateError(email);
+          const { firstName, lastName, gender, country, phone, email, password } = data.errors;
+          if (firstName) generateError(firstName);
+          else if (lastName) generateError(lastName);
+          else if (gender) generateError(gender);
+          else if (country) generateError(country);
+          else if (phone) generateError(phone);
+          else if (email) generateError(email);
           else if (password) generateError(password);
         } else {
           navigate("/");
@@ -55,14 +58,11 @@ function SignUpContent(){
       console.log(ex);
     }
   };
-
-
     return(
         <>
              <main className="login" style={{background:"white"}}>
-                 {/* <BackgroundVideo /> */}
                  <video autoPlay loop muted width="1350">
-                 {/* <source src={BackgroundVideo} type="video/mp4"/> */}
+                   {/* <source src={BackgroundVideo} type="video/mp4"/> */}
                  </video>
                  <div className="all-content-wrapper LoginCard">
                  <div className="container-fluid">
@@ -73,29 +73,37 @@ function SignUpContent(){
                              </div>
                              <form data-aos="zoom-out-right" data-aos-offset="100" onSubmit={(e) => handleSubmit(e)}>
                                  <div className="form-group">
-                                     <div style={{marginBottom: "-12px"}} className="FormLable"><p>Username</p></div>
-                                     <input style={{height:'2.5rem'}} className="form-control" type="email"
-            name="email"
-            placeholder="Email"
-            onChange={(e) =>
-              setValues({ ...values, [e.target.name]: e.target.value })
-            } />
+                                     <div style={{marginBottom: "-12px"}} className="FormLable"><p>First Name</p></div>
+                                     <input style={{height:'2.5rem'}} className="form-control" type="text" name="firstName" placeholder="Enter First Name" onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}/>
+                                 </div>
+                                 <div className="form-group">
+                                     <div style={{marginBottom: "-12px"}} className="FormLable"><p>Last Name</p></div>
+                                     <input style={{height:'2.5rem'}} className="form-control" type="text" name="lastName" placeholder="Enter Last Name" onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}/>
+                                 </div>
+                                 <div className="form-group">
+                                     <div style={{marginBottom: "-12px"}} className="FormLable"><p>Gender</p></div>
+                                     <input style={{height:'2.5rem'}} className="form-control" type="text" name="gender" placeholder="Select your Gender" onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}/>
+                                 </div>
+                                 <div className="form-group">
+                                     <div style={{marginBottom: "-12px"}} className="FormLable"><p>Country</p></div>
+                                     <input style={{height:'2.5rem'}} className="form-control" type="text" name="country" placeholder="Select your Country" onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}/>
+                                 </div>
+                                 <div className="form-group">
+                                     <div style={{marginBottom: "-12px"}} className="FormLable"><p>Phone</p></div>
+                                     <input style={{height:'2.5rem'}} className="form-control" type="number" name="phone" placeholder="Enter your phone number" onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}/>
+                                 </div>
+                                 <div className="form-group">
+                                     <div style={{marginBottom: "-12px"}} className="FormLable"><p>Email</p></div>
+                                     <input style={{height:'2.5rem'}} className="form-control" type="email" name="email" placeholder="Email" onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}/>
                                  </div>
                                 <div className="form-group" style={{marginTop: '13px'}}>
                                      <div style={{marginBottom: "-12px"}} className="FormLable"><p>Password</p></div>
-                                     <input style={{height:'2.5rem'}} className="form-control" type="password"
-            placeholder="Password"
-            name="password"
-            onChange={(e) =>
-              setValues({ ...values, [e.target.name]: e.target.value })
-            }/>
+                                     <input style={{height:'2.5rem'}} className="form-control" type="password" placeholder="Password" name="password" onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}/>
                                 </div>
                                 <div style={{marginTop: '1.3rem'}} className="form-group">
                                     <button type="submit" data-aos="zoom-out-right" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn waves-effect waves-light submitBtn">SUBMIT</button>
                                 </div>
-
                              </form>
-
                              <ToastContainer/>
                              <div className="row" style={{marginTop:"-.5rem"}}>
                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -112,8 +120,6 @@ function SignUpContent(){
                              </div>
                          </div>
                      </div>
-
-
                  </div>
                  </div>
              </main>

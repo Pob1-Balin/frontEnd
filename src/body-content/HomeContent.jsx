@@ -12,7 +12,6 @@ import 'aos/dist/aos.css';
 
 function HomeContent() {
   const [modul, setModul] = useState([]);
-
   useEffect(() => {
     axios
       .get(`${API}/modul`)
@@ -23,8 +22,7 @@ function HomeContent() {
       .catch((error) => {
         console.log(error);
       });
-    Aos.init({ duration: 2000 });
-  }, []);
+    Aos.init({ duration: 2000 });}, []);
 
   return (
     <>

@@ -7,19 +7,16 @@ import "../admin.css";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import "react-toastify/dist/ReactToastify.css"
-
-
 import { ToastContainer, toast } from "react-toastify";
 import { useCookies } from "react-cookie";
 
 function LoginContent(){
 
-    useEffect(() => {
-        Aos.init({ duration: 3000 });
-      }, []);
+  useEffect(() => {
+      Aos.init({ duration: 3000 });
+  }, []);
 
-
-      const [cookies] = useCookies(["cookie-name"]);
+  const [cookies] = useCookies(["cookie-name"]);
   const navigate = useNavigate();
   useEffect(() => {
     if (cookies.jwt) {
@@ -30,7 +27,7 @@ function LoginContent(){
   const [values, setValues] = useState({ email: "", password: "" });
   const generateError = (error) =>
     toast.error(error, {
-      position: "bottom-right",
+      position: "top-right",
     });
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -72,29 +69,17 @@ function LoginContent(){
                              </div>
                              <form data-aos="zoom-out-right" data-aos-offset="100" onSubmit={(e) => handleSubmit(e)}>
                                  <div className="form-group">
-                                     <div style={{marginBottom: "-12px"}} className="FormLable"><p>Username</p></div>
-                                     <input style={{height:'2.5rem'}} className="form-control" type="email"
-            name="email"
-            placeholder="Email"
-            onChange={(e) =>
-              setValues({ ...values, [e.target.name]: e.target.value })
-            } />
+                                   <div style={{marginBottom: "-12px"}} className="FormLable"><p>Email</p></div>
+                                     <input style={{height:'2.5rem'}} className="form-control" type="email" name="email" placeholder="Email" onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}/>
                                  </div>
                                 <div className="form-group" style={{marginTop: '13px'}}>
                                      <div style={{marginBottom: "-12px"}} className="FormLable"><p>Password</p></div>
-                                     <input style={{height:'2.5rem'}} className="form-control" type="password"
-            placeholder="Password"
-            name="password"
-            onChange={(e) =>
-              setValues({ ...values, [e.target.name]: e.target.value })
-            }/>
+                                     <input style={{height:'2.5rem'}} className="form-control" type="password" placeholder="Password" name="password" onChange={(e) => setValues({ ...values, [e.target.name]: e.target.value })}/>
                                 </div>
                                 <div style={{marginTop: '1.3rem'}} className="form-group">
                                     <button type="submit" data-aos="zoom-out-right" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn waves-effect waves-light submitBtn">SUBMIT</button>
                                 </div>
-
                              </form>
-
                              <ToastContainer/>
                              <div className="row" style={{marginTop:"-.5rem"}}>
                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">

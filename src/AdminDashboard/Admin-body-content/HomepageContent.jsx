@@ -43,7 +43,6 @@ function HomepageContent() {
                 </div>
 
                 <div class="analytics-sparkle-area">
-
                     <div class="container-fluid" data-aos="zoom-in-down" data-aos-offset="400">
                         <div class="row homedashbaord">
                             <div class="col-lg-4 col-md-6 col-sm-12 col-xs-12" style={{ marginTop: '1.2rem' }}>
@@ -108,13 +107,23 @@ function HomepageContent() {
                                         <div class="portlet-title">
                                             <div class="row">
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                                    <div class="caption pro-sl-hd">
-                                                        <span class="caption-subject"><b>University Earnings</b></span>
+                                                    <div class="caption pro-sl-hd" style={{paddingBottom:"1rem", paddingTop:"1rem"}}>
+                                                        <span class="caption-subject"><b style={{fontSize:"1rem", paddingTop:"-5rem"}}>Total Services Income Generated</b></span>
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                                     <div class="actions graph-rp graph-rp-dl">
-                                                        <p>All Earnings are in million $</p>
+                                                    <form style={{display:"flex"}}>
+                                                        <div className="form-group" style={{marginRight:".5rem"}}>
+                                                            <input style={{height:'2.5rem'}} className="form-control" type="text" name="from" placeholder="From" />
+                                                        </div>
+                                                        <div className="form-group" style={{marginRight:".5rem"}}>
+                                                            <input style={{height:'2.5rem'}} className="form-control" type="text" placeholder="To" name="to"/>
+                                                        </div>
+                                                        <div className="form-group">
+                                                            <button type="submit" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn">SUBMIT</button>
+                                                        </div>
+                                                    </form>
                                                     </div>
                                                 </div>
 

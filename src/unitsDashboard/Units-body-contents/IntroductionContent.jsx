@@ -8,7 +8,7 @@ import PlayerExample from "../components/VideoCard";
 function IntroductionContent(){
     return(
         <>
-            <div className="ms-sm-auto Header_Section ml-2">
+            <div className="">
 
             <div className="Unit-Dashboard-wrapper">
                      <HeaderSection  prev="/" destination='Leçon 1 - Bienvenue' header_title='Introduction' />
@@ -17,7 +17,7 @@ function IntroductionContent(){
                 <PlayerExample/>
 
                 <div className="units-dashboard-footer-wrapper">
-                     <FooterSection />
+                     <FooterSection footer_text="Visionnez la vidéo pour continuer" />
                  </div>
 
             </div>

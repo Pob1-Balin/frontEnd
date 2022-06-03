@@ -5,16 +5,23 @@ import ToggleButton from '../components/toggleButton';
 import TechnologiesContent from '../Units-body-contents/TechnologiesContent';
 
 function TechnologiesPage(){
-    return(
-        <>
-            {/* <UnitSidebar/>
-            <main>
-                <TechnologiesContent />
-            </main> */}
+    function openNav() {
+            document.getElementById("mySidebar").style.width = "15rem";
+            document.getElementById("BodyContent").style.marginLeft = "15rem";
+          }
 
-            <div className="d-flex" id="wrapper">
+          function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("BodyContent").style.marginLeft= "0";
+          }
+    return(
+
+        
+        <>
+          
+            <div className="">
                 <SidebarLinks/>  
-                <div id="page-content-wrapper">
+                <div id="BodyContent" style={{marginLeft:'15rem'}}>
                     <ToggleButton/>
                     <div className="container-fluid">
                         <TechnologiesContent />

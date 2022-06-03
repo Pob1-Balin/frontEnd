@@ -1,6 +1,6 @@
 import React from "react";
 import HeaderSection from '../components/HeaderSection'
-import SecondUnitFooter from '../components/SecondUnitFooter'
+import FooterSection from '../components/FooterSection'
 import ImageCard from "../components/ImageCard";
 import CarouselCard from '../components/CarouselCard'
 import '../../App.css'
@@ -12,7 +12,7 @@ import '../../App.css'
 function CyberSpacesContent(){
     return(
         <>
-            <div className="ms-sm-auto Header_Section ml-2">
+            <div className="">
 
                 <div className="Unit-Dashboard-wrapper">
                      <HeaderSection prev="/introduction" destination="Leçon 3 - Une diversité d'équipements et de technologies" header_title="Le cyberespace, nouvel espace de vie" />
@@ -35,12 +35,12 @@ function CyberSpacesContent(){
                </div>
 
                 <div className="units-dashboard-footer-wrapper">
-                     <SecondUnitFooter direction='SUIVANT' />
+                     <FooterSection footer_text="Visionnez l'activité ci-dessus avant de continuer" />
                  </div>
 
             </div>
         </>
-    )                   
+    )
 }
 
 export default CyberSpacesContent ;

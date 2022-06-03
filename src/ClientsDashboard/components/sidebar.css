@@ -1,0 +1,44 @@
+.exitIcon:hover{
+     cursor: pointer;
+}
+.test{
+     color: #fff;
+}
+.test:hover{
+    color:#4ab2cc;
+}
+
+@media screen and (min-width: 992px){
+    .logout{
+         display: inline-block;
+         margin-right: 20%;
+         margin-left: 40%;
+    }
+}
+
+.userlogoutb{
+     height:2rem;
+}
+
+.header-right-info ul.header-right-menu1 li{
+	display:inline-block;
+}
+
+.header-right-info ul.header-right-menu1 li .dropdown-header-top.author-log li{
+   display:block;
+}
+.header-right-info ul.header-right-menu1 li .dropdown-header-top.author-log li a{
+   padding:10px 20px;
+   display:block;
+   color:#303030;
+   font-size:14px;
+}
+
+.header-right-info ul.header-right-menu1 li .dropdown-header-top.author-log li a:hover, .header-right-info ul.header-right-menu1 li .dropdown-header-top.author-log li a:focus{
+      background: #0b426a;
+      color:#ffffff;
+      font-weight: 550;
+}
+.header-right-info ul.header-right-menu1 li .dropdown-header-top.author-log li a, .header-right-info ul.header-right-menu1 li .dropdown-header-top.author-log li a{
+      font-weight: 550;
+}

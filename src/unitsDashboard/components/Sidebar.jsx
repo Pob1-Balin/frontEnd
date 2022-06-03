@@ -20,12 +20,7 @@ import ToggleButton from './toggleButton';
 function UnitSidebar() {
     return (
       <>
-
-
-          <div className="d-flex" id="wrapper">
-            <SidebarLinks/>  
-            
-        </div>
+        <SidebarLinks/>  
       </>
     )
   }

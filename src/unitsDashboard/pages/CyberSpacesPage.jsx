@@ -5,16 +5,23 @@ import ToggleButton from '../components/toggleButton';
 import CyberSpacesContent from '../Units-body-contents/CyberSpacesContent';
 
 function CyberSpacesPage(){
-    return(
-        <>
-            {/* <UnitSidebar/>
-            <main>
-                <CyberSpacesContent />
-            </main> */}
+    function openNav() {
+            document.getElementById("mySidebar").style.width = "15rem";
+            document.getElementById("BodyContent").style.marginLeft = "15rem";
+          }
 
-<div className="d-flex px-0" id="wrapper">
+          function closeNav() {
+            document.getElementById("mySidebar").style.width = "0";
+            document.getElementById("BodyContent").style.marginLeft= "0";
+          }
+    return(
+
+        
+        <>
+          
+            <div className="">
                 <SidebarLinks/>  
-                <div id="page-content-wrapper">
+                <div id="BodyContent" style={{marginLeft:'15rem'}}>
                     <div>
                         <ToggleButton/>
                     </div>

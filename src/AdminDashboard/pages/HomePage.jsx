@@ -4,11 +4,10 @@ import HomeContent from '../Admin-body-content/HomepageContent';
 
 function HomePage() {
   return (
-    
     <>
       <AdminDashboardSidebar/>
       <main>
-        <HomeContent/>
+         <HomeContent/>
       </main>
     </>
   );

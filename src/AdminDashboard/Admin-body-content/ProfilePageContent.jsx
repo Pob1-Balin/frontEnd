@@ -6,24 +6,24 @@ function ProfilePageContent (){
     return(
         <>
             <main className="px-md-4 wrapper2 dashboard-pages">
-                  <div class="breadcome-area clients-breadcome-area">
-                     <div class="container-fluid">
-                        <div class="row">
-                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div class="breadcome-list single-page-breadcome">
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
-                                            <div class="breadcome-heading">
-                                                <form role="search" class="sr-input-func">
-                                                <input type="text" placeholder="Search..." class="search-int col-xs-12 form-control mobile-menu-search"/>
-                                                    <a href="#"><i class="fa fa-search"></i></a>
+                 <div className="breadcome-area clients-breadcome-area">
+                     <div className="container-fluid">
+                        <div className="row">
+                            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div className="breadcome-list single-page-breadcome">
+                                    <div className="row">
+                                        <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                                            <div className="breadcome-heading">
+                                                <form role="search" className="sr-input-func">
+                                                <input type="text" placeholder="Search..." className="search-int col-xs-12 form-control mobile-menu-search"/>
+                                                     <a href="#"><i className="fa fa-search"></i></a>
                                                 </form>
                                             </div>
                                         </div>
-                                        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 mobile-menu-links">
-                                            <ul class="breadcome-menu">
+                                        <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 mobile-menu-links">
+                                            <ul className="breadcome-menu">
                                                 <li><a style={{fontSize:'1rem', color:'#4ab2cc'}} href="admindashboard">Dashboard /</a></li>
-                                                <li style={{fontSize:'1rem', color:'gray'}}><span class="bread-blod">Admin profile</span></li>
+                                                <li style={{fontSize:'1rem', color:'gray'}}><span className="bread-blod">Admin profile</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -33,91 +33,106 @@ function ProfilePageContent (){
                      </div>
                  </div>
 
-                 <div class="single-pro-review-area mt-t-30 mg-b-15">
-                     <div class="container-fluid">
-                         <div class='row'>
-                             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12">
-                                 <div class="profile-info-inner">
-                                     <div class="profile-img">
-                                       <img src="./images/Cature.png" alt="" />
+                 <div className="product-status mg-b-15 clients-product-status addservice">
+                     <div className="container-fluid">
+                        <div className="row">
+                            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div className="product-status-wrap drp-lst" style={{background:'#f6f8fa'}}>
+                                    <div className="add-product">
+                                         <h4 style={{color:'gray'}}></h4>
+                                         <a style={{background:'#4ab2cc'}} href="editadminprofile">Update Details</a>
                                      </div>
-                                     <div class="profile-details-hr">
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                        <div class="address-hr">
-                                            <p><b>Name</b><br /> Fly Zend</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                        <div class="address-hr tb-sm-res-d-n dps-tb-ntn">
-                                            <p><b>Designation</b><br /> Head of Dept.</p>
-                                        </div>
+                                    <div className="asset-inner">
                                     </div>
                                 </div>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                        <div class="address-hr">
-                                            <p><b>Email ID</b><br /> fly@gmail.com</p>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6 col-md-12 col-sm-12 col-xs-6">
-                                        <div class="address-hr tb-sm-res-d-n dps-tb-ntn">
-                                            <p><b>Phone</b><br /> +01962067309</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="row">
-                                    <div class="col-lg-12">
-                                        <div class="address-hr">
-                                            <p><b>Address</b><br /> E104, catn-2, Chandlodia Ahmedabad Gujarat, UK.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                 <div className="single-pro-review-area mt-t-30 mg-b-15">
+                     <div className="container-fluid">
+                         <div className='row'>
+                             <div className="col-lg-4 col-md-4 col-sm-4 col-xs-12">
+                                 <div className="profile-info-inner">
+                                     <div className="profile-img">
+                                         <img src="./images/Cature.png" alt="" />
+                                     </div>
+                                     <div className="profile-details-hr">
+                                         <div className="row">
+                                             <div className="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+                                                 <div className="address-hr">
+                                                     <p><b>Name</b><br /> Fly Zend</p>
+                                                 </div>
+                                             </div>
+                                             <div className="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+                                                 <div className="address-hr tb-sm-res-d-n dps-tb-ntn">
+                                                     <p><b>Designation</b><br /> Head of Dept.</p>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div className="row">
+                                             <div className="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+                                                 <div className="address-hr">
+                                                     <p><b>Email ID</b><br /> fly@gmail.com</p>
+                                                 </div>
+                                             </div>
+                                             <div className="col-lg-6 col-md-12 col-sm-12 col-xs-6">
+                                                 <div className="address-hr tb-sm-res-d-n dps-tb-ntn">
+                                                     <p><b>Phone</b><br /> +01962067309</p>
+                                                 </div>
+                                             </div>
+                                         </div>
+                                         <div className="row">
+                                             <div className="col-lg-12">
+                                                 <div className="address-hr">
+                                                      <p><b>Address</b><br /> E104, catn-2, Chandlodia Ahmedabad Gujarat, UK.</p>
+                                                 </div>
+                                             </div>
+                                         </div>
                                      </div>
                                  </div>
                              </div>
 
-                             <div class="col-lg-8 col-md-8 col-sm-8 col-xs-12 bio">
-                                 <div class="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn">
-                                     <ul id="myTabedu1" class="tab-review-design">
-                                         <li class="Biography active"><a href="#description"> Biography</a></li>
-                                         <li><a href="#INFORMATION">Update Details</a></li>
+                             <div className="col-lg-8 col-md-8 col-sm-8 col-xs-12 bio">
+                                 <div className="product-payment-inner-st res-mg-t-30 analysis-progrebar-ctn">
+                                     <ul id="myTabedu1" className="tab-review-design">
+                                         <li className=""><p style={{fontStyle:"bold", fontSize:"1.2rem", fontWeight:"600"}}>Biography</p></li>
                                      </ul>
-                                     <div id="myTabContent" class="tab-content custom-product-edit">
-                                         <div class="Biography-content" id="">
-                                             <div class="row">
-                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                     <div class="review-content-section">
-                                                         <div class="chat-discussion" style={{height:'auto'}}>
-                                                             <div class='row'>
-                                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                                     <div class="review-content-section">
-                                                                     <div class="row">
-				                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-				                                                        <div class="address-hr biography">
+                                     <div id="myTabContent" style={{marginTop:"-2rem"}} className="tab-content custom-product-edit">
+                                         <div className="Biography-content" id="">
+                                             <div className="row">
+                                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                     <div className="review-content-section">
+                                                         <div className="chat-discussion" style={{height:'auto'}}>
+                                                             <div className='row'>
+                                                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                                                     <div className="review-content-section">
+                                                                     <div className="row">
+				                                                    <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+				                                                        <div className="address-hr biography">
 				                                                            <p><b>Full Name</b><br /> Fly Zend</p>
 				                                                        </div>
 				                                                    </div>
-				                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-				                                                        <div class="address-hr biography">
+				                                                    <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+				                                                        <div className="address-hr biography">
 				                                                            <p><b>Mobile</b><br /> 01962067309</p>
 				                                                        </div>
 				                                                    </div>
-				                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-				                                                        <div class="address-hr biography">
+				                                                    <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+				                                                        <div className="address-hr biography">
 				                                                            <p><b>Email</b><br /> fly@gmail.com</p>
 				                                                        </div>
 				                                                    </div>
-				                                                    <div class="col-lg-3 col-md-3 col-sm-3 col-xs-6">
-				                                                        <div class="address-hr biography">
+				                                                    <div className="col-lg-3 col-md-3 col-sm-3 col-xs-6">
+				                                                        <div className="address-hr biography">
 				                                                            <p><b>Location</b><br /> UK</p>
 				                                                        </div>
 				                                                    </div>
 				                                                </div>
-                                                                <div class="row">
-				                                                    <div class="col-lg-12">
-				                                                        <div class="content-profile">
+                                                                <div className="row">
+				                                                    <div className="col-lg-12">
+				                                                        <div className="content-profile">
 				                                                            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras
 				                                                                dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim.</p>
 				                                                            <p>Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt.Cras
@@ -127,101 +142,86 @@ function ProfilePageContent (){
 				                                                        </div>
 				                                                    </div>
 				                                                </div>
-                                                                <div class="row mg-b-15">
-				                                                    <div class="col-lg-12">
-				                                                        <div class="row">
-				                                                            <div class="col-lg-12">
-				                                                                <div class="skill-title">
+                                                                <div className="row mg-b-15">
+				                                                    <div className="col-lg-12">
+				                                                        <div className="row">
+				                                                            <div className="col-lg-12">
+				                                                                <div className="skill-title">
 				                                                                    <h2>Skill Set</h2>
 				                                                                    <hr />
 				                                                                </div>
 				                                                            </div>
 				                                                        </div>
-				                                                        <div class="progress-skill">
-				                                                            <h2>Java</h2>
-				                                                            <div class="progress progress-mini">
-				                                                                <div style={{width:"90%"}} class="progress-bar progress-yellow"></div>
-				                                                            </div>
-				                                                        </div>
-				                                                        <div class="progress-skill">
-				                                                            <h2>Php</h2>
-				                                                            <div class="progress progress-mini">
-				                                                                <div style={{width:"80%"}} class="progress-bar progress-green"></div>
-				                                                            </div>
-				                                                        </div>
-				                                                        <div class="progress-skill">
-				                                                            <h2>Apps</h2>
-				                                                            <div class="progress progress-mini">
-				                                                                <div style={{width:"70%"}} class="progress-bar progress-blue"></div>
-				                                                            </div>
-				                                                        </div>
-				                                                        <div class="progress-skill">
-				                                                            <h2>C#</h2>
-				                                                            <div class="progress progress-mini">
-				                                                                <div style={{width:"60%"}} class="progress-bar progress-red"></div>
-				                                                            </div>
+				                                                        <div className="ex-pro">
+				                                                            <ul>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                            </ul>
 				                                                        </div>
 				                                                    </div>
 				                                                </div>
-                                                                <div class="row mg-b-15">
-				                                                    <div class="col-lg-12">
-				                                                        <div class="row">
-				                                                            <div class="col-lg-12">
-				                                                                <div class="skill-title">
+                                                                <div className="row mg-b-15">
+				                                                    <div className="col-lg-12">
+				                                                        <div className="row">
+				                                                            <div className="col-lg-12">
+				                                                                <div className="skill-title">
 				                                                                    <h2>Education</h2>
 				                                                                    <hr />
 				                                                                </div>
 				                                                            </div>
 				                                                        </div>
-				                                                        <div class="ex-pro">
+				                                                        <div className="ex-pro">
 				                                                            <ul>
-				                                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-				                                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-				                                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-				                                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-				                                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
 				                                                            </ul>
 				                                                        </div>
 				                                                    </div>
 				                                                </div>
-                                                                <div class="row mg-b-15">
-				                                                    <div class="col-lg-12">
-				                                                        <div class="row">
-				                                                            <div class="col-lg-12">
-				                                                                <div class="skill-title">
+                                                                <div className="row mg-b-15">
+				                                                    <div className="col-lg-12">
+				                                                        <div className="row">
+				                                                            <div className="col-lg-12">
+				                                                                <div className="skill-title">
 				                                                                    <h2>Experience</h2>
 				                                                                    <hr />
 				                                                                </div>
 				                                                            </div>
 				                                                        </div>
-				                                                        <div class="ex-pro">
+				                                                        <div className="ex-pro">
 				                                                            <ul>
-				                                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-				                                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-				                                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-				                                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-				                                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
 				                                                            </ul>
 				                                                        </div>
 				                                                    </div>
 				                                                </div>
-                                                                <div class="row">
-				                                                    <div class="col-lg-12">
-				                                                        <div class="row">
-				                                                            <div class="col-lg-12">
-				                                                                <div class="skill-title">
+                                                                <div className="row">
+				                                                    <div className="col-lg-12">
+				                                                        <div className="row">
+				                                                            <div className="col-lg-12">
+				                                                                <div className="skill-title">
 				                                                                    <h2>Subjects</h2>
 				                                                                    <hr />
 				                                                                </div>
 				                                                            </div>
 				                                                        </div>
-				                                                        <div class="ex-pro">
+				                                                        <div className="ex-pro">
 				                                                            <ul>
-				                                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-				                                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-				                                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-				                                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
-				                                                                <li><i class="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
+				                                                                <li><i className="fa fa-angle-right"></i> Lorem ipsum dolor sit amet, consectetur adipiscing elit.</li>
 				                                                            </ul>
 				                                                        </div>
 				                                                    </div>
@@ -237,205 +237,7 @@ function ProfilePageContent (){
                                                  </div>
                                              </div>
                                          </div>
-
-
-
-
-
-
-
-
-
-
-
-
-                                         <div class="edit-admin-profile" id="">
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <div class="review-content-section">
-                                                <div class="row">
-                                                    <div class="col-lg-6">
-                                                        <div class="form-group">
-                                                            <input name="number" type="text" class="form-control" placeholder="First Name"/>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Last Name"/>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Address"/>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Date of Birth"/>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Department"/>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="number" class="form-control" placeholder="Pincode"/>
-                                                        </div>
-                                                        <div class="file-upload-inner ts-forms">
-                                                            <div class="input prepend-big-btn">
-                                                                <label class="icon-right" for="prepend-big-btn">
-																		<i class="fa fa-download"></i>
-																	</label>
-                                                                <div class="file-button">
-                                                                    Browse
-                                                                    <input type="file" onchange="document.getElementById('prepend-big-btn').value = this.value;"/>
-                                                                </div>
-                                                                <input type="text" id="prepend-big-btn" placeholder="no file selected"/>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-lg-6">
-                                                        <div class="form-group sm-res-mg-15 tbpf-res-mg-15">
-                                                            <input type="text" class="form-control" placeholder="Description"/>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <select class="form-control">
-																<option>Select Gender</option>
-																<option>Male</option>
-																<option>Female</option>
-															</select>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <select class="form-control">
-																	<option>Select country</option>
-																	<option>India</option>
-																	<option>Pakistan</option>
-																	<option>Amerika</option>
-																	<option>China</option>
-																	<option>Dubai</option>
-																	<option>Nepal</option>
-																</select>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <select class="form-control">
-																	<option>Select state</option>
-																	<option>Gujarat</option>
-																	<option>Maharastra</option>
-																	<option>Rajastan</option>
-																	<option>Maharastra</option>
-																	<option>Rajastan</option>
-																	<option>Gujarat</option>
-																</select>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <select class="form-control">
-																	<option>Select city</option>
-																	<option>Surat</option>
-																	<option>Baroda</option>
-																	<option>Navsari</option>
-																	<option>Baroda</option>
-																	<option>Surat</option>
-																</select>
-                                                        </div>
-                                                        <div class="form-group">
-                                                            <input type="text" class="form-control" placeholder="Website URL"/>
-                                                        </div>
-                                                        <input type="number" class="form-control" placeholder="Mobile no."/>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-lg-12">
-                                                        <div class="payment-adress mg-t-15">
-                                                            <button type="submit" class="btn btn-primary waves-effect waves-light mg-b-15">Submit</button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
                                      </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                                  </div>
                              </div>

@@ -4,11 +4,10 @@ import ClientsPageContent from '../Admin-body-content/ClientsPageContent';
 
 function ClientsPage() {
   return (
-    
     <>
       <AdminDashboardSidebar/>
       <main>
-        <ClientsPageContent/>
+         <ClientsPageContent/>
       </main>
     </>
   );

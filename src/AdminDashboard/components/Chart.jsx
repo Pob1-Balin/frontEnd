@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import { Chart as ChartJS, BarElement, LinearScale, CategoryScale} from 'chart.js';
 import { Bar } from 'react-chartjs-2';
 
@@ -8,13 +8,10 @@ ChartJS.register(
   BarElement,
 );
 
-
 const Chart = () => {
-
-
   var data = {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-    datasets: [{
+     labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+     datasets: [{
         label: '# of Votes',
         data: [12, 19, 3, 5, 2, 3],
         backgroundColor: [
@@ -43,9 +40,9 @@ var  options = {
   return (
     <div>
       <Bar
-        data={data}
-        height={400}
-        options={options}
+         data={data}
+         height={400}
+         options={options}
       />
     </div>
   )

@@ -3,7 +3,6 @@ import SignUpContent from '../Admin-body-content/SignUpContent';
 
 function SignUpPage() {
   return (
-    
     <>
       <main>
         <SignUpContent/>

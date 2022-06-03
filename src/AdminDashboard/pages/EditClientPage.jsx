@@ -4,11 +4,10 @@ import EditClientContent from '../Admin-body-content/EditClientContent';
 
 function EditClientPage() {
   return (
-    
     <>
       <AdminDashboardSidebar/>
       <main>
-        <EditClientContent/>
+         <EditClientContent/>
       </main>
     </>
   );

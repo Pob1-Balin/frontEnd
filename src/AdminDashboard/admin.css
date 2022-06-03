@@ -1,4 +1,30 @@
- @media screen and (min-width: 992px){
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+body{
+overflow-x: hidden;
+}
+
+.add-buttons{
+    background: #4ab2cc;
+    border: none;
+    border-radius: .2rem;
+    width: 8rem;
+    font-size: 1rem;
+    font-style: bold;
+    font-weight: 550;
+    color: white;
+    height: 2.5rem;
+    text-decoration: none;
+}
+
+@media screen and (min-width: 992px){
     .dashboard-pages{
         margin-left: -2.2rem;
      }
@@ -60,7 +86,7 @@
 }
 
 .header-right-info ul.header-right-menu li .dropdown-header-top.author-log li{
-   display:block;
+     display:block;
 }
 .header-right-info ul.header-right-menu li .dropdown-header-top.author-log li a{
    padding:10px 20px;
@@ -70,7 +96,9 @@
 }
 
 .header-right-info ul.header-right-menu li .dropdown-header-top.author-log li a:hover, .header-right-info ul.header-right-menu li .dropdown-header-top.author-log li a:focus{
-   background: #31aed0;
+   background: #3363ad;
+   color: #fff;
+   font-weight:550;
 }
 
 .header-right-info .admin-name{
@@ -116,10 +144,6 @@
 	transition: .5s ease-out;
 }
 
-.form-group:hover{
-    transform: scale(1.1);
-    transition-duration: 0.5s;
-}
 .sr-input-func a {
     position: absolute;
     top: 8px;
@@ -1223,3 +1247,135 @@ ul.country-state{
 
 
 
+
+
+ .wrapper3{
+    margin: 5rem 0rem;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: center;
+}
+
+@media screen and (max-width: 872px){
+    .wrapper3{
+         display: grid;
+         grid-template-columns: repeat(2, 1fr);
+         margin: 5rem 1.2rem;
+    }
+}
+
+.modulehome{
+     margin-top: -5rem;
+}
+@media screen and (min-width: 1900px){
+    .wrapper3{
+         display: grid;
+         grid-template-columns: repeat(4, 1fr);
+         margin: 5rem 1.2rem;
+    }
+    .modulehome{
+         margin-top: -1rem;
+   }
+}
+@media screen and (min-width: 1400px){
+    .modulehome{
+         margin-top: -1rem;
+   }
+}
+@media screen and (max-width: 767px){
+    .modulehome{
+         margin-left: 1rem;
+   }
+   .return-home{
+         margin-left: 1rem;
+   }
+}
+
+@media screen and (max-width: 580px){
+    .wrapper3{
+        grid-template-columns: repeat(1, 1fr);
+        margin: 5rem 3rem;
+    }
+}
+.legalnotice{
+    margin-top:-2rem;
+}
+@media screen and (min-width: 1400px){
+    .legalnotice{
+        margin-top:1rem;
+    }
+}
+
+.legalnotice_wrapper p{
+     min-width: 15rem;
+}
+
+@media screen and (max-width: 600px){
+    .legalnotice_wrapper{
+        margin-left:-2.3rem;
+    }
+}
+
+.Biography-content ul li {
+    list-style-type: none;
+}
+
+.testedit{
+    margin-left: 1rem;
+}
+
+.testedit1, .question-card{
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+.testedit1:hover{
+    transform: scale(1.05);
+    transition-delay: 0.5ms;
+}
+.question-card:hover{
+    transform: scale(0.9);
+    transition-delay: 0.5ms;
+}
+
+@media screen and (max-width: 991px){
+    .testedit{
+        margin-left: -.2rem;
+    }
+}
+@media screen and (max-width: 575px){
+    .answers{
+         margin-top: 1rem;
+    }
+}
+@media screen and (min-width: 992px){
+    .admintest{
+         margin-left: 2.6rem;
+    }
+}
+@media screen and (max-width: 767px){
+    .admintest1{
+         margin-left: -1rem;
+         margin-right: -1.5rem;
+    }
+    .addquestion{
+        margin-left: -.1rem;
+    }
+    .add-questions{
+        margin-right: -.1rem;
+    }
+}
+@media screen and (max-width: 399px){
+    .add-questions{
+         margin-top: -1rem;
+         margin-bottom: 1rem;
+    }
+}
+
+.answers-form-input input[type=checkbox]:checked{
+    background-color: #0b426a;
+}
+
+
+.answers-form-input button:hover{
+    transform: scale(0.9);
+}

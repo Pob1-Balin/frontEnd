@@ -1,8 +1,6 @@
 import React from 'react';
 import AdminDashboardSidebar from '../components/AdminDashboardSidebar';
 import AddClientsContent from '../Admin-body-content/AddClientsContent';
-
-
 function AddClientsPage() {
   return (
     <>

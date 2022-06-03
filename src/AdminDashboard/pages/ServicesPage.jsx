@@ -4,11 +4,10 @@ import ServicesContent from '../Admin-body-content/ServicesContent';
 
 function ServicesPage() {
   return (
-    
     <>
       <AdminDashboardSidebar/>
       <main>
-        <ServicesContent/>
+         <ServicesContent/>
       </main>
     </>
   );

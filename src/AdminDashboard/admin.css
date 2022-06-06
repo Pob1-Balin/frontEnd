@@ -6,9 +6,8 @@
     padding: 0;
 }
 
-
 body{
-overflow-x: hidden;
+     overflow-x: hidden;
 }
 
 .add-buttons{
@@ -1232,24 +1231,9 @@ ul.country-state{
  }
 
 
+/******************************* module and services cards ***************************/
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- .wrapper3{
+.wrapper3{
     margin: 5rem 0rem;
     display: grid;
     gap: 1.5rem;
@@ -1298,6 +1282,8 @@ ul.country-state{
         margin: 5rem 3rem;
     }
 }
+
+/******************************* Legal Notice ***************************/
 .legalnotice{
     margin-top:-2rem;
 }
@@ -1321,6 +1307,9 @@ ul.country-state{
     list-style-type: none;
 }
 
+
+
+/******************************* questions pages ***************************/
 .testedit{
     margin-left: 1rem;
 }
@@ -1333,7 +1322,7 @@ ul.country-state{
     transition-delay: 0.5ms;
 }
 .question-card:hover{
-    transform: scale(0.9);
+    transform: scale(0.98);
     transition-delay: 0.5ms;
 }
 
@@ -1349,7 +1338,7 @@ ul.country-state{
 }
 @media screen and (min-width: 992px){
     .admintest{
-         margin-left: 2.6rem;
+         margin-left: 3.5rem;
     }
 }
 @media screen and (max-width: 767px){
@@ -1378,4 +1367,57 @@ ul.country-state{
 
 .answers-form-input button:hover{
     transform: scale(0.9);
+}
+
+
+.question-actions:hover{
+     cursor: pointer;
+}
+
+.question-inner-card p, .question-inner-card li{
+       font-size: .9rem;
+       list-style-type:none;
+       color: gray;
+}
+
+
+@media screen and (max-width: 767px){
+    .addQuestions{
+         margin-left: 1rem;
+    }
+}
+
+.addQuestions textarea:focus, .form-control:focus{
+    border-color: #4ab2cc;
+}
+
+@media screen and (min-width: 991px){
+    .testedit{
+        margin-left: 2rem;
+    }
+}
+@media screen and (max-width: 767px){
+    .testedit{
+        margin-left: -2rem;
+    }
+}
+
+.addanswers{
+     box-shadow: rgba(100, 100, 111, 0.2) 0px 3px 14px 0px;
+}
+
+.delete-answer-btn:hover{
+     cursor: pointer;
+}
+
+/*------------------ Clients Services ----------------*/
+.services-section{
+    background-image: url("capture.webp");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+
+.about{
+    font-size: 2rem;
+    font-weight: 550;
 }

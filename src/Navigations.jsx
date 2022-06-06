@@ -42,6 +42,8 @@ import EditServicePage from './AdminDashboard/pages/EditServicePage';
 import SpecificClientPage from './AdminDashboard/pages/SpecificClientPage';
 import AddServicePage from './AdminDashboard/pages/AddServicePage';
 import UnitsClientsPage from './ClientsDashboard/pages/UnitsPage'
+import AddQuestionPage from './AdminDashboard/pages/AddQuestionPage'
+import ClientsServicesPage from './AdminDashboard/pages/ClientsServicesPage';
 
 
 import NotFoundPage from './unitsDashboard/pages/notFound';
@@ -55,7 +57,8 @@ function Navigation (){
     return(
         <BrowserRouter>
             <Routes>
-                 <Route path='/' exact element={<HomePage/>}/>
+                 <Route path='/clientservicedashboard' exact element={<HomePage/>}/>
+                 <Route path='/' exact element={<ClientsServicesPage/>}/>
                  <Route path='/profile' exact element={<MyProfile/>}/>
                  <Route path='/res' exact element={<ResourcePage/>}/>
                  <Route path='/attest' exact element={<AttestationPage/>}/>
@@ -95,6 +98,7 @@ function Navigation (){
                  <Route path='/editunit' exact element={<EditeUnitPage/>}/>
                  <Route path='/editclient' exact element={<EditClientPage/>}/>
                  <Route path='/addservice' exact element={<AddServicePage/>}/>
+                 <Route path='/addquestion' exact element={<AddQuestionPage/>}/>
 
                  {/* main site home page */}
                  <Route path='/mainhomepage' exact element={<SiteHomePage/>}/>

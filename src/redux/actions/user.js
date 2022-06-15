@@ -1,4 +1,4 @@
-import { ADD_USER } from "./action-types"
+import { ADD_USER } from "../constants/action-types"
 
 /**
  * @param userData

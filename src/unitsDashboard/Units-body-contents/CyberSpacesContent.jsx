@@ -3,7 +3,7 @@ import HeaderSection from '../components/HeaderSection'
 import FooterSection from '../components/FooterSection'
 import ImageCard from "../components/ImageCard";
 import CarouselCard from '../components/CarouselCard'
-import '../../App.css'
+import '../../ClientsDashboard/App.css'
 
 
 

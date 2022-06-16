@@ -4,7 +4,7 @@ import { height } from '@mui/system';
 import './togBut.css'
 import './styey.css'
 
-function ToggleButton() {
+function ToggleButton2() {
   const [openbtn, setOpenbtn] = useState("");
   const [closebtn, setClosebtn] = useState("");
   var openNav =  function openNav() {
@@ -33,9 +33,9 @@ function ToggleButton() {
   }
 
 
-export default ToggleButton;
+export default ToggleButton2;
 
 const style = {
-    top: '15%',
+    top: '5%',
     height:'20px'
 }

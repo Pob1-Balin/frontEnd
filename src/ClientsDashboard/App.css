@@ -568,8 +568,8 @@ a{
  }
 
 .success {
-    border-color: #04AA6D;
-    color: green;
+    border-color: #4ab2cc;
+    color: #4ab2cc;
     min-width: 10rem;
   }
 
@@ -827,3 +827,26 @@ a{
     }
 }
 
+
+
+/*------------------- units -------------*/
+
+.text-container{
+    background-color: white;
+    margin-bottom: -1.2rem;
+}
+
+.text-header, .text-body{
+    margin-left: 6rem;
+    margin-right: 6rem;
+}
+
+.text-header{
+    padding-top: 1.5rem;
+}
+.text-body{
+    padding-bottom: 1.5rem;
+}
+.text-body p{
+    font-size: .8rem;
+}

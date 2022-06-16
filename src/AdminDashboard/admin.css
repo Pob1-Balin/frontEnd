@@ -1050,7 +1050,7 @@ ul.country-state{
 /*=============================== login and sign up ============= */
 
 .Login-name{
-    font-size: 1.2rem;
+    font-size: 1.6rem;
     font-style: bold;
     font-weight: 560;
     color: #4ab2cc;
@@ -1081,46 +1081,40 @@ ul.country-state{
 }
 
  .LoginCard{
-     margin-top: 5rem;
-     margin-left: 34%;
-}
+       margin: 5rem 20rem;
+  }
+  @media screen and (max-width: 1300px){
+    .LoginCard{
+        margin: 5rem 15rem;
+   }
+ }
+  @media screen and (max-width: 1000px){
+    .LoginCard{
+        margin: 5rem 10rem;
+   }
+ }
+  @media screen and (max-width: 800px){
+    .LoginCard{
+        margin: 5rem 8rem;
+   }
+ }
+  @media screen and (max-width: 650px){
+    .LoginCard{
+        margin: 5rem 5rem;
+   }
+ }
+  @media screen and (max-width: 550px){
+    .LoginCard{
+        margin: 5rem 1rem;
+   }
+ }
+  @media screen and (max-width: 300px){
+    .LoginCard{
+        margin: 5rem .5rem;
+   }
+ }
 
-/* 
-@media screen and (min-width: 1061px){
-    .LoginCard{
-         margin-left: 10%;
-   }
- }
-@media screen and (min-width: 1100px){
-    .LoginCard{
-         margin-left: 15%;
-   }
- }
-@media screen and (min-width: 1468px){
-    .LoginCard{
-         margin-left: 20%;
-   }
- }
-@media screen and (min-width: 1832px){
-    .LoginCard{
-         margin-left: 27%;
-   }
- }
-@media screen and (min-width: 2280px){
-    .LoginCard{
-         margin-left: 32%;
-   }
- }
 
-
-
-@media screen and (max-width: 800px){
-    .LoginCard{
-        margin-left: -.5rem;
-        margin-right: -.5rem;
-        margin-top: 1.5rem;
-   }
- } */
 
  @media screen and (min-width: 400px){
     .inner-card-container{
@@ -1420,4 +1414,23 @@ ul.country-state{
 .about{
     font-size: 2rem;
     font-weight: 550;
+}
+
+/*-------------------- Edit units content ---------------------*/
+.edit-structures{
+    margin: -1rem -2rem;
+    margin-bottom: 2rem;
+}
+
+@media screen and (max-width: 767px){
+    .edit-structures{
+         margin-left: -.4rem;
+         margin-right: -2rem;
+    }
+}
+
+.formLable{
+    color: gray;
+    font-size: 15px;
+    font-weight: bold;
 }

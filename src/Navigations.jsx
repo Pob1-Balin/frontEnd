@@ -41,7 +41,7 @@ import UserForgotPasswordPage from './ClientsDashboard/pages/UserForgotPasswordP
 import UserCheckEmailPage from './ClientsDashboard/pages/UserCheckEmailPage';
 import SetUserPasswordPage from './ClientsDashboard/pages/SetUserPasswordPage';
 import UserPasswordSetMessagePage from './ClientsDashboard/pages/UserPasswordSetMessagePage';
-
+import ClientRegisterPage from './ClientsDashboard/pages/ClientRegisterPage';
 
 /*============================= Admin dashboard =================================*/
 import AdminHomePage from './AdminDashboard/pages/HomePage';
@@ -126,6 +126,7 @@ function Navigation (){
                 <Route path='/checkemail' exact element={<UserCheckEmailPage />}/>
                 <Route path='/setuserpassword' exact element={<SetUserPasswordPage />}/>
                 <Route path='/userpasswordsetmessage' exact element={<UserPasswordSetMessagePage/>}/>
+                <Route path='/clientregister' exact element={<ClientRegisterPage/>}/>
 
 
 

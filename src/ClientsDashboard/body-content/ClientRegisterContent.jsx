@@ -75,7 +75,6 @@ function ClientRegisterContent(){
                     </div>
                  </div>
              </main>
-
         </>
     )
 }

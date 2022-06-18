@@ -5,10 +5,10 @@ import "../../AdminDashboard/admin.css";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 
-function ClientRegisterContent(){
+function AdminRegistrationContent(){
 
   useEffect(() => {
-      Aos.init({ duration: 3000 });
+      Aos.init({ duration: 2000 });
   }, []);
 
     return(
@@ -34,6 +34,14 @@ function ClientRegisterContent(){
                                         <input style={{height:'2.5rem'}} className="form-control" type="text" name="lastName" placeholder="Enter Last Name" />
                                     </div>
                                     <div className="form-group">
+                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Email</p></div>
+                                        <input style={{height:'2.5rem'}} className="form-control" type="email" name="email" placeholder="Email" />
+                                    </div>
+                                    <div className="form-group">
+                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Phone</p></div>
+                                        <input style={{height:'2.5rem'}} className="form-control" type="number" name="phone" placeholder="Enter your phone number" />
+                                    </div>
+                                    <div className="form-group">
                                         <div style={{marginBottom: "-12px"}} className="FormLable"><p>Gender</p></div>
                                         <input style={{height:'2.5rem'}} className="form-control" type="text" name="gender" placeholder="Select your Gender" />
                                     </div>
@@ -41,13 +49,17 @@ function ClientRegisterContent(){
                                         <div style={{marginBottom: "-12px"}} className="FormLable"><p>Country</p></div>
                                         <input style={{height:'2.5rem'}} className="form-control" type="text" name="country" placeholder="Select your Country" />
                                     </div>
-                                    <div className="form-group">
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Phone</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="number" name="phone" placeholder="Enter your phone number" />
+                                    <div className="form-group" style={{marginTop: '13px'}}>
+                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Address</p></div>
+                                        <input style={{height:'2.5rem'}} className="form-control" type="text" placeholder="Enter your address" name="address" />
                                     </div>
-                                    <div className="form-group">
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Email</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="email" name="email" placeholder="Email" />
+                                    <div className="form-group" style={{marginTop: '13px'}}>
+                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Skill</p></div>
+                                        <input style={{height:'2.5rem'}} className="form-control" type="text" placeholder="Enter your skills" name="skill" />
+                                    </div>
+                                    <div className="form-group" style={{marginTop: '13px'}}>
+                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Educational Level</p></div>
+                                        <input style={{height:'2.5rem'}} className="form-control" type="text" placeholder="Enter your educational level" name="educationalLevel" />
                                     </div>
                                     <div className="form-group" style={{marginTop: '13px'}}>
                                         <div style={{marginBottom: "-12px"}} className="FormLable"><p>Password</p></div>
@@ -67,7 +79,7 @@ function ClientRegisterContent(){
                                 </div>
                                 <div className="row text-center mt-2 mb-4" style={{marginTop:"-.5rem"}}>
                                     <div data-aos="zoom-out-right" className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <p style={{fontSize:".9rem", marginTop:"-.6rem"}}>Already have an Account? <span style={{color:"#4ab2cc"}}><a style={{color:"#4ab2cc"}} href="/userlogin">Sign Up</a></span></p>
+                                        <p style={{fontSize:".9rem", marginTop:"-.6rem"}}>Already have an Account? <span style={{color:"#4ab2cc"}}><a style={{color:"#4ab2cc"}} href="/userlogin">Login</a></span></p>
                                     </div>
                                 </div>
                             </div>
@@ -79,4 +91,4 @@ function ClientRegisterContent(){
     )
 }
 
-export default ClientRegisterContent;
+export default AdminRegistrationContent;

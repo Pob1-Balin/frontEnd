@@ -19,10 +19,9 @@ function IntroductionPage(){
 
         
         <>
-          
             <div className="">
-                <SidebarLinks/>  
-                <div id="BodyContent" style={{marginLeft:'15rem'}}>
+                <SidebarLinks/>
+                <div id="BodyContent" style={{marginLeft:'18rem'}}>
                     <div>
                         <ToggleButton/>
                     </div>

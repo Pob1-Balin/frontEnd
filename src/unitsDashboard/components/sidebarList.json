@@ -1,34 +1,18 @@
 [
     {
         "Title": "Welcome",
-        "component": "unite"
+        "component": "unitcontent"
     },
     {
-        "Title": "Introduction",
-        "component": "introduction"
+        "Title": "Structure One",
+        "component": "structureone"
     },
     {
-        "Title": "Technologies",
-        "component": "technologies"
+        "Title": "Structure Two",
+        "component": "structuretwo"
     },
     {
-        "Title":"Cyberspace",
-        "component":"cyberspace"
-    },
-    {
-        "Title":"Lawlessness",
-        "component":"lawlessness"
-    },
-    {
-        "Title": "Findings",
-        "component": "findings"
-    },
-    {
-        "Title": "Findings",
-        "component": "findings"
-    },
-    {
-        "Title": "Findings",
-        "component": "findings"
+        "Title":"Structure Three",
+        "component":"structurethree"
     }
 ]

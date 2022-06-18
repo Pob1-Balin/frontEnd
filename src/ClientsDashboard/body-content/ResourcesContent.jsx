@@ -25,7 +25,7 @@ function ResourceContent (props){
                          <h1 className="heading" style={{color: '#0d3360'}}>Resource page</h1>
                     </div>
                     <div style={{marginBottom: "1.3rem"}} className="Home_navigation">
-                         <p><Link className="return-home" style={{textDecoration: 'none'}} to='/'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span>Resources</span></p>
+                         <p><Link className="return-home" style={{textDecoration: 'none'}} to='/clientservicedashboard'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span>Resources</span></p>
                     </div>
                 </>
                 }

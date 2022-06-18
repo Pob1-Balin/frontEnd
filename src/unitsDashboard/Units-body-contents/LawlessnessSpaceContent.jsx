@@ -5,7 +5,7 @@ import SecondUnitFooter from '../components/SecondUnitFooter'
 import ImageCard from "../components/ImageCard";
 import CarouselCard2 from '../components/CarouselCard2'
 import CarouselCard3 from '../components/CarouselCard3'
-import '../../App.css'
+import '../../ClientsDashboard/App.css'
 
 
 function CyberSpacesContent(){

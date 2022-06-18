@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderSection from '../components/HeaderSection'
 import FooterSection from '../components/FooterSection'
-import '../../App.css'
+import '../../ClientsDashboard/App.css'
 import { NavLink } from "react-router-dom";
 
 function FindingsContent(){

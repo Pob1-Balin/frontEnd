@@ -36,12 +36,13 @@ import AddStructureTwoPage from './AdminDashboard/pages/AddStructureTwoPage';
 import AddStructureThreePage from './AdminDashboard/pages/AddStructureThreePage';
 
 /*============================= User Authentication =================================*/
-import UserLoginPage from './ClientsDashboard/pages/UserLoginPage';
-import UserForgotPasswordPage from './ClientsDashboard/pages/UserForgotPasswordPage';
-import UserCheckEmailPage from './ClientsDashboard/pages/UserCheckEmailPage';
-import SetUserPasswordPage from './ClientsDashboard/pages/SetUserPasswordPage';
-import UserPasswordSetMessagePage from './ClientsDashboard/pages/UserPasswordSetMessagePage';
-import ClientRegisterPage from './ClientsDashboard/pages/ClientRegisterPage';
+import UserLoginPage from './Auth/pages/UserLoginPage';
+import UserForgotPasswordPage from './Auth/pages/UserForgotPasswordPage';
+import UserCheckEmailPage from './Auth/pages/UserCheckEmailPage';
+import SetUserPasswordPage from './Auth/pages/SetUserPasswordPage';
+import UserPasswordSetMessagePage from './Auth/pages/UserPasswordSetMessagePage';
+import ClientRegisterPage from './Auth/pages/ClientRegisterPage';
+import  AdminRegistrationPage from './Auth/pages/AdminRegistrationPage';
 
 /*============================= Admin dashboard =================================*/
 import AdminHomePage from './AdminDashboard/pages/HomePage';
@@ -127,6 +128,7 @@ function Navigation (){
                 <Route path='/setuserpassword' exact element={<SetUserPasswordPage />}/>
                 <Route path='/userpasswordsetmessage' exact element={<UserPasswordSetMessagePage/>}/>
                 <Route path='/clientregister' exact element={<ClientRegisterPage/>}/>
+                <Route path='/adminregister' exact element={<AdminRegistrationPage/>}/>
 
 
 

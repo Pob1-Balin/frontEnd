@@ -1,23 +1,46 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
 // import BackgroundVideo  from "./cyberzone.mp4";
 import "../../AdminDashboard/admin.css";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import axios from 'axios'
+import { API } from "../../config";
+import { useNavigate } from "react-router-dom";
+
 
 function ClientRegisterContent(){
-  useEffect(() => {
-      Aos.init({ duration: 2000 });
-  }, []);
+    const navigate = useNavigate();
+    const [inputs, setInputs] = useState({first_name:"", last_name:"", gender: "", country:"", email:"", password:"", phone_number:""})
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
+    
+    const handleChange = event => {
+        setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
+    }
 
-  const initialValues = {firstName:"", lastName:"", gender:"", email:"", country:"", phone:"", password:"", confirmPassword:""};
-  const [formValues, setFormValues] = useState(initialValues);
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
+    const handleSubmit = e =>{
+        e.preventDefault();
+        setFormErrors(validate(formValues));
+        setIsSubmit(true);
+        if(inputs.first_name && inputs.email && inputs.last_name && inputs.phone_number && inputs.password){
+            axios.post(`${API}/user/register`, inputs)
+            .then((response)=>{
+                // console.log(response)
+                const status = response.data.status
+                if(status === "success"){
+                    navigate("/userlogin")
+                }
+            }).catch((err)=>{
+                console.log(err)
+                const msg = err.response.data.msg
+                setErrorMessages(msg)
+            })
+        }
 
-  const handleChange = (e) => {
-      const {name, value} = e.target;
-      setFormValues({...formValues, [name]: value });
-  };
+    }
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, []);
 
   useEffect(() => {
     console.log(formErrors);
@@ -25,12 +48,6 @@ function ClientRegisterContent(){
           console.log(formValues);
       }
   })
-
-  const handleSubmit = (e) => {
-      e.preventDefault();
-      setFormErrors(validate(formValues));
-      setIsSubmit(true);
-  };
 
   const validate = (values) => {
       const errors = {};
@@ -88,40 +105,41 @@ function ClientRegisterContent(){
                                 <div data-aos="zoom-out-right" data-aos-offset="100" className="portlet-title">
                                     <p className="text-center Login-name">Create Account</p>
                                 </div>
+                                {/* ===== form ======= */}
                                 <form onSubmit={handleSubmit} data-aos="zoom-out-right" data-aos-offset="100" >
                                     <div className="form-group">
-                                        <div style={{marginBottom: "-12px", borderColor:"red"}} className="FormLable"><p>First Name*</p></div>
-                                        <input style={{height:"2.5rem"}}  className={`form-control ${formErrors.firstName != "" ? "" : "border-color"} `} type="text" name="firstName" placeholder="Enter First Name" value ={formValues.firstName} onChange={handleChange} />
+                                        <label htmlFor="first_name" style={{marginBottom: "-12px"}} className="FormLable"><p>First Name</p></label>
+                                        <input style={{height:'2.5rem'}} value={inputs.first_name} onChange={handleChange} className="form-control" type="text" name="first_name" placeholder="Enter First Name" />
                                     </div>
                                     <p style={errorMessage}>{formErrors.firstName}</p>
                                     <div className="form-group">
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Last Name*</p></div>
-                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.lastName != "" ? "" : "border-color"} `} type="text" name="lastName" placeholder="Enter Last Name" value ={formValues.lastName} onChange={handleChange} />
+                                        <label htmlFor="last_name" style={{marginBottom: "-12px"}} className="FormLable"><p>Last Name</p></label>
+                                        <input style={{height:'2.5rem'}}value={inputs.last_name} onChange={handleChange} className="form-control" type="text" name="last_name" placeholder="Enter Last Name" />
                                     </div>
                                     <p style={errorMessage}>{formErrors.lastName}</p>
                                     <div className="form-group">
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Email*</p></div>
-                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.email != "" ? "" : "border-color"} `} type="text" name="email" placeholder="Enter Your Email" value ={formValues.email} onChange={handleChange} />
+                                        <label htmlFor="gender" style={{marginBottom: "-12px"}} className="FormLable"><p>Gender</p></label>
+                                        <input style={{height:'2.5rem'}} value={inputs.gender} onChange={handleChange} className="form-control" type="text" name="gender" placeholder="Select your Gender" />
                                     </div>
                                     <p style={errorMessage}>{formErrors.email}</p>
                                     <div className="form-group">
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Phone*</p></div>
-                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.phone != "" ? "" : "border-color"} `} type="number" name="phone" placeholder="Enter your phone number" value ={formValues.phone} onChange={handleChange} />
+                                        <label htmlFor="country" style={{marginBottom: "-12px"}} className="FormLable"><p>Country</p></label>
+                                        <input style={{height:'2.5rem'}} value={inputs.country} onChange={handleChange} className="form-control" type="text" name="country" placeholder="Select your Country" />
                                     </div>
                                     <p style={errorMessage}>{formErrors.phone}</p>
                                     <div className="form-group">
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Gender*</p></div>
-                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.gender != "" ? "" : "border-color"} `} type="text" name="gender" placeholder="Select your Gender" value ={formValues.gender} onChange={handleChange} />
+                                        <label htmlFor="phone_number" style={{marginBottom: "-12px"}} className="FormLable"><p>Phone Number</p></label>
+                                        <input style={{height:'2.5rem'}} value={inputs.phone_number} onChange={handleChange} className="form-control" type="number" name="phone_number" placeholder="Enter your phone number" />
                                     </div>
                                     <p style={errorMessage}>{formErrors.gender}</p>
                                     <div className="form-group">
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Country*</p></div>
-                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.country != "" ? "" : "border-color"} `} type="text" name="country" placeholder="Select your Country" value ={formValues.country} onChange={handleChange} />
+                                        <label htmlFor="email" style={{marginBottom: "-12px"}} className="FormLable"><p>Email</p></label>
+                                        <input style={{height:'2.5rem'}} value={inputs.email} onChange={handleChange} className="form-control" type="email" name="email" placeholder="Email" />
                                     </div>
                                     <p style={errorMessage}>{formErrors.country}</p>
                                     <div className="form-group" style={{marginTop: '13px'}}>
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Password*</p></div>
-                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.password != "" ? "" : "border-color"} `} type="password" placeholder="Password" name="password" value ={formValues.password} onChange={handleChange} />
+                                        <label htmlFor="password" style={{marginBottom: "-12px"}} className="FormLable"><p>Password</p></label>
+                                        <input style={{height:'2.5rem'}} value={inputs.password} onChange={handleChange} className="form-control" type="password" placeholder="Password" name="password" />
                                     </div>
                                     <p style={errorMessage}>{formErrors.password}</p>
                                     <div className="form-group" style={{marginTop: '13px'}}>
@@ -130,7 +148,7 @@ function ClientRegisterContent(){
                                     </div>
                                     <p style={errorMessage}>{formErrors.confirmPassword}</p>
                                     <div style={{marginTop: '1.3rem'}} className="form-group">
-                                        <button type="submit" data-aos="zoom-out-right" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn waves-effect waves-light submitBtn">CREATE</button>
+                                        <button type="submit" data-aos="zoom-out-right" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn waves-effect waves-light submitBtn">SIGN UP</button>
                                     </div>
                                 </form>
                                 <div className="row" style={{marginTop:"-.5rem"}}>

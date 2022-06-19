@@ -4,6 +4,7 @@ import "../../AdminDashboard/admin.css";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import {validateRegistration} from '../../utils/inputValidations'
+
 import axios from 'axios'
 import { API } from "../../config";
 import { useNavigate } from "react-router-dom";

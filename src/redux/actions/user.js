@@ -5,6 +5,6 @@ import { ADD_USER } from "../constants/action-types"
  * @return object
  */
 export const addUser = (userData) => {
-    return {type: ADD_USER, payload: {name: userData.name, age: userData.age}}
+    return {type: ADD_USER, payload: userData}
 }
 

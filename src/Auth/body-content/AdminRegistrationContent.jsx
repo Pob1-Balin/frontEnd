@@ -3,92 +3,29 @@ import React, { useEffect, useState } from "react";
 import "../../AdminDashboard/admin.css";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import {validateRegistration} from '../../utils/inputValidations'
+import axios from 'axios'
+import { API } from "../../config";
+import { useNavigate } from "react-router-dom";
 
 function AdminRegistrationContent(){
-  useEffect(() => {
-      Aos.init({ duration: 2000 });
-  }, []);
+    const navigate = useNavigate();
+    const [inputs, setInputs] = useState({first_name:"", last_name:"", gender: "", country:"", email:"", password:"", phone_number:"", confirm_password:""})
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
+    const handleChange = event => {
+        setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
+    }
 
-  const initialValues = {firstName:"", lastName:"", gender:"", email:"", country:"", phone:"", password:"", confirmPassword:"", address:"", skill:"", educationalLevel:""};
-  const [formValues, setFormValues] = useState(initialValues);
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
+    const handleSubmit = e =>{
+        e.preventDefault();
+        setFormErrors(validateRegistration(inputs));
+        setIsSubmit(true);
+    }
 
-  const handleChange = (e) => {
-      const {name, value} = e.target;
-      setFormValues({...formValues, [name]: value });
-  };
-
-  useEffect(() => {
-    console.log(formErrors);
-      if(Object.keys(formErrors).length === 0 && isSubmit){
-          console.log(formValues);
-      }
-  })
-
-  const handleSubmit = (e) => {
-      e.preventDefault();
-      setFormErrors(validate(formValues));
-      setIsSubmit(true);
-  };
-
-  const validate = (values) => {
-      const errors = {};
-      const emailRegex = /^[^s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-      const usernameRegex = /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){1,18}[a-zA-Z0-9]$/i;
-      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/i;
-      if(!values.firstName){
-          errors.firstName = "First Name is required"
-      }else if(!usernameRegex.test(values.firstName)){
-        errors.firstName = "First name not Valide"
-      }
-      if(!values.lastName){
-          errors.lastName = "Last Name is required!"
-      }else if(!usernameRegex.test(values.lastName)){
-        errors.lastName = "Last name not Valide"
-      }
-      if(!values.email){
-          errors.email = "Email is required!"
-      }else if(!emailRegex.test(values.email)){
-        errors.email = "This is not a valide email"
-      }
-      if(!values.phone){
-          errors.phone = "Phone number is required!"
-      }
-      if(!values.gender){
-          errors.gender = "Gender is required!"
-      }
-      if(!values.country){
-          errors.country = "Country is required!"
-      }
-      if(!values.address){
-          errors.address = "Adress is required!"
-      }else if(!usernameRegex.test(values.address)){
-        errors.address = "Address not Valide"
-      }
-      if(!values.skill){
-          errors.skill = "Skill is required!"
-      }else if(!usernameRegex.test(values.skill)){
-        errors.skill = "Skill not Valide"
-      }
-      if(!values.educationalLevel){
-          errors.educationalLevel = "Your educational level is required!"
-      }else if(!usernameRegex.test(values.educationalLevel)){
-        errors.educationalLevel = "Educational level not Valide"
-      }
-      if(!values.password){
-          errors.password = "Password is required!"
-      }else if(!passwordRegex.test(values.password)){
-        errors.password = "Password must have a minimum of 8 characters, at least one lowercase, one uppercase, one number, and one special character"
-      }
-      if(!values.confirmPassword){
-          errors.confirmPassword = "Confirm password is required!"
-      }else if(values.password != values.confirmPassword){
-        errors.confirmPassword = "Confirm password does not match password"
-      }
-      return errors;
-  };
-
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, []);
     return(
         <>
              <main className="login" style={{background:"white"}}>
@@ -103,63 +40,63 @@ function AdminRegistrationContent(){
                                     <p className="text-center Login-name">Create Account</p>
                                 </div>
                                 <form onSubmit={handleSubmit} data-aos="zoom-out-right" data-aos-offset="100" >
-                                    <div className="form-group">
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>First Name*</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="text" name="firstName" placeholder="Enter First Name" value ={formValues.firstName} onChange={handleChange} />
+                                <div className="form-group">
+                                        <label htmlFor="first_name" style={{marginBottom: "-12px"}} className="FormLable"><p>First Name</p></label>
+                                        <input style={{height:'2.5rem'}} value={inputs.first_name} onChange={handleChange} className={`form-control ${formErrors.first_name? "border-color": ""}`} type="text" name="first_name" placeholder="Enter First Name" />
                                     </div>
-                                    <p style={errorMessage}>{formErrors.firstName}</p>
+                                    <p style={errorMessage}>{formErrors.first_name}</p>
                                     <div className="form-group">
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Last Name*</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="text" name="lastName" placeholder="Enter Last Name" value ={formValues.lastName} onChange={handleChange} />
+                                        <label htmlFor="last_name" style={{marginBottom: "-12px"}} className="FormLable"><p>Last Name</p></label>
+                                        <input style={{height:'2.5rem'}}value={inputs.last_name} onChange={handleChange} className={`form-control ${formErrors.last_name? "border-color": ""}`} type="text" name="last_name" placeholder="Enter Last Name" />
                                     </div>
-                                    <p style={errorMessage}>{formErrors.lastName}</p>
+                                    <p style={errorMessage}>{formErrors.last_name}</p>
                                     <div className="form-group">
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Email*</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="email" name="email" placeholder="Email" value ={formValues.email} onChange={handleChange} />
-                                    </div>
-                                    <p style={errorMessage}>{formErrors.email}</p>
-                                    <div className="form-group">
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Phone*</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="number" name="phone" placeholder="Enter your phone number" value ={formValues.phone} onChange={handleChange} />
-                                    </div>
-                                    <p style={errorMessage}>{formErrors.phone}</p>
-                                    <div className="form-group">
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Gender</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="text" name="gender" placeholder="Select your Gender" value ={formValues.gender} onChange={handleChange} />
+                                        <label htmlFor="gender" style={{marginBottom: "-12px"}} className="FormLable"><p>Gender</p></label>
+                                        <input style={{height:'2.5rem'}} value={inputs.gender} onChange={handleChange} className={`form-control ${formErrors.gender? "border-color": ""}`} type="text" name="gender" placeholder="Select your Gender" />
                                     </div>
                                     <p style={errorMessage}>{formErrors.gender}</p>
                                     <div className="form-group">
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Country*</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="text" name="country" placeholder="Select your Country" value ={formValues.country} onChange={handleChange} />
+                                        <label htmlFor="country" style={{marginBottom: "-12px"}} className="FormLable"><p>Country</p></label>
+                                        <input style={{height:'2.5rem'}} value={inputs.country} onChange={handleChange} className={`form-control ${formErrors.country? "border-color": ""}`} type="text" name="country" placeholder="Select your Country" />
                                     </div>
                                     <p style={errorMessage}>{formErrors.country}</p>
+                                    <div className="form-group">
+                                        <label htmlFor="phone_number" style={{marginBottom: "-12px"}} className="FormLable"><p>Phone Number</p></label>
+                                        <input style={{height:'2.5rem'}} value={inputs.phone_number} onChange={handleChange} className={`form-control ${formErrors.phone_number? "border-color": ""}`} type="number" name="phone_number" placeholder="Enter your phone number" />
+                                    </div>
+                                    <p style={errorMessage}>{formErrors.phone_number}</p>
+                                    <div className="form-group">
+                                        <label htmlFor="email" style={{marginBottom: "-12px"}} className="FormLable"><p>Email</p></label>
+                                        <input style={{height:'2.5rem'}} value={inputs.email} onChange={handleChange} className={`form-control ${formErrors.email? "border-color": ""}`} type="text" name="email" placeholder="Email" />
+                                    </div>
+                                    <p style={errorMessage}>{formErrors.email}</p>
                                     <div className="form-group" style={{marginTop: '13px'}}>
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Address*</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="text" placeholder="Enter your address" name="address" value ={formValues.address} onChange={handleChange} />
+                                        <label htmlFor="country" style={{marginBottom: "-12px"}} className="FormLable"><p>Address</p></label>
+                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.address ? "border-color": ""}`} type="text" placeholder="Enter your address" name="address" value ={inputs.address} onChange={handleChange} />
                                     </div>
                                     <p style={errorMessage}>{formErrors.address}</p>
                                     <div className="form-group" style={{marginTop: '13px'}}>
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Skill*</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="text" placeholder="Enter your skills" name="skill" value ={formValues.skill} onChange={handleChange} />
+                                        <label htmlFor="country" style={{marginBottom: "-12px"}} className="FormLable"><p>Skill</p></label>
+                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.skill ? "border-color": ""}`} type="text" placeholder="Enter your skills" name="skill" value ={inputs.skill} onChange={handleChange} />
                                     </div>
                                     <p style={errorMessage}>{formErrors.skill}</p>
                                     <div className="form-group" style={{marginTop: '13px'}}>
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Educational Level*</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="text" placeholder="Enter your educational level" name="educationalLevel" value ={formValues.educationalLevel} onChange={handleChange} />
+                                        <label htmlFor="country" style={{marginBottom: "-12px"}} className="FormLable"><p>Educational Level</p></label>
+                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.educational_level ? "border-color": ""}`} type="text" placeholder="Enter your educational level" name="educational_level" value ={inputs.educational_level} onChange={handleChange} />
                                     </div>
-                                    <p style={errorMessage}>{formErrors.educationalLevel}</p>
+                                    <p style={errorMessage}>{formErrors.educational_level}</p>
                                     <div className="form-group" style={{marginTop: '13px'}}>
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Password*</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="password" placeholder="Password" name="password" value ={formValues.password} onChange={handleChange} />
+                                        <label htmlFor="password" style={{marginBottom: "-12px"}} className="FormLable"><p>Password</p></label>
+                                        <input style={{height:'2.5rem'}} value={inputs.password} onChange={handleChange} className={`form-control ${formErrors.password? "border-color": ""}`} type="password" placeholder="Password" name="password" />
                                     </div>
                                     <p style={errorMessage}>{formErrors.password}</p>
                                     <div className="form-group" style={{marginTop: '13px'}}>
                                         <div style={{marginBottom: "-12px"}} className="FormLable"><p>Confirm password*</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="password" placeholder="Confirm password" name="confirmPassword" value ={formValues.confirmPassword} onChange={handleChange} />
+                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.confirm_password ? "border-color": ""}`} type="password" placeholder="Confirm password" name="confirm_password" value ={inputs.confirm_password} onChange={handleChange} />
                                     </div>
-                                    <p style={errorMessage}>{formErrors.confirmPassword}</p>
+                                    <p style={errorMessage}>{formErrors.confirm_password}</p>
                                     <div style={{marginTop: '1.3rem'}} className="form-group">
-                                        <button type="submit" data-aos="zoom-out-right" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn waves-effect waves-light submitBtn">CREATE</button>
+                                        <button type="submit" data-aos="zoom-out-right" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn waves-effect waves-light submitBtn">SIGN UP</button>
                                     </div>
                                 </form>
                                 <div className="row" style={{marginTop:"-.5rem"}}>

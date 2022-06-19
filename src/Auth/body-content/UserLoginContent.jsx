@@ -6,6 +6,7 @@ import 'aos/dist/aos.css';
 import axios from "axios";
 import { API } from "../../config";
 import { useNavigate } from "react-router-dom";
+import {validateRegistration} from '../../utils/inputValidations'
 
 function UserLoginContent(){
     const [inputs, setInputs] = useState({email:"", password:""})
@@ -20,7 +21,7 @@ function UserLoginContent(){
     const handleSubmit = e =>{
         e.preventDefault();
         // console.log(inputs)
-        setFormErrors(validate(formValues));
+        setFormErrors(validateRegistration(inputs));
         setIsSubmit(true);
         axios.post(`${API}/user/login`, inputs)
         .then((response)=>{
@@ -40,29 +41,7 @@ function UserLoginContent(){
 
   useEffect(() => {
       Aos.init({ duration: 3000 });
-      console.log(formErrors);
-        if(Object.keys(formErrors).length === 0 ){
-            console.log(formValues);
-        }
-  }, [isSubmit]);
-
-  const validate = (values) => {
-      const errors = {};
-      const emailRegex = /^[^s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/i;
-      if(!values.email){
-          errors.email = "Email is required!"
-      }else if(!emailRegex.test(values.email)){
-        errors.email = "This is not a valide email"
-      }
-      if(!values.password){
-          errors.password = "Password is required!"
-      }else if(!passwordRegex.test(values.password)){
-        errors.password = "Password must have a minimum of 8 characters, at least one lowercase, one uppercase, one number, and one special character"
-      }
-      return errors;
-  };
-
+  }, []);
 
     return(
         <>
@@ -81,12 +60,12 @@ function UserLoginContent(){
                                 <form onSubmit={handleSubmit} data-aos="zoom-out-right" data-aos-offset="100" >
                                     <div className="form-group">
                                         <label htmlFor="email" style={{marginBottom: "-12px"}} className="FormLable"><p>Email</p></label>
-                                        <input style={{height:'2.5rem'}} value={inputs.email} onChange={handleChange} className="form-control" type="email" name="email" placeholder="Email" />
+                                        <input style={{height:'2.5rem'}} value={inputs.email} onChange={handleChange} className={`form-control ${formErrors.email? "border-color": ""}`} type="text" name="email" placeholder="Email" />
                                     </div>
                                     <p style={errorMessage}>{formErrors.email}</p>
                                     <div className="form-group" style={{marginTop: '13px'}}>
                                         <label htmlFor='password' style={{marginBottom: "-12px"}} className="FormLable"><p>Password</p></label>
-                                        <input style={{height:'2.5rem'}} value={inputs.password} onChange={handleChange} className="form-control" type="password" placeholder="Password" name="password" />
+                                        <input style={{height:'2.5rem'}} value={inputs.password} onChange={handleChange} className={`form-control ${formErrors.password? "border-color": ""}`} type="password" placeholder="Password" name="password" />
                                     </div>
                                     <p style={errorMessage}>{formErrors.password}</p>
                                     <div style={{marginTop: '1.3rem'}} className="form-group">

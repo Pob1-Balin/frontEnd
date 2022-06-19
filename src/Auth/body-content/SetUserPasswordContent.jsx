@@ -3,53 +3,31 @@ import React, { useEffect, useState } from "react";
 import "../../AdminDashboard/admin.css";
 import { FaChevronCircleRight } from "react-icons/fa";
 import { FaChevronCircleLeft } from "react-icons/fa";
-import { faPassport } from "@fortawesome/free-solid-svg-icons";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import {validateRegistration} from '../../utils/inputValidations'
+import axios from 'axios'
+import { API } from "../../config";
+import { useNavigate } from "react-router-dom";
 
 function SetUserPasswordContent(){
-  useEffect(() => {
-      Aos.init({ duration: 2000 });
-  }, []);
+    const navigate = useNavigate();
+    const [inputs, setInputs] = useState({password:"", confirm_password:""})
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
+    const handleChange = event => {
+        setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
+    }
 
-  const initialValues = {password:"", confirmPassword:""};
-  const [formValues, setFormValues] = useState(initialValues);
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
+    const handleSubmit = e =>{
+        e.preventDefault();
+        setFormErrors(validateRegistration(inputs));
+        setIsSubmit(true);
+    }
 
-  const handleChange = (e) => {
-      const {name, value} = e.target;
-      setFormValues({...formValues, [name]: value });
-  };
-
-  useEffect(() => {
-    console.log(formErrors);
-      if(Object.keys(formErrors).length === 0 && isSubmit){
-          console.log(formValues);
-      }
-  })
-
-  const handleSubmit = (e) => {
-      e.preventDefault();
-      setFormErrors(validate(formValues));
-      setIsSubmit(true);
-  };
-
-  const validate = (values) => {
-      const errors = {};
-      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/i;
-      if(!values.password){
-          errors.password = "Password is required!"
-      }else if(!passwordRegex.test(values.password)){
-        errors.password = "Password must have a minimum of 8 characters, at least one lowercase, one uppercase, one number, and one special character"
-      }
-      if(!values.confirmPassword){
-          errors.confirmPassword = "Confirm password is required!"
-      }else if(values.password != values.confirmPassword){
-        errors.confirmPassword = "Confirm password does not match password"
-      }
-      return errors;
-  };
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, []);
 
     return(
         <>
@@ -68,15 +46,15 @@ function SetUserPasswordContent(){
                                 </div>
                                 <form onSubmit={handleSubmit} data-aos="zoom-out-right" data-aos-offset="100" >
                                     <div className="form-group">
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Password*</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="password" name="password" placeholder="Enter password" value ={formValues.password} onChange={handleChange} />
+                                        <label htmlFor="country" style={{marginBottom: "-12px"}} className="FormLable"><p>Password</p></label>
+                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.password? "border-color": ""}`} type="password" name="password" placeholder="Enter password" value ={inputs.password} onChange={handleChange} />
                                     </div>
                                     <p style={errorMessage}>{formErrors.password}</p>
                                     <div className="form-group">
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Confirm password*</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="password" name="confirmPassword" placeholder="Enter confirm password" value ={formValues.confirmPassword} onChange={handleChange} />
+                                        <label htmlFor="country" style={{marginBottom: "-12px"}} className="FormLable"><p>Confirm password</p></label>
+                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.confirm_password? "border-color": ""}`} type="password" name="confirm_password" placeholder="Enter confirm password" value ={inputs.confirm_password} onChange={handleChange} />
                                     </div>
-                                    <p style={errorMessage}>{formErrors.confirmPassword}</p>
+                                    <p style={errorMessage}>{formErrors.confirm_password}</p>
                                     <div style={{marginTop: '1.3rem'}} className="form-group">
                                         <button type="submit" data-aos="zoom-out-right" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn waves-effect waves-light submitBtn">Reset Password</button>
                                     </div>

@@ -5,46 +5,29 @@ import { FaChevronCircleLeft } from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import {validateRegistration} from '../../utils/inputValidations'
+import axios from 'axios'
+import { API } from "../../config";
+import { useNavigate } from "react-router-dom";
 
 function UserForgotPasswordContent(){
-  useEffect(() => {
-      Aos.init({ duration: 2000 });
-  }, []);
+    const navigate = useNavigate();
+    const [inputs, setInputs] = useState({email:""})
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
+    const handleChange = event => {
+        setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
+    }
 
-  const initialValues = {email:""};
-  const [formValues, setFormValues] = useState(initialValues);
-  const [formErrors, setFormErrors] = useState({});
-  const [isSubmit, setIsSubmit] = useState(false);
+    const handleSubmit = e =>{
+        e.preventDefault();
+        setFormErrors(validateRegistration(inputs));
+        setIsSubmit(true);
+    }
 
-  const handleChange = (e) => {
-      const {name, value} = e.target;
-      setFormValues({...formValues, [name]: value });
-  };
-
-  useEffect(() => {
-    console.log(formErrors);
-      if(Object.keys(formErrors).length === 0 && isSubmit){
-          console.log(formValues);
-      }
-  })
-
-  const handleSubmit = (e) => {
-      e.preventDefault();
-      setFormErrors(validate(formValues));
-      setIsSubmit(true);
-  };
-
-  const validate = (values) => {
-      const errors = {};
-      const emailRegex = /^[^s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-      if(!values.email){
-          errors.email = "Email is required!"
-      }else if(!emailRegex.test(values.email)){
-        errors.email = "This is not a valide email"
-      }
-      return errors;
-  };
-
+    useEffect(() => {
+        Aos.init({ duration: 2000 });
+    }, []);
     return(
         <>
              <main className="login" style={{background:"white"}}>
@@ -62,8 +45,8 @@ function UserForgotPasswordContent(){
                                 </div>
                                 <form onSubmit={handleSubmit} data-aos="zoom-out-right" data-aos-offset="100" >
                                     <div className="form-group">
-                                    <div style={{marginBottom: "-12px"}} className="FormLable"><p>Email*</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="text" name="email" placeholder="Enter your email" value ={formValues.email} onChange={handleChange} />
+                                        <label htmlFor="country" style={{marginBottom: "-12px"}} className="FormLable"><p>Email</p></label>
+                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.email? "border-color": ""}`} type="text" name="email" placeholder="Enter your email" value ={inputs.email} onChange={handleChange} />
                                     </div>
                                     <p style={errorMessage}>{formErrors.email}</p>
                                     <div style={{marginTop: '1.3rem'}} className="form-group">

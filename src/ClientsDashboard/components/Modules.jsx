@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 function Modules(props){
     return(
         <>
-             <div className="card" data-aos="zoom-in-down" data-aos-offset="400">
+             <div className="card" data-aos="zoom-in-down" data-aos-offset="200">
                  <img className="card_image" src={props.image}/>
                  <div className="card_body">
                      <h3 className="card_module">{props.module_name}</h3>

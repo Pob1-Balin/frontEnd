@@ -13,7 +13,7 @@ function ProfileContent (){
                      <h1 className="heading" style={{color: '#0d3360'}}>Profile page</h1>
                 </div>
                 <div className="Home_navigation">
-                     <p><Link className="return-home" style={{textDecoration: 'none'}} to='/'><span className="home">Home /</span></Link> <span style={{color: '#0d3360'}}>My Profile</span></p>
+                     <p><Link className="return-home" style={{textDecoration: 'none'}} to='/clientservicedashboard'><span className="home">Home /</span></Link> <span style={{color: '#0d3360'}}>My Profile</span></p>
                 </div>
                 <div className="profile_wrapper">
                     <div className="card profile_card" style={{padding: "3rem"}}>

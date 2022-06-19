@@ -1,6 +1,6 @@
 import React from 'react'
 import UnitSidebar from '../components/Sidebar';
-import UnitHomeContent from '../Units-body-contents/UnitHomeContent';
+import UnitHomeContent from '../Units-body-contents/StructureOneContent';
 import ToggleButton from '../components/toggleButton';
 import SidebarLinks from '../components/SidebarLinks';
 

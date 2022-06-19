@@ -2,7 +2,7 @@ import React from "react";
 import HeaderSection from '../components/HeaderSection'
 import FooterSection from '../components/FooterSection'
 import ImageCard from '../components/ImageCard'
-import '../../App.css'
+import '../../ClientsDashboard/App.css'
 import PlayerExample from "../components/VideoCard";
 
 function IntroductionContent(){

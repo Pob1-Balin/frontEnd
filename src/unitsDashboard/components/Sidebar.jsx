@@ -3,7 +3,7 @@
 
 
 import React from 'react';
-import { NavLink } from 'react-router-dom'; 
+import { NavLink } from 'react-router-dom';
 import logo from '../../components/log.png'
 import HomeIcon from '@mui/icons-material/Home';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
@@ -20,7 +20,7 @@ import ToggleButton from './toggleButton';
 function UnitSidebar() {
     return (
       <>
-        <SidebarLinks/>  
+        <SidebarLinks/>
       </>
     )
   }

@@ -10,7 +10,7 @@ function ClientsServicesPageContent(){
     useEffect(() => {
         Aos.init({ duration: 2000 });
       }, []);
-    
+
     return(
         <>
              <main className="">
@@ -22,7 +22,7 @@ function ClientsServicesPageContent(){
 
              <div className="px-md-4" style={{marginTop:"1rem", marginLeft:"4rem", marginRight:"4rem"}}>
                  <div style={{marginLeft:"-3rem"}} data-aos="fade-left" data-aos-offset="200">
-                     <p  style={{fontSize:'1.5rem', marginTop:"2rem", marginBottom:"1.8rem"}} className="">Services you've subscribed for</p>
+                     <p  style={{fontSize:'1.5rem', marginTop:"2.5rem", marginBottom:"2rem"}} className="text-center">Services you've subscribed for</p>
                  </div>
                  <div class="services-area ">
                      <div class="container-fluid services">
@@ -35,7 +35,7 @@ function ClientsServicesPageContent(){
 
              <div className="px-md-4" style={{marginLeft:"4rem", marginRight:"4rem"}}>
                  <div style={{marginLeft:"-3rem"}} data-aos="fade-left" data-aos-offset="200">
-                     <p  style={{fontSize:'1.5rem', marginTop:"2.3rem", marginBottom:"1.8rem"}} className="">More Services to subscribe to</p>
+                     <p  style={{fontSize:'1.5rem', marginTop:"2.5rem", marginBottom:"2rem"}} className="text-center">More Services to subscribe to</p>
                  </div>
                  <div  data-aos="zoom-in" data-aos-offset="200" class="services-area ">
                      <div class="container-fluid services">

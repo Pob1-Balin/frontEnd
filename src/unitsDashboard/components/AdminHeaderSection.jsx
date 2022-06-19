@@ -3,6 +3,7 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Link } from "react-router-dom";
 
 function AdminHeaderSection(props){
+    var body = props.show;
     return(
         <>
              <div className='Unit-header-card mt-2'>
@@ -14,12 +15,13 @@ function AdminHeaderSection(props){
                  </div>
 
                  <div className='header-text-section'>
-                      <div style={{display:"flex", justifyContent:"space-between", marginBottom:"-1rem"}}>
-                          <div></div>
-                          <a href={props.edit}>
-                             <div ><button className="add-buttons" style={{marginRight:"3rem"}}>Edit Content</button></div>
-                          </a>
-                      </div>
+                     {body == "" ? ""
+                     :  <div style={{display:"flex", justifyContent:"space-between", marginBottom:"-1.2rem"}}>
+                            <div></div>
+                            <a href={props.edit}>
+                                <div ><button className="add-buttons" style={{marginRight:"3rem"}}>Edit Content</button></div>
+                            </a>
+                        </div>}
                      <div className='header-title-divider-line-section'>
                          <div className='header-title' id='title'><b>{props.header_title}</b></div>
                          <div className='divider-line'></div>

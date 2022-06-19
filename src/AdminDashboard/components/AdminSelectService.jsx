@@ -1,22 +1,22 @@
 import React from 'react';
-import './AddModel.css'
+import './AdminSelectService.css'
 
-function AddModel(){
+function AdminSelectService(){
     return(
-        <div className="modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id="select" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
-                        <h5 style={{color:"gray", fontWeight:"bold"}} className="modal-title" id="exampleModalLabel">Select page structure</h5>
+                        <h5 style={{color:"#0b426a", fontWeight:"bold"}} className="modal-title" id="exampleModalLabel">Navigate to another service</h5>
                         <button type="button" className="close" data-dismiss="modal" aria-label="Close">
                              <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div style={{textDecoration:"none"}} className="modal-body">
                         <ul>
-                            <a href="addstructureone"><li style={style}>Structure One</li></a>
-                            <a href="addstructuretwo"><li style={style}>Structure Two</li></a>
-                            <a href="addstructurethree"><li style={style}>Structure Three</li></a>
+                            <li style={style}>Service One</li>
+                            <li style={style}>Service Two</li>
+                            <li style={style}>Service Three</li>
                         </ul>
                     </div>
                 </div>
@@ -25,7 +25,7 @@ function AddModel(){
     );
 }
 
-export default AddModel;
+export default AdminSelectService;
 
 const style = {
     listStyle: "none",

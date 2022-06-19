@@ -1066,6 +1066,9 @@ ul.country-state{
 .FormLable{
     color: rgb(142, 137, 137);
 }
+.InputError{
+    border-color: red,
+}
 .submitBtn{
     border: none;
      box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 10px -.5px, rgba(0, 0, 0, 0.3) 0px 2px 2px;
@@ -1244,7 +1247,7 @@ ul.country-state{
 }
 
 .modulehome{
-     margin-top: -5rem;
+     margin-top: -1.5rem;
 }
 @media screen and (min-width: 1900px){
     .wrapper3{
@@ -1253,18 +1256,15 @@ ul.country-state{
          margin: 5rem 1.2rem;
     }
     .modulehome{
-         margin-top: -1rem;
+         margin-top: 2rem;
    }
 }
 @media screen and (min-width: 1400px){
     .modulehome{
-         margin-top: -1rem;
+         margin-top: 1.5rem;
    }
 }
 @media screen and (max-width: 767px){
-    .modulehome{
-         margin-left: 1rem;
-   }
    .return-home{
          margin-left: 1rem;
    }
@@ -1406,7 +1406,7 @@ ul.country-state{
 
 /*------------------ Clients Services ----------------*/
 .services-section{
-    background-image: url("capture.webp");
+    background-image: url("images.png");
     background-repeat: no-repeat;
     background-size:cover;
 }
@@ -1433,4 +1433,8 @@ ul.country-state{
     color: gray;
     font-size: 15px;
     font-weight: bold;
+}
+
+.border-color{
+    border-color: red;
 }

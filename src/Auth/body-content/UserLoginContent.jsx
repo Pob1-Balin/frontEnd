@@ -1,11 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 // import BackgroundVideo  from "./cyberzone.mp4";
 import { useEffect } from "react";
 import "../../AdminDashboard/admin.css";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import axios from "axios";
+import { API } from "../../config";
+import { useNavigate } from "react-router-dom";
 
 function UserLoginContent(){
+    const [inputs, setInputs] = useState({email:"", password:""})
+    const [errors, setErrors] = useState({email:"", password:""})
+    const navigate = useNavigate();
+    
+    const handleChange = event => {
+        setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
+    }
+
+    const handleSubmit = e =>{
+        e.preventDefault();
+        // console.log(inputs)
+        axios.post(`${API}/user/login`, inputs)
+        .then((response)=>{
+            // console.log(response)
+            const status = response.data.status
+            if(status === "success"){
+                // Store the data in local storage for later use
+                const user = response.data.data
+                localStorage.setItem("user", JSON.stringify(user))
+                navigate("/")
+            }
+        }).catch((error)=>{
+            console.log(error)
+        })
+
+    }
 
   useEffect(() => {
       Aos.init({ duration: 3000 });
@@ -24,17 +53,18 @@ function UserLoginContent(){
                                 <div data-aos="zoom-out-right" data-aos-offset="100" className="portlet-title">
                                     <p className="text-center Login-name">LOGIN</p>
                                 </div>
-                                <form data-aos="zoom-out-right" data-aos-offset="100" >
+                                {/* ======= form ========== */}
+                                <form onSubmit={handleSubmit} data-aos="zoom-out-right" data-aos-offset="100" >
                                     <div className="form-group">
-                                    <div style={{marginBottom: "-12px"}} className="FormLable"><p>Email</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="email" name="email" placeholder="Email" />
+                                        <label htmlFor="email" style={{marginBottom: "-12px"}} className="FormLable"><p>Email</p></label>
+                                        <input style={{height:'2.5rem'}} value={inputs.email} onChange={handleChange} className="form-control" type="email" name="email" placeholder="Email" />
                                     </div>
                                     <div className="form-group" style={{marginTop: '13px'}}>
-                                        <div style={{marginBottom: "-12px"}} className="FormLable"><p>Password</p></div>
-                                        <input style={{height:'2.5rem'}} className="form-control" type="password" placeholder="Password" name="password" />
+                                        <label htmlFor='password' style={{marginBottom: "-12px"}} className="FormLable"><p>Password</p></label>
+                                        <input style={{height:'2.5rem'}} value={inputs.password} onChange={handleChange} className="form-control" type="password" placeholder="Password" name="password" />
                                     </div>
                                     <div style={{marginTop: '1.3rem'}} className="form-group">
-                                        <button type="submit" data-aos="zoom-out-right" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn waves-effect waves-light submitBtn">SUBMIT</button>
+                                        <button type="submit" data-aos="zoom-out-right" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn waves-effect waves-light submitBtn">LOGIN</button>
                                     </div>
                                 </form>
                                 <div className="row" style={{marginTop:"-.5rem"}}>

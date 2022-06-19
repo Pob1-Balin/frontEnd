@@ -3,7 +3,7 @@ import {userReducer} from './user'
 
 
 const reducers = combineReducers({
-    users: userReducer,
+    user: userReducer,
 })
 
 

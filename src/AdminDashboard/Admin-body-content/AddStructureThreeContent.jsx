@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from '../../unitsDashboard/components/FooterSection';
 import Header from "../../unitsDashboard/components/Header";
 import "../admin.css";
+import axios from 'axios'
+import { API } from "../../config";
+import { useNavigate } from "react-router-dom";
+import {validateRegistration} from '../../utils/inputValidations'
 function AddStructureThreeContent() {
-
+    const navigate = useNavigate();
+    const [inputs, setInputs] = useState({page_name:"", page_title:"", text_heading:"", section_text:""})
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
+    const handleChange = event => {
+        setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
+    }
+    const handleSubmit = e =>{
+        e.preventDefault();
+        setFormErrors(validateRegistration(inputs));
+        setIsSubmit(true);
+    }
 
     return (
         <>
@@ -23,13 +38,29 @@ function AddStructureThreeContent() {
                                                         <div class="row">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <div class="devit-card-custom">
-                                                                    <div className="form-group">
-                                                                        <input  type="text" className="form-control" placeholder="Enter title" name="title"/>
-                                                                    </div>
-                                                                    <div className="form-group">
-                                                                        <input  type="text" className="form-control" placeholder="Enter body text" name="body"/>
-                                                                    </div>
-                                                                    <button style={{ background: '#4ab2cc', color: 'white', border:"none"}} href="#!" className="btn waves-effect waves-light">Add</button>
+                                                                    <form onSubmit={handleSubmit}>
+                                                                        <div className="form-group">
+                                                                            <label htmlFor="page_name" style={{marginBottom: "-10px", fontSize:"15px"}} className="FormLable"><p>Page name</p></label>
+                                                                            <input value={inputs.page_name} onChange={handleChange} type="text" className={`form-control ${formErrors.page_name? "border-color": ""}`} placeholder="Enter page name" name="page_name"/>
+                                                                            <p style={errorMessage}>{formErrors.page_name}</p>
+                                                                        </div>
+                                                                        <div style={{marginTop:"1rem"}} className="form-group">
+                                                                            <label htmlFor="page_title" style={{marginBottom: "-10px", fontSize:"15px"}} className="FormLable"><p>Page title</p></label>
+                                                                            <input value={inputs.page_title} onChange={handleChange} type="text" className={`form-control ${formErrors.page_title? "border-color": ""}`} placeholder="Enter page title" name="page_title"/>
+                                                                            <p style={errorMessage}>{formErrors.page_title}</p>
+                                                                        </div>
+                                                                        <div style={{marginTop:"1rem"}} className="form-group">
+                                                                            <label htmlFor="text_heading" style={{marginBottom: "-10px", fontSize:"15px"}} className="FormLable"><p>Text heading</p></label>
+                                                                            <input value={inputs.text_heading} onChange={handleChange} type="text" className={`form-control ${formErrors.text_heading? "border-color": ""}`} placeholder="Enter text heading" name="text_heading"/>
+                                                                            <p style={errorMessage}>{formErrors.text_heading}</p>
+                                                                        </div>
+                                                                        <div style={{marginTop:"1rem"}} className="form-group">
+                                                                            <label htmlFor="section_text" style={{marginBottom: "-10px", fontSize:"15px"}} className="FormLable"><p>Text</p></label>
+                                                                            <textarea value={inputs.section_text} onChange={handleChange} type="text" className={`form-control ${formErrors.section_text? "border-color": ""}`} placeholder="Enter page title" name="section_text"></textarea>
+                                                                            <p style={errorMessage}>{formErrors.section_text}</p>
+                                                                        </div>
+                                                                        <button type="submit" style={{ background: '#4ab2cc', color: 'white', border:"none", marginTop:".4rem"}} className="btn waves-effect waves-light">Save content</button>
+                                                                    </form>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -52,5 +83,9 @@ function AddStructureThreeContent() {
 }
 
 export default AddStructureThreeContent;
-
+const errorMessage = {
+    color:"red",
+    fontSize:".8rem",
+    marginTop:".5rem"
+};
 

@@ -37,12 +37,62 @@ export const validateRegistration = (values) => {
     if(!values.skill){
         errors.skill = "Skill is required"
     }else if(!usernameRegex.test(values.skill)){
-      errors.skill = "Skill is not Valide"
+      errors.skill = "Skill is not Valide!"
     }
     if(!values.educational_level){
-        errors.educational_level = "Your educational level is required"
+        errors.educational_level = "Your educational level is required!"
     }else if(!usernameRegex.test(values.educational_level)){
       errors.educational_level = "Educational level not Valide"
+    }
+    if(!values.page_name){
+       errors.page_name = "Page name is required!"
+    }else if(!usernameRegex.test(values.page_name)){
+       errors.page_name = "Page name is not Valide"
+    }
+    if(!values.page_title){
+       errors.page_title = "Page title is required!"
+    }else if(!usernameRegex.test(values.page_title)){
+       errors.page_title = "Page title is not Valide"
+    }
+    if(!values.carousel_one_text){
+       errors.carousel_one_text = "Carousel text is required!"
+    }else if(!usernameRegex.test(values.carousel_one_text)){
+       errors.carousel_one_text = "Invalide text"
+    }
+    if(!values.carousel_two_text){
+       errors.carousel_two_text = "Carousel text is required!"
+    }else if(!usernameRegex.test(values.carousel_two_text)){
+       errors.carousel_two_text = "Invalide text"
+    }
+    if(!values.carousel_three_text){
+       errors.carousel_three_text = "Carousel text is required!"
+    }else if(!usernameRegex.test(values.carousel_three_text)){
+       errors.carousel_three_text = "Invalide text"
+    }
+    if(!values.carousel_one_image){
+       errors.carousel_one_image = "Carousel image is required!"
+    }
+    if(!values.carousel_two_image){
+       errors.carousel_two_image = "Carousel image is required!"
+    }
+    if(!values.carousel_three_image){
+       errors.carousel_three_image = "Carousel image is required!"
+    }
+    if(!values.section_image){
+       errors.section_image = "Section image is required!"
+    }
+    if(!values.video_file){
+       errors.video_file = "Video file is required!"
+    }
+    if(!values.text_heading){
+       errors.text_heading = "Text heading is required"
+    }else if(!usernameRegex.test(values.text_heading)){
+       errors.text_heading = "Text heading not Valide"
+    }
+    if(!values.section_text){
+       errors.section_text = "Section text is required!"
+    }else if(!usernameRegex.test(values.section_text)){
+       errors.section_text = "Section text not Valide"
     }
     if(!values.password){
         errors.password = "Password is required!"

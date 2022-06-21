@@ -6,13 +6,7 @@ import MyProfile from './ClientsDashboard/pages/MyProfile'
 import ResourcePage from './ClientsDashboard/pages/ResourcesPage'
 import AttestationPage from './ClientsDashboard/pages/AttestationPage'
 import LegalNoticePage from './ClientsDashboard/pages/LegalNoticePage'
-import IntroductionPage from './unitsDashboard/pages/IntroductionPage'
-import Tespage from './unitsDashboard/pages/Tespage'
-import CyberSpacesPage from './unitsDashboard/pages/CyberSpacesPage'
-import LawlessnessSpacePage from './unitsDashboard/pages/LawlessnessSpacePage'
 import PlayerExample from './unitsDashboard/components/VideoCard';
-import FindingsPage from './unitsDashboard/pages/FindingsPage';
-import Module1_Unit2_Home from './unitsDashboard/pages/Module1_Unit2_Home';
 import TestPage from './ClientsDashboard/pages/TestPage';
 import AdminTestPage from './AdminDashboard/pages/AdminTestPage';
 
@@ -22,9 +16,9 @@ import StructureTwo from './unitsDashboard/pages/StructureTwo'
 import StructureThree from './unitsDashboard/pages/StructureThree';
 import UnitHomePage from './unitsDashboard/pages/UnitHomePage';
 
-import AdminStructureOne from './unitsDashboard/pages/AdminStructureOne'
-import AdminStructureTwo from './unitsDashboard/pages/AdminStructureTwo'
-import AdminStructureThree from './unitsDashboard/pages/AdminStructureThree';
+import AdminStructureOne from './AdminDashboard/pages/AdminStructureOne'
+import AdminStructureTwo from './AdminDashboard/pages/AdminStructureTwo'
+import AdminStructureThree from './AdminDashboard/pages/AdminStructureThree';
 import AdminUnitPage from './unitsDashboard/pages/AdminUnitPage';
 
 import EditStructureOnePage from './AdminDashboard/pages/EditStructureOnePage';
@@ -92,12 +86,6 @@ function Navigation (){
                  <Route path='/attest' exact element={<AttestationPage/>}/>
                  <Route path='/legalnotice' exact element={<LegalNoticePage />}/>
                  <Route path='/unitsclients' exact element={<UnitsClientsPage />}/>
-                 <Route path='/introduction' exact element={<IntroductionPage />}/>
-                 <Route path='/cyberspace' exact element={<CyberSpacesPage />}/>
-                 <Route path='/lawlessness' exact element={<LawlessnessSpacePage />}/>
-                 <Route path='/findings' exact element={<FindingsPage />}/>
-                 <Route path='/unit2homepage' exact element={<Module1_Unit2_Home />}/>
-                 <Route path='/test' exact element={<TestPage />}/>
                  <Route path='/admintest' exact element={<AdminTestPage />}/>
 
                 {/*============================= Units dashboard =============================*/}

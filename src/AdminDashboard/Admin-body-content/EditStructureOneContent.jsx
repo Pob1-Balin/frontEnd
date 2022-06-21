@@ -1,9 +1,24 @@
-import React from "react";
+import React, { useState } from "react";
 import Footer from '../../unitsDashboard/components/FooterSection';
 import Header from "../../unitsDashboard/components/Header";
 import "../admin.css";
+import axios from 'axios'
+import { API } from "../../config";
+import { useNavigate } from "react-router-dom";
+import {validateRegistration} from '../../utils/inputValidations'
 function EditStructureOneContent() {
-
+    const navigate = useNavigate();
+    const [inputs, setInputs] = useState({page_name:"", page_title:"", video_file:""})
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
+    const handleChange = event => {
+        setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
+    }
+    const handleSubmit = e =>{
+        e.preventDefault();
+        setFormErrors(validateRegistration(inputs));
+        setIsSubmit(true);
+    }
 
     return (
         <>
@@ -23,13 +38,24 @@ function EditStructureOneContent() {
                                                         <div class="row">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <div class="devit-card-custom">
+                                                                <form onSubmit={handleSubmit}>
                                                                     <div className="form-group">
-                                                                        <input  type="text" className="form-control" placeholder="Enter Title" name="title"/>
+                                                                        <label htmlFor="page_name" style={{marginBottom: "-10px", fontSize:"15px"}} className="FormLable"><p>Page name</p></label>
+                                                                        <input value={inputs.page_name} onChange={handleChange} type="text" className={`form-control ${formErrors.page_name? "border-color": ""}`} placeholder="Enter page name" name="page_name"/>
+                                                                        <p style={errorMessage}>{formErrors.page_name}</p>
                                                                     </div>
-                                                                    <div className="form-group">
-                                                                        <input type="file" className="form-control" onchange="document.getElementById('prepend-big-btn').value = this.value;" />
+                                                                    <div style={{marginTop:"1rem"}} className="form-group">
+                                                                        <label htmlFor="page_title" style={{marginBottom: "-10px", fontSize:"15px"}} className="FormLable"><p>Page title</p></label>
+                                                                        <input value={inputs.page_title} onChange={handleChange} type="text" className={`form-control ${formErrors.page_title? "border-color": ""}`} placeholder="Enter page title" name="page_title"/>
+                                                                        <p style={errorMessage}>{formErrors.page_title}</p>
                                                                     </div>
-                                                                    <button style={{ background: '#4ab2cc', color: 'white' }} href="#!" className="btn waves-effect waves-light">Submit</button>
+                                                                    <div style={{marginTop:"1rem"}} className="form-group">
+                                                                        <label htmlFor="video_file" style={{marginBottom: "-10px", fontSize:"15px"}} className="FormLable"><p>Upload video</p></label>
+                                                                        <input type="file" name="video_file" value={inputs.video_file} onChange={handleChange} className={`form-control ${formErrors.video_file ? "border-color": ""}`} onchange="document.getElementById('prepend-big-btn').value = this.value;" />
+                                                                        <p style={errorMessage}>{formErrors.video_file}</p>
+                                                                    </div>
+                                                                    <button type="submit" style={{ background: '#4ab2cc', color: 'white', border:"none", marginTop:".4rem"}} className="btn waves-effect waves-light">Save content</button>
+                                                                   </form>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -53,4 +79,9 @@ function EditStructureOneContent() {
 
 export default EditStructureOneContent;
 
-
+const errorMessage = {
+    color:"red",
+    fontSize:".8rem",
+    marginTop:".5rem"
+    };
+    

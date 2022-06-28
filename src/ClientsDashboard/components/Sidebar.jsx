@@ -18,7 +18,7 @@ function Sidebar() {
          <nav className="sidebar-navigation">
             <ul className="menu menu-bordery pt- mt-5 text-left pl-4">
                 <li className="nav-item pt-5 list" style={{fontSize: '1.2rem'}}>
-                    <Link to='/' className='ml-4 test' style={{textDecoration:'none'}}><HomeIcon className=''/>Home</Link>
+                    <Link to='/clientservicedashboard' className='ml-4 test' style={{textDecoration:'none'}}><HomeIcon className=''/>Home</Link>
                 </li>
                 <li className="nav-item pt-4 list" style={{fontSize: '1.2rem'}}>
                     <Link to='/res' className=' ml-4 test' style={{textDecoration:'none'}}><AccountBalanceIcon className=''/>My resources</Link>
@@ -32,7 +32,7 @@ function Sidebar() {
             </ul>
          </nav>
          <header className="sidebar-header">
-           <h2 className="text-center text-white font-roboto fw-300 fs-18 letter-spacing-2 mx-auto">Help</h2>
+           <button data-toggle="modal" data-target="#select" style={{backgroundColor:"transparent", border:"none"}} className="text-center text-white font-roboto fw-300 fs-18 letter-spacing-2 mx-auto">Subscribed Services</button>
          </header>
        </aside>
 

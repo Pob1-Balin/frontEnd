@@ -1,34 +1,61 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 function Questions(props){
   return(
     <>
-        <div className="question-card caption pro-sl-hd" style={{paddingBottom:"1rem", paddingTop:"1rem"}}>
-            <div style={{backgroundColor:"red", display:"flex", justifyContent:"space-between"}}>
-                <div></div>
-                <div style={{display:"flex"}}>
-                    <button style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}}>edit</button>
-                    <p>X</p>
+        <div data-aos="fade-left" data-aos-offset="200" className=" caption pro-sl-hd" style={{marginBottom:"2rem"}}>
+            {/*-- Modal =====*/}
+            <div class="modal fade" id="del" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Delete Question</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        Are you sure you want to permanently delete this Question?
+                    </div>
+                    <div class="modal-footer">
+                        <form action="php-code.php" method="POST">
+                            <input type="hidden" name="service_id" value="<?php echo $row['service_id']; ?>"/>
+                            <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Close</button>
+                            <button type="submit" name="delete_service" class="btn btn-info">Yes</button>
+                        </form>
+                    </div>
+                    </div>
                 </div>
             </div>
-            <div className="row">
-                <div className="col-lg-1 col-md-1 col-sm-1 col-xs-1">1</div>
-                <div className="col-lg-11 col-md-11 col-sm-11 col-xs-11">yfuyuhioj jnjiosjisja kasmamoosa okoks nioajijia isjaiopj</div>
+            <div className='question-inner-card' style={{marginLeft:"1.5rem", marginRight:"1.5rem", marginTop:"1rem"}}>
+                <div className="row">
+                    <div style={{fontSize: '1.3rem', color: 'gray', fontStyle: 'bold', fontWeight: '550'}} className="col-lg-1 col-md-1 col-sm-1 col-xs-1">1.</div>
+                    <div style={{marginLeft:"-3rem"}} className="col-lg-11 col-md-11 col-sm-11 col-xs-11"><p>yfuyuhioj jnjiosjisja kasmamoosa okoksja kasmamoosa okoks nioajijia isjaiopjj yfuyuhioj jnjiosjisja kasmamoosa okoks nioajijia isjaiopj</p></div>
+                </div>
+                <div>
+                    <ul style={{marginLeft:"1.4rem"}}>
+                        <li><i className="fa fa-angle-right"></i> trdyufgihtgyhu</li>
+                        <li><i className="fa fa-angle-right"></i> trdyufgihtgyhu</li>
+                        <li><i className="fa fa-angle-right"></i> trdyufgihtgyhu</li>
+                        <li><i className="fa fa-angle-right"></i> trdyufgihtgyhu</li>
+                    </ul>
+                </div>
+                <div>
+                    <p style={{marginLeft:"1.7rem", fontSize: '1.3rem', color: 'gray', fontStyle: 'bold', fontWeight: '550'}}>Answer</p>
+                    <ul style={{marginLeft:"1.4rem"}}>
+                        <li><i className="fa fa-angle-right"></i> trdyufgihtgyhu</li>
+                        <li><i className="fa fa-angle-right"></i> trdyufgihtgyhu</li>
+                    </ul>
+                </div>
             </div>
-            <div>
-                <ul>
-                    <li>trdyufgihtgyhu</li>
-                    <li>trdyufgihtgyhu</li>
-                    <li>trdyufgihtgyhu</li>
-                    <li>trdyufgihtgyhu</li>
-                </ul>
+            <div style={{display:"flex", justifyContent:"space-between"}}>
+                <div></div>
+                <div style={{display:"flex"}}>
+                     <Link to="/addquestion"><button style={{width:"4rem", marginRight:".2rem"}} className="add-buttons question-actions">Edit</button></Link>
+                     <button style={{width:"5rem", marginRight:"2rem"}} data-toggle="modal" data-target="#del" className="question-actions add-buttons bg-danger">Delete</button>
+                </div>
             </div>
-            <div>
-                <p>Answer</p>
-                <ul>
-                    <li>trdyufgihtgyhu</li>
-                    <li>trdyufgihtgyhu</li>
-                </ul>
-            </div>
+            <hr/>
         </div>
     </>
   );

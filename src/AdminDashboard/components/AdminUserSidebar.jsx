@@ -24,7 +24,7 @@ function AdminUserSidebar() {
                     </ul>
                 </nav>
                 <header className="sidebar-header">
-                     <h2 className="text-center text-white font-roboto fw-300 fs-18 letter-spacing-2 mx-auto">Help</h2>
+                    <button data-toggle="modal" data-target="#select" style={{backgroundColor:"transparent", border:"none"}} className="text-center text-white font-roboto fw-300 fs-18 letter-spacing-2 mx-auto">Services</button>
                 </header>
             </aside>
             <header className="topbar bg-light col-md-12 px-3"  style={{minHeight:'10vh'}}>

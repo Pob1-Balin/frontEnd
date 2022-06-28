@@ -1,0 +1,18 @@
+[
+    {
+        "Title": "Welcome",
+        "component": "adminunitcontent"
+    },
+    {
+        "Title": "Structure One",
+        "component": "adminstructureone"
+    },
+    {
+        "Title": "Structure Two",
+        "component": "adminstructuretwo"
+    },
+    {
+        "Title":"Structure Three",
+        "component":"adminstructurethree"
+    }
+]

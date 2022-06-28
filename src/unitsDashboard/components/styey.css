@@ -9,7 +9,7 @@
     overflow-x: hidden;
     transition: 0.5s;
   }
-  
+
   .side_bar a {
     padding: 8px 8px 8px 32px;
     text-decoration: none;
@@ -18,17 +18,11 @@
     display: block;
     transition: 0.3s;
   }
-  
+
   .side_bar a:hover {
     color: #f1f1f1;
   }
-  
-  .side_bar .closebtn {
-    position: absolute;
-    top: 0;
-  }
-  
-  .openbtn {
+  .openbtn, .closebtn {
     font-size: 20px;
     cursor: pointer;
     background-color: #111;
@@ -36,17 +30,34 @@
     border: none;
     position: fixed;
   }
-  
+
+.close{
+   display: none;
+}
+.style{
+    margin-left: 3rem;
+}
+.style1{
+margin-left: -.5rem;
+}
   .openbtn:hover {
     background-color: #444;
   }
-  
+
   #BodyContent {
     transition: margin-left .5s;
   }
-  
+
   /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
   @media screen and (max-height: 450px) {
     .sidebar {padding-top: 15px;}
     .sidebar a {font-size: 18px;}
+  }
+
+  .empty-card{
+    margin: .1px auto;
+    min-width: 2rem;
+    max-width: 60rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 5px 18px 0px;
+    border-radius: .4rem;
   }

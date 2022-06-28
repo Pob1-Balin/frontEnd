@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import "../admin.css";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import "react-toastify/dist/ReactToastify.css"
 
 function LoginContent(){
 
@@ -38,18 +37,18 @@ function LoginContent(){
                                     <button type="submit" data-aos="zoom-out-right" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn waves-effect waves-light submitBtn">SUBMIT</button>
                                 </div>
                              </form>
-                             
                              <div className="row" style={{marginTop:"-.5rem"}}>
                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                     <div data-aos="zoom-out-right" data-aos-offset="100"><hr style={{height:".4px", marginTop:"35px"}}/></div>
+                                     <div data-aos="zoom-out-right" data-aos-offset="200"><hr style={{height:".4px", marginTop:"35px"}}/></div>
                                 </div>
                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                     <div data-aos="zoom-out-right" data-aos-offset="100" style={{textAlign:"center", marginTop:'-3rem'}}><button className="Orbutton">OR</button></div>
+                                     <div data-aos="zoom-out-right" data-aos-offset="200" style={{textAlign:"center", marginTop:'-3rem'}}><button className="Orbutton">OR</button></div>
                                 </div>
                              </div>
                              <div className="row text-center mt-2 mb-4" style={{marginTop:"-.5rem"}}>
                                 <div data-aos="zoom-out-right" className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                     <p style={{fontSize:".9rem"}}>In need of an Account? <span><a href="/signup">Sign Up</a></span></p>
+                                     <p style={{fontSize:".9rem", marginTop:"-.6rem"}}><span><a href="/signup">Forgot Password</a></span></p>
+                                     <p style={{fontSize:".9rem", marginTop:"-.6rem"}}>In need of an Account? <span><a href="/signup">Sign Up</a></span></p>
                                 </div>
                              </div>
                          </div>

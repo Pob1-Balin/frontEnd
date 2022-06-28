@@ -85,9 +85,9 @@ function NotSubscribedServices(props){
                     <p><span></span> <b>{item.description}</b></p>
                 </div>
                 <div style={{textAlign:"center"}}>
-                    <div class="product-buttons mt-1 mb-2 btn">
+                    <Link to='/subscribe'><div class="product-buttons mt-1 mb-2 btn">
                          Subscribe Now
-                    </div>
+                    </div></Link>
                 </div>
                 </div>
             </div>

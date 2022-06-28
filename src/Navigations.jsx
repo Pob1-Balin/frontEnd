@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import HomePage from './ClientsDashboard/pages/HomePage'
 import MyProfile from './ClientsDashboard/pages/MyProfile'
@@ -36,7 +36,7 @@ import UserCheckEmailPage from './Auth/pages/UserCheckEmailPage';
 import SetUserPasswordPage from './Auth/pages/SetUserPasswordPage';
 import UserPasswordSetMessagePage from './Auth/pages/UserPasswordSetMessagePage';
 import ClientRegisterPage from './Auth/pages/ClientRegisterPage';
-import  AdminRegistrationPage from './Auth/pages/AdminRegistrationPage';
+import AdminRegistrationPage from './Auth/pages/AdminRegistrationPage';
 
 /*============================= Admin dashboard =================================*/
 import AdminHomePage from './AdminDashboard/pages/HomePage';
@@ -64,9 +64,8 @@ import AddServicePage from './AdminDashboard/pages/AddServicePage';
 import UnitsClientsPage from './ClientsDashboard/pages/UnitsPage'
 import AddQuestionPage from './AdminDashboard/pages/AddQuestionPage'
 import ClientsServicesPage from './AdminDashboard/pages/ClientsServicesPage';
-
-
-
+import SubscribeForService from './ClientsDashboard/pages/SubscribeForService';
+import PaymentForm from './ClientsDashboard/pages/PaymentForm';
 
 import NotFoundPage from './unitsDashboard/pages/notFound';
 
@@ -75,80 +74,81 @@ import NotFoundPage from './unitsDashboard/pages/notFound';
 import SiteHomePage from './CyberzoneWebsite/pages/SiteHomePage';
 
 
-function Navigation (){
-    return(
+function Navigation() {
+    return (
         <BrowserRouter>
             <Routes>
-                 <Route path='/clientservicedashboard' exact element={<HomePage/>}/>
-                 <Route path='/' exact element={<ClientsServicesPage/>}/>
-                 <Route path='/profile' exact element={<MyProfile/>}/>
-                 <Route path='/res' exact element={<ResourcePage/>}/>
-                 <Route path='/attest' exact element={<AttestationPage/>}/>
-                 <Route path='/legalnotice' exact element={<LegalNoticePage />}/>
-                 <Route path='/unitsclients' exact element={<UnitsClientsPage />}/>
-                 <Route path='/admintest' exact element={<AdminTestPage />}/>
+                <Route path='/clientservicedashboard' exact element={<HomePage />} />
+                <Route path='/' exact element={<ClientsServicesPage />} />
+                <Route path='/profile' exact element={<MyProfile />} />
+                <Route path='/res' exact element={<ResourcePage />} />
+                <Route path='/attest' exact element={<AttestationPage />} />
+                <Route path='/legalnotice' exact element={<LegalNoticePage />} />
+                <Route path='/unitsclients' exact element={<UnitsClientsPage />} />
+                <Route path='/admintest' exact element={<AdminTestPage />} />
 
                 {/*============================= Units dashboard =============================*/}
-                <Route path='/unitcontent' exact element={<UnitHomePage />}/>
-                <Route path='/structureone' exact element={<StructureOne />}/>
-                <Route path='/structuretwo' exact element={<StructureTwo />}/>
-                <Route path='/structurethree' exact element={<StructureThree />}/>
+                <Route path='/unitcontent' exact element={<UnitHomePage />} />
+                <Route path='/structureone' exact element={<StructureOne />} />
+                <Route path='/structuretwo' exact element={<StructureTwo />} />
+                <Route path='/structurethree' exact element={<StructureThree />} />
 
-                <Route path='/adminunitcontent' exact element={<AdminUnitPage />}/>
-                <Route path='/adminstructureone' exact element={<AdminStructureOne />}/>
-                <Route path='/adminstructuretwo' exact element={<AdminStructureTwo />}/>
-                <Route path='/adminstructurethree' exact element={<AdminStructureThree />}/>
+                <Route path='/adminunitcontent' exact element={<AdminUnitPage />} />
+                <Route path='/adminstructureone' exact element={<AdminStructureOne />} />
+                <Route path='/adminstructuretwo' exact element={<AdminStructureTwo />} />
+                <Route path='/adminstructurethree' exact element={<AdminStructureThree />} />
 
-                <Route path='/editstructureone' exact element={<EditStructureOnePage />}/>
-                <Route path='/editstructuretwo' exact element={<EditStructureTwoPage />}/>
-                <Route path='/editstructurethree' exact element={<EditStructureThreePage />}/>
+                <Route path='/editstructureone' exact element={<EditStructureOnePage />} />
+                <Route path='/editstructuretwo' exact element={<EditStructureTwoPage />} />
+                <Route path='/editstructurethree' exact element={<EditStructureThreePage />} />
 
-                <Route path='/addstructureone' exact element={<AddStructureOnePage />}/>
-                <Route path='/addstructuretwo' exact element={<AddStructureTwoPage />}/>
-                <Route path='/addstructurethree' exact element={<AddStructureThreePage />}/>
-
-
-
-                 {/*============================= User Authentication =============================*/}
-                <Route path='/userlogin' exact element={<UserLoginPage />}/>
-                <Route path='/forgotpassword' exact element={<UserForgotPasswordPage />}/>
-                <Route path='/checkemail' exact element={<UserCheckEmailPage />}/>
-                <Route path='/setuserpassword' exact element={<SetUserPasswordPage />}/>
-                <Route path='/userpasswordsetmessage' exact element={<UserPasswordSetMessagePage/>}/>
-                <Route path='/clientregister' exact element={<ClientRegisterPage/>}/>
-                <Route path='/adminregister' exact element={<AdminRegistrationPage/>}/>
+                <Route path='/addstructureone' exact element={<AddStructureOnePage />} />
+                <Route path='/addstructuretwo' exact element={<AddStructureTwoPage />} />
+                <Route path='/addstructurethree' exact element={<AddStructureThreePage />} />
 
 
 
-                 {/*============================= Admin dashboard =============================*/}
-                 <Route path='/admindashboard' exact element={<AdminHomePage />}/>
-                 <Route path='/clients' exact element={<ClientsPage />}/>
-                 <Route path='/adminprofile' exact element={<ProfilePage />}/>
-                 <Route path='/adminmodulepage' exact element={<AdminModulePage />}/>
-                 <Route path='/addmodule' exact element={<AddModulePage />}/>
-                 <Route path='/adminlegal' exact element={<AdminLegalNoticePage />}/>
+                {/*============================= User Authentication =============================*/}
+                <Route path='/userlogin' exact element={<UserLoginPage />} />
+                <Route path='/forgotpassword' exact element={<UserForgotPasswordPage />} />
+                <Route path='/checkemail' exact element={<UserCheckEmailPage />} />
+                <Route path='/setuserpassword' exact element={<SetUserPasswordPage />} />
+                <Route path='/userpasswordsetmessage' exact element={<UserPasswordSetMessagePage />} />
+                <Route path='/clientregister' exact element={<ClientRegisterPage />} />
+                <Route path='/adminregister' exact element={<AdminRegistrationPage />} />
+                <Route path='/subscribe' exact element={<SubscribeForService />} />
+                <Route path='/payment' exact element={<PaymentForm />} />
 
-                 <Route path='/units' exact element={<UnitsPage/>}/>
-                 <Route path='/editlegalnotice' exact element={<EditNoticePage />}/>
-                 <Route path='/addclients' exact element={<AddClientsPage />}/>
-                 <Route path='/services' exact element={<ServicePage />}/>
-                 <Route path='/login' exact element={<LoginPage />}/>
-                 <Route path='/signup' exact element={<SignUpPage />}/>
-                 <Route path='/editservice' exact element={<EditServicePage />}/>
-                 <Route path='/editadminprofile' exact element={<EditAdminProfilePage />}/>
-                 <Route path='/specificclient' exact element={<SpecificClientPage />}/>
-                 <Route path='/addunite' exact element={<AddUnitePage />}/>
-                 <Route path='/editmodule' exact element={<EditModulePage/>}/>
-                 <Route path='/adminresource' exact element={<AdminResourcePage/>}/>
-                 <Route path='/editresource' exact element={<EditResourcePage/>}/>
-                 <Route path='/editunit' exact element={<EditeUnitPage/>}/>
-                 <Route path='/editclient' exact element={<EditClientPage/>}/>
-                 <Route path='/addservice' exact element={<AddServicePage/>}/>
-                 <Route path='/addquestion' exact element={<AddQuestionPage/>}/>
 
-                 {/* main site home page */}
-                 <Route path='/mainhomepage' exact element={<SiteHomePage/>}/>
-                 <Route path='/*' exact element={<NotFoundPage/>}/>
+                {/*============================= Admin dashboard =============================*/}
+                <Route path='/admindashboard' exact element={<AdminHomePage />} />
+                <Route path='/clients' exact element={<ClientsPage />} />
+                <Route path='/adminprofile' exact element={<ProfilePage />} />
+                <Route path='/adminmodulepage' exact element={<AdminModulePage />} />
+                <Route path='/addmodule' exact element={<AddModulePage />} />
+                <Route path='/adminlegal' exact element={<AdminLegalNoticePage />} />
+
+                <Route path='/units' exact element={<UnitsPage />} />
+                <Route path='/editlegalnotice' exact element={<EditNoticePage />} />
+                <Route path='/addclients' exact element={<AddClientsPage />} />
+                <Route path='/services' exact element={<ServicePage />} />
+                <Route path='/login' exact element={<LoginPage />} />
+                <Route path='/signup' exact element={<SignUpPage />} />
+                <Route path='/editservice' exact element={<EditServicePage />} />
+                <Route path='/editadminprofile' exact element={<EditAdminProfilePage />} />
+                <Route path='/specificclient' exact element={<SpecificClientPage />} />
+                <Route path='/addunite' exact element={<AddUnitePage />} />
+                <Route path='/editmodule' exact element={<EditModulePage />} />
+                <Route path='/adminresource' exact element={<AdminResourcePage />} />
+                <Route path='/editresource' exact element={<EditResourcePage />} />
+                <Route path='/editunit' exact element={<EditeUnitPage />} />
+                <Route path='/editclient' exact element={<EditClientPage />} />
+                <Route path='/addservice' exact element={<AddServicePage />} />
+                <Route path='/addquestion' exact element={<AddQuestionPage />} />
+
+                {/* main site home page */}
+                <Route path='/mainhomepage' exact element={<SiteHomePage />} />
+                <Route path='/*' exact element={<NotFoundPage />} />
             </Routes>
         </BrowserRouter>
     )

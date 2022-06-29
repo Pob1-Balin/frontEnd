@@ -1,8 +1,8 @@
 import React from 'react'
-import AddModel from '../components/AddModel';
-import AdminSidebarLinks from '../components/AdminSidebarLinks';
-import ToggleButton from '../components/toggleButton';
-import StructureTwoContent from '../Units-body-contents/StructureTwoContent';
+import AddModel from '../../unitsDashboard/components/AddModel';
+import AdminSidebarLinks from '../../unitsDashboard/components/AdminSidebarLinks';
+import ToggleButton from '../../unitsDashboard/components/toggleButton';
+import StructureTwoContent from '../../unitsDashboard/Units-body-contents/StructureTwoContent';
 
 function AdminStructureTwo(){
     return(

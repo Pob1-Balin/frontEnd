@@ -1,9 +1,56 @@
-import React from "react";
+import React, { useEffect, useState} from "react";
 import Footer from '../../ClientsDashboard/components/Footer';
 import "../admin.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import axios from 'axios';
+import { API } from '../../config'
 
 function AddModuleContent() {
+    const navigate =useNavigate();
+    const [values, setValues] = useState({
+       name: '',
+       title: '',
+       image: '',
+       time_spent: '',
+       score:"",
+    })
+
+    // Destructing so as to be able to send to the backend
+    const handleChange = event => {
+        setValues({
+            ...values, [event.target.name]: event.target.value
+        })
+    }
+
+    const submitModule = (moduleInfo) => {
+        axios.post(`${API}/module/module`, moduleInfo)
+            .then(res => {
+                // alert(res)
+                // if (res.status === 200)
+                // alert('service successfully added')
+                // else
+                // Promise.reject()
+            alert("course Added Successfully")
+            })
+            .catch(err => {
+                 alert('Something went wrong, course could not be added')
+            })
+
+    }
+
+    const clickAddModule = (event) => {
+        event.preventDefault();
+        const { name, title, image, time_spent, score } = values;
+        submitModule({
+            name,
+            title,
+            image,
+            time_spent,
+            score,
+        });
+        navigate('/adminmodulepage');
+    }
+
 
     return (
         <>
@@ -51,7 +98,7 @@ function AddModuleContent() {
                                                                     <div className="form-group">
                                                                         <input type="file" className="form-control" onchange="document.getElementById('prepend-big-btn').value = this.value;" />
                                                                     </div>
-                                                                    <button style={{ background: '#4ab2cc', color: 'white' }} href="#!" className="btn waves-effect waves-light">Submit</button>
+                                                                    <button type="submit" style={{ background: '#4ab2cc', color: 'white' }} href="#!" className="btn waves-effect waves-light">Submit</button>
                                                                 </div>
                                                             </div>
                                                         </div>

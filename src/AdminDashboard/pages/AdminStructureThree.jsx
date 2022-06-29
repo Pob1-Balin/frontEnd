@@ -1,10 +1,10 @@
 import React from 'react'
-import StructureOneContent from '../Units-body-contents/StructureOneContent';
-import ToggleButton from '../components/toggleButton';
-import AdminSidebarLinks from '../components/AdminSidebarLinks';
-import AddModel from '../components/AddModel';
+import StructureThreeContent from '../../unitsDashboard/Units-body-contents/StructureThreeContent';
+import ToggleButton from '../../unitsDashboard/components/toggleButton';
+import AdminSidebarLinks from '../../unitsDashboard/components/AdminSidebarLinks';
+import AddModel from '../../unitsDashboard/components/AddModel';
 
-function AdminStructureOne(){
+function AdminStructureThree(){
     return(
         <>
             <div className="">
@@ -15,7 +15,7 @@ function AdminStructureOne(){
                          <ToggleButton />
                     </div>
                     <div className="container-fluid px-0">
-                         <StructureOneContent show="admin" />
+                         <StructureThreeContent show="admin" />
                     </div>
                 </div>
             </div>
@@ -23,4 +23,4 @@ function AdminStructureOne(){
     )
 }
 
-export default AdminStructureOne;
+export default AdminStructureThree;

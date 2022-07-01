@@ -63,7 +63,7 @@ import SpecificClientPage from './AdminDashboard/pages/SpecificClientPage';
 import AddServicePage from './AdminDashboard/pages/AddServicePage';
 import UnitsClientsPage from './ClientsDashboard/pages/UnitsPage'
 import AddQuestionPage from './AdminDashboard/pages/AddQuestionPage'
-import ClientsServicesPage from './AdminDashboard/pages/ClientsServicesPage';
+import ClientsServicesPage from './CyberzoneWebsite/pages/ClientsServicesPage';
 
 
 

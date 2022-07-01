@@ -56,8 +56,6 @@ import AddClientsPage from './AdminDashboard/pages/AddClientsPage';
 import ServicePage from './AdminDashboard/pages/ServicesPage';
 import EditClientPage from './AdminDashboard/pages/EditClientPage';
 import EditAdminProfilePage from './AdminDashboard/pages/EditAdminProfilePage';
-import LoginPage from './AdminDashboard/pages/LoginPage';
-import SignUpPage from './AdminDashboard/pages/SignUpPage';
 import EditServicePage from './AdminDashboard/pages/EditServicePage';
 import SpecificClientPage from './AdminDashboard/pages/SpecificClientPage';
 import AddServicePage from './AdminDashboard/pages/AddServicePage';
@@ -110,7 +108,7 @@ function Navigation (){
 
 
                  {/*============================= User Authentication =============================*/}
-                <Route path='/userlogin' exact element={<UserLoginPage />}/>
+                <Route path='/login' exact element={<UserLoginPage />}/>
                 <Route path='/forgotpassword' exact element={<UserForgotPasswordPage />}/>
                 <Route path='/checkemail' exact element={<UserCheckEmailPage />}/>
                 <Route path='/setuserpassword' exact element={<SetUserPasswordPage />}/>
@@ -132,8 +130,6 @@ function Navigation (){
                  <Route path='/editlegalnotice' exact element={<EditNoticePage />}/>
                  <Route path='/addclients' exact element={<AddClientsPage />}/>
                  <Route path='/services' exact element={<ServicePage />}/>
-                 <Route path='/login' exact element={<LoginPage />}/>
-                 <Route path='/signup' exact element={<SignUpPage />}/>
                  <Route path='/editservice' exact element={<EditServicePage />}/>
                  <Route path='/editadminprofile' exact element={<EditAdminProfilePage />}/>
                  <Route path='/specificclient' exact element={<SpecificClientPage />}/>

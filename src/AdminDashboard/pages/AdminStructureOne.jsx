@@ -1,8 +1,8 @@
 import React from 'react'
-import StructureOneContent from '../../unitsDashboard/Units-body-contents/StructureOneContent';
+import StructureOneContent from '../../CommonPageContents/StructureOneContent';
 import ToggleButton from '../../unitsDashboard/components/toggleButton';
-import AdminSidebarLinks from '../../unitsDashboard/components/AdminSidebarLinks';
-import AddModel from '../../unitsDashboard/components/AddModel';
+import AdminSidebarLinks from '../components/AdminSidebarLinks';
+import AddModel from '../components/AddModel';
 
 function AdminStructureOne(){
     return(

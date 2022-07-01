@@ -1,8 +1,8 @@
 import React from 'react'
-import UnitHomeContent from '../Units-body-contents/UnitHomeContent';
+import UnitHomeContent from '../../CommonPageContents/UnitHomeContent';
 import ToggleButton from '../components/toggleButton';
-import AdminSidebarLinks from '../components/AdminSidebarLinks';
-import AddModel from '../components/AddModel';
+import AdminSidebarLinks from '../../AdminDashboard/components/AdminSidebarLinks';
+import AddModel from '../../AdminDashboard/components/AddModel';
 
 function AdminUnitPage(){
     return(

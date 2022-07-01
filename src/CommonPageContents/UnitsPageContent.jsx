@@ -1,11 +1,11 @@
 import React, { useState, useEffect} from "react";
-import UnitsCard from '../components/UnitsCard';
-import UnitsCard2 from '../../ClientsDashboard/components/UnitsCard';
-import Footer from '../../ClientsDashboard/components/Footer';
-import "../admin.css";
+import UnitsCard from '../AdminDashboard/components/UnitsCard';
+import UnitsCard2 from '../ClientsDashboard/components/UnitsCard';
+import Footer from '../ClientsDashboard/components/Footer';
+import "../AdminDashboard/admin.css";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { API } from '../../config'
+import { API } from '../config'
 
 function UnitsPageContent(props){
     const head = props.display;

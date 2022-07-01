@@ -1,9 +1,9 @@
 import React from "react";
-import HeaderSection from '../components/HeaderSection'
-import AdminHeaderSection from "../components/AdminHeaderSection";
-import FooterSection from '../components/FooterSection'
-import '../../ClientsDashboard/App.css'
-import PlayerExample from "../components/VideoCard";
+import HeaderSection from '../unitsDashboard/components/HeaderSection'
+import AdminHeaderSection from "../AdminDashboard/components/AdminHeaderSection";
+import FooterSection from '../unitsDashboard/components/FooterSection'
+import '../ClientsDashboard/App.css'
+import PlayerExample from "../unitsDashboard/components/VideoCard";
 
 function StructureOneContent(props){
     var head = props.show;

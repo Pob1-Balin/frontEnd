@@ -1,6 +1,6 @@
 import React from 'react';
 import Sidebar from '../components/Sidebar';
-import LegalNoticeContent from '../../AdminDashboard/Admin-body-content/LegalNoticePageContent';
+import LegalNoticeContent from '../../CommonPageContents/LegalNoticePageContent';
 import SelectService from '../components/SelectService';
 
 function LegalNoticePage() {

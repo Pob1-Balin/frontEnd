@@ -1280,12 +1280,6 @@ ul.country-state{
     }
 }
 
-/* @media screen and (min-width: 1050px){ */
-    .zion{
-        font-size: 50rem;
-    }
-
-
 /******************************* Legal Notice ***************************/
 .legalnotice{
     margin-top:-2rem;
@@ -1419,7 +1413,17 @@ ul.country-state{
     background-repeat: no-repeat;
     background-size:cover;
     height:20rem;
-    width:100rem;
+}
+
+@media screen and (max-width: 900px){
+    .services-section, .site-footer, .site-header{
+        max-width: 600rem;
+        min-width: 30rem;
+    }
+}
+
+.divider-line{
+    margin: 10px auto;
 }
 
 .about{
@@ -1427,11 +1431,6 @@ ul.country-state{
     font-weight: 550;
 }
 
-@media screen and (max-width: 767px){
-    .services-section{
-        width: 35rem;
-    }
-}
 
 
 /*-------------------- Edit units content ---------------------*/

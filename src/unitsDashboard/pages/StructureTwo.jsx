@@ -1,7 +1,7 @@
 import React from 'react'
 import SidebarLinks from '../components/SidebarLinks';
 import ToggleButton from '../components/toggleButton';
-import StructureTwoContent from '../Units-body-contents/StructureTwoContent';
+import StructureTwoContent from '../../CommonPageContents/StructureTwoContent';
 
 function StructureTwo(){
     return(

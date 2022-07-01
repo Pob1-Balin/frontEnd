@@ -1,11 +1,11 @@
 import React, { useEffect, useState} from "react";
-import Footer from '../../ClientsDashboard/components/Footer';
-import Module1 from '../../ClientsDashboard/components/Modules';
-import Module2 from '../components/Modules';
-import "../admin.css";
+import Footer from '../ClientsDashboard/components/Footer';
+import Module1 from '../ClientsDashboard/components/Modules';
+import Module2 from '../AdminDashboard/components/Modules';
+import "../AdminDashboard/admin.css";
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-import { API } from '../../config'
+import { API } from '../config'
 
 function ModulesPageContent(props) {
      const head = props.display;

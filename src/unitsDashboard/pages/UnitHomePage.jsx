@@ -1,5 +1,5 @@
 import React from 'react'
-import UnitHomeContent from '../Units-body-contents/UnitHomeContent';
+import UnitHomeContent from '../../CommonPageContents/UnitHomeContent';
 import ToggleButton from '../components/toggleButton';
 import SidebarLinks from '../components/SidebarLinks';
 

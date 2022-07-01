@@ -1,5 +1,5 @@
 import React from 'react'
-import StructureOneContent from '../Units-body-contents/StructureOneContent';
+import StructureOneContent from '../../CommonPageContents/StructureOneContent';
 import ToggleButton from '../components/toggleButton';
 import SidebarLinks from '../components/SidebarLinks';
 

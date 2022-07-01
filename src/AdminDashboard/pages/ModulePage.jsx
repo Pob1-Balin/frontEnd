@@ -1,6 +1,6 @@
 import React from 'react';
 import AdminUserSidebar from '../components/AdminUserSidebar';
-import ModulesPageContent from '../Admin-body-content/ModulesPageContent';
+import ModulesPageContent from '../../CommonPageContents/ModulesPageContent';
 import AdminSelectService from '../components/AdminSelectService';
 
 function ModulePage() {

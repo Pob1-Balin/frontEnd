@@ -27,7 +27,7 @@ function ClientRegisterContent(){
                 // console.log(response)
                 const status = response.data.status
                 if(status === "success"){
-                    navigate("/userlogin")
+                    navigate("/login")
                 }
             }).catch((err)=>{
                 console.log(err)

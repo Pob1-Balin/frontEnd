@@ -1,6 +1,6 @@
 import React from 'react';
 import AdminUserSidebar from '../components/AdminUserSidebar';
-import UnitsPageContent from '../Admin-body-content/UnitsPageContent';
+import UnitsPageContent from '../../CommonPageContents/UnitsPageContent';
 import AdminSelectService from '../components/AdminSelectService';
 
 function UnitsPage() {

@@ -13,13 +13,13 @@ function ModulesPageContent(props) {
      useEffect(() => {
          axios.get(`${API}/module/module`).then(({data})=>{
              setModule(data.data)
-             console.log(data.data)
+            //  console.log(data.data)
          }).catch((err)=>{
-             console.log("Something Went Wrong:", err)
+            //  console.log("Something Went Wrong:", err)
          })
          // Aos.init({ duration: 2000 });
      }, []);
-  return (
+  return ( 
     <>
        <main className="px-md-4 wrapper2">
         {head=="admin" ?

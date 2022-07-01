@@ -1,5 +1,5 @@
 import React from 'react';
-import ClientsServicesPageContent from '../Admin-body-content/ClientsServicesPageContent'
+import ClientsServicesPageContent from '../body-content/ClientsServicesPageContent'
 
 function ClientsServicesPage() {
   return (

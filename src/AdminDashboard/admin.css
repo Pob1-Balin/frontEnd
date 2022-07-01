@@ -1247,7 +1247,7 @@ ul.country-state{
 }
 
 .modulehome{
-     margin-top: -1.5rem;
+     margin-top: -.8rem;
 }
 @media screen and (min-width: 1900px){
     .wrapper3{
@@ -1266,7 +1266,10 @@ ul.country-state{
 }
 @media screen and (max-width: 767px){
    .return-home{
-         margin-left: 1rem;
+         margin-left: 1.5rem;
+   }
+   .modulehome{
+         margin-left: 1.5rem;
    }
 }
 
@@ -1276,6 +1279,12 @@ ul.country-state{
         margin: 5rem 3rem;
     }
 }
+
+/* @media screen and (min-width: 1050px){ */
+    .zion{
+        font-size: 50rem;
+    }
+
 
 /******************************* Legal Notice ***************************/
 .legalnotice{
@@ -1409,12 +1418,21 @@ ul.country-state{
     background-image: url("images.png");
     background-repeat: no-repeat;
     background-size:cover;
+    height:20rem;
+    width:100rem;
 }
 
 .about{
     font-size: 2rem;
     font-weight: 550;
 }
+
+@media screen and (max-width: 767px){
+    .services-section{
+        width: 35rem;
+    }
+}
+
 
 /*-------------------- Edit units content ---------------------*/
 .edit-structures{

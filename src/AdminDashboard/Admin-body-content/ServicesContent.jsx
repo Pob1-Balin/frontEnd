@@ -7,19 +7,18 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import {API} from '../../config'
 
+
 function ServicesContent(){
-  const [service, setSevice] = useState([]);
-  useEffect(() => {
-    axios
-      .get(`${API}/service`)
-      .then(({ data }) => {
-        setSevice(data.data);
-        console.log(data.data)
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }, []);
+  const [service, setService] = useState([]);
+//   useEffect(() => {
+//       axios.get(`${API}/services/services`).then(({data})=>{
+//         setService(data.data)
+//         //   console.log(data.data)
+//       }).catch((err)=>{
+//          //  console.log("Something Went Wrong:", err)
+//       })
+//       // Aos.init({ duration: 2000 });
+//   }, []);
     return(
         <>
             <main className="px-md-4 wrapper2 dashboard-pages">
@@ -68,12 +67,7 @@ function ServicesContent(){
                  <div className="container-fluid services-area">
                      <div className="container-fluid services">
                      <div className="row mg-b-15">
-                        {
-                        service.map(service => <Services key={service._id} id= {service._id} service_id={service.service_id} dashboard_id={service.dashboard_id} service_name={service.service_name} service_amount={service.service_amount} number_of_subscribers={service.number_of_subscribers} short_description={service.short_description}/>)}
-                        <Services id= "dgfgbjhsbua" service_id="fgthsss" dashboard_id="ftgyhuihjoi" service_name="sdfghhjj" service_amount="tryuii" number_of_subscribers="fdgh" short_description="ghgjhududd"/>
-                        <Services id= "dgfgbjhsbua" service_id="fgthsss" dashboard_id="ftgyhuihjoi" service_name="sdfghhjj" service_amount="tryuii" number_of_subscribers="fdgh" short_description="ghgjhududd"/>
-                        <Services id= "dgfgbjhsbua" service_id="fgthsss" dashboard_id="ftgyhuihjoi" service_name="sdfghhjj" service_amount="tryuii" number_of_subscribers="fdgh" short_description="ghgjhududd"/>
-                        <Services id= "dgfgbjhsbua" service_id="fgthsss" dashboard_id="ftgyhuihjoi" service_name="sdfghhjj" service_amount="tryuii" number_of_subscribers="fdgh" short_description="ghgjhududd"/>
+                        {/* {service.map(serviceData => <Services key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} number_of_subscribers={serviceData.subscribers} short_description={serviceData.description}/>)} */}
                         <Services id= "dgfgbjhsbua" service_id="fgthsss" dashboard_id="ftgyhuihjoi" service_name="sdfghhjj" service_amount="tryuii" number_of_subscribers="fdgh" short_description="ghgjhududd"/>
                      </div>
                      </div>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NotesIcon from '@mui/icons-material/Notes';
 import { height } from '@mui/system';
-import './togBut.css'
+import '../../unitsDashboard/components/togBut.css'
 import './styey.css'
 
 function ToggleButton2() {

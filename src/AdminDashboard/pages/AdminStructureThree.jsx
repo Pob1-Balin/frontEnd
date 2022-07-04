@@ -1,8 +1,8 @@
 import React from 'react'
-import StructureThreeContent from '../../unitsDashboard/Units-body-contents/StructureThreeContent';
+import StructureThreeContent from '../../CommonPageContents/StructureThreeContent';
 import ToggleButton from '../../unitsDashboard/components/toggleButton';
-import AdminSidebarLinks from '../../unitsDashboard/components/AdminSidebarLinks';
-import AddModel from '../../unitsDashboard/components/AddModel';
+import AdminSidebarLinks from '../components/AdminSidebarLinks';
+import AddModel from '../components/AddModel';
 
 function AdminStructureThree(){
     return(

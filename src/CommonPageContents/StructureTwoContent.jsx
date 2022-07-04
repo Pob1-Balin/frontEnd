@@ -1,10 +1,10 @@
 import React from "react";
-import HeaderSection from '../components/HeaderSection'
-import AdminHeaderSection from "../components/AdminHeaderSection";
-import SecondUnitFooter from '../components/SecondUnitFooter'
-import ImageCard from "../components/ImageCard";
-import CarouselCard from '../components/CarouselCard'
-import '../../ClientsDashboard/App.css'
+import HeaderSection from '../unitsDashboard/components/HeaderSection'
+import AdminHeaderSection from "../AdminDashboard/components/AdminHeaderSection";
+import SecondUnitFooter from '../unitsDashboard/components/SecondUnitFooter'
+import ImageCard from "../unitsDashboard/components/ImageCard";
+import CarouselCard from '../unitsDashboard/components/CarouselCard'
+import '../ClientsDashboard/App.css'
 
 function StructureTwoContent(props){
     var head = props.show;

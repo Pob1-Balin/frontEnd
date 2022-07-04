@@ -1,62 +1,55 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../admin.css";
 import Footer from '../components/Footer'
 import { API } from '../../config'
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
 import axios from 'axios';
 
 function AddServiceContent() {
     const navigate = useNavigate();
     const [values, setValues] = useState({
-        service_id: '',
-        dashboard_id: '',
-        service_name: '',
-        service_amount: '',
-        number_of_subscribers: '',
-        short_description: '',
+       name: "",
+       description: '',
+       amount: '',
+       image: '',
     })
 
     // Destructing so as to be able to send to the backend
     const handleChange = event => {
         setValues({
-            ...values,
-            [event.target.name]: event.target.value
+            ...values, [event.target.name]: event.target.value
         })
     }
 
     const submitService = (serviceInfo) => {
-        axios.post(`${API}/service`, serviceInfo)
+        axios.post(`${API}/service/create`, serviceInfo)
             .then(res => {
-                alert(res)
+                // alert(res)
                 // if (res.status === 200)
                 // alert('service successfully added')
                 // else
                 // Promise.reject()
+            alert("course Added Successfully")
             })
             .catch(err => {
-                console.log(err)
-                alert('Something went wrong')
-                console.log(err)
+                 alert('Something went wrong, course could not be added')
             })
 
     }
 
-    const clickAddService = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        const { service_id, dashboard_id, service_name, service_amount, number_of_subscribers, short_description } = values;
+        const { name, description, amount, image } = values;
         submitService({
-            service_id,
-            dashboard_id,
-            service_name,
-            service_amount,
-            number_of_subscribers,
-            short_description,
+            name,
+            description,
+            amount,
+            image,
         });
         navigate('/services');
     }
 
-    return (
+        return (
         <>
             <main className="px-md-4 wrapper2 dashboard-pages">
                 <div className="breadcome-area clients-breadcome-area servicee">
@@ -100,29 +93,25 @@ function AddServiceContent() {
                                                         <div className="row">
                                                             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <div className="devit-card-custom">
-
-                                                                    <div className="form-group">
-                                                                        <input onChange={handleChange} type="text" className="form-control" placeholder="service id" name="service_id" value={values.service_id} />
-                                                                    </div>
-                                                                    <div className="form-group">
-                                                                        <input onChange={handleChange} type="text" className="form-control" placeholder="dashborad id" name="dashboard_id" value={values.dashboard_id} />
-                                                                    </div>
-                                                                    <div className="form-group">
-                                                                        <input onChange={handleChange} type="text" className="form-control" placeholder="Enter service name" name="service_name" value={values.service_name} />
-                                                                    </div>
-                                                                    <div className="form-group">
-                                                                        <input onChange={handleChange} type="text" className="form-control" placeholder="service amount" name="service_amount" value={values.service_amount} />
-                                                                    </div>
-                                                                    <div className="form-group">
-                                                                        <input onChange={handleChange} type="text" className="form-control" placeholder="num of sub" name="number_of_subscribers" value={values.number_of_subscribers} />
-                                                                    </div>
-                                                                    <div className="form-group">
-                                                                        <input onChange={handleChange} type="text" className="form-control" placeholder="Enter short description of service" name="short_description" value={values.short_description} />
-                                                                    </div>
-                                                                    <div className="form-group">
-                                                                        <input type="file" className="form-control" onchange="document.getElementById('prepend-big-btn').value = this.value;" />
-                                                                    </div>
-                                                                    <button onClick={clickAddService} href="#!" className="mt-15 btn waves-effect waves-light pd-setting btn-info">Submit</button>
+                                                                    <form onSubmit={handleSubmit}>
+                                                                        <div className="form-group">
+                                                                            <label htmlFor='name' style={{marginBottom: "-12px"}} className="FormLable"><p>Name</p></label>
+                                                                            <input type="text" className="form-control" placeholder="Enter service name" name="name" value={values.name} onChange={handleChange} />
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <label htmlFor='description' style={{marginBottom: "-12px"}} className="FormLable"><p>Description</p></label>
+                                                                            <input type="text" className="form-control" placeholder="Enter short description for service" name="description" value={values.description} onChange={handleChange} />
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <label htmlFor='amount' style={{marginBottom: "-12px"}} className="FormLable"><p>Amount</p></label>
+                                                                            <input type="number" className="form-control" placeholder="Enter service amount" name="amount" value={values.amount} onChange={handleChange} />
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <label htmlFor='image' style={{marginBottom: "-12px"}} className="FormLable"><p>Image</p></label>
+                                                                            <input type="file" className="form-control" onchange="document.getElementById('prepend-big-btn').value = this.value;" placeholder="Select module image" name="image" value={values.image} onChange={handleChange}  />
+                                                                        </div>
+                                                                        <button type="submit" style={{ background: '#4ab2cc', color: 'white' }} href="#!" className="btn waves-effect waves-light">Submit</button>
+                                                                    </form>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -137,8 +126,6 @@ function AddServiceContent() {
                     </div>
                 </div>
 
-                {API}
-                {JSON.stringify(values)}
                 <div style={{ marginTop: '7rem' }}></div>
                 <div className="add-clients-footer"><Footer /></div>
             </main>

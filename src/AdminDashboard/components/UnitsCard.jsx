@@ -1,7 +1,22 @@
 import React from 'react';
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { API } from '../../config'
 
 function UnitsCard(props){
+  const id = props.id
+  const deleteService = () => {
+    axios
+        .delete(`${API}/unit/unit/${id}`)
+        .then((res) => {
+            if (res.status === 200) {
+                //  alert("Student successfully deleted");
+                 window.location.reload();
+                //  console.log(`${API}/service/${id}`)
+            } else Promise.reject();
+        })
+        .catch((err) => alert("Something went wrong"));
+}
   return(
     <>
       <div className="card">
@@ -24,11 +39,8 @@ function UnitsCard(props){
                       Are you sure you want to permanently delete this unite?
                   </div>
                   <div class="modal-footer">
-                    <form action="php-code.php" method="POST">
-                        <input type="hidden" name="service_id" value="<?php echo $row['service_id']; ?>"/>
-                          <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Close</button>
-                          <button type="submit" name="delete_service" class="btn btn-info">Yes</button>
-                    </form>
+                    <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Close</button>
+                    <button type="submit" name="delete_service" class="btn btn-info" onClick={deleteService}>Yes</button>
                   </div>
                 </div>
               </div>
@@ -59,8 +71,8 @@ function UnitsCard(props){
              </div>
 
             <div class="product-buttons" style={{marginTop:'1.5rem', marginBottom:"-.5rem"}}>
-               <Link to='/adminunitcontent' style={{textDecoration:'none'}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">To start</button></Link>
-               <Link to='/editunit' style={{textDecoration:'none'}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
+               <Link to='/adminunitcontent' style={{textDecoration:'none'}} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">To start</button></Link>
+               <Link to='/editunit' style={{textDecoration:'none'}} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
                <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Disable</button>
                <button type="button" class="button-default cart-btn btn-danger mt-1 mr-1" data-toggle="modal" data-target="#del">Delete</button>
                <Link to='/admintest' style={{textDecoration: "none"}}><button style={{backgroundColor: '#4ab2cc'}} type="button" class="button-default cart-btn mt-1 mr-1">Questions</button></Link>

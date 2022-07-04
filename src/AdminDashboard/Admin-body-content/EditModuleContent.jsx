@@ -12,16 +12,9 @@ function EditModuleContent() {
     var modOldInfo = location.state
     console.log(modOldInfo)
     const navigate = useNavigate();
-
     const [values, setValues] = useState({
-
-        moduleID: modOldInfo.modulID,
-        name: modOldInfo.module_name,
         title: modOldInfo.title,
-        timePassed: modOldInfo.timePassed,
-        score: modOldInfo.score,
-        country: modOldInfo.country,
-        image: modOldInfo.image,
+        image: "",
     })
 
 
@@ -34,9 +27,10 @@ function EditModuleContent() {
             [event.target.name]: event.target.value
         })
     }
+
     const id = modOldInfo.id;
     const submitModule = (moduleInfo) => {
-        axios.put(`${API}/modulupdate/${id}`, moduleInfo)
+        axios.put(`${API}/module/module/${id}`, moduleInfo)
             .then(res => {
                 alert(res)
                 // if (res.status === 200)
@@ -45,29 +39,26 @@ function EditModuleContent() {
                 // Promise.reject()
             })
             .catch(err => {
-                alert('Something went wrong')
-                console.log(err)
+                // alert('Something went wrong')
+                // console.log(err)
             })
 
     }
 
-    const clickSubmit = (event) => {
+    const handleSubmit = (event) => {
         event.preventDefault();
-        const { moduleID, name, title, timePassed, score, country, image } = values;
+        const { name, title, image, time_spent, score  } = values;
         submitModule({
-            moduleID,
             name,
             title,
-            timePassed,
-            score,
-            country,
             image,
+            time_spent,
+            score
         });
-        sessionStorage.setItem('name', 'success');
+        // sessionStorage.setItem('name', 'success');
+        // alert('Course Updated Successfully')
         navigate('/adminmodulepage');
     }
-
-
 
     return (
         <>
@@ -89,29 +80,17 @@ function EditModuleContent() {
                                                         <div class="row">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <div class="devit-card-custom">
-                                                                    <div className="form-group">
-                                                                        <input onChange={handleChange} type="text" className="form-control" placeholder="Enter module moduleID" name="moduleID" value={values.moduleID} />
-                                                                    </div>
-                                                                    <div className="form-group">
-                                                                        <input onChange={handleChange} type="text" className="form-control" placeholder="Enter module name" name="name" value={values.name} />
-                                                                    </div>
-                                                                    <div className="form-group">
-                                                                        <input onChange={handleChange} type="text" className="form-control" placeholder="title" name="title" value={values.title} />
-                                                                    </div>
-                                                                    <div className="form-group">
-                                                                        <input onChange={handleChange} type="number" className="form-control" placeholder="timePassed" name="timePassed" value={values.timePassed} />
-                                                                    </div>
-                                                                    <div className="form-group">
-                                                                        <input onChange={handleChange} type="number" className="form-control" placeholder="score" name="score" value={values.score} />
-                                                                    </div>
-
-                                                                    <div className="form-group">
-                                                                        <input onChange={handleChange} type="text" className="form-control" placeholder="image" name="image" value={values.image} />
-                                                                    </div>
-                                                                    <div className="form-group">
-                                                                        <input type="file" className="form-control" onchange="document.getElementById('prepend-big-btn').value = this.value;" />
-                                                                    </div>
-                                                                    <button onClick={clickSubmit} style={{ background: '#4ab2cc', color: 'white' }} href="#!" className="btn waves-effect waves-light">Submit</button>
+                                                                    <form onSubmit={handleSubmit}>
+                                                                        <div className="form-group">
+                                                                            <label htmlFor='title' style={{marginBottom: "-12px"}} className="FormLable"><p>Title</p></label>
+                                                                            <input type="text" className="form-control" placeholder="Enter module title" name="title" value={values.title} onChange={handleChange} />
+                                                                        </div>
+                                                                        <div className="form-group">
+                                                                            <label htmlFor='image' style={{marginBottom: "-12px"}} className="FormLable"><p>Image</p></label>
+                                                                            <input type="file" className="form-control" onchange="document.getElementById('prepend-big-btn').value = this.value;" placeholder="Select module image" name="image" value={values.image} onChange={handleChange} />
+                                                                        </div>
+                                                                        <button type="submit" style={{ background: '#4ab2cc', color: 'white' }} href="#!" className="btn waves-effect waves-light">Submit</button>
+                                                                     </form>
                                                                 </div>
                                                             </div>
                                                         </div>

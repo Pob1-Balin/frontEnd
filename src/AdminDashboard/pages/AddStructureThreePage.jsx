@@ -1,8 +1,8 @@
 import React from 'react';
-import AdminSidebarLinks from '../../unitsDashboard/components/AdminSidebarLinks';
+import AdminSidebarLinks from '../components/AdminSidebarLinks';
 import AddStructureThreeContent from '../Admin-body-content/AddStructureThreeContent';
-import ToggleButton from '../../unitsDashboard/components/ToggleButton2'
-import AddModel from '../../unitsDashboard/components/AddModel';
+import ToggleButton from '../components/ToggleButton2'
+import AddModel from '../components/AddModel';
 
 function AddStructureThreePage() {
   return (

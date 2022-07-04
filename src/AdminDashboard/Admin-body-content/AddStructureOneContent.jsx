@@ -6,7 +6,12 @@ import axios from 'axios'
 import { API } from "../../config";
 import { useNavigate } from "react-router-dom";
 import {validateRegistration} from '../../utils/inputValidations'
+import {useLocation} from 'react-router-dom'
 function AddStructureOneContent() {
+    const location = useLocation()
+    var unitsInfo = location.state
+    const units_id = unitsInfo.id
+    console.log(units_id)
     const navigate = useNavigate();
     const [inputs, setInputs] = useState({page_name:"", page_title:"", video_file:""})
     const [formErrors, setFormErrors] = useState({});

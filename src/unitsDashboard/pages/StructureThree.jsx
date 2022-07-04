@@ -1,5 +1,5 @@
 import React from 'react'
-import StructureThreeContent from '../Units-body-contents/StructureThreeContent';
+import StructureThreeContent from '../../CommonPageContents/StructureThreeContent';
 import ToggleButton from '../components/toggleButton';
 import SidebarLinks from '../components/SidebarLinks';
 

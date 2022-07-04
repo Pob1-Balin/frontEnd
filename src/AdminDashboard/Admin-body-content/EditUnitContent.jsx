@@ -1,9 +1,56 @@
-import React from "react";
+import React, { useState} from "react";
 import Footer from '../../ClientsDashboard/components/Footer';
 import "../admin.css";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import axios from 'axios';
+import { API } from '../../config'
 
 function EditUnitContent(){
+    const location = useLocation()
+    var unitOldInfo = location.state
+    // console.log(modOldInfo)
+    const navigate = useNavigate();
+    const [values, setValues] = useState({
+        title: unitOldInfo.title,
+        image: "",
+    })
+    // Destructing so as to be able to send to the backend
+    const handleChange = event => {
+        setValues({
+            ...values,
+            [event.target.name]: event.target.value
+        })
+    }
+
+    const id = unitOldInfo.id;
+    const submitUnit = (unitInfo) => {
+        axios.put(`${API}/unit/unit/${id}`, unitInfo)
+            .then(res => {
+                alert(res)
+                // if (res.status === 200)
+                // alert('service successfully added')
+                // else
+                // Promise.reject()
+            })
+            .catch(err => {
+                // alert('Something went wrong')
+                // console.log(err)
+            })
+
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        const { title, image} = values;
+        submitUnit({
+            title,
+            image,
+        });
+        sessionStorage.setItem('name', 'success');
+        // alert('Course Updated Successfully')
+        navigate('/adminmodulepage');
+    }
+
     return(
         <>
             <main className="px-md-4 wrapper2">
@@ -25,16 +72,17 @@ function EditUnitContent(){
                                                             <div class="row">
                                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                     <div class="devit-card-custom">
-                                                                        <div class="form-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter module name"/>
+                                                                    <form onSubmit={handleSubmit}>
+                                                                        <div className="form-group">
+                                                                            <label htmlFor='title' style={{marginBottom: "-12px"}} className="FormLable"><p>Title</p></label>
+                                                                            <input type="text" className="form-control" placeholder="Enter module title" name="title" value={values.title} onChange={handleChange} />
                                                                         </div>
-                                                                        <div class="form-group">
-                                                                            <input type="text" class="form-control" placeholder="Enter module title"/>
+                                                                        <div className="form-group">
+                                                                            <label htmlFor='image' style={{marginBottom: "-12px"}} className="FormLable"><p>Image</p></label>
+                                                                            <input type="file" className="form-control" onchange="document.getElementById('prepend-big-btn').value = this.value;" placeholder="Select module image" name="image" value={values.image} onChange={handleChange} />
                                                                         </div>
-                                                                        <div class="form-group">
-                                                                             <input type="file" class="form-control" onchange="document.getElementById('prepend-big-btn').value = this.value;"/>
-                                                                        </div>
-                                                                        <button class="btn waves-effect waves-light pd-setting btn-info">Submit</button>
+                                                                        <button type="submit" style={{ background: '#4ab2cc', color: 'white' }} href="#!" className="btn waves-effect waves-light">Submit</button>
+                                                                     </form>
                                                                     </div>
                                                                 </div>
                                                             </div>

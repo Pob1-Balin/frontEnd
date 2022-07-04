@@ -31,7 +31,7 @@ function AddServiceContent() {
     }
     const id = servOldInfo.id;
     const submitService = (serviceInfo) => {
-        axios.put(`${API}/serviceupdate/${id}`, serviceInfo)
+        axios.put(`${API}/service/${id}/update`, serviceInfo)
             .then(res => {
                 alert(res)
                 // if (res.status === 200)

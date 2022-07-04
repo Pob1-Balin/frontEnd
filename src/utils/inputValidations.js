@@ -15,9 +15,10 @@ export const validateRegistration = (values) => {
     }
     if(!values.email){
         errors.email = "Email is required!"
-    }else if(!emailRegex.test(values.email)){
-      errors.email = "This is not a valide email"
     }
+   //  else if(!emailRegex.test(values.email)){
+   //    errors.email = "This is not a valide email"
+   //  }
     if(!values.phone_number){
         errors.phone_number = "Phone number is required!"
     }else if(values.phone_number.length < 9 || values.phone_number.length > 12){

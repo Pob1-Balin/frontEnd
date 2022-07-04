@@ -1,8 +1,8 @@
 import React from "react";
-import HeaderSection from '../components/HeaderSection'
-import AdminHeaderSection from '../components/AdminHeaderSection'
-import SecondUnitFooter from '../components/SecondUnitFooter'
-import '../../ClientsDashboard/App.css'
+import HeaderSection from '../unitsDashboard/components/HeaderSection'
+import AdminHeaderSection from '../AdminDashboard/components/AdminHeaderSection'
+import SecondUnitFooter from '../unitsDashboard/components/SecondUnitFooter'
+import '../ClientsDashboard/App.css'
 
 function StructureThreeContent(props){
     var head = props.show;

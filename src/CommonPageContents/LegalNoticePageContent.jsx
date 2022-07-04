@@ -1,6 +1,6 @@
 import React from "react";
-import Footer from '../../ClientsDashboard/components/Footer';
-import "../admin.css";
+import Footer from '../ClientsDashboard/components/Footer';
+import "../AdminDashboard/admin.css";
 import { Link } from 'react-router-dom';
 
 function LegalNoticePageContent(props){

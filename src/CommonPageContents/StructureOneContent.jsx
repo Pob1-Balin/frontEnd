@@ -20,7 +20,7 @@ function StructureOneContent(props){
                 <div className="unites_divider_line"></div>
                 <PlayerExample/>
                 <div className="units-dashboard-footer-wrapper">
-                     <FooterSection footer_text="Visionnez la vidéo pour continuer" />
+                     <FooterSection footer_text="Units content"/>
                  </div>
 
             </div>

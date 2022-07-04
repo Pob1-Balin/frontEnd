@@ -30,21 +30,17 @@ function Questions(props){
             <div className='question-inner-card' style={{marginLeft:"1.5rem", marginRight:"1.5rem", marginTop:"1rem"}}>
                 <div className="row">
                     <div style={{fontSize: '1.3rem', color: 'gray', fontStyle: 'bold', fontWeight: '550'}} className="col-lg-1 col-md-1 col-sm-1 col-xs-1">1.</div>
-                    <div style={{marginLeft:"-3rem"}} className="col-lg-11 col-md-11 col-sm-11 col-xs-11"><p>yfuyuhioj jnjiosjisja kasmamoosa okoksja kasmamoosa okoks nioajijia isjaiopjj yfuyuhioj jnjiosjisja kasmamoosa okoks nioajijia isjaiopj</p></div>
+                    <div style={{marginLeft:"-3rem"}} className="col-lg-11 col-md-11 col-sm-11 col-xs-11"><p>{props.question}</p></div>
                 </div>
                 <div>
                     <ul style={{marginLeft:"1.4rem"}}>
-                        <li><i className="fa fa-angle-right"></i> trdyufgihtgyhu</li>
-                        <li><i className="fa fa-angle-right"></i> trdyufgihtgyhu</li>
-                        <li><i className="fa fa-angle-right"></i> trdyufgihtgyhu</li>
-                        <li><i className="fa fa-angle-right"></i> trdyufgihtgyhu</li>
+                        <li><i className="fa fa-angle-right"></i>{props.answer}</li>
                     </ul>
                 </div>
                 <div>
                     <p style={{marginLeft:"1.7rem", fontSize: '1.3rem', color: 'gray', fontStyle: 'bold', fontWeight: '550'}}>Answer</p>
                     <ul style={{marginLeft:"1.4rem"}}>
-                        <li><i className="fa fa-angle-right"></i> trdyufgihtgyhu</li>
-                        <li><i className="fa fa-angle-right"></i> trdyufgihtgyhu</li>
+                        <li><i className="fa fa-angle-right"></i>{props.correctAnswer}</li>
                     </ul>
                 </div>
             </div>

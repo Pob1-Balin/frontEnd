@@ -41,7 +41,7 @@ var  options = {
     <div>
       <Bar
          data={data}
-         height={400}
+         height={500}
          options={options}
       />
     </div>

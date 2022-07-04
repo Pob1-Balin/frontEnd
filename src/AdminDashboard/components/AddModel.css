@@ -1,14 +1,93 @@
-.modal-body ul a li:hover{
+.modal-modal{
+     margin-left: -7rem;
+     overflow: hidden;
+}
+.model-control{
+    width: 50rem;
+}
+.modal-body-body ul a li:hover{
     background-color: gray;
     color: white;
 }
-.modal-body ul a{
+.modal-body-body ul a{
     color: gray;
 }
-.modal-body ul{
+.modal-body-body ul{
     margin-top: -1rem;
     margin-bottom: -1rem;
     margin-left: -3rem;
     margin-right: -1rem;
     font-size: 15px;
+}
+.card-image-container{
+    margin:0rem;
+    /* box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px; */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: 21.4rem;
+    border-radius: .5rem;
+}
+.select-card_image:hover{
+    opacity: 70%;
+}
+.structure-card-container{
+    margin: .5rem 1.5rem;
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(2, 1fr);
+}
+.select-card_image{
+     width: cover;
+     height: 15rem;
+     object-fit: cover;
+     border-radius: .3rem;
+}
+
+@media screen and (max-width: 1500px){
+    .modal-modal{
+        margin-left: -10rem;
+   }
+}
+
+@media screen and (max-width: 900px){
+    .structure-card-container{
+        grid-template-columns: repeat(1, 1fr);
+        margin: .5rem 1rem;
+        margin-left: 1.4rem;
+    }
+    .modal-modal{
+        margin: .1em auto;
+   }
+   .model-control{
+       width: 26rem;
+   }
+}
+@media screen and (max-width: 800px){
+    .modal-modal{
+        margin-left: 1rem;
+   }
+}
+@media screen and (max-width: 700px){
+    .modal-modal{
+        margin-left: 1.8rem;
+   }
+}
+@media screen and (max-width: 575px){
+    .modal-modal{
+        margin-left: 2rem;
+        margin-top: 2rem;
+   }
+}
+@media screen and (min-width: 1501px){
+    .structure-card-container{
+        grid-template-columns: repeat(3, 1fr);
+        margin: .5rem 1rem;
+        margin-left: 1.4rem;
+    }
+    .modal-modal{
+        margin-left: -17rem;
+   }
+   .model-control{
+         background-color: transparent;
+   }
+
 }

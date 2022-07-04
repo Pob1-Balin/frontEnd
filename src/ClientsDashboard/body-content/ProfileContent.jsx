@@ -9,7 +9,7 @@ function ProfileContent (){
     return(
         <>
             <div className="ms-sm-auto px-md-4 ml-3">
-                <div style={{marginTop: '-.5rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <div className="top-margin d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                      <h1 className="heading" style={{color: '#0d3360'}}>Profile page</h1>
                 </div>
                 <div className="Home_navigation">
@@ -25,20 +25,20 @@ function ProfileContent (){
                             <Row className="mb-3">
                                 <Col md={6} lg={4}>
                                     <Form.Group controlId="formGridCity">
-                                         <Form.Label className="form_lable">First name</Form.Label>
-                                         <Form.Control placeholder="" disabled readOnly/>
+                                         <Form.Label className="form_lable">First Name</Form.Label>
+                                         <Form.Control className="form_input" placeholder="" disabled readOnly/>
                                     </Form.Group>
                                 </Col>
                                 <Col md={6} lg={4}>
                                     <Form.Group controlId="formGridCity">
-                                         <Form.Label className="form_lable">Name</Form.Label>
-                                         <Form.Control placeholder=""  disabled readOnly/>
+                                         <Form.Label className="form_lable">Last Name</Form.Label>
+                                         <Form.Control className="form_input" placeholder=""  disabled readOnly/>
                                     </Form.Group>
                                 </Col>
                                 <Col md={6} lg={4}>
                                     <Form.Group controlId="formGridCity">
                                          <Form.Label className="form_lable">E-mail</Form.Label>
-                                         <Form.Control className="form_lable" placeholder="kongbizion3@gmail.com" disabled readOnly/>
+                                         <Form.Control className="form_input" placeholder="kongbizion3@gmail.com" disabled readOnly/>
                                     </Form.Group>
                                 </Col>
                             </Row>
@@ -53,32 +53,19 @@ function ProfileContent (){
                             <Col md={6} lg={4}>
                                 <Form.Group controlId="formGridCity">
                                      <Form.Label className="form_lable">Old Password</Form.Label>
-                                     <Form.Control placeholder=""/>
+                                     <Form.Control className="form_input" placeholder=""/>
                                 </Form.Group>
                             </Col>
                             <Col md={6} lg={4}>
                                 <Form.Group controlId="formGridCity">
                                      <Form.Label className="form_lable">New Password</Form.Label>
-                                     <Form.Control placeholder=""/>
+                                     <Form.Control className="form_input" placeholder=""/>
                                 </Form.Group>
-                                <div style={{marginLeft: "1rem", marginTop: "1rem"}}>
-                                    <Row style={{marginBottom: "-1.2rem"}}>
-                                         <Col className="form_validation_text"><p style={{lineHeight: "1.3rem"}}><span style={{fontSize: "2rem"}}>.</span> A capital letter</p></Col>
-                                         <Col className="form_validation_text"><p style={{lineHeight: "1.3rem"}}><span style={{fontSize: "2rem"}}>.</span> A special character</p></Col>
-                                    </Row>
-                                    <Row style={{marginBottom: "-1.2rem"}}>
-                                         <Col className="form_validation_text"><p style={{lineHeight: "1.3rem"}}><span style={{fontSize: "2rem"}}>.</span> A tiny</p></Col>
-                                         <Col className="form_validation_text"><p style={{lineHeight: "1.3rem"}}><span style={{fontSize: "2rem"}}>.</span> Minimum 12 characters</p></Col>
-                                    </Row>
-                                    <Row>
-                                         <Col className="form_validation_text"><p style={{lineHeight: "1.3rem"}}><span style={{fontSize: "2rem"}}>.</span> A number</p></Col>
-                                    </Row>
-                                </div>
                             </Col>
                             <Col md={6} lg={4} className="profile_validate">
                                 <Form.Group controlId="formGridCity">
                                      <Form.Label className="form_lable">To confirm</Form.Label>
-                                     <Form.Control className="form_lable"/>
+                                     <Form.Control className="form_input" />
                                 </Form.Group>
                                 <div style={{paddingBottom: "-10rem", marginTop: "1.5rem"}}><button className="profile_validate_btn">To validate</button></div>
                             </Col>

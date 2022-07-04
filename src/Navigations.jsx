@@ -85,6 +85,7 @@ function Navigation (){
                  <Route path='/legalnotice' exact element={<LegalNoticePage />}/>
                  <Route path='/unitsclients' exact element={<UnitsClientsPage />}/>
                  <Route path='/admintest' exact element={<AdminTestPage />}/>
+                 <Route path='/test' exact element={<TestPage />}/>
 
                 {/*============================= Units dashboard =============================*/}
                 <Route path='/unitcontent' exact element={<UnitHomePage />}/>

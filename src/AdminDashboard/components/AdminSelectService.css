@@ -3,6 +3,9 @@
     color: white;
     font-weight: bold;
 }
+/* .modal-body{
+    width: 100rem;
+} */
 .modal-body ul a{
     color: gray;
 }

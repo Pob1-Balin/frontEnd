@@ -49,7 +49,7 @@ function Services(props) {
                                     </button>
                                 </div>
                                 <div className="modal-body">
-                                     Are you sure you want to permanently delete this service?
+                                     <p>Are you sure you want to permanently delete this service?</p>
                                 </div>
                                 <div className="modal-footer">
                                     <form>
@@ -73,7 +73,7 @@ function Services(props) {
                                     </button>
                                 </div>
                                 <div className="modal-body">
-                                    Are you sure you want to block this service?
+                                     <p>Are you sure you want to block this service?</p>
                                 </div>
                                 <div className="modal-footer">
                                     <form action="php-code.php" method="POST">

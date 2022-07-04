@@ -31,15 +31,15 @@ function ServicesContent(){
                                         <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                             <div className="breadcome-heading">
                                                 <form role="search" className="sr-input-func">
-                                                <input type="text" placeholder="Search..." className="search-int col-xs-12 form-control mobile-menu-search"/>
+                                                    <input type="text" placeholder="Search..." className="search-int col-xs-12 form-control mobile-menu-search"/>
                                                     <a href="#"><i className="fa fa-search"></i></a>
                                                 </form>
                                             </div>
                                         </div>
                                         <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 mobile-menu-links">
                                             <ul className="breadcome-menu">
-                                                <li><a style={{fontSize:'1rem', color:'#4ab2cc'}} href="admindashboard">Dashboard /</a></li>
-                                                <li style={{fontSize:'1rem', color:'gray'}}><span className="bread-blod">Services</span></li>
+                                                <li><a style={{color:'#4ab2cc'}} href="admindashboard">Dashboard /</a></li>
+                                                <li style={{color:'gray'}}><span className="bread-blod">Services</span></li>
                                             </ul>
                                         </div>
                                     </div>

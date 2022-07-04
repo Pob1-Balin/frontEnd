@@ -14,15 +14,15 @@ function UnitHomeContent(props){
             <div className="">
                 <div className="Unit-Dashboard-wrapper">
                     {head == "admin" ?
-                      <AdminHeaderSection show={body} prev='#' destination="Accueil" header_title="Bienvenue"/>
+                      <AdminHeaderSection show={body} prev='#' header_title="Bienvenue"/>
                       :
-                      <HeaderSection prev='#' destination="Accueil" header_title="Bienvenue" />
+                      <HeaderSection prev='#' header_title="Bienvenue" />
                     }
                 </div>
                 <div className="unites_divider_line"></div>
                 {body == "" ? <EmptyPageContent/> : <PlayerExample/>}
                 <div className="units-dashboard-footer-wrapper">
-                     <FooterSection footer_text="Visionnez la vidéo pour continuer" />
+                     <FooterSection footer_text="Units content" />
                  </div>
 
             </div>

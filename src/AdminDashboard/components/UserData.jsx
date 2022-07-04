@@ -15,7 +15,7 @@ function Modules(props){
                          </button>
                     </div>
                     <div className="modal-body">
-                         Are you sure you want to permanently delete this client?
+                         <p>Are you sure you want to permanently delete this client?</p>
                     </div>
                     <div className="modal-footer">
                         <form>
@@ -38,7 +38,7 @@ function Modules(props){
                          </button>
                     </div>
                     <div className="modal-body">
-                         Are you sure you want to block this client?
+                         <p>Are you sure you want to block this client?</p>
                     </div>
                     <div className="modal-footer">
                         <form action="php-code.php" method="POST">
@@ -57,8 +57,8 @@ function Modules(props){
                  <td>{props.country}</td>
                  <td>{props.phone}</td>
                  <td>{props.email}</td>
-                 <td><button className="pd-setting btn-info" disabled="true">Active</button></td>
-                 <td><Link to='/specificclient' style={{textDecoration:'none'}}><button className="pd-setting btn-info">View</button></Link></td>
+                 <td><button className="b pd-setting btn-info" disabled="true">Active</button></td>
+                 <td><Link to='/specificclient' style={{textDecoration:'none'}}><button className="b pd-setting btn-info">View</button></Link></td>
                  <td>
                      <Link to='/editclient'><button className="pd-setting-ed"><i className="fa fa-pencil-square-o" aria-hidden="true"></i></button></Link>
                      <button className="pd-setting-ed" data-toggle="modal" data-target="#bl"><i className="fa fa-stop-circle-o" aria-hidden="true"></i></button>

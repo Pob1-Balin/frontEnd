@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderSection from '../unitsDashboard/components/HeaderSection'
 import AdminHeaderSection from "../AdminDashboard/components/AdminHeaderSection";
-import SecondUnitFooter from '../unitsDashboard/components/SecondUnitFooter'
+import FooterSection from '../unitsDashboard/components/FooterSection'
 import ImageCard from "../unitsDashboard/components/ImageCard";
 import CarouselCard from '../unitsDashboard/components/CarouselCard'
 import '../ClientsDashboard/App.css'
@@ -29,8 +29,8 @@ function StructureTwoContent(props){
                         On peut également citer les réseaux téléphoniques mobiles, aujourd’hui complètement interconnectés à Internet." carousel_text_two="Du point de vue local, d’autres technologies permettent de transférer des données sur de faibles distances telles que les technologies Wi-Fi et Bluetooth, qui sont beaucoup utilisées dans la domotique ou sur le marché des vêtements intelligents. 
                         Un bracelet connecté, par exemple, n'est jamais très loin du téléphone auquel il transfère ses données." carousel_text_three=" Cependant, ces technologies ne sont pas exemptes de risques puisque là encore ces réseaux rejoignent la toile mondiale, le plus souvent au travers du modem ADSL / boitier fibre qui joue le rôle de passerelle." />
                </div>
-                <div className="mr-n3 ml-2">
-                     <SecondUnitFooter direction='SUIVANT' />
+                 <div className="units-dashboard-footer-wrapper">
+                     <FooterSection footer_text="Units content" />
                  </div>
             </div>
         </>

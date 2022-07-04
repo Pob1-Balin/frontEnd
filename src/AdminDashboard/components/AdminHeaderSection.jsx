@@ -9,8 +9,8 @@ function AdminHeaderSection(props){
              <div className='Unit-header-card mt-2'>
                  <div className='header-link'>
                      <Link to={props.prev}>
-                         <KeyboardArrowUpIcon style={{marginTop: '-1.8rem'}} />
-                         <p style={{marginTop: '-1.1rem'}}><b>{props.destination}</b></p>
+                         {/* <KeyboardArrowUpIcon style={{marginTop: '-1.8rem'}} />
+                         <p style={{marginTop: '-1.1rem'}}><b>{props.destination}</b></p> */}
                      </Link>
                  </div>
 
@@ -19,7 +19,7 @@ function AdminHeaderSection(props){
                      :  <div style={{display:"flex", justifyContent:"space-between", marginBottom:"-1.2rem"}}>
                             <div></div>
                             <a href={props.edit}>
-                                <div ><button className="add-buttons" style={{marginRight:"3rem"}}>Edit Content</button></div>
+                                <div ><button className="add-buttons unit-edit">Edit Content</button></div>
                             </a>
                         </div>}
                      <div className='header-title-divider-line-section'>

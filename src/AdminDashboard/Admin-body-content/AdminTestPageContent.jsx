@@ -1,24 +1,37 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "../admin.css";
 import Footer from '../../ClientsDashboard/components/Footer'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import Questions from "../components/Questions";
 import { Link } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'
+import axios from "axios";
+import { API } from '../../config'
 
-function HomepageContent() {
+function HomepageContent(props) {
+    const location = useLocation()
+    var UnitInfo = location.state
+    const unitId = UnitInfo.unit_id
+    
+    
+    const [answers, setAnswers] = useState([]);
     useEffect(() => {
+        axios.get(`${API}/answer/answer/${unitId}`).then(({data})=>{
+            setAnswers(data.data)
+        }).catch((err)=>{
+         //    console.log("Something Went Wrong:", err)
+        })
         Aos.init({ duration: 2000 });
     }, []);
-
     return (
         <>
             <main className="px-md-4 wrapper2 dashboard-pages">
-                <div className="admintest admintest1 d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom modulehome">
-                    <h4 style={{marginTop:'2rem'}}><p><Link className="return-home addquestion" style={{textDecoration: 'none'}} to='/units'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span style={{ fontSize: '1.3rem', color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Questions & Answers</span></p></h4>
-                    <Link className="return-home" style={{textDecoration: 'none'}} to='/addquestion'>
+                <div className="testquestions admintest admintest1 d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom modulehome">
+                    <h4><p><Link className="return-home addquestion" style={{textDecoration: 'none'}} to='/units'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span className="testquestions1" style={{color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Questions & Answers</span></p></h4>
+                    <Link className="return-home" state={props} style={{textDecoration: 'none'}} to='/addquestion'>
                         <div>
-                             <button style={{width:"10rem"}} className="add-buttons add-questions">Add Questions</button>
+                             <button className="add-buttons add-questions">Add Questions</button>
                         </div>
                     </Link>
                 </div>
@@ -32,9 +45,7 @@ function HomepageContent() {
                                         <div className="portlet-title">
                                             <div className="row">
                                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    <Questions/>
-                                                    <Questions/>
-                                                    <Questions/>
+                                                    {answers.map((answerData)=><Questions key={answerData._id} id={answerData._id} unit_id={answerData.unit_id} question={answerData.question} answer={answerData.answer} correctAnswer={answerData.correct_answer}/>)}
                                                     <Questions/>
                                                 </div>
                                             </div>

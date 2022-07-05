@@ -1,8 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../AdminDashboard/admin.css";
 import "../../AdminDashboard/profile.css"
 import Footer from '../components/Footer'
+import { useLocation } from "react-router-dom";
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import axios from "axios";
+import { API } from '../../config'
 function TestPageContent(){
+    const location = useLocation()
+    var TestUnitInfo = location.state
+    const testUnit_id = TestUnitInfo.id
+
+    const [answers, setAnswers] = useState([]);
+    useEffect(() => {
+        axios.get(`${API}/answer/answer/${testUnit_id}`).then(({data})=>{
+            setAnswers(data.data)
+        }).catch((err)=>{
+         //    console.log("Something Went Wrong:", err)
+        })
+        Aos.init({ duration: 2000 });
+    }, []);
+
+
+    const [firstelement, setFirstElement] = useState(0);
+    const [lastelement, setLastElement] = useState(1);
+    const [correctAnswerArray, setCorrectAnswerArray] = useState([]);
+    const slice = answers.slice(firstelement, lastelement);
+    console.log(correctAnswerArray);
+    const nextQuestion = (e) => {
+        e.preventDefault();
+        setFirstElement(firstelement + 1);
+        setLastElement(lastelement + 1);
+    }
+    // var zion = [];
+    // zion =  {slice.map((correctAnswerData)=> correctAnswerData.correct_answer)}
     return(
         <>
             <main className="px-md-4 wrapper2 dashboard-pages">
@@ -34,8 +66,12 @@ function TestPageContent(){
                         </div>
                     </div>
                 </div>
+
                 <div className="all-content-wrapper testedit">
                     <div className="product-sales-area mg-tb-30 graph-container">
+
+                    {/* <QuestionsToAnswer key={answerData._id} id={answerData._id} question={answerData.question} answer={answerData.answer} correctAnswer={answerData.correct_answer}/> */}
+                        {slice.map((answerData)=>
                         <div className="container-fluid">
                             <div className="row addQuestions">
                                 <div data-aos="fade-right" data-aos-offset="200" className="col-lg-7 col-md-12 col-sm-12 col-xs-12">
@@ -45,10 +81,10 @@ function TestPageContent(){
                                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div className="caption pro-sl-hd" style={{paddingBottom:"1rem", paddingTop:"-1rem"}}>
                                                         <div data-aos="fade-right" data-aos-offset="200" className="question">
-                                                             <div><p className="questt" style={{color: '#4ab2cc', fontStyle: 'bold', fontWeight: '550' }}>Question 1 <span>/</span> 10</p></div>
+                                                             <div><p className="questt" style={{color: '#4ab2cc', fontStyle: 'bold', fontWeight: '550' }}>{lastelement !=='' ? "Question" + " " + lastelement  : "" }<span>/</span> 10</p></div>
                                                         </div>
                                                         <div data-aos="fade-right" data-aos-offset="200">
-                                                            <p className="err1" style={{color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>ewrtyfugihoj ytugiojk ugwhaiuh akjuhuahws jsuhouiah kuwsuoawh wuhuo uwhuhw iojff ijqa ojkpo yewqgudg hudoiqa hdioqa</p>
+                                                            <p className="err1" style={{color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>{answerData.question}</p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -69,29 +105,21 @@ function TestPageContent(){
                                     </div>
                                     <div className="answers-form-input" style={{marginTop:"2rem"}}>
                                         <form>
-                                            <div style={{borderRadius:".4rem",paddingRight:"5px"}} className=" mb-3 form-check testedit1">
-                                                 <input style={{marginLeft:".1rem", marginTop:"1rem"}} class="form-check-input" type="checkbox" id="check1" name="option1" value="something"/>
-                                                 <label style={{marginLeft:"1.2rem", marginTop:".6rem" , marginBottom:"1rem"}} class="form-check-label err2">uehwu uwui uquwqi uhjioj ouiihjoiji ouiihjioj uoh</label>
-                                            </div>
-                                            <div style={{borderRadius:".4rem",paddingRight:"5px"}} className="mb-3 form-check testedit1">
-                                                 <input style={{marginLeft:".1rem", marginTop:"1rem"}} class="form-check-input" type="checkbox" id="check1" name="option1" value="something"/>
-                                                 <label style={{marginLeft:"1.2rem", marginTop:".6rem" , marginBottom:"1rem", fontSize:".9rem"}} class="form-check-label">uehwu uwui uquwqi uhjioj ouiihjoiji ouiihjioj uoh</label>
-                                            </div>
-                                            <div style={{borderRadius:".4rem",paddingRight:"5px"}} className="mb-3 form-check testedit1">
-                                                 <input style={{marginLeft:".1rem", marginTop:"1rem"}} class="form-check-input" type="checkbox" id="check1" name="option1" value="something"/>
-                                                 <label style={{marginLeft:"1.2rem", marginTop:".6rem" , marginBottom:"1rem", fontSize:".9rem"}} class="form-check-label">uehwu uwui uquwqi uhjioj ouiihjoiji ouiihjioj uoh</label>
-                                            </div>
-                                            <div style={{borderRadius:".4rem",paddingRight:"5px"}} className="mb-3 form-check testedit1">
-                                                 <input style={{marginLeft:".1rem", marginTop:"1rem"}} class="form-check-input" type="checkbox" id="check1" name="option1" value="something"/>
-                                                 <label style={{marginLeft:"1.2rem", marginTop:".6rem" , marginBottom:"1rem"}} class="form-check-label err2">uehwu uwui uquwqi uhjioj ouiihjoiji ouiihjioj uoh uehwu uwui uquwqi uhjioj ouiihjoiji ouiihjioj uoh uehwu uwui uquwqi uhjioj ouiihjoiji ouiihjioj uoh</label>
-                                            </div>
-                                            <button type="submit" style={{marginTop:"1.5rem", background:'#0b426a', color:'white', width:"100%", borderRadius:".5rem"}} className="btn add-questions">NEXT</button>
+                                            {answerData.answer.map((answersData)=>
+                                                <div key={answersData} style={{borderRadius:".4rem",paddingRight:"5px"}} className=" mb-3 form-check testedit1">
+                                                    <input style={{marginLeft:".1rem", marginTop:"1rem"}} class="form-check-input" type="checkbox" id="check1" name="option1" value="something"/>
+                                                    <label style={{marginLeft:"1.2rem", marginTop:".6rem" , marginBottom:"1rem"}} class="form-check-label err2">{answersData}</label>
+                                                </div>
+                                             )}
+                                            <button onClick={nextQuestion} type="submit" style={{marginTop:"1.5rem", background:'#0b426a', color:'white', width:"100%", borderRadius:".5rem"}} className="btn add-questions">NEXT</button>
                                         </form>
                                     </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    )}
+
                     </div>
                 </div>
 

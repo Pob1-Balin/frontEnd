@@ -11,13 +11,12 @@ import { API } from '../../config'
 
 function HomepageContent(props) {
     const location = useLocation()
-    var UnitInfo = location.state
-    const unitId = UnitInfo.unit_id
-    
-    
+    var TestUnitInfo = location.state
+    const testUnit_id = TestUnitInfo.id
+
     const [answers, setAnswers] = useState([]);
     useEffect(() => {
-        axios.get(`${API}/answer/answer/${unitId}`).then(({data})=>{
+        axios.get(`${API}/answer/answer/${testUnit_id}`).then(({data})=>{
             setAnswers(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
@@ -45,8 +44,7 @@ function HomepageContent(props) {
                                         <div className="portlet-title">
                                             <div className="row">
                                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    {answers.map((answerData)=><Questions key={answerData._id} id={answerData._id} unit_id={answerData.unit_id} question={answerData.question} answer={answerData.answer} correctAnswer={answerData.correct_answer}/>)}
-                                                    <Questions/>
+                                                    {answers.map((answerData)=><Questions key={answerData._id} id={answerData._id} UNIT_IDS={testUnit_id} question={answerData.question} answer={answerData.answer} correctAnswer={answerData.correct_answer}/>)}
                                                 </div>
                                             </div>
                                         </div>

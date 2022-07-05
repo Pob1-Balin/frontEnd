@@ -1,6 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 function Questions(props){
+    var anwersArray = props.answer;
+    var correctAnswerArray = props.correctAnswer;
   return(
     <>
         <div data-aos="fade-left" data-aos-offset="200" className=" caption pro-sl-hd" style={{marginBottom:"2rem"}}>
@@ -32,15 +34,16 @@ function Questions(props){
                     <div style={{fontSize: '1.3rem', color: 'gray', fontStyle: 'bold', fontWeight: '550'}} className="col-lg-1 col-md-1 col-sm-1 col-xs-1">1.</div>
                     <div style={{marginLeft:"-3rem"}} className="col-lg-11 col-md-11 col-sm-11 col-xs-11"><p>{props.question}</p></div>
                 </div>
+                <input type="hidden" value={props.UNIT_IDS}/>
                 <div>
                     <ul style={{marginLeft:"1.4rem"}}>
-                        <li><i className="fa fa-angle-right"></i>{props.answer}</li>
+                        {anwersArray.map((answerData)=><li key={answerData}><i className="fa fa-angle-right"></i>{answerData}</li>)}
                     </ul>
                 </div>
                 <div>
                     <p style={{marginLeft:"1.7rem", fontSize: '1.3rem', color: 'gray', fontStyle: 'bold', fontWeight: '550'}}>Answer</p>
                     <ul style={{marginLeft:"1.4rem"}}>
-                        <li><i className="fa fa-angle-right"></i>{props.correctAnswer}</li>
+                        {correctAnswerArray.map((correctAnswerData)=><li key={correctAnswerData}><i className="fa fa-angle-right"></i>{correctAnswerData}</li>)}
                     </ul>
                 </div>
             </div>

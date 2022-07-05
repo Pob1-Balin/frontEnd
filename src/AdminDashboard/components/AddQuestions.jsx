@@ -7,6 +7,7 @@ class AddQuestions extends React.Component{
     constructor(props){
         super(props);
         this.state = {
+            unitId: props.units_id,
             Questions: '',
             addQuestions: [],
             message:'',
@@ -26,11 +27,6 @@ class AddQuestions extends React.Component{
     submitQuestions(exerciseInfo){
         axios.post(`${API}/answer/answer`, exerciseInfo)
             .then(res => {
-                // alert(res)
-                // if (res.status === 200)
-                // alert('service successfully added')
-                // else
-                // Promise.reject()
             // alert("course Added Successfully")
             })
             .catch(err => {
@@ -40,18 +36,15 @@ class AddQuestions extends React.Component{
     }
 
     handleSubmit(){
-        const location = useLocation()
-        var UnitInfo = location.state
-        const unitId = UnitInfo.unit_id
-        console.log(unitId)
-
         const {addQuestions} = this.state;
+        const {unitId} = this.state;
         const {Questions} = this.state;
         const {addCorrectAnswers} = this.state;
         const question = Questions;
         const answer = addQuestions;
         const correct_answer = addCorrectAnswers;
-        const unit_id = "";
+        const unit_id = "62bc101b9dd0d5326f552d28";
+        // console.log(unit_id);
         this.submitQuestions({
             question,
             answer,
@@ -113,21 +106,24 @@ class AddQuestions extends React.Component{
         })
     }
 
-
-
-
-
-
     appendCorrectAnswers(e){
         e.preventDefault();
         const {addCorrectAnswers} = this.state;
+        const {addQuestions} = this.state;
         const newCorrectAnswer = this.newCorrectAnswer.value;
         const isOnTheList = addCorrectAnswers.includes(newCorrectAnswer);
+        const isOnTheAnswersList = addQuestions.includes(newCorrectAnswer)
         if(isOnTheList){
              this.setState({
                  message2: 'This answer is already on the list.'
              })
-        }else{
+        }
+        if(!isOnTheAnswersList && newCorrectAnswer !==''){
+            this.setState({
+                message2: 'This correct answer does not exist on the answers list above.'
+            })
+        }
+        if(isOnTheAnswersList && !isOnTheList){
             newCorrectAnswer !=='' && this.setState({
                 addCorrectAnswers: [...this.state.addCorrectAnswers, newCorrectAnswer],
                 message2: ''

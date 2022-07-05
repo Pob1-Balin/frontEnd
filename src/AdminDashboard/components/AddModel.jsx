@@ -15,9 +15,9 @@ function AddModel(){
                     </div>
                     <div style={{textDecoration:"none"}} className="modal-body modal-body-body">
                         <div className='structure-card-container'>
-                            <UnitImageCardSelect image="./images/structure1.png" link="addstructureone"/>
-                            <UnitImageCardSelect image="./images/structure2.png" link="addstructuretwo"/>
-                            <UnitImageCardSelect image="./images/structure3.png" link="addstructurethree"/>
+                            <UnitImageCardSelect image="./images/structure1.png" link="/addstructureone"/>
+                            <UnitImageCardSelect image="./images/structure2.png" link="/addstructuretwo"/>
+                            <UnitImageCardSelect image="./images/structure3.png" link="/addstructurethree"/>
                         </div>
                     </div>
                 </div>

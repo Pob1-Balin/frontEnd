@@ -6,9 +6,11 @@ import "../admin.css";
 import { Link } from 'react-router-dom';
 
 function AddQuestionContent() {
-    const location = useLocation();
-    const moduleInfo = location.state
-
+    const location = useLocation()
+    var AddUnitInfo = location.state
+    const addUnitId = AddUnitInfo.id
+    console.log("zion")
+    console.log(addUnitId)
     return (
         <>
             <main className="px-md-4 wrapper2">
@@ -20,7 +22,7 @@ function AddQuestionContent() {
                 <div className="all-content-wrapper">
                     <div className="product-sales-area mg-tb-30 graph-container">
                         <div className="container-fluid">
-                             <AddQuestions/>
+                             <AddQuestions units_id={addUnitId} />
                         </div>
                     </div>
                 </div>

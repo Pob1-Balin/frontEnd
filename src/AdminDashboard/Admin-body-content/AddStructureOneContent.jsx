@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from '../../unitsDashboard/components/FooterSection';
 import Header from "../../unitsDashboard/components/Header";
 import "../admin.css";
@@ -19,10 +19,17 @@ function AddStructureOneContent() {
         setFormErrors(validateRegistration(inputs));
         setIsSubmit(true);
     }
+    // useEffect(() => {
+    //     setTimeout(() => {
+    //         document.getElementById("clickMe").click();
+    //     }, 1000)
+    // }, []);
+
     return (
         <>
             <main className="px-md-4" >
                 <Header header_title="Add structure One" />
+                <div id="clickMe" onClick="clicked()" data-dismiss="modal" style={{display:"hidden"}}></div>
                 <div class="edit-structures single-pro-review-area mt-t-30 mg-b-15 add-clients-page editService">
                     <div class="container-fluid">
                         <div class="row">

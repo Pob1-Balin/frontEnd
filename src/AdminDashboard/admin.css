@@ -1757,7 +1757,13 @@ ul.country-state{
     margin-top: -.1rem;
     margin-bottom: -1.1rem;
 }
+.admin-question{
+    font-size: 1.3rem;
+}
 @media screen and (min-width: 1500px){
+    .admin-question{
+        font-size: 20rem;
+    }
     .test-margin{
         margin-top: 2rem;
     }

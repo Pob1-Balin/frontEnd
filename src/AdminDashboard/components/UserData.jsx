@@ -52,11 +52,11 @@ function Modules(props){
              </div>
 
             <tr>
-                 <td>{props.firstName} {props.lastName}</td>
-                 <td>{props.gender}</td>
-                 <td>{props.country}</td>
-                 <td>{props.phone}</td>
-                 <td>{props.email}</td>
+                 <td>{props.firstName} {props.lastName}KONGBI ZION</td>
+                 <td>{props.gender}Male</td>
+                 <td>{props.country}Cameroon</td>
+                 <td>{props.phone}683411382</td>
+                 <td>{props.email}kongbizion3@gmail.com</td>
                  <td><button className="b pd-setting btn-info" disabled="true">Active</button></td>
                  <td><Link to='/specificclient' style={{textDecoration:'none'}}><button className="b pd-setting btn-info">View</button></Link></td>
                  <td>

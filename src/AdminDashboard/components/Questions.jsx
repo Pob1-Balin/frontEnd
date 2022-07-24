@@ -31,8 +31,8 @@ function Questions(props){
             </div>
             <div className='question-inner-card' style={{marginLeft:"1.5rem", marginRight:"1.5rem", marginTop:"1rem"}}>
                 <div className="row">
-                    <div style={{fontSize: '1.3rem', color: 'gray', fontStyle: 'bold', fontWeight: '550'}} className="col-lg-1 col-md-1 col-sm-1 col-xs-1">1.</div>
-                    <div style={{marginLeft:"-3rem"}} className="col-lg-11 col-md-11 col-sm-11 col-xs-11"><p>{props.question}</p></div>
+                    <div style={{color: 'gray', fontStyle: 'bold', fontWeight: '550'}} className="col-lg-1 col-md-1 col-sm-1 col-xs-1 admin-question">1.</div>
+                    <div style={{marginLeft:"-3rem"}} className="col-lg-11 col-md-11 col-sm-11 col-xs-11 admin-question"><p className='admin-question'>{props.question}</p></div>
                 </div>
                 <input type="hidden" value={props.UNIT_IDS}/>
                 <div>

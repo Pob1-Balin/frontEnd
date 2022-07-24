@@ -71,7 +71,7 @@ function ClientService(props){
 
     const [services, setServices] = useState([])
     useEffect(() => {
-        axios.get(`${API}/service`).then(({data})=>{
+        axios.get(`${API}/service/subscribed`).then(({data})=>{
             setServices(data.data)
         }).catch((err)=>{
            //  console.log("Something Went Wrong:", err)

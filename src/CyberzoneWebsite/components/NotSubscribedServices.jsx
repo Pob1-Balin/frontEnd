@@ -1,6 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { FaChevronCircleRight } from "react-icons/fa";
+import axios from 'axios'
+import {API} from '../../config'
 function NotSubscribedServices(props){
     const data = {
         cardData:[
@@ -67,6 +69,15 @@ function NotSubscribedServices(props){
         ]
     }
 
+    const [services, setServices] = useState([])
+    useEffect(() => {
+        axios.get(`${API}/service/not_subscribed`).then(({data})=>{
+            setServices(data.data)
+        }).catch((err)=>{
+            console.log("Something Went Wrong:", err)
+        })
+        // Aos.init({ duration: 2000 });
+    }, []);
     const [noOfElements, setnoOfElements] = useState(4);
     const slice = data.cardData.slice(0, noOfElements);
     const loadMore = () => {
@@ -74,7 +85,7 @@ function NotSubscribedServices(props){
     }
     return(
         <>
-        {slice.map((item, index) => {
+        {services.map((item) => {
             return <div data-aos="zoom-in" data-aos-offset="100" class="col-lg-3 col-md-6 col-sm-6 col-xs-12" >
                 <div class="courses-inner mg-t-30">
                 <div class="courses-title">

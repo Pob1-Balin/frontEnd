@@ -1,0 +1,105 @@
+import React, { useEffect, useState } from "react";
+// import BackgroundVideo  from "./cyberzone.mp4";
+import "../../AdminDashboard/admin.css";
+import Aos from 'aos';
+import 'aos/dist/aos.css';
+import axios from "axios";
+import { API } from "../../config";
+import { useNavigate } from "react-router-dom";
+import {validateRegistration} from '../../utils/inputValidations'
+
+function UserLoginContent(){
+    const [inputs, setInputs] = useState({email:"", password:""})
+    const navigate = useNavigate();
+    const [formErrors, setFormErrors] = useState({});
+    const [isSubmit, setIsSubmit] = useState(false);
+    
+    const handleChange = event => {
+        setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
+    }
+
+    const handleSubmit = e =>{
+        e.preventDefault();
+        // console.log(inputs)
+        setFormErrors(validateRegistration(inputs));
+        setIsSubmit(true);
+        axios.post(`${API}/user/login`, inputs)
+        .then((response)=>{
+            console.log(response)
+            const status = response.data.status
+            if(status === "success"){
+                // Store the data in local storage for later use
+                const user = response.data.data
+                localStorage.setItem("user", JSON.stringify(user))
+                navigate("/")
+            }
+        }).catch((error)=>{
+            console.log(error)
+        })
+
+    }
+
+  useEffect(() => {
+      Aos.init({ duration: 3000 });
+  }, []);
+
+    return(
+        <>
+             <main className="login" style={{background:"white"}}>
+                 <video autoPlay loop muted width="1350">
+                 {/* <source src={BackgroundVideo} type="video/mp4"/> */}
+                 </video>
+                 <div className="LoginCard">
+                    <div className="container-fluid">
+                        <div className="row">
+                            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div data-aos="zoom-out-right" data-aos-offset="100" className="portlet-title">
+                                    <p className="text-center Login-name">LOGIN</p>
+                                </div>
+                                {/* ======= form ========== */}
+                                <form onSubmit={handleSubmit} data-aos="zoom-out-right" data-aos-offset="100" >
+                                    <div className="form-group">
+                                        <label htmlFor="email" style={{marginBottom: "-12px"}} className="FormLable"><p>Email</p></label>
+                                        <input style={{height:'2.5rem'}} value={inputs.email} onChange={handleChange} className={`form-control ${formErrors.email? "border-color": ""}`} type="text" name="email" placeholder="Email" />
+                                    </div>
+                                    <p style={errorMessage}>{formErrors.email}</p>
+                                    <div className="form-group" style={{marginTop: '13px'}}>
+                                        <label htmlFor='password' style={{marginBottom: "-12px"}} className="FormLable"><p>Password</p></label>
+                                        <input style={{height:'2.5rem'}} value={inputs.password} onChange={handleChange} className={`form-control ${formErrors.password? "border-color": ""}`} type="password" placeholder="Password" name="password" />
+                                    </div>
+                                    <p style={errorMessage}>{formErrors.password}</p>
+                                    <div style={{marginTop: '1.3rem'}} className="form-group">
+                                        <button type="submit" data-aos="zoom-out-right" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn waves-effect waves-light submitBtn">LOGIN</button>
+                                    </div>
+                                </form>
+                                <div className="row" style={{marginTop:"-.5rem"}}>
+                                    <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div data-aos="zoom-out-right" data-aos-offset="100"><hr style={{height:".4px", marginTop:"35px"}}/></div>
+                                    </div>
+                                    <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <div data-aos="zoom-out-right" data-aos-offset="100" style={{textAlign:"center", marginTop:'-3rem'}}><button className="Orbutton">OR</button></div>
+                                    </div>
+                                </div>
+                                <div className="row text-center mt-2 mb-4" style={{marginTop:"-.5rem"}}>
+                                    <div data-aos="zoom-out-right" className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                        <p style={{fontSize:".9rem", marginTop:"-.6rem"}}><span><a style={{color:"#4ab2cc"}} href="/forgotpassword">Forgot Password</a></span></p>
+                                        <p style={{fontSize:".9rem", marginTop:"-.6rem"}}>In need of an Account? <span style={{color:"#4ab2cc"}}><a style={{color:"#4ab2cc"}} href="/signup">Sign Up</a></span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+             </main>
+
+        </>
+    )
+}
+
+export default UserLoginContent;
+
+const errorMessage = {
+    color:"red",
+    fontSize:".8rem",
+    marginTop:"-.5rem"
+    };

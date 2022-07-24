@@ -1,0 +1,18 @@
+[
+    {
+        "Title": "Welcome",
+        "component": "unitcontent"
+    },
+    {
+        "Title": "Structure One",
+        "component": "structureone"
+    },
+    {
+        "Title": "Structure Two",
+        "component": "structuretwo"
+    },
+    {
+        "Title":"Structure Three",
+        "component":"structurethree"
+    }
+]

@@ -14,9 +14,9 @@ function SelectService(){
                     </div>
                     <div style={{textDecoration:"none"}} className="modal-body">
                         <ul>
-                            <li style={style}>Service One</li>
-                            <li style={style}>Service Two</li>
-                            <li style={style}>Service Three</li>
+                            <li className='select-service-list'>Service One</li>
+                            <li className='select-service-list'>Service Two</li>
+                            <li className='select-service-list'>Service Three</li>
                         </ul>
                     </div>
                 </div>
@@ -26,12 +26,3 @@ function SelectService(){
 }
 
 export default SelectService;
-
-const style = {
-    listStyle: "none",
-    margin: "0rem",
-    cursor: "pointer",
-    paddingLeft: '2rem',
-    paddingTop: ".7rem",
-    height: "3rem",
-}

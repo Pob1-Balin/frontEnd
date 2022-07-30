@@ -16,13 +16,13 @@ function AdminDashboardSidebar() {
                 </header>
                 <nav className="sidebar-navigation" style={{background: 'white', marginLeft: "-1rem", color:'gray'}}>
                     <ul className="menu menu-bordery pt- text-left pl-4" style={{color:'gray'}}>
-                        <li className="nav-item pt-5 list" style={{fontSize: '1rem', marginTop: '-2rem', color:'white'}}>
+                        <li className="nav-item pt-5 list" style={{marginTop: '-2rem', color:'white'}}>
                              <Link to='/admindashboard' className='ml-4 test1' style={{textDecoration:'none'}}><HomeIcon className='nav-icons'/>Dashboard</Link>
                         </li>
-                        <li className="nav-item pt-4 list" style={{fontSize: '1rem'}}>
-                             <Link to='/services' className=' ml-4 test1' style={{textDecoration:'none'}}><AccountBalanceIcon className='nav-icons'/>Services</Link>
+                        <li className="nav-item pt-4 list">
+                             <Link to='/services' className=' ml-4 test1'><AccountBalanceIcon className='nav-icons'/>Services</Link>
                         </li>
-                        <li className="nav-item pt-4 list" style={{fontSize: '1rem'}}>
+                        <li className="nav-item pt-4 list">
                              <Link to='/clients' className='ml-4 test1' style={{textDecoration:'none'}}><DocumentScannerIcon className='nav-icons'/>Clients</Link>
                         </li>
                     </ul>

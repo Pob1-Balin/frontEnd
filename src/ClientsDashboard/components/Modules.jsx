@@ -16,7 +16,7 @@ function Modules(props){
                              <FaRegClock size='.9rem' style={{marginTop: ".2rem"}} color='#0b426a'/>
                              <div><p className='time_passed'>Temps passé :{props.timePassed}</p></div>
                          </div>
-                         <div style={{marginTop: "-.7rem"}} className='score'>
+                         <div className='score'>
                              <FaStar style={{paddingTop: ".2rem"}} size='1rem' color='#0b426a'/>
                              <div className='score1'><p className='rating'>Score : {props.score}%</p></div>
                          </div>
@@ -24,7 +24,7 @@ function Modules(props){
                      <Link  to='/unitsclients' state={props} style={{textDecoration: "none"}}>
                         <div className='module_units_button' style={{marginTop: "1.8rem", marginBottom: '-1.5rem'}}>
                              <FaChevronCircleRight size='1.1rem' style={{marginTop: '4.5px'}} />
-                             <p style={{paddingLeft: ".7rem", paddingTop: ".1rem", fontSize: '.7rem'}}>View Units</p>
+                             <p className='view-units' style={{fontSize:".7rem",paddingLeft: ".7rem", paddingTop: ".1rem"}}>View Units</p>
                         </div>
                      </Link>
                  </div>

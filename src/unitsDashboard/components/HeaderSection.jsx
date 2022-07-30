@@ -10,8 +10,8 @@ function HeaderSection(props){
              <div className='Unit-header-card mt-2'>
                  <div className='header-link'>
                      <Link to={props.prev}>
-                         <KeyboardArrowUpIcon style={{marginTop: '-1.8rem'}} />
-                         <p style={{marginTop: '-1.1rem'}}><b>{props.destination}</b></p>
+                         {/* <KeyboardArrowUpIcon style={{marginTop: '-1.8rem'}} />
+                         <p style={{marginTop: '-1.1rem'}}><b>{props.destination}</b></p> */}
                      </Link>
                  </div>
 

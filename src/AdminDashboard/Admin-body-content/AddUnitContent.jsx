@@ -7,8 +7,8 @@ import { API } from '../../config'
 
 function AddUnitContent() {
     const location = useLocation()
-        var moduleInfo = location.state
-        const moduleId = moduleInfo.id
+    var moduleInfo = location.state
+    const moduleId = moduleInfo.id
     const [unit, setUnit] = useState([]);
     const [unitlength, setUnitlength] = useState([]);
     useEffect(() => {
@@ -73,11 +73,11 @@ function AddUnitContent() {
     return (
         <>
             <main className="px-md-4 wrapper2">
-                <div style={{ marginTop: '-6rem' }} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                     <h4 style={{ marginTop: '2rem' }}><p><Link className="return-home" style={{ textDecoration: 'none' }} to='/adminmodulepage'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span style={{ fontSize: '1.3rem', color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Add Unit</span></p></h4>
+                <div className="add-module d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                     <h4><p><Link className="return-home" style={{ textDecoration: 'none' }} to='/adminmodulepage'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span className="add-modulee" style={{color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Add Unit</span></p></h4>
                 </div>
 
-                <div className="single-pro-review-area mt-t-30 mg-b-15 mt-40">
+                <div className="single-pro-review-area mt-t-30 mg-b-15 mt-25">
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -95,13 +95,13 @@ function AddUnitContent() {
                                                                         {/* <input type="hiden" className="form-control" placeholder="Enter module name" name="name" value={number_of_modules} onChange={handleChange} /> */}
                                                                         <div className="form-group">
                                                                             <label htmlFor='title' style={{marginBottom: "-12px"}} className="FormLable"><p>Title</p></label>
-                                                                            <input type="text" className="form-control" placeholder="Enter module title" name="title" value={values.title} onChange={handleChange} />
+                                                                            <input type="text" className="form-control input" placeholder="Enter module title" name="title" value={values.title} onChange={handleChange} />
                                                                         </div>
                                                                         <div className="form-group">
                                                                             <label htmlFor='image' style={{marginBottom: "-12px"}} className="FormLable"><p>Image</p></label>
                                                                             <input type="file" className="form-control" onchange="document.getElementById('prepend-big-btn').value = this.value;" placeholder="Select module image" name="image" value={values.image} onChange={handleChange}  />
                                                                         </div>
-                                                                        <button type="submit" style={{ background: '#4ab2cc', color: 'white' }} href="#!" className="btn waves-effect waves-light">Submit</button>
+                                                                        <button type="submit" style={{ background: '#4ab2cc', color: 'white' }} href="#!" className="add-service btn waves-effect waves-light">Submit</button>
                                                                      </form>
                                                                 </div>
                                                             </div>
@@ -117,6 +117,7 @@ function AddUnitContent() {
                     </div>
                 </div>
                 <div style={{ marginTop: '3.9rem' }}></div>
+                <div style={{marginTop:"14rem"}} className="space-creater"></div>
                 <Footer destination="admin" />
             </main>
 

@@ -46,6 +46,31 @@ function UserLoginContent(){
     return(
         <>
              <main className="login" style={{background:"white"}}>
+
+
+             {/* <Particles
+    params={{
+	    "particles": {
+	        "number": {
+	            "value": 50
+	        },
+	        "size": {
+	            "value": 3
+	        }
+	    },
+	    "interactivity": {
+	        "events": {
+	            "onhover": {
+	                "enable": true,
+	                "mode": "repulse"
+	            }
+	        }
+	    }
+	}} /> */}
+
+
+
+
                  <video autoPlay loop muted width="1350">
                  {/* <source src={BackgroundVideo} type="video/mp4"/> */}
                  </video>
@@ -91,6 +116,8 @@ function UserLoginContent(){
                     </div>
                  </div>
              </main>
+             <script src="./particles.js"></script>
+             <script src="app.js"></script>
 
         </>
     )

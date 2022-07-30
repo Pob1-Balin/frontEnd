@@ -7,7 +7,7 @@ function AttestationContent (){
     return(
         <>
             <main className=" px-md-4">
-                <div style={{marginTop: '-.5rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <div className="top-margin d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                      <h1 className="heading" style={{color: '#0d3360'}}>Attestation page</h1>
                 </div>
                 <div className="Home_navigation">
@@ -15,7 +15,7 @@ function AttestationContent (){
                 </div>
                 <div className="profile_wrapper">
                     <div className="card profile_card attestation_card" style={{padding: "3rem"}}>
-                        <div className="attestation_card"><b><p style={{fontSize: '.9rem', paddingLeft: '.6rem'}}>To obtain a certificate of achievement, you must <span style={{color: "#66b5ff"}}>follow all of the modules and obtain a score of over 80% in the assessments</span> of each of the units.</p></b></div>
+                        <div className="attestation_card"><b><p style={{paddingLeft: '.6rem'}}>To obtain a certificate of achievement, you must <span style={{color: "#66b5ff"}}>follow all of the modules and obtain a score of over 80% in the assessments</span> of each of the units.</p></b></div>
                         <div className="attestation_card">
                             <table className="table table-borderless">
                                 <thead >
@@ -63,7 +63,7 @@ function AttestationContent (){
                                 </tbody>
                             </table>
                         </div>
-                         <div className="attestation_card"><b><p style={{color: "#f4777c", marginBottom: '3rem', fontSize: '.9rem', paddingLeft: '.6rem'}}>You do not meet the criteria required to edit your certificate. You have not followed 100% of the courses. You have not validated 80% of correct answers to all the assessments.</p></b></div>
+                         <div className="attestation_card"><b><p style={{color: "#f4777c", marginBottom: '3rem', paddingLeft: '.6rem'}}>You do not meet the criteria required to edit your certificate. You have not followed 100% of the courses. You have not validated 80% of correct answers to all the assessments.</p></b></div>
                      </div>
                 </div>
 

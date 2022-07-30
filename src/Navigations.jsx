@@ -78,14 +78,15 @@ function Navigation() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/clientservicedashboard' exact element={<HomePage />} />
-                <Route path='/' exact element={<ClientsServicesPage />} />
-                <Route path='/profile' exact element={<MyProfile />} />
-                <Route path='/res' exact element={<ResourcePage />} />
-                <Route path='/attest' exact element={<AttestationPage />} />
-                <Route path='/legalnotice' exact element={<LegalNoticePage />} />
-                <Route path='/unitsclients' exact element={<UnitsClientsPage />} />
-                <Route path='/admintest' exact element={<AdminTestPage />} />
+                 <Route path='/clientservicedashboard' exact element={<HomePage/>}/>
+                 <Route path='/' exact element={<ClientsServicesPage/>}/>
+                 <Route path='/profile' exact element={<MyProfile/>}/>
+                 <Route path='/res' exact element={<ResourcePage/>}/>
+                 <Route path='/attest' exact element={<AttestationPage/>}/>
+                 <Route path='/legalnotice' exact element={<LegalNoticePage />}/>
+                 <Route path='/unitsclients' exact element={<UnitsClientsPage />}/>
+                 <Route path='/admintest' exact element={<AdminTestPage />}/>
+                 <Route path='/test' exact element={<TestPage />}/>
 
                 {/*============================= Units dashboard =============================*/}
                 <Route path='/unitcontent' exact element={<UnitHomePage />}/>

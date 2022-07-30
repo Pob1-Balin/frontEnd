@@ -71,7 +71,7 @@ function ClientsServicesPageContent(){
                         <div class="container-fluid services">
                             <div class="row mg-b-15">
 
-                        {service.map(serviceData => <NotSubscribedServices key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} number_of_subscribers={serviceData.subscribers} short_description={serviceData.description}/>)}
+                        {/* {service.map(serviceData => <NotSubscribedServices key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} number_of_subscribers={serviceData.subscribers} short_description={serviceData.description}/>)} */}
                                 <NotSubscribedServices/>
                             </div>
                         </div>

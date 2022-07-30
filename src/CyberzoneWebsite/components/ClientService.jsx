@@ -5,68 +5,68 @@ import axios from 'axios'
 import {API} from '../../config'
 function ClientService(props){
     const data = {
-        cardData:[
-            {
-                id:1,
-                name: 'Name',
-                description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-            },
-            {
-                id:2,
-                name: 'Name',
-                description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-            },
-            {
-                id:3,
-                name: 'Name',
-                description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-            },
-            {
-                id:4,
-                name: 'Name',
-                description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-            },
-            {
-                id:5,
-                name: 'Name',
-                description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-            },
-            {
-                id:6,
-                name: 'Name',
-                description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-            },
-            {
-                id:7,
-                name: 'Name',
-                description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-            },
-            {
-                id:8,
-                name: 'Name',
-                description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-            },
-            {
-                id:9,
-                name: 'Name',
-                description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-            },
-            {
-                id:10,
-                name: 'Name',
-                description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-            },
-            {
-                id:11,
-                name: 'Name',
-                description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-            },
-            {
-                id:12,
-                name: 'Name',
-                description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-            },
-        ]
+        // cardData:[
+        //     {
+        //         id:1,
+        //         name: 'Name',
+        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
+        //     },
+        //     {
+        //         id:2,
+        //         name: 'Name',
+        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
+        //     },
+        //     {
+        //         id:3,
+        //         name: 'Name',
+        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
+        //     },
+        //     {
+        //         id:4,
+        //         name: 'Name',
+        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
+        //     },
+        //     {
+        //         id:5,
+        //         name: 'Name',
+        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
+        //     },
+        //     {
+        //         id:6,
+        //         name: 'Name',
+        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
+        //     },
+        //     {
+        //         id:7,
+        //         name: 'Name',
+        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
+        //     },
+        //     {
+        //         id:8,
+        //         name: 'Name',
+        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
+        //     },
+        //     {
+        //         id:9,
+        //         name: 'Name',
+        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
+        //     },
+        //     {
+        //         id:10,
+        //         name: 'Name',
+        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
+        //     },
+        //     {
+        //         id:11,
+        //         name: 'Name',
+        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
+        //     },
+        //     {
+        //         id:12,
+        //         name: 'Name',
+        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
+        //     },
+        // ]
     }
 
     const [services, setServices] = useState([])
@@ -82,7 +82,7 @@ function ClientService(props){
     console.log(services)
 
     const [noOfElements, setnoOfElements] = useState(4);
-    const slice = data.cardData.slice(0, noOfElements);
+    // const slice = data.cardData.slice(0, noOfElements);
     const loadMore = () => {
         setnoOfElements(noOfElements + noOfElements);
     }

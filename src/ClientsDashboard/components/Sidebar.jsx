@@ -8,7 +8,22 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import './sidebar.css';
 
+import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { logout, reset } from '../../redux/auth/authSlice'
+
 function Sidebar() {
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { user } = useSelector((state) => state.auth)
+
+  const onLogout = () => {
+    dispatch(logout())
+    dispatch(reset())
+    navigate('/login')
+  }
+
   return (
     <>
        <aside className="sidebar sidebar-icons-left sidebar-icons-boxed sidebar-expand-lg sidebar-color-info sider-1 pt-0">
@@ -48,7 +63,7 @@ function Sidebar() {
                        <ExitToAppIcon className='logoutIcon' />
                     </a>
                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                       <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span><p>LogOut</p></a></li>
+                       <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span><p><button onClick={onLogout}>LogOut</button></p></a></li>
                     </ul>
                 </li>
             </ul>

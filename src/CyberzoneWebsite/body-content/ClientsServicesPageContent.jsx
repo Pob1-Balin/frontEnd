@@ -4,42 +4,15 @@ import NotSubscribedServices from "../components/NotSubscribedServices";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import "../../AdminDashboard/admin.css";
-import { useDispatch } from "react-redux";
-import { addUser } from "../../redux/actions/user";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
-import axios from "axios";
-import {API} from '../../config'
 
-function ClientsServicesPageContent(){
+function ClientsServicesPageContent(props){
     const [service, setService] = useState([]);
-    const dispatch = useDispatch()
     useEffect(() => {
         Aos.init({ duration: 2000 });
-
-        // dispatchec an action to add user data to store
-        const user = localStorage.getItem("user")
-        if(user){
-            dispatch(addUser(user))
-        }
       }, []);
 
-      useEffect(() => {
-        axios.get(`${API}/service`).then(({data})=>{
-          setService(data.data)
-          //   console.log(data.data)
-        }).catch((err)=>{
-           //  console.log("Something Went Wrong:", err)
-        })
-        // Aos.init({ duration: 2000 });
-        Aos.init({ duration: 2000 });
-
-        // dispatchec an action to add user data to store
-        const user = localStorage.getItem("user")
-        if(user){
-            dispatch(addUser(user))
-        }
-    }, []);
 
     return(
         <>
@@ -56,7 +29,7 @@ function ClientsServicesPageContent(){
                     <div class="services-area ">
                         <div class="container-fluid services">
                             <div class="row mg-b-15">
-                                <ClientService/>
+                                <ClientService user={props.user}/>
                             </div>
                         </div>
                     </div>
@@ -72,7 +45,7 @@ function ClientsServicesPageContent(){
                             <div class="row mg-b-15">
 
                         {/* {service.map(serviceData => <NotSubscribedServices key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} number_of_subscribers={serviceData.subscribers} short_description={serviceData.description}/>)} */}
-                                <NotSubscribedServices/>
+                                <NotSubscribedServices user={props.user}/>
                             </div>
                         </div>
                     </div>

@@ -4,85 +4,38 @@ import { FaChevronCircleRight } from "react-icons/fa";
 import axios from 'axios'
 import {API} from '../../config'
 function ClientService(props){
-    const data = {
-        // cardData:[
-        //     {
-        //         id:1,
-        //         name: 'Name',
-        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-        //     },
-        //     {
-        //         id:2,
-        //         name: 'Name',
-        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-        //     },
-        //     {
-        //         id:3,
-        //         name: 'Name',
-        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-        //     },
-        //     {
-        //         id:4,
-        //         name: 'Name',
-        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-        //     },
-        //     {
-        //         id:5,
-        //         name: 'Name',
-        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-        //     },
-        //     {
-        //         id:6,
-        //         name: 'Name',
-        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-        //     },
-        //     {
-        //         id:7,
-        //         name: 'Name',
-        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-        //     },
-        //     {
-        //         id:8,
-        //         name: 'Name',
-        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-        //     },
-        //     {
-        //         id:9,
-        //         name: 'Name',
-        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-        //     },
-        //     {
-        //         id:10,
-        //         name: 'Name',
-        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-        //     },
-        //     {
-        //         id:11,
-        //         name: 'Name',
-        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-        //     },
-        //     {
-        //         id:12,
-        //         name: 'Name',
-        //         description: 'Short description of the service uuhij ojpo gdyud khduh suh suush sihd suhd iuhsdohs sdhoi suhd Short description of the service uuhij ojpo gdyud khduh suh suush sihd'
-        //     },
-        // ]
-    }
+    
 
     const [services, setServices] = useState([])
+    // useEffect(() => {
+    //     axios.get(`${API}/service/subscribed`).then(({data})=>{
+    //         setServices(data.data)
+    //     }).catch((err)=>{
+    //        //  console.log("Something Went Wrong:", err)
+    //     })
+    // }, []);
+
+    const comServ = props.user.services//['62beae1368a6026244db706a','62c56e866122d005004fa3a8'];
+    console.log('test',comServ)
+    let serv = comServ[0]
+    for(var i=1; i<= comServ.length-1; i++){
+        serv=serv+'-'+comServ[i]
+    }
+
+    console.log(serv)
+    // const [services1, setServices1] = useState([])
     useEffect(() => {
-        axios.get(`${API}/service/subscribed`).then(({data})=>{
+        axios.get(`${API}/service/user/${serv}`).then(({data})=>{
             setServices(data.data)
         }).catch((err)=>{
            //  console.log("Something Went Wrong:", err)
         })
-        // Aos.init({ duration: 2000 });
     }, []);
+    console.log('servic', services)
 
     console.log(services)
 
     const [noOfElements, setnoOfElements] = useState(4);
-    // const slice = data.cardData.slice(0, noOfElements);
     const loadMore = () => {
         setnoOfElements(noOfElements + noOfElements);
     }

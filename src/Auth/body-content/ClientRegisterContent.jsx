@@ -28,7 +28,7 @@ function ClientRegisterContent(){
                 // console.log(response)
                 const status = response.data.status
                 if(status === "success"){
-                    navigate("/login")
+                    // navigate("/login")
                 }
             }).catch((err)=>{
                 console.log(err)
@@ -41,6 +41,8 @@ function ClientRegisterContent(){
     useEffect(() => {
         Aos.init({ duration: 2000 });
     }, []);
+
+    console.log(inputs)
     return(
         <>
              <ParticlesBackground/>

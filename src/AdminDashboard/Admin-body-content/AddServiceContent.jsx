@@ -22,7 +22,7 @@ function AddServiceContent() {
     }
 
     const submitService = (serviceInfo) => {
-        axios.post(`${API}/service`, serviceInfo)
+        axios.post(`${API}/service/create`, serviceInfo)
             .then(res => {
                 // alert(res)
                 // if (res.status === 200)

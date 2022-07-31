@@ -8,9 +8,11 @@ import { useNavigate, useLocation } from "react-router-dom";
 import {validateRegistration} from '../../utils/inputValidations';
 
 function AddStructureOneContent() {
+    const location = useLocation()
+    var unitsInfo = location.state
+    const units_id = unitsInfo.id
+    console.log(units_id)
     const navigate = useNavigate();
-
-    const location = useLocation();
     const unitId = location.state;
 
     const unitID = unitId.id;

@@ -28,7 +28,7 @@ function UserLoginContent(){
         setIsSubmit(true);
         axios.post(`${API}/user/login`, inputs)
         .then((response)=>{
-            // console.log(response)
+            console.log(response)
             const status = response.data.status
             if(status === "success"){
                 // Store the data in local storage for later use

@@ -9,7 +9,7 @@ function Modules(props) {
   const id = props.id
   const deleteService = () => {
     axios
-        .delete(`${API}/module/module/${id}`)
+        .delete(`${API}/module/${id}`)
         .then((res) => {
             if (res.status === 200) {
                 //  alert("Student successfully deleted");

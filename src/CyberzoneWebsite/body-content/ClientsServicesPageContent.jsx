@@ -8,8 +8,11 @@ import { useDispatch } from "react-redux";
 import { addUser } from "../../redux/actions/user";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
+import axios from "axios";
+import {API} from '../../config'
 
 function ClientsServicesPageContent(){
+    const [service, setService] = useState([]);
     const dispatch = useDispatch()
     useEffect(() => {
         Aos.init({ duration: 2000 });
@@ -20,6 +23,23 @@ function ClientsServicesPageContent(){
             dispatch(addUser(user))
         }
       }, []);
+
+      useEffect(() => {
+        axios.get(`${API}/service`).then(({data})=>{
+          setService(data.data)
+          //   console.log(data.data)
+        }).catch((err)=>{
+           //  console.log("Something Went Wrong:", err)
+        })
+        // Aos.init({ duration: 2000 });
+        Aos.init({ duration: 2000 });
+
+        // dispatchec an action to add user data to store
+        const user = localStorage.getItem("user")
+        if(user){
+            dispatch(addUser(user))
+        }
+    }, []);
 
     return(
         <>
@@ -50,6 +70,8 @@ function ClientsServicesPageContent(){
                     <div  data-aos="zoom-in" data-aos-offset="200" class="services-area ">
                         <div class="container-fluid services">
                             <div class="row mg-b-15">
+
+                        {/* {service.map(serviceData => <NotSubscribedServices key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} number_of_subscribers={serviceData.subscribers} short_description={serviceData.description}/>)} */}
                                 <NotSubscribedServices/>
                             </div>
                         </div>

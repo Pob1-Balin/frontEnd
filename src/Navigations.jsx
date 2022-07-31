@@ -1,5 +1,5 @@
 import React from 'react'
-import {BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import HomePage from './ClientsDashboard/pages/HomePage'
 import MyProfile from './ClientsDashboard/pages/MyProfile'
@@ -64,6 +64,7 @@ import AddServicePage from './AdminDashboard/pages/AddServicePage';
 import UnitsClientsPage from './ClientsDashboard/pages/UnitsPage'
 import AddQuestionPage from './AdminDashboard/pages/AddQuestionPage'
 import ClientsServicesPage from './CyberzoneWebsite/pages/ClientsServicesPage';
+import UnitStructures from './AdminDashboard/pages/structures';
 
 
 
@@ -75,8 +76,8 @@ import NotFoundPage from './unitsDashboard/pages/notFound';
 import SiteHomePage from './CyberzoneWebsite/pages/SiteHomePage';
 
 
-function Navigation (){
-    return(
+function Navigation() {
+    return (
         <BrowserRouter>
             <Routes>
                  <Route path='/clientservicedashboard' exact element={<HomePage/>}/>
@@ -147,6 +148,7 @@ function Navigation (){
                  <Route path='/editclient' exact element={<EditClientPage/>}/>
                  <Route path='/addservice' exact element={<AddServicePage/>}/>
                  <Route path='/addquestion' exact element={<AddQuestionPage/>}/>
+                 <Route path='/unit-structures' exact element = {<UnitStructures/>}/>
 
                  {/* main site home page */}
                  <Route path='/mainhomepage' exact element={<SiteHomePage/>}/>

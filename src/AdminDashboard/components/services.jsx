@@ -8,6 +8,7 @@ function Services(props) {
      const dashboard_id = props.dashboard_id;
      const service_id = props.service_id
      const id = props.id
+     console.log(id)
      let navigate = useNavigate();
      const deleteService = () => {
         axios
@@ -87,7 +88,7 @@ function Services(props) {
                     </div>
 
                     <div className="product-buttons">
-                         <Link to='/adminmodulepage' style={{ textDecoration: 'none' }} state={id}><button type="button" className="button-default cart-btn mr-1 mt-1 btn-info">Dashboard</button></Link>
+                         <Link to='/adminmodulepage' style={{ textDecoration: 'none' }} state={props}><button type="button" className="button-default cart-btn mr-1 mt-1 btn-info">Dashboard</button></Link>
                          <Link to='/editservice' style={{ textDecoration: 'none' }} state={props}><button type="button" className="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
                          <button type="button" className="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Block</button>
                          <button type="button" className="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target="#del">Delete</button>

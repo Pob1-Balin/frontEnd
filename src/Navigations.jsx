@@ -19,7 +19,7 @@ import UnitHomePage from './unitsDashboard/pages/UnitHomePage';
 import AdminStructureOne from './AdminDashboard/pages/AdminStructureOne'
 import AdminStructureTwo from './AdminDashboard/pages/AdminStructureTwo'
 import AdminStructureThree from './AdminDashboard/pages/AdminStructureThree';
-import AdminUnitPage from './unitsDashboard/pages/AdminUnitPage';
+import AdminUnitPage from './AdminDashboard/pages/AdminUnitPage';
 
 import EditStructureOnePage from './AdminDashboard/pages/EditStructureOnePage';
 import EditStructureTwoPage from './AdminDashboard/pages/EditStructureTwoPage';
@@ -36,7 +36,9 @@ import UserCheckEmailPage from './Auth/pages/UserCheckEmailPage';
 import SetUserPasswordPage from './Auth/pages/SetUserPasswordPage';
 import UserPasswordSetMessagePage from './Auth/pages/UserPasswordSetMessagePage';
 import ClientRegisterPage from './Auth/pages/ClientRegisterPage';
-import  AdminRegistrationPage from './Auth/pages/AdminRegistrationPage';
+import AdminRegistrationPage from './Auth/pages/AdminRegistrationPage';
+import AdminLoginContent from './Auth/body-content/AdminLoginContent';
+import AdminForgotPasswordPage from './Auth/pages/AdminForgotPasswordPage';
 
 /*============================= Admin dashboard =================================*/
 import AdminHomePage from './AdminDashboard/pages/HomePage';
@@ -109,13 +111,16 @@ function Navigation (){
 
 
                  {/*============================= User Authentication =============================*/}
-                <Route path='/login' exact element={<UserLoginPage />}/>
+                <Route path='/clientslogin' exact element={<UserLoginPage />}/>
                 <Route path='/forgotpassword' exact element={<UserForgotPasswordPage />}/>
                 <Route path='/checkemail' exact element={<UserCheckEmailPage />}/>
                 <Route path='/setuserpassword' exact element={<SetUserPasswordPage />}/>
                 <Route path='/userpasswordsetmessage' exact element={<UserPasswordSetMessagePage/>}/>
                 <Route path='/clientregister' exact element={<ClientRegisterPage/>}/>
                 <Route path='/adminregister' exact element={<AdminRegistrationPage/>}/>
+                <Route path='/adminlogin' exact element={<AdminLoginContent/>}/>
+                <Route path='/adminforgotpassword' exact element={<AdminForgotPasswordPage/>}/>
+
 
 
 

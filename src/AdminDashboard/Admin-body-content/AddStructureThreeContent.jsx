@@ -1,23 +1,67 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from '../../unitsDashboard/components/FooterSection';
 import Header from "../../unitsDashboard/components/Header";
 import "../admin.css";
 import axios from 'axios'
 import { API } from "../../config";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {validateRegistration} from '../../utils/inputValidations'
 function AddStructureThreeContent() {
     const navigate = useNavigate();
-    const [inputs, setInputs] = useState({page_name:"", page_title:"", text_heading:"", section_text:""})
+
+    const location = useLocation();
+    const unitId = location.state;
+
+    const unitID = unitId.id;
+
+    const [unitsData, setUnitsData] = useState([]);
+    useEffect(() => {
+        axios.get(`${API}/unit/unitsdata/${unitID}`).then(({data})=>{
+            setUnitsData(data.data)
+        }).catch((err)=>{
+         //    console.log("Something Went Wrong:", err)
+        })
+        // Aos.init({ duration: 2000 });
+      }, []);
+
+    const [inputs, setInputs] = useState({});
     const [formErrors, setFormErrors] = useState({});
-    const [isSubmit, setIsSubmit] = useState(false);
     const handleChange = event => {
         setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
     }
+
+    const submitUnitData = (unitDataInfo) => {
+        axios.put(`${API}/unit/unit/${unitID}`, unitDataInfo)
+            .then(res => {
+                alert(res)
+            })
+            .catch(err => {
+            })
+    }
+
+   var unitsDataContent = [{}]
+
     const handleSubmit = e =>{
         e.preventDefault();
-        setFormErrors(validateRegistration(inputs));
-        setIsSubmit(true);
+        // setFormErrors(validateRegistration(inputs))
+
+        {unitsData.map((item) => {
+            unitsDataContent = item.unit_content;
+          }
+        )}
+
+        console.log("xghgjks",unitsDataContent);
+
+        const route = "three";
+        const structure_name = "three"
+        inputs.route = route;
+        inputs.structure_name = structure_name;
+        const unit_content = [...unitsDataContent, inputs];
+
+        submitUnitData({
+             unit_content,
+        });
+        navigate('/adminunitcontent', {state: {id:unitID}});
     }
 
     return (
@@ -41,7 +85,7 @@ function AddStructureThreeContent() {
                                                                     <form onSubmit={handleSubmit}>
                                                                         <div className="form-group">
                                                                             <label htmlFor="page_name" style={{marginBottom: "-10px"}} className="FormLable"><p>Page Name</p></label>
-                                                                            <input value={inputs.page_name} onChange={handleChange} type="text" className={`form-control input ${formErrors.page_name? "border-color": ""}`} placeholder="Enter page name" name="page_name"/>
+                                                                            <input value={inputs.sidebar_name} onChange={handleChange} type="text" className={`form-control input ${formErrors.page_name? "border-color": ""}`} placeholder="Enter page name" name="sidebar_name"/>
                                                                             <p style={errorMessage}>{formErrors.page_name}</p>
                                                                         </div>
                                                                         <div style={{marginTop:"1rem"}} className="form-group">

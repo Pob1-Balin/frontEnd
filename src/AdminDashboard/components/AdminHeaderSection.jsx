@@ -18,9 +18,9 @@ function AdminHeaderSection(props){
                      {body == "" ? ""
                      :  <div style={{display:"flex", justifyContent:"space-between", marginBottom:"-1.2rem"}}>
                             <div></div>
-                            <a href={props.edit}>
+                            <Link to={`${props.edit}`} state={{id:props.unit_id}}>
                                 <div ><button className="add-buttons unit-edit">Edit Content</button></div>
-                            </a>
+                            </Link>
                         </div>}
                      <div className='header-title-divider-line-section'>
                          <div className='header-title' id='title'><b>{props.header_title}</b></div>

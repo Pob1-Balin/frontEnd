@@ -7,6 +7,7 @@ import axios from 'axios'
 import { API } from "../../config";
 import { useNavigate } from "react-router-dom";
 import {validateRegistration} from '../../utils/inputValidations'
+import ParticlesBackground from "./ParticlesBackground";
 
 function ClientRegisterContent(){
     const navigate = useNavigate();
@@ -42,7 +43,8 @@ function ClientRegisterContent(){
     }, []);
     return(
         <>
-             <main className="login" style={{background:"white"}}>
+             <ParticlesBackground/>
+             <main className="login" style={{height:"69rem"}}>
                  <video autoPlay loop muted width="1350">
                  {/* <source src={BackgroundVideo} type="video/mp4"/> */}
                  </video>
@@ -95,7 +97,7 @@ function ClientRegisterContent(){
                                         <input style={{height:'2.5rem'}} className={`form-control ${formErrors.confirm_password ? "border-color": ""}`} type="password" placeholder="Confirm password" name="confirm_password" value ={inputs.confirm_password} onChange={handleChange} />
                                     </div>
                                     <p style={errorMessage}>{formErrors.confirm_password}</p>
-                                    <div style={{marginTop: '1.3rem'}} className="form-group">
+                                    <div style={{marginTop: '2rem'}} className="form-group">
                                         <button type="submit" data-aos="zoom-out-right" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn waves-effect waves-light submitBtn">SIGN UP</button>
                                     </div>
                                 </form>
@@ -109,7 +111,7 @@ function ClientRegisterContent(){
                                 </div>
                                 <div className="row text-center mt-2 mb-4" style={{marginTop:"-.5rem"}}>
                                     <div data-aos="zoom-out-right" className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <p style={{fontSize:".9rem", marginTop:"-.6rem"}}>Already have an Account? <span style={{color:"#4ab2cc"}}><a style={{color:"#4ab2cc"}} href="/userlogin">Login</a></span></p>
+                                        <p style={{fontSize:".9rem", marginTop:"-.6rem"}}>Already have an Account? <span style={{color:"#4ab2cc"}}><a style={{color:"#4ab2cc"}} href="/clientslogin">Login</a></span></p>
                                     </div>
                                 </div>
                             </div>
@@ -128,3 +130,4 @@ color:"red",
 fontSize:".8rem",
 marginTop:"-.5rem"
 };
+

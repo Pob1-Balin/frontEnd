@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-// import BackgroundVideo  from "./cyberzone.mp4";
 import "../../AdminDashboard/admin.css";
 import { FaChevronCircleRight } from "react-icons/fa";
 import { FaChevronCircleLeft } from "react-icons/fa";
 import { faPassport } from "@fortawesome/free-solid-svg-icons";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import ParticlesBackground from "./ParticlesBackground";
 
 function UserCheckEmailContent(){
 
@@ -15,10 +15,8 @@ function UserCheckEmailContent(){
 
     return(
         <>
-             <main className="login" style={{background:"white"}}>
-                 <video autoPlay loop muted width="1350">
-                 {/* <source src={BackgroundVideo} type="video/mp4"/> */}
-                 </video>
+             <main className="login">
+                 <ParticlesBackground/>
                  <div className="LoginCard">
                     <div className="container-fluid">
                         <div className="row">

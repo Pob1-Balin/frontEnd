@@ -8,6 +8,7 @@
 
 body{
      overflow-x: hidden;
+     color: #ffffff;
 }
 
 .add-buttons{
@@ -1047,7 +1048,7 @@ ul.country-state{
     font-size: 1.6rem;
     font-style: bold;
     font-weight: 560;
-    color: #4ab2cc;
+    color: #ffffff;
     margin-top: 2rem;
     margin-bottom: 1.8rem;
 }
@@ -1058,7 +1059,7 @@ ul.country-state{
 }
 
 .FormLable{
-    color: rgb(142, 137, 137);
+    color: rgb(197, 192, 192);
 }
 .InputError{
     border-color: red,

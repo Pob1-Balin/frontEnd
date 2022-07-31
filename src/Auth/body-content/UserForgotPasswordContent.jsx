@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-// import BackgroundVideo  from "./cyberzone.mp4";
 import "../../AdminDashboard/admin.css";
 import { FaChevronCircleLeft } from "react-icons/fa";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -9,6 +8,7 @@ import {validateRegistration} from '../../utils/inputValidations'
 import axios from 'axios'
 import { API } from "../../config";
 import { useNavigate } from "react-router-dom";
+import ParticlesBackground from "./ParticlesBackground";
 
 function UserForgotPasswordContent(){
     const navigate = useNavigate();
@@ -25,15 +25,14 @@ function UserForgotPasswordContent(){
         setIsSubmit(true);
     }
 
+
     useEffect(() => {
         Aos.init({ duration: 2000 });
     }, []);
     return(
         <>
-             <main className="login" style={{background:"white"}}>
-                 <video autoPlay loop muted width="1350">
-                 {/* <source src={BackgroundVideo} type="video/mp4"/> */}
-                 </video>
+             <main className="login" style={{height:"69rem"}}>
+                 <ParticlesBackground/>
                  <div className="LoginCard">
                     <div className="container-fluid">
                         <div className="row">
@@ -49,7 +48,7 @@ function UserForgotPasswordContent(){
                                         <input style={{height:'2.5rem'}} className={`form-control ${formErrors.email? "border-color": ""}`} type="text" name="email" placeholder="Enter your email" value ={inputs.email} onChange={handleChange} />
                                     </div>
                                     <p style={errorMessage}>{formErrors.email}</p>
-                                    <div style={{marginTop: '1.3rem'}} className="form-group">
+                                    <div style={{marginTop: '2rem'}} className="form-group btn-auth">
                                         <button type="submit" data-aos="zoom-out-right" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn waves-effect waves-light submitBtn">Reset Password</button>
                                     </div>
                                 </form>
@@ -62,7 +61,7 @@ function UserForgotPasswordContent(){
                                     </div>
                                 </div>
                                 <div style={{marginTop:"-.5rem"}} data-aos="zoom-out-right" data-aos-offset="100" className="portlet-title">
-                                    <p style={{textAlign:"center", color:"#4ab2cc"}}><FaChevronCircleLeft style={{marginTop:".3px", marginRight:"2px"}}/><a style={{color:"#4ab2cc"}} href="userlogin">Back to login</a></p>
+                                    <p style={{textAlign:"center", color:"#4ab2cc"}}><FaChevronCircleLeft style={{marginTop:".3px", marginRight:"2px"}}/><a style={{color:"#4ab2cc"}} href="clientslogin">Back to login</a></p>
                                 </div>
                             </div>
                         </div>

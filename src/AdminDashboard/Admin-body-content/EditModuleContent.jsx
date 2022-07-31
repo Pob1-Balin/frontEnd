@@ -23,8 +23,7 @@ function EditModuleContent() {
 
     const handleChange = event => {
         setValues({
-            ...values,
-            [event.target.name]: event.target.value
+            ...values, [event.target.name]: event.target.value
         })
     }
 

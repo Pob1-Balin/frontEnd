@@ -10,6 +10,7 @@ function UnitsCard(props){
            <div className="card_body">
                <h3 className="card_module">{props.module_name}</h3>
                <h2 className="card_title">{props.title}</h2>
+
                 <div style={{marginTop: "1rem"}} className="card_info">
                   <div className="time">
                       <FaRegClock size='.9rem' style={{marginTop: ".2rem"}} color='#0b426a'/>

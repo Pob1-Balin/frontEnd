@@ -2,7 +2,8 @@ import React from 'react';
 import './AddModel.css'
 import UnitImageCardSelect from './UnitImageCardSelect';
 
-function AddModel(){
+function AddModel(props){
+    const units_id = props.unitsId
     return(
         <div className="modal modal-modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div className="modal-dialog" role="document">
@@ -15,9 +16,9 @@ function AddModel(){
                     </div>
                     <div style={{textDecoration:"none"}} className="modal-body modal-body-body">
                         <div className='structure-card-container'>
-                            <UnitImageCardSelect image="./images/structure1.png" link="/addstructureone"/>
-                            <UnitImageCardSelect image="./images/structure2.png" link="/addstructuretwo"/>
-                            <UnitImageCardSelect image="./images/structure3.png" link="/addstructurethree"/>
+                            <UnitImageCardSelect image="./images/structure1.png" unitID={units_id} link="/addstructureone"/>
+                            <UnitImageCardSelect image="./images/structure2.png" unitID={units_id} link="/addstructuretwo"/>
+                            <UnitImageCardSelect image="./images/structure3.png" unitID={units_id} link="/addstructurethree"/>
                         </div>
                     </div>
                 </div>

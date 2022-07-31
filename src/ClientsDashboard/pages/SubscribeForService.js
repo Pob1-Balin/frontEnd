@@ -1,9 +1,13 @@
 import React from "react";
 import momo from "../images/momo.png"
 import orange from "../images/orangemomo.jpeg"
-import {Link} from "react-router-dom"
+import {Link, useLocation, useNavigate} from "react-router-dom"
 
 function SubscribeForService() {
+    const location = useLocation();
+    const user = location.state.user
+    const serviceId = location.state.sId
+    console.log(user)
     return (
         <>
         <div className="py-3 text-white bg-dark text-center"><h1>header</h1></div>
@@ -13,7 +17,7 @@ function SubscribeForService() {
             <div className="d-flex justify-between pt-5">
                 <div className="col-md-4">
 
-                    <Link to="/payment" state='momo'>
+                    <Link to="/payment" state={{ptype:'momo', user: user, serviceId: serviceId}}>
                     <button className="rounded">
                         <img src={momo} /> <br/>
                         MTN Mobile Money (MOMO)
@@ -23,7 +27,7 @@ function SubscribeForService() {
 
                 <div className="col-md-4">
 
-                    <Link to="/payment" state='orange'>
+                <Link to="/payment" state={{ptype:'orange', user: user, serviceId: serviceId}}>
                     <button className="rounded">
                         <img src={orange} /> <br/>
                         Orange Money (OM)

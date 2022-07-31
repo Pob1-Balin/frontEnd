@@ -1,10 +1,13 @@
 import { fontWeight, style, textAlign } from "@mui/system";
 import React from "react";
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import orange from "../images/orangemomo.jpeg"
 import momo from "../images/momo.png"
+import axios from "axios";
+import {API} from '../../config'
 
 function PaymentForm(props) {
+    const navigate = useNavigate()
     const style = {
         marginTop: "50px",
         fontWeight: "5px",
@@ -17,7 +20,43 @@ function PaymentForm(props) {
         justifyContent: "space-around"
         
     }
-    const paymentMethod = useLocation().state
+    const paymentMethod = useLocation().state.ptype
+    const user = useLocation().state.user
+    const id=user._id
+    const token = user.token
+    const serviceId = useLocation().state.serviceId
+    console.log(serviceId)
+    let userServices = user.services.push(serviceId)
+    console.log('new user services', user.services)
+    // let finalUser = {
+    //     services: userServices,
+    // }
+    // const userServices = user.servieces.push(serviceId)
+    // console.log("push user" ,userServices)
+
+    const Submit = ( finalUser)=>{
+        finalUser={
+            services:userServices
+        }
+        axios.put(`http://localhost:7000/api/v1/users/${id}`, finalUser)
+            .then(res => {
+                alert(res)
+                // if (res.status === 200)
+                // alert('service successfully added')
+                // else
+                // Promise.reject()
+            })
+            .catch(err => {
+                // alert('Something went wrong')
+                console.log(err)
+            })
+        navigate('/')
+
+    }
+    const handleSubmit=(event)=>{
+        event.preventDefault();
+        Submit(2)
+    }
     return (
         <>
             <div className="py-3 text-white bg-dark text-center"><h1>header</h1></div>
@@ -26,7 +65,7 @@ function PaymentForm(props) {
                 paymentMethod == "momo"
                     ? <><div className="container">
                         <div className="" style={style}>
-                            <form className="form-signin text-center">
+                            <form className="form-signin text-center" onSubmit={handleSubmit}>
 
 
                                 <div class="form-label-group">
@@ -54,7 +93,7 @@ function PaymentForm(props) {
                     </div></>
                     : <><div className="container d-flex">
                         <div className=" col-md- pt-5" style={style}>
-                            <form className="form-signin">
+                            <form className="form-signin" onSubmit={handleSubmit}>
 
 
                                 <div class="form-label-group">

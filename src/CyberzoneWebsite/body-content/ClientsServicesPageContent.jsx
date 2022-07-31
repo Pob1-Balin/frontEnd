@@ -6,8 +6,30 @@ import 'aos/dist/aos.css';
 import "../../AdminDashboard/admin.css";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
+
+import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { logout, reset } from '../../redux/auth/authSlice'
+
+
+
+  
 function ClientsServicesPageContent(props){
+    
+    
+    const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { user } = useSelector((state) => state.auth)
+
+  const onLogout = () => {
+    dispatch(logout())
+    dispatch(reset())
+    navigate('/login')
+  }
+
+
     const [service, setService] = useState([]);
     useEffect(() => {
         Aos.init({ duration: 2000 });
@@ -18,6 +40,17 @@ function ClientsServicesPageContent(props){
         <>
              <main className="">
                 <SiteHeader/>
+
+
+                <li class="nav-item">
+                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link">
+                       <ExitToAppIcon className='logoutIcon' />
+                    </a>
+                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                       <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span><p><button onClick={onLogout}>LogOut</button></p></a></li>
+                    </ul>
+                </li>
+
                 <div style={{backgroundColor:"red"}} data-aos="zoom-out-right" data-aos-offset="200" className="col-lg-12 col-md-12 col-sm-12 col-xs-12 services-section">
                      <p className="about" style={{color:"white", fontSize:"2rem", textAlign:"center", paddingTop:"9rem"}}>Services</p>
                 </div>

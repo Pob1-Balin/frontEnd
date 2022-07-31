@@ -68,8 +68,8 @@ import UnitStructures from './AdminDashboard/pages/structures';
 
 
 import NotFoundPage from './unitsDashboard/pages/notFound';
-
-
+import SubscribeForService from './ClientsDashboard/pages/SubscribeForService' 
+import PaymentForm from './ClientsDashboard/pages/PaymentForm';
 /*========================= main site pages =======================*/
 import SiteHomePage from './CyberzoneWebsite/pages/SiteHomePage';
 
@@ -148,6 +148,9 @@ function Navigation() {
                  {/* main site home page */}
                  <Route path='/mainhomepage' exact element={<SiteHomePage/>}/>
                  <Route path='/*' exact element={<NotFoundPage/>}/>
+
+                 <Route path='/subscribe' exact element={<SubscribeForService/>}/>
+                 <Route path='/payment' exact element={<PaymentForm/>}/>
             </Routes>
         </BrowserRouter>
     )

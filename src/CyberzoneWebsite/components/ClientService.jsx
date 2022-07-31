@@ -40,7 +40,7 @@ function ClientService(props){
         setnoOfElements(noOfElements + noOfElements);
     }
 
-    return(
+    return(services.length==0?<h1 className='text-center'>Oooopps!!! no subscribed service</h1>:
         <>
         {services.map((item) => {
             return <div data-aos="zoom-in" data-aos-offset="100" class="col-lg-3 col-md-6 col-sm-6 col-xs-12" >

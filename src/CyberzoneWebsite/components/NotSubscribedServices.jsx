@@ -35,7 +35,7 @@ function NotSubscribedServices(props){
                     <p><span></span> <b>{item.description}</b></p>
                 </div>
                 <div style={{textAlign:"center"}}>
-                    <Link to='/subscribe'><div class="product-buttons mt-1 mb-2 btn">
+                    <Link to='/subscribe' state={{user: props.user, sId: item._id}}><div class="product-buttons mt-1 mb-2 btn">
                          Subscribe Now
                     </div></Link>
                 </div>

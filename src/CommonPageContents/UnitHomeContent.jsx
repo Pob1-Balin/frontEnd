@@ -9,6 +9,7 @@ import EmptyPageContent from "./EmptyPageContent";
 function UnitHomeContent(props){
     var head = props.show;
     var body = "";
+
     return(
         <>
             <div className="">

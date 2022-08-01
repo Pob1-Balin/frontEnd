@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react";
+// import BackgroundVideo  from "./cyberzone.mp4";
 import "../../AdminDashboard/admin.css";
-import { FaChevronCircleRight } from "react-icons/fa";
 import { FaChevronCircleLeft } from "react-icons/fa";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import {validateRegistration} from '../../utils/inputValidations'
@@ -10,9 +11,9 @@ import { API } from "../../config";
 import { useNavigate } from "react-router-dom";
 import ParticlesBackground from "./ParticlesBackground";
 
-function SetUserPasswordContent(){
+function AdminForgotPasswordContent(){
     const navigate = useNavigate();
-    const [inputs, setInputs] = useState({password:"", confirm_password:""})
+    const [inputs, setInputs] = useState({email:""})
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
     const handleChange = event => {
@@ -21,39 +22,35 @@ function SetUserPasswordContent(){
 
     const handleSubmit = e =>{
         e.preventDefault();
-        // setFormErrors(validateRegistration(inputs));
+        setFormErrors(validateRegistration(inputs));
         setIsSubmit(true);
-        navigate('/userpasswordsetmessage')
     }
 
     useEffect(() => {
         Aos.init({ duration: 2000 });
     }, []);
-
     return(
         <>
-             <main className="login">
+             <main className="login" style={{height:"69rem"}}>
                  <ParticlesBackground/>
+                 <video autoPlay loop muted width="1350">
+                 {/* <source src={BackgroundVideo} type="video/mp4"/> */}
+                 </video>
                  <div className="LoginCard">
                     <div className="container-fluid">
                         <div className="row">
                             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div data-aos="zoom-out-right" data-aos-offset="100" className="portlet-title">
-                                    <div style={{textAlign:"center", marginBottom:"-.5rem"}}><FaChevronCircleRight style={{fontSize:"1.3rem", color:"#4ab2cc"}}/></div>
-                                    <p className="text-center Login-name">Set New Password</p>
-                                    <p className="light-gray" style={{marginTop:"-1.4rem", textAlign:"center"}}>Your new password must be different from previously used password</p>
+                                    <div style={{textAlign:"center", marginBottom:"-.5rem"}}><FontAwesomeIcon icon="fas fa-check" style={{fontSize:"1.3rem", color:"#4ab2cc"}}/></div>
+                                    <p className="text-center Login-name">Forgot Password?</p>
+                                    <p className="light-gray" style={{marginTop:"-1.4rem", textAlign:"center"}}>No worries we'll send you reset instructions</p>
                                 </div>
                                 <form onSubmit={handleSubmit} data-aos="zoom-out-right" data-aos-offset="100" >
                                     <div className="form-group">
-                                        <label htmlFor="country" style={{marginBottom: "-12px"}} className="FormLable"><p>Password</p></label>
-                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.password? "border-color": ""}`} type="password" name="password" placeholder="Enter password" value ={inputs.password} onChange={handleChange} />
+                                        <label htmlFor="country" style={{marginBottom: "-12px"}} className="FormLable"><p>Email</p></label>
+                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.email? "border-color": ""}`} type="text" name="email" placeholder="Enter your email" value ={inputs.email} onChange={handleChange} />
                                     </div>
-                                    <p style={errorMessage}>{formErrors.password}</p>
-                                    <div className="form-group">
-                                        <label htmlFor="country" style={{marginBottom: "-12px"}} className="FormLable"><p>Confirm password</p></label>
-                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.confirm_password? "border-color": ""}`} type="password" name="confirm_password" placeholder="Enter confirm password" value ={inputs.confirm_password} onChange={handleChange} />
-                                    </div>
-                                    <p style={errorMessage}>{formErrors.confirm_password}</p>
+                                    <p style={errorMessage}>{formErrors.email}</p>
                                     <div style={{marginTop: '2rem'}} className="form-group btn-auth">
                                         <button type="submit" data-aos="zoom-out-right" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn waves-effect waves-light submitBtn">Reset Password</button>
                                     </div>
@@ -67,7 +64,7 @@ function SetUserPasswordContent(){
                                     </div>
                                 </div>
                                 <div style={{marginTop:"-.5rem"}} data-aos="zoom-out-right" data-aos-offset="100" className="portlet-title">
-                                    <p style={{textAlign:"center", color:"#4ab2cc"}}><FaChevronCircleLeft style={{marginTop:".3px", marginRight:"2px"}}/><a href="/clientslogin">Back to login</a></p>
+                                    <p style={{textAlign:"center", color:"#4ab2cc"}}><FaChevronCircleLeft style={{marginTop:".3px", marginRight:"2px"}}/><a style={{color:"#4ab2cc"}} href="adminlogin">Back to login</a></p>
                                 </div>
                             </div>
                         </div>
@@ -79,7 +76,7 @@ function SetUserPasswordContent(){
     )
 }
 
-export default SetUserPasswordContent;
+export default AdminForgotPasswordContent;
 
 const errorMessage = {
     color:"red",

@@ -10,7 +10,7 @@ import { API } from "../../config";
 import { useNavigate } from "react-router-dom";
 import ParticlesBackground from "./ParticlesBackground";
 
-function SetUserPasswordContent(){
+function AdminSetPasswordContent(){
     const navigate = useNavigate();
     const [inputs, setInputs] = useState({password:"", confirm_password:""})
     const [formErrors, setFormErrors] = useState({});
@@ -79,7 +79,7 @@ function SetUserPasswordContent(){
     )
 }
 
-export default SetUserPasswordContent;
+export default AdminSetPasswordContent;
 
 const errorMessage = {
     color:"red",

@@ -4,37 +4,74 @@ import Header from "../../unitsDashboard/components/Header";
 import "../admin.css";
 import axios from 'axios'
 import { API } from "../../config";
-import { useNavigate } from "react-router-dom";
-import {validateRegistration} from '../../utils/inputValidations'
-import {useLocation} from 'react-router-dom'
+import { useNavigate, useLocation } from "react-router-dom";
+import {validateRegistration} from '../../utils/inputValidations';
+
 function AddStructureOneContent() {
     const location = useLocation()
     var unitsInfo = location.state
     const units_id = unitsInfo.id
     console.log(units_id)
     const navigate = useNavigate();
-    const [inputs, setInputs] = useState({page_name:"", page_title:"", video_file:""})
+    const unitId = location.state;
+
+    const unitID = unitId.id;
+
+    const [unitsData, setUnitsData] = useState([]);
+    useEffect(() => {
+        axios.get(`${API}/unit/unitsdata/${unitID}`).then(({data})=>{
+            setUnitsData(data.data)
+        }).catch((err)=>{
+         //    console.log("Something Went Wrong:", err)
+        })
+        // Aos.init({ duration: 2000 });
+      }, []);
+
+    const [inputs, setInputs] = useState({});
     const [formErrors, setFormErrors] = useState({});
-    const [isSubmit, setIsSubmit] = useState(false);
     const handleChange = event => {
         setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
     }
+
+    const submitUnitData = (unitDataInfo) => {
+        axios.put(`${API}/unit/unit/${unitID}`, unitDataInfo)
+            .then(res => {
+                alert(res)
+            })
+            .catch(err => {
+            })
+    }
+
+   var unitsDataContent = [{}]
+
     const handleSubmit = e =>{
         e.preventDefault();
-        setFormErrors(validateRegistration(inputs));
-        setIsSubmit(true);
+        // setFormErrors(validateRegistration(inputs))
+
+        {unitsData.map((item) => {
+            unitsDataContent = item.unit_content;
+          }
+        )}
+
+        console.log("xghgjks",unitsDataContent);
+
+        const route = "one";
+        const structure_name = "one"
+        inputs.route = route;
+        inputs.structure_name = structure_name;
+        const unit_content = [...unitsDataContent, inputs];
+
+        submitUnitData({
+             unit_content,
+        });
+        navigate('/adminunitcontent', {state: {id:unitID}});
     }
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         document.getElementById("clickMe").click();
-    //     }, 1000)
-    // }, []);
+
 
     return (
         <>
             <main className="px-md-4" >
                 <Header header_title="Add structure One" />
-                <div id="clickMe" onClick="clicked()" data-dismiss="modal" style={{display:"hidden"}}></div>
                 <div class="edit-structures single-pro-review-area mt-t-30 mg-b-15 add-clients-page editService">
                     <div class="container-fluid">
                         <div class="row">
@@ -52,7 +89,7 @@ function AddStructureOneContent() {
                                                                    <form onSubmit={handleSubmit}>
                                                                        <div className="form-group">
                                                                             <label htmlFor="page_name" style={{marginBottom: "-10px"}} className="FormLable"><p>Page Name</p></label>
-                                                                            <input value={inputs.page_name} onChange={handleChange} type="text" className={`form-control input ${formErrors.page_name? "border-color": ""}`} placeholder="Enter page name" name="page_name"/>
+                                                                            <input value={inputs.sidebar_name} onChange={handleChange} type="text" className={`form-control input ${formErrors.page_name? "border-color": ""}`} placeholder="Enter page name" name="sidebar_name"/>
                                                                             <p style={errorMessage}>{formErrors.page_name}</p>
                                                                         </div>
                                                                        <div style={{marginTop:"1rem"}} className="form-group">
@@ -62,7 +99,7 @@ function AddStructureOneContent() {
                                                                         </div>
                                                                         <div style={{marginTop:"1rem"}} className="form-group">
                                                                             <label htmlFor="video_file" style={{marginBottom: "-10px"}} className="FormLable"><p>Upload video</p></label>
-                                                                            <input type="file" name="video_file" value={inputs.video_file} onChange={handleChange} className={`form-control ${formErrors.video_file ? "border-color": ""}`} onchange="document.getElementById('prepend-big-btn').value = this.value;" />
+                                                                            <input type="file" name="fields" value="" onChange={handleChange} className={`form-control ${formErrors.video_file ? "border-color": ""}`} onchange="document.getElementById('prepend-big-btn').value = this.value;" />
                                                                             <p style={errorMessage}>{formErrors.video_file}</p>
                                                                         </div>
                                                                         <button type="submit" style={{ background: '#4ab2cc', color: 'white', border:"none", marginTop:".4rem"}} className="add-service save-unit btn waves-effect waves-light">Save content</button>

@@ -7,6 +7,7 @@ import Aos from 'aos';
 import 'aos/dist/aos.css';
 import axios from "axios";
 import { API } from '../../config'
+import CountDown from "../components/CountDown";
 function TestPageContent(){
     const location = useLocation()
     var TestUnitInfo = location.state
@@ -25,10 +26,8 @@ function TestPageContent(){
     const [firstelement, setFirstElement] = useState(0);
     const [lastelement, setLastElement] = useState(1);
     const slice = answers.slice(firstelement, lastelement);
-
-    const [values, setValues] = useState({
-        submittedAnswers: [],
-    });
+    var finalScore = 0;
+    const [values, setValues] = useState({ submittedAnswers: [] });
 
     const handleChange = (event) => {
         const { value, checked } = event.target;
@@ -46,15 +45,12 @@ function TestPageContent(){
         }
     }
 
-
     const handleSubmit = (e) => {
         e.preventDefault();
 
         const { submittedAnswers } = values;
         var correctAnswers = [];
-        slice.map((item)=>{
-           correctAnswers = item.correct_answer;
-        })
+        slice.map((item)=>{ correctAnswers = item.correct_answer; })
 
          var num = 0;
          if(submittedAnswers.length == correctAnswers.length){
@@ -65,24 +61,34 @@ function TestPageContent(){
             })
          }
 
+         var num2 = 0;
+
          if(correctAnswers.length == num){
-            console.log("made iii")
+            num2 = num2 + 1;
+            console.log("yes yes")
          }
 
-         console.log(submittedAnswers)
-         console.log(correctAnswers)
-         console.log(num)
+         finalScore = finalScore + num2;
 
-         var newSubmittedAnswers = [];
-         setValues({
-            submittedAnswers: newSubmittedAnswers,
-         });
+         console.log(submittedAnswers);
+         console.log(correctAnswers);
+         console.log(submittedAnswers.length);
+         console.log(correctAnswers.length)
+         console.log(num);
+         console.log(num2);
+         console.log("correct score", finalScore)
+
+         setValues({ submittedAnswers: []});
 
          setFirstElement(firstelement + 1);
          setLastElement(lastelement + 1);
+
+         var clist = document.getElementsByTagName("input");
+         for (var i = 0; i < clist.length; ++i){clist[i].checked = false; }
+
     }
 
-
+    //  console.log(finalScore.score)
 
     return(
         <>
@@ -98,7 +104,7 @@ function TestPageContent(){
                                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                     <div className="caption pro-sl-hd" style={{paddingBottom:"1rem", paddingTop:"-1rem"}}>
                                                         <div data-aos="fade-right" className="content-profile" style={{marginBottom:"-1rem"}}>
-                                                            <p className="questt" style={{paddingBottom:"-2rem", paddingTop:"1rem", color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Remaining Time to stop <span>00:00:00</span></p>
+                                                              <p className="questt" style={{paddingBottom:"-2rem", paddingTop:"1rem", color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Remaining Time to stop <span><CountDown time="3600000"/></span></p>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -152,10 +158,10 @@ function TestPageContent(){
                                                 <div className="select-answer" data-aos="fade-left" data-aos-offset="200"><p style={{color: '#4ab2cc', fontStyle: 'bold', fontWeight: '550' }}>Select the correct Answer/Answers</p></div>
                                             </div>
                                             <div className="answers-form-input" style={{marginTop:"2rem"}}>
-                                                <form onSubmit={handleSubmit}>
+                                                <form onSubmit={handleSubmit} id="formReset">
                                                     {answerData.answer.map((answersData)=>
                                                         <div style={{borderRadius:".4rem",paddingRight:"5px"}} className=" mb-3 form-check testedit1">
-                                                            <input style={{marginLeft:".1rem", marginTop:"1rem"}} class="form-check-input" type="checkbox" id="flexCheckDefault" name="submittedAnswers" value={answersData} onChange={handleChange} />
+                                                            <input style={{marginLeft:".1rem", marginTop:"1rem"}} className="form-check-input" type="checkbox" id="flexCheckDefault" name="submittedAnswers" value={answersData} onChange={handleChange} />
                                                             <label htmlFor="flexCheckDefault" style={{marginLeft:"1.2rem", marginTop:".6rem" , marginBottom:"1rem"}} class="form-check-label err2">{answersData}</label>
                                                        </div>
                                                     )}

@@ -71,7 +71,7 @@ function UnitsCard(props){
              </div>
 
             <div class="product-buttons" style={{marginTop:'1.5rem', marginBottom:"-.5rem"}}>
-               <Link to='/adminunitcontent' style={{textDecoration:'none'}} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">To start</button></Link>
+               <Link to='/adminunitcontent' style={{textDecoration:'none'}} state={{id: id}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">To start</button></Link>
                <Link to='/editunit' style={{textDecoration:'none'}} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
                <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Disable</button>
                <button type="button" class="button-default cart-btn btn-danger mt-1 mr-1" data-toggle="modal" data-target="#del">Delete</button>

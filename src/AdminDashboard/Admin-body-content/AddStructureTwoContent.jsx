@@ -1,24 +1,68 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Footer from '../../unitsDashboard/components/FooterSection';
 import Header from "../../unitsDashboard/components/Header";
 import "../admin.css";
 import axios from 'axios'
 import { API } from "../../config";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import {validateRegistration} from '../../utils/inputValidations'
 
 function AddStructureTwoContent() {
     const navigate = useNavigate();
-    const [inputs, setInputs] = useState({page_name:"", page_title:"", section_image:"", carousel_one_text:"", carousel_two_text:"", carousel_three_text:"", carousel_one_image:"", carousel_two_image:"", carousel_three_image:""})
+
+    const location = useLocation();
+    const unitId = location.state;
+
+    const unitID = unitId.id;
+
+    const [unitsData, setUnitsData] = useState([]);
+    useEffect(() => {
+        axios.get(`${API}/unit/unitsdata/${unitID}`).then(({data})=>{
+            setUnitsData(data.data)
+        }).catch((err)=>{
+         //    console.log("Something Went Wrong:", err)
+        })
+        // Aos.init({ duration: 2000 });
+      }, []);
+
+    const [inputs, setInputs] = useState({});
     const [formErrors, setFormErrors] = useState({});
-    const [isSubmit, setIsSubmit] = useState(false);
     const handleChange = event => {
         setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
     }
+
+    const submitUnitData = (unitDataInfo) => {
+        axios.put(`${API}/unit/unit/${unitID}`, unitDataInfo)
+            .then(res => {
+                alert(res)
+            })
+            .catch(err => {
+            })
+    }
+
+   var unitsDataContent = [{}]
+
     const handleSubmit = e =>{
         e.preventDefault();
-        setFormErrors(validateRegistration(inputs));
-        setIsSubmit(true);
+        // setFormErrors(validateRegistration(inputs))
+
+        {unitsData.map((item) => {
+            unitsDataContent = item.unit_content;
+          }
+        )}
+
+        console.log("xghgjks",unitsDataContent);
+
+        const route = "two";
+        const structure_name = "two"
+        inputs.route = route;
+        inputs.structure_name = structure_name;
+        const unit_content = [...unitsDataContent, inputs];
+
+        submitUnitData({
+             unit_content,
+        });
+        navigate('/adminunitcontent', {state: {id:unitID}});
     }
 
     return (
@@ -57,9 +101,16 @@ function AddStructureTwoContent() {
                                                                         </div>
                                                                         <div className="form-group">
                                                                             <label htmlFor="carousel_one_text" style={{marginBottom: "-10px"}} className="FormLable"><p>Carousel one</p></label>
-                                                                            <textarea value={inputs.carousel_one_text} onChange={handleChange} type="text" className={`form-control input ${formErrors.carousel_one_text? "border-color": ""}`} placeholder="Enter carousel text" name="carousel_one_image"></textarea>
+                                                                            <textarea value={inputs.carousel_one_text} onChange={handleChange} type="text" className={`form-control input ${formErrors.carousel_one_text? "border-color": ""}`} placeholder="Enter carousel text" name="carousel_one_text"></textarea>
                                                                             <p style={errorMessage}>{formErrors.carousel_one_text}</p>
                                                                         </div>
+
+                                                                        <div className="form-group">
+                                                                            <label htmlFor="carousel_two_text" style={{marginBottom: "-10px"}} className="FormLable"><p>Carousel two</p></label>
+                                                                            <textarea value={inputs.carousel_two_text} onChange={handleChange} type="text" className={`form-control input ${formErrors.carousel_two_text? "border-color": ""}`} placeholder="Enter carousel text" name="carousel_two_text"></textarea>
+                                                                            <p style={errorMessage}>{formErrors.carousel_two_text}</p>
+                                                                        </div>
+
                                                                         <div className="form-group">
                                                                             <input type="file" name="video_file" value={inputs.carousel_one_image} onChange={handleChange} className={`form-control ${formErrors.carousel_one_image ? "border-color": ""}`} onchange="document.getElementById('prepend-big-btn').value = this.value;" />
                                                                             <p style={errorMessage}>{formErrors.carousel_one_image}</p>

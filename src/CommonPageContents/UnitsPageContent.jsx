@@ -25,6 +25,15 @@ function UnitsPageContent(props){
        // Aos.init({ duration: 2000 });
    }, []);
 
+
+    // units.map((item)=>{
+    //     console.log("testttt",item.unit_content[0].admin_route)
+    //     console.log("clll",item.unit_content[0].client_route)
+    //     console.log("clll",item.unit_content.length)
+    // })
+
+
+
     return(
         <>
             <main className="px-md-4 wrapper2">
@@ -51,7 +60,7 @@ function UnitsPageContent(props){
                     </div>
                     <h4 style={{paddingTop:"7px"}}><p><Link className="return-home" style={{ textDecoration: 'none' }} to='/clientservicedashboard'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span>Unites</span></p></h4>
                     <div style={{marginTop:"2rem"}} className="wrapper3">
-                         {units.map((unitData)=><UnitsCard2 key={unitData._id} id={unitData._id} image="./images/Cature.png" title={unitData.title} module_name={unitData.name} timePassed={unitData.time_spent} score={unitData.score} />)}
+                         {units.map((unitData)=><UnitsCard2 key={unitData._id} id={unitData._id} image="./images/Cature.png" title={unitData.title} module_name={unitData.name} timePassed={unitData.time_spent} score={unitData.score}/>)}
                     </div>
                     <div style={{marginTop:"15rem"}} className="space-creater"></div>
                     <Footer destination="/legalnotice" />

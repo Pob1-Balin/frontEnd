@@ -8,34 +8,14 @@ import axios from "axios";
 import { API } from "../../config";
 import { useNavigate } from "react-router-dom";
 import {validateRegistration} from '../../utils/inputValidations'
-import { useSelector, useDispatch } from 'react-redux'
-import { login, reset } from '../../redux/auth/authSlice'
+import ParticlesBackground from "./ParticlesBackground";
+import "./background.css"
 
-
-function UserLoginContent(){
-    const dispatch = useDispatch()
+function AdminLoginContent(){
     const [inputs, setInputs] = useState({email:"", password:""})
     const navigate = useNavigate();
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
-    
-
-    const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
-
-    useEffect(()=>{
-        if (isError) {
-            alert(message)
-          }
-      
-          if (isSuccess || user) {
-            navigate('/')
-          }
-      
-          dispatch(reset())
-    }, 
-    [user, isError, isLoading, message, isSuccess, navigate, dispatch]
-    )
-
 
     const handleChange = event => {
         setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
@@ -43,12 +23,23 @@ function UserLoginContent(){
 
     const handleSubmit = e =>{
         e.preventDefault();
+        // console.log(inputs)
+        setFormErrors(validateRegistration(inputs));
+        setIsSubmit(true);
+        axios.post(`${API}/user/login`, inputs)
+        .then((response)=>{
+            // console.log(response)
+            const status = response.data.status
+            if(status === "success"){
+                // Store the data in local storage for later use
+                const user = response.data.data
+                localStorage.setItem("user", JSON.stringify(user))
+                navigate("/")
+            }
+        }).catch((error)=>{
+            console.log(error)
+        })
 
-        const userData = {
-            email: inputs.email,
-            password: inputs.password,
-        }
-        dispatch(login(userData))
     }
 
   useEffect(() => {
@@ -95,8 +86,8 @@ function UserLoginContent(){
                                 </div>
                                 <div className="row text-center mt-2 mb-4" style={{marginTop:"-.5rem"}}>
                                     <div data-aos="zoom-out-right" className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <p style={{fontSize:".9rem", marginTop:"-.6rem"}}><span><a style={{color:"#4ab2cc"}} href="/forgotpassword">Forgot Password</a></span></p>
-                                        <p style={{fontSize:".9rem", marginTop:"-.6rem"}}>In need of an Account? <span style={{color:"#4ab2cc"}}><a style={{color:"#4ab2cc"}} href="/clientregister">Sign Up</a></span></p>
+                                        <p style={{fontSize:".9rem", marginTop:"-.6rem"}}><span><a style={{color:"#4ab2cc"}} href="/adminforgotpassword">Forgot Password</a></span></p>
+                                        <p style={{fontSize:".9rem", marginTop:"-.6rem"}}>In need of an Account? <span style={{color:"#4ab2cc"}}><a style={{color:"#4ab2cc"}} href="/adminregister">Sign Up</a></span></p>
                                     </div>
                                 </div>
                             </div>
@@ -113,7 +104,7 @@ function UserLoginContent(){
     )
 }
 
-export default UserLoginContent;
+export default AdminLoginContent;
 
 const errorMessage = {
     color:"red",

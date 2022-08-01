@@ -63,15 +63,15 @@ function EditModuleContent() {
     return (
         <>
             <main className="px-md-4 wrapper2 dashboard-pages ml-3">
-            <div style={{marginTop: '-6rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                     <h4 style={{marginTop:'2rem'}}><p><Link className="return-home" style={{textDecoration: 'none'}} to='/adminmodulepage'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span style={{ fontSize: '1.3rem', color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Edit Module</span></p></h4>
+                <div className="add-module d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                     <h4><p><Link className="return-home" style={{textDecoration: 'none'}} to='/adminmodulepage'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span className="add-modulee" style={{color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Edit Module</span></p></h4>
                 </div>
-                <div class="single-pro-review-area mt-t-30 mg-b-15 add-clients-page editService">
+                <div class="single-pro-review-area mt-t-30 mg-b-15 module-forms">
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div class="product-payment-inner-st">
-                                    <div><p className="mt-3 mb-4" style={{ fontSize: '1.3rem', color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Edit Module Data</p></div>
+                                    <div><p className="mt-3 mb-4" style={{color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Edit Module Data</p></div>
                                     <div id="myTabContent" class="tab-content custom-product-edit">
                                         <div class="product-tab-list">
                                             <div class="row">
@@ -83,13 +83,13 @@ function EditModuleContent() {
                                                                     <form onSubmit={handleSubmit}>
                                                                         <div className="form-group">
                                                                             <label htmlFor='title' style={{marginBottom: "-12px"}} className="FormLable"><p>Title</p></label>
-                                                                            <input type="text" className="form-control" placeholder="Enter module title" name="title" value={values.title} onChange={handleChange} />
+                                                                            <input type="text" className="form-control input" placeholder="Enter module title" name="title" value={values.title} onChange={handleChange} />
                                                                         </div>
                                                                         <div className="form-group">
                                                                             <label htmlFor='image' style={{marginBottom: "-12px"}} className="FormLable"><p>Image</p></label>
                                                                             <input type="file" className="form-control" onchange="document.getElementById('prepend-big-btn').value = this.value;" placeholder="Select module image" name="image" value={values.image} onChange={handleChange} />
                                                                         </div>
-                                                                        <button type="submit" style={{ background: '#4ab2cc', color: 'white' }} href="#!" className="btn waves-effect waves-light">Submit</button>
+                                                                        <button type="submit" style={{ background: '#4ab2cc', color: 'white' }} href="#!" className="add-service btn waves-effect waves-light">Submit</button>
                                                                      </form>
                                                                 </div>
                                                             </div>
@@ -106,7 +106,7 @@ function EditModuleContent() {
                 </div>
 
                 <div style={{ marginTop: '7rem' }}></div>
-
+                <div style={{marginTop:"17rem"}} className="space-creater"></div>
                 <div className="add-clients-footer"><Footer destination="admin" /></div>
             </main>
 

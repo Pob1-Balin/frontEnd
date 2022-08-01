@@ -7,8 +7,8 @@ function HeaderSection(props){
         <>
              <div className='Unit-footer-card'>
                  <center>
-                    <Link to='/'>
-                         <button className='unit-dashboard-footer-button success'><LockOutlinedIcon size='.5rem' style={{marginRight: ".5rem"}} />{props.footer_text}</button>
+                    <Link to='#'>
+                         <button className='unit-dashboard-footer-button success'>{props.footer_text}</button>
                     </Link>
                  </center>
              </div>

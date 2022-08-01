@@ -30,15 +30,15 @@ function ClientsPageContent (){
                                         <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                             <div className="breadcome-heading">
                                                 <form role="search" className="sr-input-func">
-                                                <input type="text" placeholder="Search..." className="search-int col-xs-12 form-control mobile-menu-search"/>
+                                                     <input type="text" placeholder="Search..." className="search-int col-xs-12 form-control mobile-menu-search"/>
                                                      <a href="#"><i className="fa fa-search"></i></a>
                                                 </form>
                                             </div>
                                         </div>
                                         <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 mobile-menu-links">
                                             <ul className="breadcome-menu">
-                                                <li><a style={{fontSize:'1rem', color:'#4ab2cc'}} href="admindashboard">Dashboard /</a></li>
-                                                <li style={{fontSize:'1rem', color:'gray'}}><span className="bread-blod">Clients</span></li>
+                                                <li><a style={{color:'#4ab2cc'}} href="admindashboard">Dashboard /</a></li>
+                                                <li style={{color:'gray'}}><span className="bread-blod">Clients</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -55,7 +55,7 @@ function ClientsPageContent (){
                                 <div className="product-status-wrap drp-lst">
                                     <div className="add-product">
                                          <h4 style={{color:'gray'}}>Clients List</h4>
-                                         <a style={{background:'#4ab2cc'}} href="addclients">Add Clients</a>
+                                         <a className="add-clients" style={{background:'#4ab2cc'}} href="addclients">Add Clients</a>
                                      </div>
                                     <div className="asset-inner">
                                         <table>

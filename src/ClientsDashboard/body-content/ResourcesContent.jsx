@@ -8,10 +8,10 @@ function ResourceContent (props){
     const head = props.display;
     return(
         <>
-            <main className="ms-sm-auto px-md-4">
+            <main className="px-md-4 res">
 
                 {head=="admin" ?
-                <div style={{marginTop: '-.2rem'}} className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                     <h4 style={{marginTop:'2rem'}}><p><Link className="return-home" style={{textDecoration: 'none'}} to='/adminmodulepage'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span style={{ fontSize: '1.3rem', color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Resource</span></p></h4>
                     <Link className="return-home" style={{textDecoration: 'none'}} to='/editresource'>
                         <div>
@@ -21,7 +21,7 @@ function ResourceContent (props){
                 </div>
                 :
                 <>
-                    <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+                    <div className="top-margin d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                          <h1 className="heading" style={{color: '#0d3360'}}>Resource page</h1>
                     </div>
                     <div style={{marginBottom: "1.3rem"}} className="Home_navigation">

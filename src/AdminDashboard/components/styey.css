@@ -61,3 +61,18 @@ margin-left: -.5rem;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 5px 18px 0px;
     border-radius: .4rem;
   }
+
+  .side_bar .unit-nave{
+    font-size: 1rem;
+  }
+  @media screen and (min-width: 1500px) {
+    .side_bar .unit-nave{
+      font-size: 1.4rem;
+    }
+    .save-unit{
+      width:11rem;
+    }
+    .units-add-page{
+      font-size: 1.5rem;
+    }
+  }

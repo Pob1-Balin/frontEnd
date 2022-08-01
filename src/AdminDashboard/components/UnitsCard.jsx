@@ -36,7 +36,7 @@ function UnitsCard(props){
                     </button>
                   </div>
                   <div class="modal-body">
-                      Are you sure you want to permanently delete this unite?
+                      <p>Are you sure you want to permanently delete this unite?</p>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Close</button>
@@ -57,7 +57,7 @@ function UnitsCard(props){
                       </button>
                     </div>
                     <div class="modal-body">
-                        Are you sure you want to disable this unite?
+                        <p>Are you sure you want to disable this unite?</p>
                     </div>
                     <div class="modal-footer">
                       <form action="php-code.php" method="POST">
@@ -75,7 +75,7 @@ function UnitsCard(props){
                <Link to='/editunit' style={{textDecoration:'none'}} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
                <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Disable</button>
                <button type="button" class="button-default cart-btn btn-danger mt-1 mr-1" data-toggle="modal" data-target="#del">Delete</button>
-               <Link to='/admintest' style={{textDecoration: "none"}}><button style={{backgroundColor: '#4ab2cc'}} type="button" class="button-default cart-btn mt-1 mr-1">Questions</button></Link>
+               <Link to='/admintest' style={{textDecoration: "none"}} state={props}><button style={{backgroundColor: '#4ab2cc'}} type="button" class="button-default cart-btn mt-1 mr-1">Questions</button></Link>
             </div>
          </div>
       </div>

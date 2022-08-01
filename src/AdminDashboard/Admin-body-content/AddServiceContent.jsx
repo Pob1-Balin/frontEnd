@@ -68,8 +68,8 @@ function AddServiceContent() {
                                         </div>
                                         <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 mobile-menu-links">
                                             <ul className="breadcome-menu">
-                                                <li><a style={{ fontSize: '1rem', color: '#4ab2cc' }} href="admindashboard">Dashboard /</a></li>
-                                                <li style={{ fontSize: '1rem', color: 'gray' }}><span className="bread-blod">Add Services</span></li>
+                                                <li><a style={{color: '#4ab2cc' }} href="admindashboard">Dashboard /</a></li>
+                                                <li style={{color: 'gray' }}><span className="bread-blod">Add Services</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -84,7 +84,7 @@ function AddServiceContent() {
                         <div className="row">
                             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div className="product-payment-inner-st">
-                                    <div><p className="mt-3 mb-4" style={{ fontSize: '1.3rem', color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Add Service</p></div>
+                                    <div><p className="mt-3 mb-4" style={{color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Add Service</p></div>
                                     <div id="myTabContent" className="tab-content custom-product-edit">
                                         <div className="product-tab-list">
                                             <div className="row">
@@ -96,21 +96,21 @@ function AddServiceContent() {
                                                                     <form onSubmit={handleSubmit}>
                                                                         <div className="form-group">
                                                                             <label htmlFor='name' style={{marginBottom: "-12px"}} className="FormLable"><p>Name</p></label>
-                                                                            <input type="text" className="form-control" placeholder="Enter service name" name="name" value={values.name} onChange={handleChange} />
+                                                                            <input type="text" className="form-control input" placeholder="Enter service name" name="name" value={values.name} onChange={handleChange} />
                                                                         </div>
                                                                         <div className="form-group">
                                                                             <label htmlFor='description' style={{marginBottom: "-12px"}} className="FormLable"><p>Description</p></label>
-                                                                            <input type="text" className="form-control" placeholder="Enter short description for service" name="description" value={values.description} onChange={handleChange} />
+                                                                            <input type="text" className="form-control input" placeholder="Enter short description for service" name="description" value={values.description} onChange={handleChange} />
                                                                         </div>
                                                                         <div className="form-group">
                                                                             <label htmlFor='amount' style={{marginBottom: "-12px"}} className="FormLable"><p>Amount</p></label>
-                                                                            <input type="number" className="form-control" placeholder="Enter service amount" name="amount" value={values.amount} onChange={handleChange} />
+                                                                            <input type="number" className="form-control input" placeholder="Enter service amount" name="amount" value={values.amount} onChange={handleChange} />
                                                                         </div>
                                                                         <div className="form-group">
                                                                             <label htmlFor='image' style={{marginBottom: "-12px"}} className="FormLable"><p>Image</p></label>
                                                                             <input type="file" className="form-control" onchange="document.getElementById('prepend-big-btn').value = this.value;" placeholder="Select module image" name="image" value={values.image} onChange={handleChange}  />
                                                                         </div>
-                                                                        <button type="submit" style={{ background: '#4ab2cc', color: 'white' }} href="#!" className="btn waves-effect waves-light">Submit</button>
+                                                                        <button type="submit" style={{ background: '#4ab2cc', color: 'white' }} href="#!" className="add-service btn waves-effect waves-light">Submit</button>
                                                                     </form>
                                                                 </div>
                                                             </div>

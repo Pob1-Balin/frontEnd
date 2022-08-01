@@ -8,7 +8,22 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import './sidebar.css';
 
+import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { logout, reset } from '../../redux/auth/authSlice'
+
 function Sidebar() {
+
+  const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { user } = useSelector((state) => state.auth)
+
+  const onLogout = () => {
+    dispatch(logout())
+    dispatch(reset())
+    navigate('/login')
+  }
+
   return (
     <>
        <aside className="sidebar sidebar-icons-left sidebar-icons-boxed sidebar-expand-lg sidebar-color-info sider-1 pt-0">
@@ -17,22 +32,22 @@ function Sidebar() {
          </header>
          <nav className="sidebar-navigation">
             <ul className="menu menu-bordery pt- mt-5 text-left pl-4">
-                <li className="nav-item pt-5 list" style={{fontSize: '1.2rem'}}>
+                <li className="nav-item pt-5 list">
                     <Link to='/clientservicedashboard' className='ml-4 test' style={{textDecoration:'none'}}><HomeIcon className=''/>Home</Link>
                 </li>
-                <li className="nav-item pt-4 list" style={{fontSize: '1.2rem'}}>
-                    <Link to='/res' className=' ml-4 test' style={{textDecoration:'none'}}><AccountBalanceIcon className=''/>My resources</Link>
+                <li className="nav-item pt-4 list">
+                    <Link to='/res' className=' ml-4 test'><AccountBalanceIcon className=''/>My resources</Link>
                 </li>
-                <li className="nav-item pt-4 list" style={{fontSize: '1.2rem'}}>
-                    <Link to='/attest' className='ml-4 test' style={{textDecoration:'none'}}><DocumentScannerIcon className=''/>My attestation</Link>
+                <li className="nav-item pt-4 list">
+                    <Link to='/attest' className='ml-4 test'><DocumentScannerIcon className=''/>My attestation</Link>
                 </li>
-                <li className="nav-item pt-4 list active" style={{fontSize: '1.2rem'}}>
+                <li className="nav-item pt-4 list active">
                     <Link to='/profile' className=' ml-4 test' style={{textDecoration:'none'}}> <AccountCircleIcon className=''/> My profile</Link>
                 </li>
             </ul>
          </nav>
          <header className="sidebar-header">
-           <button data-toggle="modal" data-target="#select" style={{backgroundColor:"transparent", border:"none"}} className="text-center text-white font-roboto fw-300 fs-18 letter-spacing-2 mx-auto">Subscribed Services</button>
+           <button data-toggle="modal" data-target="#select" style={{backgroundColor:"transparent", border:"none"}} className="services-subscribed text-center text-white font-roboto fw-300 fs-18 letter-spacing-2 mx-auto"><p>Subscribed Services</p></button>
          </header>
        </aside>
 
@@ -48,7 +63,7 @@ function Sidebar() {
                        <ExitToAppIcon className='logoutIcon' />
                     </a>
                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                       <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>LogOut</a></li>
+                       <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span><p><button onClick={onLogout}>LogOut</button></p></a></li>
                     </ul>
                 </li>
             </ul>

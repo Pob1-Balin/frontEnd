@@ -68,8 +68,8 @@ import UnitStructures from './AdminDashboard/pages/structures';
 
 
 import NotFoundPage from './unitsDashboard/pages/notFound';
-
-
+import SubscribeForService from './ClientsDashboard/pages/SubscribeForService' 
+import PaymentForm from './ClientsDashboard/pages/PaymentForm';
 /*========================= main site pages =======================*/
 import SiteHomePage from './CyberzoneWebsite/pages/SiteHomePage';
 
@@ -78,14 +78,15 @@ function Navigation() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path='/clientservicedashboard' exact element={<HomePage />} />
-                <Route path='/' exact element={<ClientsServicesPage />} />
-                <Route path='/profile' exact element={<MyProfile />} />
-                <Route path='/res' exact element={<ResourcePage />} />
-                <Route path='/attest' exact element={<AttestationPage />} />
-                <Route path='/legalnotice' exact element={<LegalNoticePage />} />
-                <Route path='/unitsclients' exact element={<UnitsClientsPage />} />
-                <Route path='/admintest' exact element={<AdminTestPage />} />
+                 <Route path='/clientservicedashboard' exact element={<HomePage/>}/>
+                 <Route path='/' exact element={<ClientsServicesPage/>}/>
+                 <Route path='/profile' exact element={<MyProfile/>}/>
+                 <Route path='/res' exact element={<ResourcePage/>}/>
+                 <Route path='/attest' exact element={<AttestationPage/>}/>
+                 <Route path='/legalnotice' exact element={<LegalNoticePage />}/>
+                 <Route path='/unitsclients' exact element={<UnitsClientsPage />}/>
+                 <Route path='/admintest' exact element={<AdminTestPage />}/>
+                 <Route path='/test' exact element={<TestPage />}/>
 
                 {/*============================= Units dashboard =============================*/}
                 <Route path='/unitcontent' exact element={<UnitHomePage />}/>
@@ -147,6 +148,9 @@ function Navigation() {
                  {/* main site home page */}
                  <Route path='/mainhomepage' exact element={<SiteHomePage/>}/>
                  <Route path='/*' exact element={<NotFoundPage/>}/>
+
+                 <Route path='/subscribe' exact element={<SubscribeForService/>}/>
+                 <Route path='/payment' exact element={<PaymentForm/>}/>
             </Routes>
         </BrowserRouter>
     )

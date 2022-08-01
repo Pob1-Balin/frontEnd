@@ -4,47 +4,53 @@ import NotSubscribedServices from "../components/NotSubscribedServices";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import "../../AdminDashboard/admin.css";
-import { useDispatch } from "react-redux";
-import { addUser } from "../../redux/actions/user";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
-import axios from "axios";
-import {API} from '../../config'
+import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 
-function ClientsServicesPageContent(){
+
+import { useNavigate } from 'react-router-dom'
+import { useSelector, useDispatch } from 'react-redux'
+import { logout, reset } from '../../redux/auth/authSlice'
+
+
+
+  
+function ClientsServicesPageContent(props){
+    
+    
+    const navigate = useNavigate()
+  const dispatch = useDispatch()
+  const { user } = useSelector((state) => state.auth)
+
+  const onLogout = () => {
+    dispatch(logout())
+    dispatch(reset())
+    navigate('/login')
+  }
+
+
     const [service, setService] = useState([]);
-    const dispatch = useDispatch()
     useEffect(() => {
         Aos.init({ duration: 2000 });
-
-        // dispatchec an action to add user data to store
-        const user = localStorage.getItem("user")
-        if(user){
-            dispatch(addUser(user))
-        }
       }, []);
 
-      useEffect(() => {
-        axios.get(`${API}/service`).then(({data})=>{
-          setService(data.data)
-          //   console.log(data.data)
-        }).catch((err)=>{
-           //  console.log("Something Went Wrong:", err)
-        })
-        // Aos.init({ duration: 2000 });
-        Aos.init({ duration: 2000 });
-
-        // dispatchec an action to add user data to store
-        const user = localStorage.getItem("user")
-        if(user){
-            dispatch(addUser(user))
-        }
-    }, []);
 
     return(
         <>
              <main className="">
                 <SiteHeader/>
+
+
+                <li class="nav-item">
+                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link">
+                       <ExitToAppIcon className='logoutIcon' />
+                    </a>
+                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
+                       <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span><p><button onClick={onLogout}>LogOut</button></p></a></li>
+                    </ul>
+                </li>
+
                 <div style={{backgroundColor:"red"}} data-aos="zoom-out-right" data-aos-offset="200" className="col-lg-12 col-md-12 col-sm-12 col-xs-12 services-section">
                      <p className="about" style={{color:"white", fontSize:"2rem", textAlign:"center", paddingTop:"9rem"}}>Services</p>
                 </div>
@@ -56,7 +62,7 @@ function ClientsServicesPageContent(){
                     <div class="services-area ">
                         <div class="container-fluid services">
                             <div class="row mg-b-15">
-                                <ClientService/>
+                                <ClientService user={props.user}/>
                             </div>
                         </div>
                     </div>
@@ -72,7 +78,7 @@ function ClientsServicesPageContent(){
                             <div class="row mg-b-15">
 
                         {/* {service.map(serviceData => <NotSubscribedServices key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} number_of_subscribers={serviceData.subscribers} short_description={serviceData.description}/>)} */}
-                                <NotSubscribedServices/>
+                                <NotSubscribedServices user={props.user}/>
                             </div>
                         </div>
                     </div>

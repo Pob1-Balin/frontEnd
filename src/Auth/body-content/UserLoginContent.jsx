@@ -8,14 +8,34 @@ import axios from "axios";
 import { API } from "../../config";
 import { useNavigate } from "react-router-dom";
 import {validateRegistration} from '../../utils/inputValidations'
-import ParticlesBackground from "./ParticlesBackground";
-import "./background.css"
+import { useSelector, useDispatch } from 'react-redux'
+import { login, reset } from '../../redux/auth/authSlice'
+
 
 function UserLoginContent(){
+    const dispatch = useDispatch()
     const [inputs, setInputs] = useState({email:"", password:""})
     const navigate = useNavigate();
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
+    
+
+    const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
+
+    useEffect(()=>{
+        if (isError) {
+            alert(message)
+          }
+      
+          if (isSuccess || user) {
+            navigate('/')
+          }
+      
+          dispatch(reset())
+    }, 
+    [user, isError, isLoading, message, isSuccess, navigate, dispatch]
+    )
+
 
     const handleChange = event => {
         setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
@@ -23,23 +43,12 @@ function UserLoginContent(){
 
     const handleSubmit = e =>{
         e.preventDefault();
-        // console.log(inputs)
-        setFormErrors(validateRegistration(inputs));
-        setIsSubmit(true);
-        axios.post(`${API}/user/login`, inputs)
-        .then((response)=>{
-            console.log(response)
-            const status = response.data.status
-            if(status === "success"){
-                // Store the data in local storage for later use
-                const user = response.data.data
-                localStorage.setItem("user", JSON.stringify(user))
-                navigate("/")
-            }
-        }).catch((error)=>{
-            console.log(error)
-        })
 
+        const userData = {
+            email: inputs.email,
+            password: inputs.password,
+        }
+        dispatch(login(userData))
     }
 
   useEffect(() => {

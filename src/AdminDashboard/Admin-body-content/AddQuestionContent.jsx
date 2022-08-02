@@ -10,7 +10,7 @@ function AddQuestionContent() {
     var AddUnitInfo = location.state
     const addUnitId = AddUnitInfo.id
     console.log("zion")
-    console.log(addUnitId)
+    console.log(location.state)
     return (
         <>
             <main className="px-md-4 wrapper2">

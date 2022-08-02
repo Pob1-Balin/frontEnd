@@ -56,7 +56,8 @@ function ClientRegisterContent() {
                 password: inputs.password,
                 gender: inputs.gender,
                 phone_number: inputs.phone_number,
-                country: inputs.country
+                country: inputs.country,
+                services: [],
             }
             dispatch(register(userData))
         }

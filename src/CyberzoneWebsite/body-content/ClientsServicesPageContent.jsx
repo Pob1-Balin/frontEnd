@@ -7,40 +7,33 @@ import "../../AdminDashboard/admin.css";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-
-
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../../redux/auth/authSlice'
-
-
-
   
 function ClientsServicesPageContent(props){
     
     
     const navigate = useNavigate()
   const dispatch = useDispatch()
-  const { user } = useSelector((state) => state.auth)
+//   const { user } = useSelector((state) => state.auth)
+
+  const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
     console.log(user)
+    useEffect(() => {
 
-    useEffect(()=>{
-          if (user == null) {
-            navigate('/login')
-          }
-    }, [navigate])
-
+        Aos.init({ duration: 2000 });
+      }, []);
   const onLogout = () => {
-    dispatch(logout())
+
     dispatch(reset())
-    navigate('/login')
+    dispatch(logout())
+    navigate('/')
   }
 
 
     const [service, setService] = useState([]);
-    useEffect(() => {
-        Aos.init({ duration: 2000 });
-      }, []);
+    
 
 
     return(

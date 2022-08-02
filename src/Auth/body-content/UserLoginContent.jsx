@@ -28,8 +28,8 @@ function UserLoginContent(){
             alert(message)
           }
       
-          if (isSuccess || user) {
-            navigate('/')
+          if (isSuccess) {
+            navigate('/home')
           }
       
           dispatch(reset())

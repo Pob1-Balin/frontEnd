@@ -81,7 +81,7 @@ function Navigation() {
         <BrowserRouter>
             <Routes>
                  <Route path='/clientservicedashboard' exact element={<HomePage/>}/>
-                 <Route path='/' exact element={<ClientsServicesPage/>}/>
+                 <Route path='/home' exact element={<ClientsServicesPage/>}/>
                  <Route path='/profile' exact element={<MyProfile/>}/>
                  <Route path='/res' exact element={<ResourcePage/>}/>
                  <Route path='/attest' exact element={<AttestationPage/>}/>
@@ -112,7 +112,7 @@ function Navigation() {
 
 
                  {/*============================= User Authentication =============================*/}
-                <Route path='/login' exact element={<UserLoginPage />}/>
+                <Route path='/' exact element={<UserLoginPage />}/>
                 <Route path='/forgotpassword' exact element={<UserForgotPasswordPage />}/>
                 <Route path='/checkemail' exact element={<UserCheckEmailPage />}/>
                 <Route path='/setuserpassword' exact element={<SetUserPasswordPage />}/>

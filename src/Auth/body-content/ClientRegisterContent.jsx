@@ -28,7 +28,7 @@ function ClientRegisterContent() {
         }
 
         if(isSuccess || user){
-            navigate('/login')
+            navigate('/')
         }
 
         dispatch(reset())

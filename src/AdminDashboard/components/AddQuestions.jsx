@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { ClearRounded } from '@mui/icons-material';
 import axios from 'axios';
 import { API } from '../../config'
@@ -13,7 +13,8 @@ class AddQuestions extends React.Component{
             message:'',
             addCorrectAnswers: [],
             message2:'',
-            edit:''
+            edit:'',
+            units_id: useLocation().state.id
         }
     }
 
@@ -36,15 +37,16 @@ class AddQuestions extends React.Component{
     }
 
     handleSubmit(){
+        // const location = useLocation()
         const {addQuestions} = this.state;
-        const {unitId} = this.state;
+        const {unitId} = '';
         const {Questions} = this.state;
         const {addCorrectAnswers} = this.state;
         const question = Questions;
         const answer = addQuestions;
         const correct_answer = addCorrectAnswers;
         const unit_id = "62bc101b9dd0d5326f552d28";
-        // console.log(unit_id);
+        console.log(unit_id);
         this.submitQuestions({
             question,
             answer,

@@ -22,18 +22,13 @@ function ClientsServicesPageContent(props){
     const navigate = useNavigate()
   const dispatch = useDispatch()
   const { user } = useSelector((state) => state.auth)
-
+    console.log(user)
 
     useEffect(()=>{
-       
-      
-          if (!user) {
+          if (user == null) {
             navigate('/login')
           }
-      
-    }, 
-    [ navigate]
-    )
+    }, [navigate])
 
   const onLogout = () => {
     dispatch(logout())

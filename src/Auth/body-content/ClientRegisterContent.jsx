@@ -8,6 +8,7 @@ import { validateRegistration } from '../../utils/inputValidations'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { register, reset } from '../../redux/auth/authSlice'
+import ParticlesBackground from '../../Auth/body-content/ParticlesBackground'
 
 function ClientRegisterContent() {
     const navigate = useNavigate();
@@ -68,8 +69,8 @@ function ClientRegisterContent() {
 
 
     return (
-        <>
-            <main className="login" style={{ background: "white" }}>
+        <><ParticlesBackground/>
+            <main className="login" >
                 <video autoPlay loop muted width="1350">
                     {/* <source src={BackgroundVideo} type="video/mp4"/> */}
                 </video>

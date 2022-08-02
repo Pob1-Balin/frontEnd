@@ -112,7 +112,7 @@ function Navigation() {
 
 
                  {/*============================= User Authentication =============================*/}
-                <Route path='/clientslogin' exact element={<UserLoginPage />}/>
+                <Route path='/login' exact element={<UserLoginPage />}/>
                 <Route path='/forgotpassword' exact element={<UserForgotPasswordPage />}/>
                 <Route path='/checkemail' exact element={<UserCheckEmailPage />}/>
                 <Route path='/setuserpassword' exact element={<SetUserPasswordPage />}/>

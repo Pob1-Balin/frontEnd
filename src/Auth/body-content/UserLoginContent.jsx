@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import {validateRegistration} from '../../utils/inputValidations'
 import { useSelector, useDispatch } from 'react-redux'
 import { login, reset } from '../../redux/auth/authSlice'
+import ParticlesBackground from '../../Auth/body-content/ParticlesBackground'
 
 
 function UserLoginContent(){

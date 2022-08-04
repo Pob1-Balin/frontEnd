@@ -10,6 +10,7 @@ import { useNavigate } from "react-router-dom";
 import {validateRegistration} from '../../utils/inputValidations'
 import { useSelector, useDispatch } from 'react-redux'
 import { login, reset } from '../../redux/auth/authSlice'
+import ParticlesBackground from "./ParticlesBackground";
 
 
 function UserLoginContent(){
@@ -59,9 +60,6 @@ function UserLoginContent(){
         <>
              <ParticlesBackground/>
              <main className="login" id="particles-js">
-                 <video autoPlay loop muted width="1350">
-                 {/* <source src={BackgroundVideo} type="video/mp4"/> */}
-                 </video>
                  <div className="LoginCard">
                     <div className="container-fluid">
                         <div className="row">

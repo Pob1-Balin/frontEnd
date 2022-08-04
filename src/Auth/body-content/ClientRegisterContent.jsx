@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import BackgroundVideo  from "./cyberzone.mp4";
 import "../../AdminDashboard/admin.css";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
@@ -8,6 +7,7 @@ import { validateRegistration } from '../../utils/inputValidations'
 
 import { useSelector, useDispatch } from 'react-redux'
 import { register, reset } from '../../redux/auth/authSlice'
+import ParticlesBackground from "./ParticlesBackground";
 
 function ClientRegisterContent() {
     const navigate = useNavigate();
@@ -69,10 +69,8 @@ function ClientRegisterContent() {
 
     return (
         <>
-            <main className="login" style={{ background: "white" }}>
-                <video autoPlay loop muted width="1350">
-                    {/* <source src={BackgroundVideo} type="video/mp4"/> */}
-                </video>
+            <main className="login" style={{height:"69rem"}}>
+                <ParticlesBackground/>
                 <div className="LoginCard">
                     <div className="container-fluid">
                         <div className="row">

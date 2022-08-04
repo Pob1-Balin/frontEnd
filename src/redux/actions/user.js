@@ -7,4 +7,3 @@ import { ADD_USER } from "../constants/action-types"
 export const addUser = (userData) => {
     return {type: ADD_USER, payload: userData}
 }
-

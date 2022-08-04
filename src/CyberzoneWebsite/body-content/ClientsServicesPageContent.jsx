@@ -22,8 +22,15 @@ function ClientsServicesPageContent(props){
     console.log(user)
     useEffect(() => {
 
-        Aos.init({ duration: 2000 });
+       
       }, []);
+      useEffect(()=>{
+        if(!user){
+          navigate('/')
+          console.log('kjdshkj')
+          Aos.init({ duration: 2000 });
+        }
+      },[user, navigate])
   const onLogout = () => {
 
     dispatch(reset())

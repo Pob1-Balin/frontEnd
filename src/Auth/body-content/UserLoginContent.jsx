@@ -22,7 +22,7 @@ function UserLoginContent(){
     
 
     const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
-
+    // navigate(0)
     useEffect(()=>{
         if (isError) {
             alert(message)
@@ -30,6 +30,7 @@ function UserLoginContent(){
       
           if (isSuccess) {
             navigate('/home')
+            
           }
       
           dispatch(reset())
@@ -53,7 +54,7 @@ function UserLoginContent(){
     }
 
   useEffect(() => {
-      Aos.init({ duration: 3000 });
+      Aos.init({ duration: 1000 });
   }, []);
 
     return(

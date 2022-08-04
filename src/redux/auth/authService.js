@@ -37,16 +37,15 @@ const getUser = async (token) => {
           Authorization: `Bearer ${token}`,
         },
       }
-    
+
       const response = await axios.get(API_URL+'me', config)
-    
       return response.data
 }
 
 
 const authService = {
     register,
-    logout, 
+    logout,
     login,
     getUser,
 }

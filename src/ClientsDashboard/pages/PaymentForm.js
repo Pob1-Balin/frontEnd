@@ -65,7 +65,7 @@ function PaymentForm(props) {
                 paymentMethod == "momo"
                     ? <><div className="container">
                         <div className="" style={style}>
-                            <form className="form-signin text-center" onSubmit={handleSubmit}>
+                            <form className="form-signin text-center" onSubmit>
 
 
                                 <div class="form-label-group">

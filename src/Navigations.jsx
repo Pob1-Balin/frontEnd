@@ -65,6 +65,7 @@ import UnitsClientsPage from './ClientsDashboard/pages/UnitsPage'
 import AddQuestionPage from './AdminDashboard/pages/AddQuestionPage'
 import ClientsServicesPage from './CyberzoneWebsite/pages/ClientsServicesPage';
 import UnitStructures from './AdminDashboard/pages/structures';
+import EditQuestionPage from './AdminDashboard/pages/EditQuestionPage';
 
 
 
@@ -81,7 +82,7 @@ function Navigation() {
         <BrowserRouter>
             <Routes>
                  <Route path='/clientservicedashboard' exact element={<HomePage/>}/>
-                 <Route path='/' exact element={<ClientsServicesPage/>}/>
+                 <Route path='/home' exact element={<ClientsServicesPage/>}/>
                  <Route path='/profile' exact element={<MyProfile/>}/>
                  <Route path='/res' exact element={<ResourcePage/>}/>
                  <Route path='/attest' exact element={<AttestationPage/>}/>
@@ -112,7 +113,7 @@ function Navigation() {
 
 
                  {/*============================= User Authentication =============================*/}
-                <Route path='/clientslogin' exact element={<UserLoginPage />}/>
+                <Route path='/' exact element={<UserLoginPage />}/>
                 <Route path='/forgotpassword' exact element={<UserForgotPasswordPage />}/>
                 <Route path='/checkemail' exact element={<UserCheckEmailPage />}/>
                 <Route path='/setuserpassword' exact element={<SetUserPasswordPage />}/>
@@ -148,6 +149,7 @@ function Navigation() {
                  <Route path='/editclient' exact element={<EditClientPage/>}/>
                  <Route path='/addservice' exact element={<AddServicePage/>}/>
                  <Route path='/addquestion' exact element={<AddQuestionPage/>}/>
+                 <Route path='/editquestion' exact element={<EditQuestionPage />}/>
                  <Route path='/unit-structures' exact element = {<UnitStructures/>}/>
 
                  {/* main site home page */}

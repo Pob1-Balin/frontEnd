@@ -9,14 +9,15 @@ import { useLocation } from 'react-router-dom'
 import axios from "axios";
 import { API } from '../../config'
 import NumberOfQuestionsAndTime from "../components/NumberOfQuestionsAndTime";
+import Marquee from "react-fast-marquee";
 
 function HomepageContent(props) {
     const location = useLocation()
     var TestUnitInfo = location.state
     const testUnit_id = TestUnitInfo.id
-    console.log("fgfrhg vygy ygyg", testUnit_id)
     const [answers, setAnswers] = useState([]);
     const [unitTime, setUnitTime] = useState([{}]);
+    var time = 0;
     useEffect(() => {
         axios.get(`${API}/answer/answer/${testUnit_id}`).then(({data})=>{
             setAnswers(data.data)
@@ -33,13 +34,6 @@ function HomepageContent(props) {
         Aos.init({ duration: 2000 });
     }, []);
 
-
-
-    // var correctAnswerss =  unitTime.map((item)=>{ correctAnswerss = item.time; })
-
-    // console.log(unitTime.time)
-    // console.log('units', unitTime)
-    // addind number of questions to answer and time to answer them
     const [values, setValues] = useState({
         number_of_question: '',
         time: ''
@@ -54,11 +48,13 @@ function HomepageContent(props) {
     const submitQuestionsTime = (questionInfo) => {
         axios.put(`${API}/unit/unit/${testUnit_id}`, questionInfo)
             .then(res => {
-                alert(res)
             })
             .catch(err => {
             })
     }
+    
+    time = time + parseInt(unitTime.time);
+    console.log("trjyuyiu",time)
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -67,15 +63,16 @@ function HomepageContent(props) {
             number_of_question,
             time
         });
-        // sessionStorage.setItem('name', 'success');
-        // alert('Course Updated Successfully')
-        // navigate('/adminmodulepage');
+        window.location.reload();
     }
+
+    const hours = Math.floor((unitTime.time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((unitTime.time % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((unitTime.time % (1000 * 60)) / 1000);
 
     return (
         <>
             <main className="px-md-4 wrapper2 dashboard-pages">
-
                 {/*-- Modal =====*/}
                 <div class="modal fade" id="setTime" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -117,8 +114,13 @@ function HomepageContent(props) {
                         </Link>
                     </div>
                 </div>
-
-                <NumberOfQuestionsAndTime key={unitTime._id} id={unitTime._id} number={unitTime.number_of_question} time={unitTime.time} />
+                <Marquee speed="100" style={{height: "2rem"}}>
+                    {unitTime.number_of_question != ""?
+                        <NumberOfQuestionsAndTime key={unitTime._id} id={unitTime._id} number={unitTime.number_of_question} timeOrNumber="timeOrNumber" time={hours + "h " + minutes + "m " + seconds + "s"}/>
+                        :
+                        <NumberOfQuestionsAndTime key={unitTime._id} id={unitTime._id} number={unitTime.number_of_question} timeOrNumber="empty" time={hours + "h " + minutes + "m " + seconds + "s"}/>
+                    }
+                </Marquee>
 
                 <div className="all-content-wrapper admintest">
                     <div className="product-sales-area mg-tb-30 graph-container">
@@ -129,7 +131,7 @@ function HomepageContent(props) {
                                         <div className="portlet-title">
                                             <div className="row">
                                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    {answers.map((answerData) => <Questions key={answerData._id} id={answerData._id} UNIT_IDS={testUnit_id} question={answerData.question} answer={answerData.answer} correctAnswer={answerData.correct_answer}/>)}
+                                                    {answers.map((answerData) => <Questions key={answerData._id} questionId={answerData._id} id={answerData._id} question={answerData.question} answer={answerData.answer} testUnit_id={testUnit_id} correctAnswer={answerData.correct_answer}/>)}
                                                 </div>
                                             </div>
                                         </div>

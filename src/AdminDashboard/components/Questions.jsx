@@ -1,8 +1,28 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import axios from "axios";
+import { API } from '../../config'
+
 function Questions(props){
+    const testUnit_id = props.testUnit_id;
     var anwersArray = props.answer;
     var correctAnswerArray = props.correctAnswer;
+    var question = props.question;
+    const id = props.id;
+
+    const deleteQuestion = () => {
+      axios
+          .delete(`${API}/answer/${id}`)
+          .then((res) => {
+              if (res.status === 200) {
+                  //  alert("Student successfully deleted");
+                   window.location.reload();
+                  //  console.log(`${API}/service/${id}`)
+              } else Promise.reject();
+          })
+          .catch((err) => alert("Something went wrong"));
+    }
+
   return(
     <>
         <div data-aos="fade-left" data-aos-offset="200" className=" caption pro-sl-hd" style={{marginBottom:"2rem"}}>
@@ -16,15 +36,12 @@ function Questions(props){
                         <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
-                    <div class="modal-body">
+                    <div class="modal-body" style={{color:"black"}}>
                         Are you sure you want to permanently delete this Question?
                     </div>
                     <div class="modal-footer">
-                        <form action="php-code.php" method="POST">
-                            <input type="hidden" name="service_id" value="<?php echo $row['service_id']; ?>"/>
-                            <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Close</button>
-                            <button type="submit" name="delete_service" class="btn btn-info">Yes</button>
-                        </form>
+                        <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Close</button>
+                        <button type="submit" name="" onClick={deleteQuestion} class="btn btn-info">Yes</button>
                     </div>
                     </div>
                 </div>
@@ -50,7 +67,7 @@ function Questions(props){
             <div style={{display:"flex", justifyContent:"space-between"}}>
                 <div></div>
                 <div style={{display:"flex"}}>
-                     <Link to="/addquestion"><button style={{width:"4rem", marginRight:".2rem"}} className="add-buttons question-actions">Edit</button></Link>
+                     <Link to="/editquestion" state={{correctAnswerArray:correctAnswerArray, anwersArray, id:id, question:question, testUnit_id:testUnit_id}}><button style={{width:"4rem", marginRight:".2rem"}} state={props} className="add-buttons question-actions">Edit</button></Link>
                      <button style={{width:"5rem", marginRight:"2rem"}} data-toggle="modal" data-target="#del" className="question-actions add-buttons bg-danger">Delete</button>
                 </div>
             </div>

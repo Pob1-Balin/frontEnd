@@ -37,7 +37,7 @@ function Services(props) {
             <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12" >
                  <div className="courses-inner mg-t-30">
                      <div className="courses-title">
-                         <a href="#"><img src="./images/Cature.png" alt="" /></a>
+                         <a href="#"><img src={`${API}/images/${props.image}`} style={{height: "12rem", width:"20rem"}} alt="Service image" /></a>
                          <h2>{props.service_name}</h2>
                      </div>
                      <div className="courses-alaltic" style={{ paddingLeft: ".3rem", fontSize: '1rem', color:"black"}}>

@@ -10,53 +10,84 @@ import { Link } from 'react-router-dom';
 function EditModuleContent() {
     const location = useLocation()
     var modOldInfo = location.state
-    console.log(modOldInfo)
+    console.log("module info",modOldInfo)
     const navigate = useNavigate();
     const [values, setValues] = useState({
         title: modOldInfo.title,
         image: "",
     })
 
-
     // Destructing so as to be able to send to the backend
-
-
     const handleChange = event => {
         setValues({
             ...values, [event.target.name]: event.target.value
         })
     }
 
+/////////  handle images
+    const [image, setImage] = useState('')
+    const handleImage = (event)=>{
+        var img = event.target.files[0]
+        setImage(img)
+        setValues({...values, 'image': img.name})
+    }
+
     const id = modOldInfo.id;
     const submitModule = (moduleInfo) => {
-        axios.put(`${API}/module/module/${id}`, moduleInfo)
-            .then(res => {
-                alert(res)
-                // if (res.status === 200)
-                // alert('service successfully added')
-                // else
-                // Promise.reject()
+
+        if(image != ''){
+            /// sending post request to upload file
+            const formData = new FormData()
+            formData.append('myFile', image)
+            axios.post(`${API}/upload`, formData, {
+                headers:{
+                    "content-tupe": "multipart/form-data"
+                }
+            }).then(res=>{
+            }).catch(err=>{
             })
-            .catch(err => {
-                // alert('Something went wrong')
-                // console.log(err)
-            })
+
+            //////////////////////////
+            axios.put(`${API}/module/module/${id}`, moduleInfo)
+                .then(res => {
+                })
+                .catch(err => {
+                })
+        }else {
+            axios.put(`${API}/module/module/${id}`, moduleInfo)
+                .then(res => {
+                    alert(res)
+                })
+                .catch(err => {
+                })
+        }
 
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
         const { name, title, image, time_spent, score  } = values;
-        submitModule({
-            name,
-            title,
-            image,
-            time_spent,
-            score
-        });
+
+        if(image != ''){
+            submitModule({
+                name,
+                title,
+                image,
+                time_spent,
+                score
+            });
+        }else{
+            submitModule({
+                name,
+                title,
+                time_spent,
+                score
+            });
+        }
+
         // sessionStorage.setItem('name', 'success');
         // alert('Course Updated Successfully')
-        navigate('/adminmodulepage');
+        navigate('/adminmodulepage', {state:{id:modOldInfo.service_id}});
     }
 
     return (
@@ -86,7 +117,7 @@ function EditModuleContent() {
                                                                         </div>
                                                                         <div className="form-group">
                                                                             <label htmlFor='image' style={{marginBottom: "-12px"}} className="FormLable"><p>Image</p></label>
-                                                                            <input type="file" className="form-control" onchange="document.getElementById('prepend-big-btn').value = this.value;" placeholder="Select module image" name="image" value={values.image} onChange={handleChange} />
+                                                                            <input type="file" className="form-control"  placeholder="Select module image" name="image"  onChange={handleImage} accept=".png, .jpg, .jpeg"/>
                                                                         </div>
                                                                         <button type="submit" style={{ background: '#4ab2cc', color: 'white' }} href="#!" className="add-service btn waves-effect waves-light">Submit</button>
                                                                      </form>

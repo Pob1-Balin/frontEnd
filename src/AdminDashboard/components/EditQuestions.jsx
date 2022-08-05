@@ -3,15 +3,16 @@ import { useNavigate } from 'react-router-dom'
 import { ClearRounded } from '@mui/icons-material';
 import axios from 'axios';
 import { API } from '../../config'
-class AddQuestions extends React.Component{
+class EditQuestions extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            unitId: props.units_id,
-            Questions: '',
-            addQuestions: [],
+            unitId: props.testUnit_id,
+            question_id: props.id,
+            Questions: props.question,
+            addQuestions: props.anwersArray,
             message:'',
-            addCorrectAnswers: [],
+            addCorrectAnswers: props.correctAnswerArray,
             message2:'',
             edit:'',
         }
@@ -24,14 +25,14 @@ class AddQuestions extends React.Component{
         })
     }
 
-    submitQuestions(exerciseInfo){
-        axios.post(`${API}/answer/answer`, exerciseInfo)
-            .then(res => {
-            // alert("course Added Successfully")
-            })
-            .catch(err => {
-                //  alert('Something went wrong, course could not be added')
-            })
+
+    updateQuestions(exerciseInfo){
+        const {question_id} = this.state;
+        axios.put(`${API}/answer/answer/${question_id}`, exerciseInfo)
+        .then(res => {
+        })
+        .catch(err => {
+        })
     }
 
     handleSubmit(){
@@ -43,13 +44,11 @@ class AddQuestions extends React.Component{
         const question = Questions;
         const answer = addQuestions;
         const correct_answer = addCorrectAnswers;
-        const unit_id = unitId;
         if(correct_answer.length !== 0 && answer.length !== 0 && question !== 0){
-            this.submitQuestions({
+            this.updateQuestions({
                 question,
                 answer,
-                correct_answer,
-                unit_id,
+                correct_answer
             });
             navigate('/admintest', {state:{id:unitId}});
         }
@@ -166,7 +165,7 @@ class AddQuestions extends React.Component{
                                     <div className="caption pro-sl-hd" style={{paddingBottom:"1rem", paddingTop:"-.5rem"}}>
                                         <span style={{color: 'gray', fontStyle: 'bold', fontWeight: '550'}} className="caption-subject questt">Enter Question</span>
                                         <div style={{marginTop:".8rem"}}>
-                                             <textarea width="100%" className="form-control" name="question" value={Questions.question} onChange={(e) => {this.handleChange(e)}}></textarea>
+                                             <textarea width="100%" className="form-control" name="question" value={Questions} onChange={(e) => {this.handleChange(e)}}></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -263,5 +262,5 @@ class AddQuestions extends React.Component{
 
 export default function (props){
     const navigate = useNavigate();
-    return <AddQuestions {...props} navigate={navigate}/>
+    return <EditQuestions {...props} navigate={navigate}/>
 }

@@ -22,6 +22,8 @@ function ModulesPageContent(props) {
       })
       // Aos.init({ duration: 2000 });
   }, []);
+
+  const number_of_modules = module.length;
   return (
     <>
        <main className="px-md-4 wrapper2">
@@ -30,14 +32,14 @@ function ModulesPageContent(props) {
         <div>
           <div className="module-margin d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-3 border-bottom modulehome">
             <h4><p><Link className="return-home" style={{textDecoration: 'none'}} to='/services'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span className="modulee" style={{color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Modules</span></p></h4>
-            <Link className="return-home" style={{textDecoration: 'none'}} state={{id:serviceId}} to='/addmodule' >
+            <Link className="return-home" style={{textDecoration: 'none'}} state={{id:serviceId, numberOfModules:number_of_modules}} to='/addmodule' >
               <div>
                 <button className="add-buttons mb-2">Add Modules</button>
               </div>
             </Link>
           </div>
           <div style={{marginTop:"2rem"}} className="wrapper3">
-            {module.map((moduleData)=><Module2 key={moduleData._id} id={moduleData._id} image="./images/Cature.png" title={moduleData.title} module_name={moduleData.name} timePassed={moduleData.time_spent} score={moduleData.score} /> )}
+            {module.map((moduleData, index)=><Module2 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} score={moduleData.score} service_id={serviceId} /> )}
           </div>
           <div style={{marginTop:"14rem"}} className="space-creater"></div>
           <Footer destination="/adminlegal" />
@@ -52,7 +54,7 @@ function ModulesPageContent(props) {
           </div>
           <h4 style={{paddingTop:"7px"}}><p><Link className="return-home" style={{ textDecoration: 'none' }} to='/'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span>Modules</span></p></h4>
           <div style={{marginTop:"2rem"}} className="wrapper3">
-              {module.map((moduleData)=><Module1 key={moduleData._id} id={moduleData._id} image="./images/Cature.png" title={moduleData.title} module_name={moduleData.name} timePassed={moduleData.time_spent} score={moduleData.score} />)}
+              {module.map((moduleData, index)=><Module1 key={moduleData._id} id={moduleData._id} image="./images/Cature.png" title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} score={moduleData.score} />)}
           </div>
           <div style={{marginTop:"12rem"}} className="space-creater"></div>
           <Footer destination="/legalnotice" />

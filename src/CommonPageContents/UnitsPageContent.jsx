@@ -25,15 +25,7 @@ function UnitsPageContent(props){
        // Aos.init({ duration: 2000 });
    }, []);
 
-
-    // units.map((item)=>{
-    //     console.log("testttt",item.unit_content[0].admin_route)
-    //     console.log("clll",item.unit_content[0].client_route)
-    //     console.log("clll",item.unit_content.length)
-    // })
-
-
-
+   const number_of_units = units.length;
     return(
         <>
             <main className="px-md-4 wrapper2">
@@ -41,14 +33,14 @@ function UnitsPageContent(props){
                     <>
                         <div className="module-margin d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom modulehome">
                             <h4><p><Link className="return-home" style={{textDecoration: 'none'}} to='/adminmodulepage'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span className="modulee" style={{color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>{module_title != "" ?   module_name + " " + ":" + " " + module_title  : "" }</span></p></h4>
-                            <Link className="return-home" state={moduleInfo} style={{textDecoration: 'none'}} to='/addunite'>
+                            <Link className="return-home" state={{id:module_id, numberOfUnits:number_of_units, title:moduleInfo.title, module_name:moduleInfo.module_name}} style={{textDecoration: 'none'}} to='/addunite'>
                                 <div>
                                      <button className="add-buttons">Add Unites</button>
                                 </div>
                             </Link>
                         </div>
                         <div style={{marginTop:"2rem"}} className="wrapper3">
-                             {units.map((unitData)=><UnitsCard key={unitData._id} id={unitData._id} unit_id={unitData._id} image="./images/Cature.png" title={unitData.title} module_name={unitData.name} timePassed={unitData.time_spent} score={unitData.score} />)}
+                             {units.map((unitData, index)=><UnitsCard key={unitData._id} id={unitData._id} unit_id={unitData._id} image={unitData.image} title={unitData.title} unit_name={"Units" + " " + (parseInt(index) + 1)} timePassed={unitData.time_spent} score={unitData.score} module_id={module_id} module_title={moduleInfo.title} module_name={moduleInfo.module_name} />)}
                         </div>
                         <div style={{marginTop:"15rem"}} className="space-creater"></div>
                         <Footer destination="/adminlegal" />
@@ -60,7 +52,7 @@ function UnitsPageContent(props){
                     </div>
                     <h4 style={{paddingTop:"7px"}}><p><Link className="return-home" style={{ textDecoration: 'none' }} to='/clientservicedashboard'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span>Unites</span></p></h4>
                     <div style={{marginTop:"2rem"}} className="wrapper3">
-                         {units.map((unitData)=><UnitsCard2 key={unitData._id} id={unitData._id} image="./images/Cature.png" title={unitData.title} module_name={unitData.name} timePassed={unitData.time_spent} score={unitData.score}/>)}
+                         {units.map((unitData, index)=><UnitsCard2 key={unitData._id} id={unitData._id} image={unitData.image} title={unitData.title} unit_name={"Units" + " " + (parseInt(index) + 1)} timePassed={unitData.time_spent} score={unitData.score}/>)}
                     </div>
                     <div style={{marginTop:"15rem"}} className="space-creater"></div>
                     <Footer destination="/legalnotice" />

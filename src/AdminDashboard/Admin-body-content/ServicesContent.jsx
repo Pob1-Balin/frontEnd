@@ -67,7 +67,7 @@ function ServicesContent(){
                  <div className="container-fluid services-area">
                      <div className="container-fluid services">
                      <div className="row mg-b-15">
-                        {service.map(serviceData => <Services key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} number_of_subscribers={serviceData.subscribers} display="admin" short_description={serviceData.description}/>)}
+                        {service.map(serviceData => <Services key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} number_of_subscribers={serviceData.subscribers} image={serviceData.image} display="admin" short_description={serviceData.description}/>)}
                         {/* <Services id= "dgfgbjhsbua" service_id="fgthsss" dashboard_id="ftgyhuihjoi" service_name="sdfghhjj" service_amount="tryuii" number_of_subscribers="fdgh" short_description="ghgjhududd"/> */}
                      </div>
                      </div>

@@ -9,7 +9,6 @@ import axios from 'axios';
 function AddServiceContent() {
     const location = useLocation()
     var servOldInfo = location.state
-    console.log("services", servOldInfo)
     const navigate = useNavigate();
 
     const [values, setValues] = useState({
@@ -29,7 +28,7 @@ function AddServiceContent() {
 
     const id = servOldInfo.id;
     const submitService = (serviceInfo) => {
-        axios.put(`${API}/service/${id}/update`, serviceInfo)
+        axios.put(`${API}/service/update/${id}`, serviceInfo)
             .then(res => {
             })
             .catch(err => {
@@ -37,23 +36,34 @@ function AddServiceContent() {
 
     }
 
+    console.log("seeeee",`${API}/service/update/${id}`)
+
     const clickAddService = (event) => {
         event.preventDefault();
         const {service_name, service_amount, short_description, service_image } = values;
-       if(service_image != ""){
-            submitService({
-                service_name,
-                service_amount,
-                short_description,
-                service_image
-            });
-       }else{
-            submitService({
-                service_name,
-                service_amount,
-                short_description
-            });
-       }
+
+        submitService({
+            service_name,
+            service_amount,
+            short_description,
+        });
+
+
+
+    //    if(service_image != ""){
+    //         submitService({
+    //             service_name,
+    //             service_amount,
+    //             short_description,
+    //             service_image
+    //         });
+    //    }else{
+    //         submitService({
+    //             service_name,
+    //             service_amount,
+    //             short_description
+    //         });
+    //    }
         sessionStorage.setItem('name', 'success');
         navigate('/services');
     }

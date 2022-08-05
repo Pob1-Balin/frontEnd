@@ -10,11 +10,13 @@ function ClientsServicesPage() {
 
   const {user} = useSelector((state)=>state.auth)
 
+
   useEffect(()=>{
     if(!user){
       navigate('/login')
+      console.log('kjdshkj')
     }
-  }, [user, navigate])
+  },[user, navigate])
   console.log(user)
   return (
     <>

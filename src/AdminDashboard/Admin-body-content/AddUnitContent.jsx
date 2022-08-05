@@ -9,17 +9,20 @@ function AddUnitContent() {
     const location = useLocation()
     var moduleInfo = location.state
     const moduleId = moduleInfo.id
-    const [unit, setUnit] = useState([]);
+    const title = moduleInfo.title
+    const module_name = moduleInfo.module_name
+    const [moduleData, setModuleData] = useState([]);
     const [unitlength, setUnitlength] = useState([]);
-    useEffect(() => {
-        axios.get(`${API}/module/module`).then(({data})=>{
-            setUnit(data.data)
-            setUnitlength(data.data.length)
-        }).catch((err)=>{
-           //  console.log("Something Went Wrong:", err)
-        })
-        // Aos.init({ duration: 2000 });
-    }, []);
+
+    // useEffect(() => {
+    //     axios.get(`${API}/module/module/${moduleId}`).then(({data})=>{
+    //         setModuleData(data.data)
+    //       //  console.log(data.data)
+    //     }).catch((err)=>{
+    //       //  console.log("Something Went Wrong:", err)
+    //     })
+    //     // Aos.init({ duration: 2000 });
+    // }, []);
 
 
     const navigate = useNavigate();
@@ -31,8 +34,6 @@ function AddUnitContent() {
        title: '',
        image: ''
     })
-
-    console.log(module)
 
     // Destructing so as to be able to send to the backend
     const handleChange = event => {
@@ -66,7 +67,7 @@ function AddUnitContent() {
             title,
             image,
         });
-        navigate('/adminmodulepage');
+        navigate('/units', {state:{id:module_id, title: title, module_name: module_name}});
     }
 
 

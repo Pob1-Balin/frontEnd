@@ -1,5 +1,5 @@
 import React from "react";
-import { useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { ClearRounded } from '@mui/icons-material';
 import axios from 'axios';
 import { API } from '../../config'
@@ -32,8 +32,13 @@ class AddQuestions extends React.Component{
             .catch(err => {
                 //  alert('Something went wrong, course could not be added')
             })
-
     }
+
+    navigateFunction(){
+        const {unitId} = this.state;
+        this.navigate('/admintest', {state:{id:unitId}});
+    }
+
 
     handleSubmit(){
         const {addQuestions} = this.state;
@@ -43,15 +48,15 @@ class AddQuestions extends React.Component{
         const question = Questions;
         const answer = addQuestions;
         const correct_answer = addCorrectAnswers;
-        const unit_id = "62bc101b9dd0d5326f552d28";
-        // console.log(unit_id);
+        const unit_id = unitId;
         this.submitQuestions({
             question,
             answer,
             correct_answer,
             unit_id,
         });
-        // navigate('/adminmodulepage');
+
+        this.navigateFunction();
     }
 
 
@@ -258,6 +263,13 @@ class AddQuestions extends React.Component{
                 </div>
             </div>
     }
+}
+
+
+
+export function Navigate(props){
+    const navigate = useNavigate();
+    return(<AddQuestions navigate={navigate}></AddQuestions>)
 }
 
 export default AddQuestions;

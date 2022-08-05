@@ -24,15 +24,8 @@ function AddServiceContent() {
     const submitService = (serviceInfo) => {
         axios.post(`${API}/service/create`, serviceInfo)
             .then(res => {
-                // alert(res)
-                // if (res.status === 200)
-                // alert('service successfully added')
-                // else
-                // Promise.reject()
-            alert("course Added Successfully")
             })
             .catch(err => {
-                 alert('Something went wrong, course could not be added')
             })
 
     }
@@ -40,13 +33,31 @@ function AddServiceContent() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const { name, description, amount, image } = values;
-        submitService({
-            name,
-            description,
-            amount,
-            image,
-        });
-        navigate('/services');
+
+        console.log("niini iiij ij", image)
+        const data =  new FormData();
+        data.append('file', image);
+
+        // axios.post(`${API}/service/create`, serviceInfo)
+
+        axios.post('//localhost:7000/upload', data)
+            .then((response) => {
+                alert("yes")
+            })
+            .catch((e) => {
+               alert("failed")
+            })
+
+
+
+
+        // submitService({
+        //     name,
+        //     description,
+        //     amount,
+        //     image,
+        // });
+        // navigate('/services');
     }
 
         return (
@@ -93,7 +104,7 @@ function AddServiceContent() {
                                                         <div className="row">
                                                             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <div className="devit-card-custom">
-                                                                    <form onSubmit={handleSubmit}>
+                                                                    <form method="post" onSubmit={handleSubmit}>
                                                                         <div className="form-group">
                                                                             <label htmlFor='name' style={{marginBottom: "-12px"}} className="FormLable"><p>Name</p></label>
                                                                             <input type="text" className="form-control input" placeholder="Enter service name" name="name" value={values.name} onChange={handleChange} />

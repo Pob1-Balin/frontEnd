@@ -5,23 +5,32 @@ import axios from "axios";
 import { API } from '../../config'
 
 function Services(props) {
-     const dashboard_id = props.dashboard_id;
-     const service_id = props.service_id
      const id = props.id
-     console.log(id)
-     let navigate = useNavigate();
+     console.log("the api",`${API}/service/removeService/${id}`)
      const deleteService = () => {
         axios
             .delete(`${API}/service/${id}`)
             .then((res) => {
                 if (res.status === 200) {
-                     alert("Student successfully deleted");
                      window.location.reload();
-                     console.log(`${API}/service/${id}`)
                 } else Promise.reject();
             })
             .catch((err) => alert("Something went wrong"));
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     return (
         <>
@@ -31,7 +40,7 @@ function Services(props) {
                          <a href="#"><img src="./images/Cature.png" alt="" /></a>
                          <h2>{props.service_name}</h2>
                      </div>
-                     <div className="courses-alaltic" style={{ paddingLeft: ".3rem", fontSize: '1rem' }}>
+                     <div className="courses-alaltic" style={{ paddingLeft: ".3rem", fontSize: '1rem', color:"black"}}>
                          <span className="cr-ic-r"><span className="course-icon">XAF</span> {props.service_amount}</span>
                      </div>
                      <div className="course-des" style={{ paddingLeft: ".3rem" }}>
@@ -51,6 +60,7 @@ function Services(props) {
                                 </div>
                                 <div className="modal-body">
                                      <p>Are you sure you want to permanently delete this service?</p>
+                                     <div><p>tyguiojk;'tdryguiukl</p></div>
                                 </div>
                                 <div className="modal-footer">
                                     <form>

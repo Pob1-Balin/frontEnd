@@ -14,6 +14,7 @@ function HomepageContent(props) {
     const location = useLocation()
     var TestUnitInfo = location.state
     const testUnit_id = TestUnitInfo.id
+    console.log("fgfrhg vygy ygyg", testUnit_id)
     const [answers, setAnswers] = useState([]);
     const [unitTime, setUnitTime] = useState([{}]);
     useEffect(() => {
@@ -32,8 +33,7 @@ function HomepageContent(props) {
         Aos.init({ duration: 2000 });
     }, []);
 
-    // console.log("yftuud")
-    console.log(unitTime)
+
 
     // var correctAnswerss =  unitTime.map((item)=>{ correctAnswerss = item.time; })
 
@@ -110,7 +110,7 @@ function HomepageContent(props) {
                         <div>
                             <button style={{width: "5rem", background: "#3363ad"}} className="add-buttons add-questions block" data-toggle="modal" data-target="#setTime">Set time</button>
                         </div>
-                        <Link className="return-home" state={props} style={{textDecoration: 'none', marginLeft:".3rem"}} to='/addquestion'>
+                        <Link className="return-home" state={{id:testUnit_id}} style={{textDecoration: 'none', marginLeft:".3rem"}} to='/addquestion'>
                             <div>
                                 <button className="add-buttons add-questions">Add Questions</button>
                             </div>

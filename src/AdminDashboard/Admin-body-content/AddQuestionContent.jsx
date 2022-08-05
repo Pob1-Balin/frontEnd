@@ -1,6 +1,6 @@
 import React from "react";
 import Footer from '../../ClientsDashboard/components/Footer';
-import AddQuestions from '../components/AddQuestions';
+import AddQuestions, { Navigate } from '../components/AddQuestions';
 import { useLocation } from 'react-router-dom';
 import "../admin.css";
 import { Link } from 'react-router-dom';
@@ -9,8 +9,6 @@ function AddQuestionContent() {
     const location = useLocation()
     var AddUnitInfo = location.state
     const addUnitId = AddUnitInfo.id
-    console.log("zion")
-    console.log(addUnitId)
     return (
         <>
             <main className="px-md-4 wrapper2">

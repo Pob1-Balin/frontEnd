@@ -43,15 +43,8 @@ function AddModuleContent() {
     const submitModule = (moduleInfo) => {
         axios.post(`${API}/module/module`, moduleInfo)
             .then(res => {
-                // alert(res)
-                // if (res.status === 200)
-                // alert('service successfully added')
-                // else
-                // Promise.reject()
-                // alert("course Added Successfully")
             })
             .catch(err => {
-                //  alert('Something went wrong, course could not be added')
             })
 
     }

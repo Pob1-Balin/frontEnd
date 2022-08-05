@@ -40,7 +40,27 @@ function AddModuleContent() {
         })
     }
 
+    const [image, setImage] = useState('')
+    const handleImage = (event)=>{
+        var img = event.target.files[0]
+        setImage(img)
+        setValues({...values, 'image': img.name})
+    }
+
     const submitModule = (moduleInfo) => {
+        /// sending post request to upload file
+        const formData = new FormData()
+        formData.append('myFile', image)
+        axios.post(`${API}/upload`, formData, {
+            headers:{
+                "content-tupe": "multipart/form-data"
+            }
+        }).then(res=>{
+            console.log(res)
+        }).catch(err=>{
+            console.log(err)
+        })
+        //////////////////////////
         axios.post(`${API}/module/module`, moduleInfo)
             .then(res => {
                 // alert(res)
@@ -100,7 +120,7 @@ function AddModuleContent() {
                                                                         </div>
                                                                         <div className="form-group">
                                                                             <label htmlFor='image' style={{ marginBottom: "-12px" }} className="FormLable"><p>Image</p></label>
-                                                                            <input type="file" className="form-control" onchange="document.getElementById('prepend-big-btn').value = this.value;" placeholder="Select module image" name="image" value={values.image} onChange={handleChange} />
+                                                                            <input type="file" className="form-control"  placeholder="Select module image" name="image"  onChange={handleImage} accept=".png, .jpg, .jpeg"/>
                                                                         </div>
                                                                         <button type="submit" style={{ background: '#4ab2cc', color: 'white' }} href="#!" className="add-service btn waves-effect waves-light">Submit</button>
                                                                     </form>

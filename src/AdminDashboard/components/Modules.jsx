@@ -22,7 +22,7 @@ function Modules(props) {
   return (
     <>
       <div className="card">
-        <img className="card_image" src={props.image} />
+        <img className="card_image" src={`${API}/images/${props.image}`} />
         <div className="card_body">
           <h3 className="card_module">{props.module_name}</h3>
           <h2 className="card_title">{props.title}</h2>

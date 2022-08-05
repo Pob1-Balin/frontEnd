@@ -26,9 +26,30 @@ function EditModuleContent() {
             ...values, [event.target.name]: event.target.value
         })
     }
+/////////  handle images 
+    const [image, setImage] = useState('')
+    const handleImage = (event)=>{
+        var img = event.target.files[0]
+        setImage(img)
+        setValues({...values, 'image': img.name})
+    }
 
     const id = modOldInfo.id;
     const submitModule = (moduleInfo) => {
+
+        /// sending post request to upload file
+        const formData = new FormData()
+        formData.append('myFile', image)
+        axios.post(`${API}/upload`, formData, {
+            headers:{
+                "content-tupe": "multipart/form-data"
+            }
+        }).then(res=>{
+            console.log(res)
+        }).catch(err=>{
+            console.log(err)
+        })
+        //////////////////////////
         axios.put(`${API}/module/module/${id}`, moduleInfo)
             .then(res => {
                 alert(res)

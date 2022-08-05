@@ -37,7 +37,7 @@ function ModulesPageContent(props) {
             </Link>
           </div>
           <div style={{marginTop:"2rem"}} className="wrapper3">
-            {module.map((moduleData)=><Module2 key={moduleData._id} id={moduleData._id} image="./images/Cature.png" title={moduleData.title} module_name={moduleData.name} timePassed={moduleData.time_spent} score={moduleData.score} /> )}
+            {module.map((moduleData)=><Module2 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={moduleData.name} timePassed={moduleData.time_spent} score={moduleData.score} /> )}
           </div>
           <div style={{marginTop:"14rem"}} className="space-creater"></div>
           <Footer destination="/adminlegal" />

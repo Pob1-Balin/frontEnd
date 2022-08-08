@@ -41,9 +41,7 @@ function AddModuleContent() {
                 "content-tupe": "multipart/form-data"
             }
         }).then(res=>{
-            console.log(res)
         }).catch(err=>{
-            console.log(err)
         })
         //////////////////////////
         axios.post(`${API}/module/module`, moduleInfo)

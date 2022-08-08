@@ -7,15 +7,9 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { API } from '../../config'
 
-function AdminSidebarLinks(props) {
-  const location = useLocation();
-  const unitId = location.state;
+function EditAdminSidebarLinks(props) {
   const [unitsContent, setUnitsContent] = useState([]);
-  var unit_id = unitId.id;
-  const unitsId = props.unitsId;
-
-
-  console.log("trytujghukl is this it", unit_id)
+  const unit_id = props.unitsId;
 
   useEffect(() => {
     axios.get(`${API}/unit/unitsdata/${unit_id}`).then(({data})=>{
@@ -47,4 +41,4 @@ function AdminSidebarLinks(props) {
     )
 
   }
-export default AdminSidebarLinks;
+export default EditAdminSidebarLinks;

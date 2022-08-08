@@ -5,8 +5,9 @@ import axios from "axios";
 import { API } from '../../config'
 
 function Services(props) {
-     const id = props.id
-     console.log("the api",`${API}/service/removeService/${id}`)
+     const id = props.id;
+     const service_name = props.service_name;
+     const service = '#'+service_name;
      const deleteService = () => {
         axios
             .delete(`${API}/service/${id}`)
@@ -17,19 +18,6 @@ function Services(props) {
             })
             .catch((err) => alert("Something went wrong"));
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     return (
@@ -49,7 +37,7 @@ function Services(props) {
                      </div>
 
                     {/*-- Modal =====*/}
-                    <div className="modal fade" id="del" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal fade" id={service_name} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
                                 <div className="modal-header">
@@ -59,8 +47,7 @@ function Services(props) {
                                     </button>
                                 </div>
                                 <div className="modal-body">
-                                     <p>Are you sure you want to permanently delete this service?</p>
-                                     <div><p>tyguiojk;'tdryguiukl</p></div>
+                                     <p style={{color: "gray"}}>Are you sure you want to permanently delete this service?</p>
                                 </div>
                                 <div className="modal-footer">
                                     <form>
@@ -101,7 +88,7 @@ function Services(props) {
                          <Link to='/adminmodulepage' style={{ textDecoration: 'none' }} state={props}><button type="button" className="button-default cart-btn mr-1 mt-1 btn-info">Dashboard</button></Link>
                          <Link to='/editservice' style={{ textDecoration: 'none' }} state={props}><button type="button" className="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
                          <button type="button" className="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Block</button>
-                         <button type="button" className="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target="#del">Delete</button>
+                         <button type="button" className="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target={service} >Delete</button>
                     </div>
                  </div>
             </div>

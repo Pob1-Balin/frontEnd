@@ -10,10 +10,9 @@ import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../../redux/auth/authSlice'
-  
+
 function ClientsServicesPageContent(props){
-    
-    
+
     const navigate = useNavigate()
   const dispatch = useDispatch()
 //   const { user } = useSelector((state) => state.auth)
@@ -22,7 +21,6 @@ function ClientsServicesPageContent(props){
     console.log(user)
     useEffect(() => {
 
-       
       }, []);
       useEffect(()=>{
         if(!user){
@@ -40,12 +38,11 @@ function ClientsServicesPageContent(props){
 
 
     const [service, setService] = useState([]);
-    
 
 
     return(
         <>
-             <main className="">
+             <main className="">6
                 <SiteHeader/>
 
 

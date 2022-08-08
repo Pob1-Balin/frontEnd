@@ -4,11 +4,15 @@ import axios from "axios";
 import { API } from '../../config'
 
 function Questions(props){
+    const id = props.id;
     const testUnit_id = props.testUnit_id;
     var anwersArray = props.answer;
     var correctAnswerArray = props.correctAnswer;
     var question = props.question;
-    const id = props.id;
+
+    const delete_id = "del1" + props.index;
+    const new_delete_id = "#" + delete_id;
+
 
     const deleteQuestion = () => {
       axios
@@ -27,7 +31,7 @@ function Questions(props){
     <>
         <div data-aos="fade-left" data-aos-offset="200" className=" caption pro-sl-hd" style={{marginBottom:"2rem"}}>
             {/*-- Modal =====*/}
-            <div class="modal fade" id="del" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id={delete_id} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                     <div class="modal-header">
@@ -37,7 +41,7 @@ function Questions(props){
                         </button>
                     </div>
                     <div class="modal-body" style={{color:"black"}}>
-                        Are you sure you want to permanently delete this Question?
+                        <p>Are you sure you want to permanently delete this Question?</p>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Close</button>
@@ -68,7 +72,7 @@ function Questions(props){
                 <div></div>
                 <div style={{display:"flex"}}>
                      <Link to="/editquestion" state={{correctAnswerArray:correctAnswerArray, anwersArray, id:id, question:question, testUnit_id:testUnit_id}}><button style={{width:"4rem", marginRight:".2rem"}} state={props} className="add-buttons question-actions">Edit</button></Link>
-                     <button style={{width:"5rem", marginRight:"2rem"}} data-toggle="modal" data-target="#del" className="question-actions add-buttons bg-danger">Delete</button>
+                     <button style={{width:"5rem", marginRight:"2rem"}} data-toggle="modal" data-target={new_delete_id} className="question-actions add-buttons bg-danger">Delete</button>
                 </div>
             </div>
             <hr/>

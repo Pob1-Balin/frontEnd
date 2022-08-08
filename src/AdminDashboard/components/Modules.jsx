@@ -6,7 +6,9 @@ import { API } from '../../config'
 import '../admin.css'
 
 function Modules(props) {
-  const id = props.id
+  const id = props.id;
+  const title = props.title;
+  const new_title = '#'+title;
   const deleteService = () => {
     axios
         .delete(`${API}/module/${id}`)
@@ -28,7 +30,7 @@ function Modules(props) {
           <h2 className="card_title">{props.title}</h2>
 
           {/*-- Modal =====*/}
-          <div class="modal fade" id="del" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal fade" id={title} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
@@ -38,7 +40,7 @@ function Modules(props) {
                   </button>
                 </div>
                 <div class="modal-body">
-                  Are you sure you want to permanently delete this module?
+                   <p style={{color:"gray"}}>Are you sure you want to permanently delete this module?</p>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Close</button>
@@ -75,7 +77,7 @@ function Modules(props) {
           <div class="product-buttons" style={{ marginTop: '1.5rem', marginBottom: "-.5rem" }}>
             <Link to='/editmodule' style={{ textDecoration: 'none' }} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
             <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Disable</button>
-            <button type="button" class="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target="#del"  >Delete</button>
+            <button type="button" class="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target={new_title}  >Delete</button>
           </div>
           <Link to="/units" style={{ textDecoration: "none" }} state={props}>
             <div className='module_units_button' style={{ marginTop: "1.8rem", marginBottom: '-1.5rem' }}>

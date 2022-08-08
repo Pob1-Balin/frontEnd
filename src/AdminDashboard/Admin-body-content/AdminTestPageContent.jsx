@@ -35,8 +35,8 @@ function HomepageContent(props) {
     }, []);
 
     const [values, setValues] = useState({
-        number_of_question: '',
-        time: ''
+        number_of_question: 0,
+        time: 0
     })
 
     const handleChange = event => {
@@ -52,9 +52,8 @@ function HomepageContent(props) {
             .catch(err => {
             })
     }
-    
+
     time = time + parseInt(unitTime.time);
-    console.log("trjyuyiu",time)
 
     const handleSubmit = (event) => {
         event.preventDefault();
@@ -69,6 +68,10 @@ function HomepageContent(props) {
     const hours = Math.floor((unitTime.time % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
     const minutes = Math.floor((unitTime.time % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((unitTime.time % (1000 * 60)) / 1000);
+
+//    if(unitTime.time == ){
+         console.log("dhghjj uij o8;u", unitTime.time)
+//    }
 
     return (
         <>
@@ -115,10 +118,10 @@ function HomepageContent(props) {
                     </div>
                 </div>
                 <Marquee speed="100" style={{height: "2rem"}}>
-                    {unitTime.number_of_question != ""?
-                        <NumberOfQuestionsAndTime key={unitTime._id} id={unitTime._id} number={unitTime.number_of_question} timeOrNumber="timeOrNumber" time={hours + "h " + minutes + "m " + seconds + "s"}/>
+                    {hours == "NaN"?
+                        <h4><p><span className="testquestions1" style={{color: 'gray', fontStyle: 'bold', fontWeight: '550'}}>Set the number of questions to be answerd and the respective time for this unit</span></p></h4>
                         :
-                        <NumberOfQuestionsAndTime key={unitTime._id} id={unitTime._id} number={unitTime.number_of_question} timeOrNumber="empty" time={hours + "h " + minutes + "m " + seconds + "s"}/>
+                        <NumberOfQuestionsAndTime key={unitTime._id} id={unitTime._id} number={unitTime.number_of_question} time={hours + "h " + minutes + "m " + seconds + "s"}/>
                     }
                 </Marquee>
 
@@ -131,7 +134,7 @@ function HomepageContent(props) {
                                         <div className="portlet-title">
                                             <div className="row">
                                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                    {answers.map((answerData) => <Questions key={answerData._id} questionId={answerData._id} id={answerData._id} question={answerData.question} answer={answerData.answer} testUnit_id={testUnit_id} correctAnswer={answerData.correct_answer}/>)}
+                                                    {answers.map((answerData, index) => <Questions key={answerData._id} questionId={answerData._id} id={answerData._id} question={answerData.question} index={index} answer={answerData.answer} testUnit_id={testUnit_id} correctAnswer={answerData.correct_answer}/>)}
                                                 </div>
                                             </div>
                                         </div>

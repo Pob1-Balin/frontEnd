@@ -18,9 +18,12 @@ function AdminHeaderSection(props){
                      {body == "" ? ""
                      :  <div style={{display:"flex", justifyContent:"space-between", marginBottom:"-1.2rem"}}>
                             <div></div>
-                            <Link to={`${props.edit}`} state={{id:props.unit_id}}>
-                                <div ><button className="add-buttons unit-edit">Edit Content</button></div>
-                            </Link>
+                            <div style={{display:"flex"}}>
+                                <Link to={`/${props.edit}`} state={{id:props.id, index:props.index, content:props.content}}>
+                                    <div style={{marginRight:".5rem"}}><button className="add-buttons">Edit Content</button></div>
+                                </Link>
+                                <div><button className="bg-danger add-buttons unit-edit" data-toggle="modal" data-target="#del">Delete Content</button></div>
+                            </div>
                         </div>}
                      <div className='header-title-divider-line-section'>
                          <div className='header-title' id='title'><b>{props.header_title}</b></div>

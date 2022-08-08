@@ -6,4 +6,8 @@
     font-weight: bold;
 }
 
+.navbar-focus:focus{
+    background-color: gray;
+}
+
 

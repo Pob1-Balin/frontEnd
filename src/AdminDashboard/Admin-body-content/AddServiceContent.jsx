@@ -45,6 +45,9 @@ function AddServiceContent() {
          ///////////
         axios.post(`${API}/service/create`, serviceInfo)
             .then(res => {
+                if (res.status === 200) {
+                    window.location.reload();
+               } else Promise.reject();
             })
             .catch(err => {
             })

@@ -6,6 +6,7 @@ import Services from "../components/services";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import {API} from '../../config'
+import IdleTimerContainer from "../../unitsDashboard/components/IdleTimerContainer";
 
 
 function ServicesContent(){
@@ -21,6 +22,7 @@ function ServicesContent(){
   }, []);
     return(
         <>
+        <IdleTimerContainer/>
             <main className="px-md-4 wrapper2 dashboard-pages">
                  <div className="breadcome-area clients-breadcome-area addservice-bread">
                      <div className="container-fluid">
@@ -67,8 +69,7 @@ function ServicesContent(){
                  <div className="container-fluid services-area">
                      <div className="container-fluid services">
                      <div className="row mg-b-15">
-                        {service.map(serviceData => <Services key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} number_of_subscribers={serviceData.subscribers} image={serviceData.image} display="admin" short_description={serviceData.description}/>)}
-                        {/* <Services id= "dgfgbjhsbua" service_id="fgthsss" dashboard_id="ftgyhuihjoi" service_name="sdfghhjj" service_amount="tryuii" number_of_subscribers="fdgh" short_description="ghgjhududd"/> */}
+                        {service.map((serviceData, index) => <Services key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} index={index} number_of_subscribers={serviceData.subscribers} image={serviceData.image} display="admin" short_description={serviceData.description}/>)}
                      </div>
                      </div>
                  </div>

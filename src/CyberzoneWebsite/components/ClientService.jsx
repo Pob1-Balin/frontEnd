@@ -7,14 +7,6 @@ function ClientService(props) {
 
 
     const [services, setServices] = useState([])
-    // useEffect(() => {
-    //     axios.get(`${API}/service/subscribed`).then(({data})=>{
-    //         setServices(data.data)
-    //     }).catch((err)=>{
-    //        //  console.log("Something Went Wrong:", err)
-    //     })
-    // }, []);
-
     const comServ = props.user.services//['62beae1368a6026244db706a','62c56e866122d005004fa3a8'];
     console.log('test', comServ)
     let serv = comServ[0]
@@ -32,8 +24,6 @@ function ClientService(props) {
         })
     }, []);
     console.log('servic', services)
-
-    console.log(services)
 
     const [noOfElements, setnoOfElements] = useState(4);
     const loadMore = () => {

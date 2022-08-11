@@ -10,6 +10,7 @@ import axios from "axios";
 import { API } from '../../config'
 import NumberOfQuestionsAndTime from "../components/NumberOfQuestionsAndTime";
 import Marquee from "react-fast-marquee";
+import EmptyPageContent from "../../CommonPageContents/EmptyPageContent";
 
 function HomepageContent(props) {
     const location = useLocation()
@@ -17,7 +18,6 @@ function HomepageContent(props) {
     const testUnit_id = TestUnitInfo.id
     const [answers, setAnswers] = useState([]);
     const [unitTime, setUnitTime] = useState([{}]);
-    var time = 0;
     useEffect(() => {
         axios.get(`${API}/answer/answer/${testUnit_id}`).then(({data})=>{
             setAnswers(data.data)
@@ -35,8 +35,9 @@ function HomepageContent(props) {
     }, []);
 
     const [values, setValues] = useState({
-        number_of_question: 0,
-        time: 0
+        number_of_question: "",
+        time: "",
+        questions_time: "true"
     })
 
     const handleChange = event => {
@@ -53,14 +54,13 @@ function HomepageContent(props) {
             })
     }
 
-    time = time + parseInt(unitTime.time);
-
     const handleSubmit = (event) => {
         event.preventDefault();
-        const { number_of_question, time } = values;
+        const { number_of_question, time, questions_time } = values;
         submitQuestionsTime({
             number_of_question,
-            time
+            time,
+            questions_time
         });
         window.location.reload();
     }
@@ -69,9 +69,11 @@ function HomepageContent(props) {
     const minutes = Math.floor((unitTime.time % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((unitTime.time % (1000 * 60)) / 1000);
 
-//    if(unitTime.time == ){
-         console.log("dhghjj uij o8;u", unitTime.time)
+//    if(time == 'NaN'){
+         console.log("dhghjj uij o8;u", unitTime)
 //    }
+
+const zion = 20;
 
     return (
         <>
@@ -81,22 +83,31 @@ function HomepageContent(props) {
                     <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                        <h5 style={{color: "gray", fontWeight:"550"}} class="modal-title" id="exampleModalLabel">Set number of questions and time to answer them</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                            <h5 className="text-center" style={{color: "gray", fontWeight:"550"}} class="modal-title" id="exampleModalLabel">Set number of questions and time to answer them</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
                         <div class="modal-body">
                             <form>
                                 <div className="form-group">
-                                    <input type="number" className="form-control input" placeholder="Enter number of questions to answer" name="number_of_question" value={values.number_of_question} onChange={handleChange} />
+                                    <input style={{borderColor:"#C1C1C1"}} className="form-control input" name="number_of_question" placeholder="Enter number of questions to answer" value={values.number_of_question} onChange={handleChange} />
                                 </div>
                                 <div className="form-group">
-                                    <input type="number" className="form-control input" placeholder="Select time interval" name="time" value={values.time} onChange={handleChange} />
+                                    <select style={{color:"#C1C1C1", borderColor:"#C1C1C1", fontSize:".9rem"}} name="time" className="form-select" aria-label="Default select input" value={values.time} onChange={handleChange} >
+                                        <option selected>Select time interval</option>
+                                        <option value="1800000" selected>30 munites</option>
+                                        <option value="2700000" selected>45 munites</option>
+                                        <option value="3600000" selected>1 hour</option>
+                                        <option value="4500000" selected>1 hour 15 munites</option>
+                                        <option value="5400000" selected>1 hour 30 munites</option>
+                                        <option value="6300000" selected>1 hour 45 munites</option>
+                                        <option value="7200000" selected>2 hours</option>
+                                    </select>
                                 </div>
                             </form>
                         </div>
-                        <div style={{marginTop:"-2rem"}} class="modal-footer">
+                        <div style={{borderTop:"1px solid #F5F5F5"}} class="modal-footer">
                             <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Close</button>
                             <button type="submit" href="#!" class="btn btn-info" onClick={handleSubmit}>Submit</button>
                         </div>
@@ -117,15 +128,18 @@ function HomepageContent(props) {
                         </Link>
                     </div>
                 </div>
-                <Marquee speed="100" style={{height: "2rem"}}>
-                    {hours == "NaN"?
-                        <h4><p><span className="testquestions1" style={{color: 'gray', fontStyle: 'bold', fontWeight: '550'}}>Set the number of questions to be answerd and the respective time for this unit</span></p></h4>
+                <Marquee speed="100" style={{height: "3rem"}}>
+                    {unitTime.questions_time == "false" ?
+                        <h4><p><span className="testquestions1" style={{color: 'gray', fontStyle: 'bold', fontWeight: '550', marginTop:"3rem"}}>Set the number of questions to be answerd and the respective time for this unit</span></p></h4>
                         :
                         <NumberOfQuestionsAndTime key={unitTime._id} id={unitTime._id} number={unitTime.number_of_question} time={hours + "h " + minutes + "m " + seconds + "s"}/>
                     }
                 </Marquee>
 
-                <div className="all-content-wrapper admintest">
+                {answers.length == 0?
+                    <EmptyPageContent text="Oopps!!! no questions have been added for this unit" directives="Click on the add question button above to add questions."/>
+                    :
+                    <div className="all-content-wrapper admintest">
                     <div className="product-sales-area mg-tb-30 graph-container">
                         <div className="container-fluid">
                             <div className="row">
@@ -143,7 +157,9 @@ function HomepageContent(props) {
                             </div>
                         </div>
                     </div>
-                </div>
+                    </div>
+                }
+
                 <div><Footer destination="/adminlegal" /></div>
             </main>
 

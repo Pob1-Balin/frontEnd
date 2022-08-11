@@ -15,7 +15,8 @@ function AddUnitContent() {
     const [values, setValues] = useState({
        module_id: moduleInfo.id,
        title: '',
-       image: ''
+       image: '',
+       questions_time: 'false'
     })
 
     // Destructing so as to be able to send to the backend
@@ -59,13 +60,14 @@ function AddUnitContent() {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const { module_id, unit_name, title, image } = values;
+        const { module_id, unit_name, title, image, questions_time } = values;
 
         console.log("auhau auhau", unit_name)
         submitModule({
             module_id,
             title,
             image,
+            questions_time
         });
         navigate('/units', {state:{id:module_id, title: moduleInfo.title, module_name: moduleInfo.module_name}});
     }

@@ -5,7 +5,6 @@ import AdminHeaderSection from "../AdminDashboard/components/AdminHeaderSection"
 import FooterSection from '../unitsDashboard/components/FooterSection'
 import '../ClientsDashboard/App.css'
 import PlayerExample from "../unitsDashboard/components/VideoCard";
-import IdleTimerContainer from "../unitsDashboard/components/IdleTimerContainer";
 import axios from 'axios'
 import { API } from "../config"
 
@@ -47,10 +46,6 @@ function StructureOneContent(props){
         });
       }
 
-
-
-
-
     return(
         <>
             <div className="">
@@ -76,7 +71,6 @@ function StructureOneContent(props){
                     </div>
                 </div>
 
-                <IdleTimerContainer />
                 <div className="Unit-Dashboard-wrapper">
                 {head == "admin" ?
                     <AdminHeaderSection prev='#' edit="editstructureone" destination="Accueil" id={unitContent.id} content={unitContent.content} index={unitContent.index} header_title={unitContent.content.page_title}/>

@@ -1761,67 +1761,37 @@ ul.country-state{
 .admin-question{
     font-size: 1.3rem;
 }
-@media screen and (min-width: 1500px){
-    .admin-question{
-        font-size: 20rem;
+
+@media screen and (min-width: 1200px){
+    .payment-cards{
+        margin-left: 15rem;
+        margin-right: 15rem;
     }
-    .test-margin{
-        margin-top: 2rem;
+}
+
+@media screen and (max-width: 1199px){
+    .payment-cards{
+        margin-left: 10rem;
+        margin-right: 10rem;
     }
-    .test-margin h4, .test-margin .testt{
-        font-size: 2.1rem;
-    }
-    .questt{
-        font-size: 1.7rem;
-        margin-top: -1rem;
-    }
-    .timmer{
-        margin-top: 3rem;
-    }
-    .add-questions{
-        font-size: 1.5rem;
-        height: 3.6rem;
-    }
-    .correct-input{
-        height: 4rem;
-        font-size: 1.6rem;
-    }
-    .ansers-display{
-        font-size: 1.6rem;
-        height: 3rem;
-    }
-    .err{
-        font-size: 1.5rem;
-    }
-    .clear-btn{
-        font-size: 1.5rem;
-        height: 4rem;
-        padding-top: 1.1rem;
-    }
-    .questt1{
-        margin-top: 1rem;
-    }
-    .testquestions{
-        margin-top: 1.8rem;
-    }
-    .testquestions h4, .testquestions .testquestions1{
-        font-size: 2rem;
-    }
-    .add-questions{
-        width:12rem;
+}
+
+@media screen and (max-width: 900px){
+    .payment-cards{
+        margin-left: 5rem;
         margin-right: 5rem;
     }
-    .select-answer{
-        font-size: 2rem;
+}
+@media screen and (max-width: 460px){
+    .payment-cards{
+        margin-left: 3rem;
+        margin-right: 3rem;
     }
-    .err1{
-        font-size: 1.5rem;
-        line-height: 2.5rem;
-    }
-    .err2{
-        font-size: 1.5rem;
-        line-height: 2.5rem;
-        padding-left: .5rem;
-        padding-bottom: 1rem;
-    }
+}
+
+.payment-header{
+    background-image: url("images.png");
+    background-repeat: no-repeat;
+    background-size:cover;
+    height:20rem;
 }

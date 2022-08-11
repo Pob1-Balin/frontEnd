@@ -66,6 +66,7 @@ import AddQuestionPage from './AdminDashboard/pages/AddQuestionPage'
 import ClientsServicesPage from './CyberzoneWebsite/pages/ClientsServicesPage';
 import UnitStructures from './AdminDashboard/pages/structures';
 import EditQuestionPage from './AdminDashboard/pages/EditQuestionPage';
+import EditUnitHomePage from './AdminDashboard/pages/EditUnitHomePage';
 
 
 
@@ -151,6 +152,7 @@ function Navigation() {
                  <Route path='/addquestion' exact element={<AddQuestionPage/>}/>
                  <Route path='/editquestion' exact element={<EditQuestionPage />}/>
                  <Route path='/unit-structures' exact element = {<UnitStructures/>}/>
+                 <Route path='/editunithome' exact element = {<EditUnitHomePage/>}/>
 
                  {/* main site home page */}
                  <Route path='/mainhomepage' exact element={<SiteHomePage/>}/>

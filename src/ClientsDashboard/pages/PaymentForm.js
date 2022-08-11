@@ -18,8 +18,8 @@ function PaymentForm(props) {
         textAlign: "left",
         display:"flex",
         justifyContent: "space-around"
-        
     }
+
     const paymentMethod = useLocation().state.ptype
     const user = useLocation().state.user
     const id=user._id

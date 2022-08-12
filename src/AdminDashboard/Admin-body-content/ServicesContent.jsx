@@ -1,14 +1,80 @@
-import React from "react";
+import React, { useState, useEffect }  from "react";
 import "../admin.css";
 import Footer from '../components/Footer'
 import { Link } from 'react-router-dom';
 import Services from "../components/services";
-import { useState, useEffect } from "react";
+// import { timeSpentTimer } from "../../utils/Timer";
 import axios from "axios";
 import {API} from '../../config'
+import EmptyPageContent from "../../CommonPageContents/EmptyPageContent";
 
 
 function ServicesContent(){
+
+    const id = "62f3c2e5be76be3cc1b6ebc7";
+    const submitUnit = (unitInfo) => {
+        axios.put(`${API}/unit/unit/${id}`, unitInfo)
+            .then(res => {
+            })
+            .catch(err => {
+            })
+    }
+
+    let timeSpentScrolling = 0;
+
+    let isHalted = false;
+    let haltedStartTime, haltedEndTime;
+    let totalHaltedTime = 0;
+
+    const update_halt_state = () => {
+      if (isHalted) {
+        isHalted = false;
+        haltedEndTime = new Date().getTime()
+        totalHaltedTime += (haltedEndTime - haltedStartTime) / 1000
+      } else {
+        isHalted = true;
+        haltedStartTime = new Date().getTime()
+      }
+    }
+
+    // Listen for scroll events
+    window.addEventListener('scroll', () => {
+      timeSpentScrolling += 1.8;
+      update_halt_state()
+    });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const start = new Date().getTime();
+
+      // AVERAGE SCROLLING INTERVAL - 39 seconds
+      setInterval(() => {
+        if (new Date().getTime() - start > 39000) {
+          update_halt_state()
+        }
+      }, 39000)
+
+      window.addEventListener("beforeunload", () => {
+        const end = new Date().getTime();
+        update_halt_state()
+
+        const totalTime = ((end - start) / 1000) - (timeSpentScrolling / 1000) - totalHaltedTime
+        const time_spent = Math.round(totalTime);
+        submitUnit({
+            time_spent,
+        });
+
+      });
+
+    });
+
+
+
+
+
+
+
+
+
   const [service, setService] = useState([]);
   useEffect(() => {
       axios.get(`${API}/service`).then(({data})=>{
@@ -64,14 +130,18 @@ function ServicesContent(){
                         </div>
                     </div>
                 </div>
-                 <div className="container-fluid services-area">
-                     <div className="container-fluid services">
-                     <div className="row mg-b-15">
-                        {service.map(serviceData => <Services key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} number_of_subscribers={serviceData.subscribers} display="admin" short_description={serviceData.description}/>)}
-                        {/* <Services id= "dgfgbjhsbua" service_id="fgthsss" dashboard_id="ftgyhuihjoi" service_name="sdfghhjj" service_amount="tryuii" number_of_subscribers="fdgh" short_description="ghgjhududd"/> */}
-                     </div>
-                     </div>
-                 </div>
+
+                {service.length == 0?
+                    <EmptyPageContent text="Oopps!!! no services have been added" directives="Click on the add service button above to add a service."/>
+                    :
+                    <div className="container-fluid services-area">
+                        <div className="container-fluid services">
+                        <div className="row mg-b-15">
+                            {service.map((serviceData, index) => <Services key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} index={index} number_of_subscribers={serviceData.subscribers} image={serviceData.image} display="admin" short_description={serviceData.description}  />)}
+                        </div>
+                        </div>
+                    </div>
+                }
                  <div style={{marginRight:"-1rem"}}><Footer/></div>
             </main>
 

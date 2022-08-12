@@ -10,13 +10,11 @@ function EditStructureOneContent() {
     const navigate = useNavigate();
 
     const location = useLocation();
-    const unitId = location.state;
-
-    const unitID = unitId.id;
+    const units_content = location.state;
 
     const [unitsData, setUnitsData] = useState([]);
     useEffect(() => {
-        axios.get(`${API}/unit/unitsdata/${unitID}`).then(({data})=>{
+        axios.get(`${API}/unit/unitsdata/${units_content.id}`).then(({data})=>{
             setUnitsData(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
@@ -24,14 +22,45 @@ function EditStructureOneContent() {
         // Aos.init({ duration: 2000 });
       }, []);
 
-    const [inputs, setInputs] = useState({});
+      var old_video = "";
+      {unitsData.map((item) => {
+             old_video = item.unit_content[units_content.index].video;
+         }
+      )}
+
+    const [inputs, setInputs] = useState({
+        sidebar_name: units_content.content.sidebar_name,
+        page_title: units_content.content.page_title,
+        video: "",
+    });
     const [formErrors, setFormErrors] = useState({});
     const handleChange = event => {
         setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
     }
 
+    const [video, setVideo] = useState('')
+    const handleVideo = (event)=>{
+        var vid = event.target.files[0];
+        setVideo(vid);
+        setInputs({...inputs, 'video': vid.name});
+    }
+
+
     const submitUnitData = (unitDataInfo) => {
-        axios.put(`${API}/unit/unit/${unitID}`, unitDataInfo)
+        /// sending post request to upload file
+        const formData = new FormData()
+        formData.append('myFile', video)
+
+        axios.post(`${API}/uploadVideo`, formData, {
+            headers:{
+                "content-tupe": "multipart/form-data"
+            }
+        }).then(res=>{
+        }).catch(err=>{
+        })
+
+        //////////
+        axios.put(`${API}/unit/unit/${units_content.id}`, unitDataInfo)
             .then(res => {
                 alert(res)
             })
@@ -44,24 +73,24 @@ function EditStructureOneContent() {
     const handleSubmit = e =>{
         e.preventDefault();
         // setFormErrors(validateRegistration(inputs))
-
         {unitsData.map((item) => {
             unitsDataContent = item.unit_content;
           }
         )}
-
-        console.log("xghgjks",unitsDataContent);
-
         const route = "one";
         const structure_name = "one"
         inputs.route = route;
         inputs.structure_name = structure_name;
-        const unit_content = [...unitsDataContent, inputs];
-
+        if(inputs.video == ""){
+            inputs.video = old_video;
+        }
+        unitsDataContent[units_content.index] = inputs;
+        const unit_content = unitsDataContent;
+        console.log("tfety", unitsDataContent[units_content.index].video)
         submitUnitData({
-             unit_content,
+            unit_content,
         });
-        navigate('/adminunitcontent', {state: {id:unitID}});
+        navigate('/adminunitcontent', {state: {id:units_content.id}});
     }
 
 
@@ -86,7 +115,7 @@ function EditStructureOneContent() {
                                                                 <form onSubmit={handleSubmit}>
                                                                     <div className="form-group">
                                                                         <label htmlFor="page_name" style={{marginBottom: "-10px"}} className="FormLable"><p>Page Name</p></label>
-                                                                        <input value={inputs.page_name} onChange={handleChange} type="text" className={`form-control input ${formErrors.page_name? "border-color": ""}`} placeholder="Enter page name" name="page_name"/>
+                                                                        <input value={inputs.sidebar_name} onChange={handleChange} type="text" className={`form-control input ${formErrors.page_name? "border-color": ""}`} placeholder="Enter page name" name="sidebar_name"/>
                                                                         <p style={errorMessage}>{formErrors.page_name}</p>
                                                                     </div>
                                                                     <div style={{marginTop:"1rem"}} className="form-group">
@@ -96,7 +125,7 @@ function EditStructureOneContent() {
                                                                     </div>
                                                                     <div style={{marginTop:"1rem"}} className="form-group">
                                                                         <label htmlFor="video_file" style={{marginBottom: "-10px"}} className="FormLable"><p>Upload Video</p></label>
-                                                                        <input type="file" name="video_file" value={inputs.video_file} onChange={handleChange} className={`form-control ${formErrors.video_file ? "border-color": ""}`} onchange="document.getElementById('prepend-big-btn').value = this.value;" />
+                                                                        <input type="file" className="form-control"  placeholder="Select video" name="video"  onChange={handleVideo} accept=".mp4, .m4v"/>
                                                                         <p style={errorMessage}>{formErrors.video_file}</p>
                                                                     </div>
                                                                     <button type="submit" style={{ background: '#4ab2cc', color: 'white', border:"none", marginTop:".4rem"}} className="add-service save-unit btn waves-effect waves-light">Save content</button>

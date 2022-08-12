@@ -9,15 +9,16 @@ function ClientsPageContent (){
     const [ users, setUsers ] = useState([]);
     useEffect(() => {
       axios
-        .get(`${API}/users`)
+        .get(`${API}/user`)
         .then(({ data }) => {
             setUsers(data.data);
-          console.log(data.data)
         })
         .catch((error) => {
           console.log(error);
         });
     }, []);
+
+    console.log("Users:", users)
     return(
         <>
             <main className="px-md-4 wrapper2 dashboard-pages">
@@ -69,9 +70,7 @@ function ClientsPageContent (){
                                                  <th>Visit</th>
                                                  <th>Setting</th>
                                             </tr>
-                                            {
-                                                users.map(users => <UserData key={users._id} id={users._id}  firstName={users.firstName} lastName={users.lastName} gender={users.gender} email={users.email} phone={users.phone} country={users.country}/>)}
-                                                <UserData key={users._id} id={users._id}  firstName={users.firstName} lastName={users.lastName} gender={users.gender} email={users.email} phone={users.phone} country={users.country}/>
+                                            {users.map(users => <UserData key={users._id} id={users._id}  firstName={users.first_name} lastName={users.last_name} gender={users.gender} email={users.email} phone={users.phone_number} country={users.country}/> )}
                                             <tr>
                                                 <td>
                                                      <button className="pd-setting btn-secondary" disabled="true">Not Active</button>

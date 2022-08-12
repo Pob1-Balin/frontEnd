@@ -4,45 +4,38 @@ import { FaChevronCircleRight } from "react-icons/fa";
 import axios from 'axios'
 import { API } from '../../config'
 function ClientService(props) {
+    const userServices = props.services;
 
 
-    const [services, setServices] = useState([])
+    // const comServ = props.user.services  //['62beae1368a6026244db706a','62c56e866122d005004fa3a8'];
+    // console.log('test', comServ)
+    // let serv = comServ[0]
+    // for (var i = 1; i <= comServ.length - 1; i++) {
+    //     serv = serv + '-' + comServ[i]
+    // }
+
+    // console.log(serv)
+    // // const [services1, setServices1] = useState([])
     // useEffect(() => {
-    //     axios.get(`${API}/service/subscribed`).then(({data})=>{
+    //     axios.get(`${API}/service/user/${serv}`).then(({ data }) => {
     //         setServices(data.data)
-    //     }).catch((err)=>{
-    //        //  console.log("Something Went Wrong:", err)
+    //     }).catch((err) => {
+    //         //  console.log("Something Went Wrong:", err)
     //     })
     // }, []);
 
-    const comServ = props.user.services//['62beae1368a6026244db706a','62c56e866122d005004fa3a8'];
-    console.log('test', comServ)
-    let serv = comServ[0]
-    for (var i = 1; i <= comServ.length - 1; i++) {
-        serv = serv + '-' + comServ[i]
-    }
 
-    console.log(serv)
-    // const [services1, setServices1] = useState([])
-    useEffect(() => {
-        axios.get(`${API}/service/user/${serv}`).then(({ data }) => {
-            setServices(data.data)
-        }).catch((err) => {
-            //  console.log("Something Went Wrong:", err)
-        })
-    }, []);
-    console.log('servic', services)
-
-    console.log(services)
+    // console.log('servic', services)
 
     const [noOfElements, setnoOfElements] = useState(4);
+    const slice = userServices.slice(0, noOfElements);
     const loadMore = () => {
         setnoOfElements(noOfElements + noOfElements);
     }
 
-    return (services.length == 0 ? <h1 className='text-center'>Oooopps!!! no subscribed service</h1> :
+    return (userServices.length == 0 ? <h1 className='text-center'>Oooopps!!! no subscribed service</h1> :
         <>
-            {services.map((item) => {
+            {userServices.map((item) => {
                 return <div data-aos="zoom-in" data-aos-offset="100" class="col-lg-3 col-md-6 col-sm-6 col-xs-12" >
                     <div class="courses-inner mg-t-30">
                         <div class="courses-title">

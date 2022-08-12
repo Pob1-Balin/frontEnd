@@ -1,10 +1,10 @@
 import React from 'react';
 import AdminSidebarLinks from '../components/AdminSidebarLinks';
-import EditStructureOneContent from '../Admin-body-content/EditStructureOneContent';
 import ToggleButton from '../components/ToggleButton2'
 import AddModel from '../components/AddModel';
+import EditUnitHomeContent from '../Admin-body-content/EditUnitHomeContent';
 
-function EditStructureOnePage() {
+function EditUnitHomePage() {
   return (
     <div className="">
         <AdminSidebarLinks/>
@@ -14,11 +14,12 @@ function EditStructureOnePage() {
                 <ToggleButton />
             </div>
             <div className="container-fluid px-0">
-               <EditStructureOneContent/>
+               <EditUnitHomeContent/>
             </div>
         </div>
     </div>
+
   );
 }
 
-export default EditStructureOnePage;
+export default EditUnitHomePage;

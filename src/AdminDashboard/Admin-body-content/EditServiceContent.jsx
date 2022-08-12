@@ -9,54 +9,61 @@ import axios from 'axios';
 function AddServiceContent() {
     const location = useLocation()
     var servOldInfo = location.state
-    console.log(servOldInfo)
     const navigate = useNavigate();
 
     const [values, setValues] = useState({
-        service_id: servOldInfo.service_id,
-        dashboard_id: servOldInfo.dashboard_id,
         service_name: servOldInfo.service_name,
         service_amount: servOldInfo.service_amount,
-        number_of_subscribers: servOldInfo.number_of_subscribers,
-        short_description: servOldInfo.short_description
+        short_description: servOldInfo.short_description,
+        service_image: ""
     })
 
     // Destructing so as to be able to send to the backend
 
     const handleChange = event => {
         setValues({
-            ...values,
-            [event.target.name]: event.target.value
+            ...values, [event.target.name]: event.target.value
         })
     }
+
     const id = servOldInfo.id;
     const submitService = (serviceInfo) => {
-        axios.put(`${API}/service/${id}/update`, serviceInfo)
+        axios.put(`${API}/service/update/${id}`, serviceInfo)
             .then(res => {
-                alert(res)
-                // if (res.status === 200)
-                // alert('service successfully added')
-                // else
-                // Promise.reject()
             })
             .catch(err => {
-                alert('Something went wrong')
-                console.log(err)
             })
 
     }
+
+    console.log("seeeee",`${API}/service/update/${id}`)
 
     const clickAddService = (event) => {
         event.preventDefault();
-        const { service_id, dashboard_id, service_name, service_amount, number_of_subscribers, short_description } = values;
+        const {service_name, service_amount, short_description, service_image } = values;
+
         submitService({
-            service_id,
-            dashboard_id,
             service_name,
             service_amount,
-            number_of_subscribers,
             short_description,
         });
+
+
+
+    //    if(service_image != ""){
+    //         submitService({
+    //             service_name,
+    //             service_amount,
+    //             short_description,
+    //             service_image
+    //         });
+    //    }else{
+    //         submitService({
+    //             service_name,
+    //             service_amount,
+    //             short_description
+    //         });
+    //    }
         sessionStorage.setItem('name', 'success');
         navigate('/services');
     }
@@ -105,18 +112,18 @@ function AddServiceContent() {
                                                         <div className="row">
                                                             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <div className="devit-card-custom">
-                                                                    <form>
+                                                                    <form onSubmit={clickAddService}>
                                                                         <div className="form-group">
                                                                             <label htmlFor='name' style={{marginBottom: "-12px"}} className="FormLable"><p>Name</p></label>
-                                                                            <input type="text" className="form-control input" placeholder="Enter service name" name="name" value={values.name} onChange={handleChange} />
+                                                                            <input type="text" className="form-control input" placeholder="Enter service name" name="service_name" value={values.service_name} onChange={handleChange} />
                                                                         </div>
                                                                         <div className="form-group">
                                                                             <label htmlFor='description' style={{marginBottom: "-12px"}} className="FormLable"><p>Description</p></label>
-                                                                            <input type="text" className="form-control input" placeholder="Enter short description for service" name="description" value={values.description} onChange={handleChange} />
+                                                                            <input type="text" className="form-control input" placeholder="Enter short description for service" name="short_description" value={values.short_description} onChange={handleChange} />
                                                                         </div>
                                                                         <div className="form-group">
                                                                             <label htmlFor='amount' style={{marginBottom: "-12px"}} className="FormLable"><p>Amount</p></label>
-                                                                            <input type="number" className="form-control input" placeholder="Enter service amount" name="amount" value={values.amount} onChange={handleChange} />
+                                                                            <input type="number" className="form-control input" placeholder="Enter service amount" name="service_amount" value={values.service_amount} onChange={handleChange} />
                                                                         </div>
                                                                         <div className="form-group">
                                                                             <label htmlFor='image' style={{marginBottom: "-12px"}} className="FormLable"><p>Image</p></label>

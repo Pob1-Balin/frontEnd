@@ -21,18 +21,35 @@ function AddServiceContent() {
         })
     }
 
+    const [image, setImage] = useState('')
+    const handleImage = (event)=>{
+        var img = event.target.files[0]
+        setImage(img)
+        setValues({...values, 'image': img.name})
+    }
+
     const submitService = (serviceInfo) => {
+         /// sending post request to upload file
+         const formData = new FormData()
+         formData.append('myFile', image)
+         axios.post(`${API}/upload`, formData, {
+             headers:{
+                 "content-tupe": "multipart/form-data"
+             }
+         }).then(res=>{
+             console.log(res)
+         }).catch(err=>{
+             console.log(err)
+         })
+
+         ///////////
         axios.post(`${API}/service/create`, serviceInfo)
             .then(res => {
-                // alert(res)
-                // if (res.status === 200)
-                // alert('service successfully added')
-                // else
-                // Promise.reject()
-            alert("course Added Successfully")
+                if (res.status === 200) {
+                    window.location.reload();
+               } else Promise.reject();
             })
             .catch(err => {
-                 alert('Something went wrong, course could not be added')
             })
 
     }
@@ -93,7 +110,7 @@ function AddServiceContent() {
                                                         <div className="row">
                                                             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <div className="devit-card-custom">
-                                                                    <form onSubmit={handleSubmit}>
+                                                                    <form method="post" onSubmit={handleSubmit}>
                                                                         <div className="form-group">
                                                                             <label htmlFor='name' style={{marginBottom: "-12px"}} className="FormLable"><p>Name</p></label>
                                                                             <input type="text" className="form-control input" placeholder="Enter service name" name="name" value={values.name} onChange={handleChange} />
@@ -108,7 +125,7 @@ function AddServiceContent() {
                                                                         </div>
                                                                         <div className="form-group">
                                                                             <label htmlFor='image' style={{marginBottom: "-12px"}} className="FormLable"><p>Image</p></label>
-                                                                            <input type="file" className="form-control" onchange="document.getElementById('prepend-big-btn').value = this.value;" placeholder="Select module image" name="image" value={values.image} onChange={handleChange}  />
+                                                                            <input type="file" className="form-control"  placeholder="Select module image" name="image"  onChange={handleImage} accept=".png, .jpg, .jpeg"/>
                                                                         </div>
                                                                         <button type="submit" style={{ background: '#4ab2cc', color: 'white' }} href="#!" className="add-service btn waves-effect waves-light">Submit</button>
                                                                     </form>

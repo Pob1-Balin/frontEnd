@@ -4,7 +4,9 @@ import axios from "axios";
 import { API } from '../../config'
 
 function UnitsCard(props){
-  const id = props.id
+  const id = props.id;
+  const title = props.title;
+  const new_title = '#'+title;
   const deleteService = () => {
     axios
         .delete(`${API}/unit/unit/${id}`)
@@ -20,13 +22,13 @@ function UnitsCard(props){
   return(
     <>
       <div className="card">
-         <img className="card_image" src={props.image} />
+         <img className="card_image" src={`${API}/images/${props.image}`} />
          <div className="card_body">
-           <h3 className="card_module">{props.module_name}</h3>
+           <h3 className="card_module">{props.unit_name}</h3>
            <h2 className="card_title">{props.title}</h2>
 
              {/*-- Modal =====*/}
-             <div class="modal fade" id="del" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+             <div class="modal fade" id={title} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
@@ -36,7 +38,7 @@ function UnitsCard(props){
                     </button>
                   </div>
                   <div class="modal-body">
-                      <p>Are you sure you want to permanently delete this unite?</p>
+                      <p style={{color:"gray"}}>Are you sure you want to permanently delete this unite?</p>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Close</button>
@@ -74,7 +76,7 @@ function UnitsCard(props){
                <Link to='/adminunitcontent' style={{textDecoration:'none'}} state={{id: id}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">To start</button></Link>
                <Link to='/editunit' style={{textDecoration:'none'}} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
                <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Disable</button>
-               <button type="button" class="button-default cart-btn btn-danger mt-1 mr-1" data-toggle="modal" data-target="#del">Delete</button>
+               <button type="button" class="button-default cart-btn btn-danger mt-1 mr-1" data-toggle="modal" data-target={new_title} >Delete</button>
                <Link to='/admintest' style={{textDecoration: "none"}} state={{id: id}}><button style={{backgroundColor: '#4ab2cc'}} type="button" class="button-default cart-btn mt-1 mr-1">Questions</button></Link>
             </div>
          </div>

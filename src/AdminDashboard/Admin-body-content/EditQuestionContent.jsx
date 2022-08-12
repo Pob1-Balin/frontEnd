@@ -1,14 +1,18 @@
 import React from "react";
 import Footer from '../../ClientsDashboard/components/Footer';
-import AddQuestions, { Navigate } from '../components/AddQuestions';
 import { useLocation } from 'react-router-dom';
 import "../admin.css";
 import { Link } from 'react-router-dom';
+import EditQuestions from "../components/EditQuestions";
 
-function AddQuestionContent() {
+function EditQuestionContent() {
     const location = useLocation()
-    var AddUnitInfo = location.state
-    const addUnitId = AddUnitInfo.id
+    var questionInfo = location.state
+    const correctAnswerArray = questionInfo.correctAnswerArray;
+    const anwersArray = questionInfo.anwersArray;
+    const question = questionInfo.question;
+    const testUnit_id = questionInfo.testUnit_id;
+    const id = questionInfo.id;
     return (
         <>
             <main className="px-md-4 wrapper2">
@@ -20,7 +24,7 @@ function AddQuestionContent() {
                 <div className="all-content-wrapper">
                     <div className="product-sales-area mg-tb-30 graph-container">
                         <div className="container-fluid">
-                             <AddQuestions units_id={addUnitId} />
+                             <EditQuestions id={id} anwersArray={anwersArray} correctAnswerArray={correctAnswerArray} question={question} testUnit_id={testUnit_id} />
                         </div>
                     </div>
                 </div>
@@ -32,4 +36,4 @@ function AddQuestionContent() {
     )
 }
 
-export default AddQuestionContent;
+export default EditQuestionContent;

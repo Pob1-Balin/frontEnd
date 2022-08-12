@@ -7,26 +7,11 @@ import { API } from '../../config'
 
 function AddModuleContent() {
     const location = useLocation()
-    console.log(location)
     var serviceID = location.state
     const service_id = serviceID.id
-    console.log(service_id)
-    const [module, setModule] = useState([]);
-    useEffect(() => {
-        axios.get(`${API}/module/module`).then(({ data }) => {
-            setModule(data.data)
-            // console.log(data.data)
-        }).catch((err) => {
-            //  console.log("Something Went Wrong:", err)
-        })
-        // Aos.init({ duration: 2000 });
-    }, []);
 
     const navigate = useNavigate();
-    var module_length = module.length + 1;
-    var new_module_length = "Module" + " " + module_length;
     const [values, setValues] = useState({
-        name: new_module_length,
         title: '',
         image: '',
         time_spent: '',
@@ -56,31 +41,21 @@ function AddModuleContent() {
                 "content-tupe": "multipart/form-data"
             }
         }).then(res=>{
-            console.log(res)
         }).catch(err=>{
-            console.log(err)
         })
         //////////////////////////
         axios.post(`${API}/module/module`, moduleInfo)
             .then(res => {
-                // alert(res)
-                // if (res.status === 200)
-                // alert('service successfully added')
-                // else
-                // Promise.reject()
-                // alert("course Added Successfully")
             })
             .catch(err => {
-                //  alert('Something went wrong, course could not be added')
             })
 
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        const { name, title, image, time_spent, score } = values;
+        const {title, image, time_spent, score } = values;
         submitModule({
-            name,
             title,
             image,
             time_spent,

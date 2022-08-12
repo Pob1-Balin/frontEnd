@@ -11,7 +11,6 @@ function AddStructureOneContent() {
     const location = useLocation()
     var unitsInfo = location.state
     const units_id = unitsInfo.id
-    console.log(units_id)
     const navigate = useNavigate();
     const unitId = location.state;
 
@@ -33,10 +32,29 @@ function AddStructureOneContent() {
         setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
     }
 
+    const [video, setVideo] = useState('')
+    const handleVideo = (event)=>{
+        var vid = event.target.files[0]
+        setVideo(vid)
+        setInputs({...inputs, 'video': vid.name})
+    }
+
     const submitUnitData = (unitDataInfo) => {
+         /// sending post request to upload file
+         const formData = new FormData()
+         formData.append('myFile', video)
+
+         axios.post(`${API}/uploadVideo`, formData, {
+             headers:{
+                 "content-tupe": "multipart/form-data"
+             }
+         }).then(res=>{
+         }).catch(err=>{
+         })
+
+         //////////////////////////
         axios.put(`${API}/unit/unit/${unitID}`, unitDataInfo)
             .then(res => {
-                alert(res)
             })
             .catch(err => {
             })
@@ -52,8 +70,6 @@ function AddStructureOneContent() {
             unitsDataContent = item.unit_content;
           }
         )}
-
-        console.log("xghgjks",unitsDataContent);
 
         const route = "one";
         const structure_name = "one"
@@ -99,7 +115,7 @@ function AddStructureOneContent() {
                                                                         </div>
                                                                         <div style={{marginTop:"1rem"}} className="form-group">
                                                                             <label htmlFor="video_file" style={{marginBottom: "-10px"}} className="FormLable"><p>Upload video</p></label>
-                                                                            <input type="file" name="fields" value="" onChange={handleChange} className={`form-control ${formErrors.video_file ? "border-color": ""}`} onchange="document.getElementById('prepend-big-btn').value = this.value;" />
+                                                                            <input type="file" className="form-control"  placeholder="Select video" name="video"  onChange={handleVideo} accept=".mp4, .m4v"/>
                                                                             <p style={errorMessage}>{formErrors.video_file}</p>
                                                                         </div>
                                                                         <button type="submit" style={{ background: '#4ab2cc', color: 'white', border:"none", marginTop:".4rem"}} className="add-service save-unit btn waves-effect waves-light">Save content</button>

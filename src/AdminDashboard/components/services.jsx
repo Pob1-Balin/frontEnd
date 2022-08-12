@@ -5,34 +5,31 @@ import axios from "axios";
 import { API } from '../../config'
 
 function Services(props) {
-     const dashboard_id = props.dashboard_id;
-     const service_id = props.service_id
-     const id = props.key
-     console.log(props.id)
-     let navigate = useNavigate();
+     const id = props.id;
+     const service_name = props.service_name;
+     const service = '#'+service_name;
      const deleteService = () => {
          alert("Are you sure you want to delete this service????")
         axios
             .delete(`${API}/service/${id}/remove`)
             .then((res) => {
                 if (res.status === 200) {
-                     alert("Module successfully deleted");
                      window.location.reload();
-                     console.log(`${API}/service/${id}`)
                 } else Promise.reject();
             })
             .catch((err) => alert("Something went wrong"));
     }
+
 
     return (
         <>
             <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12" >
                  <div className="courses-inner mg-t-30">
                      <div className="courses-title">
-                         <a href="#"><img src="./images/Cature.png" alt="" /></a>
+                         <a href="#"><img src={`${API}/images/${props.image}`} style={{height: "12rem", width:"20rem"}} alt="Service image" /></a>
                          <h2>{props.service_name}</h2>
                      </div>
-                     <div className="courses-alaltic" style={{ paddingLeft: ".3rem", fontSize: '1rem' }}>
+                     <div className="courses-alaltic" style={{ paddingLeft: ".3rem", fontSize: '1rem', color:"black"}}>
                          <span className="cr-ic-r"><span className="course-icon">XAF</span> {props.service_amount}</span>
                      </div>
                      <div className="course-des" style={{ paddingLeft: ".3rem" }}>
@@ -41,7 +38,7 @@ function Services(props) {
                      </div>
 
                     {/*-- Modal =====*/}
-                    <div className="modal fade" id="del" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div className="modal fade" id={service_name} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
                                 <div className="modal-header">
@@ -51,7 +48,7 @@ function Services(props) {
                                     </button>
                                 </div>
                                 <div className="modal-body">
-                                     <p>Are you sure you want to permanently delete this service?</p>
+                                     <p style={{color: "gray"}}>Are you sure you want to permanently delete this service?</p>
                                 </div>
                                 <div className="modal-footer">
                                     <form>
@@ -92,7 +89,7 @@ function Services(props) {
                          <Link to='/adminmodulepage' style={{ textDecoration: 'none' }} state={props}><button type="button" className="button-default cart-btn mr-1 mt-1 btn-info">Dashboard</button></Link>
                          <Link to='/editservice' style={{ textDecoration: 'none' }} state={props}><button type="button" className="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
                          <button type="button" className="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Block</button>
-                         <button type="button" className="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target="#del" onClick={deleteService}>Delete</button>
+                         <button type="button" className="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target={service} >Delete</button>
                     </div>
                  </div>
             </div>

@@ -32,7 +32,6 @@ function UserLoginContent(){
             navigate('/home')
             
           }
-      
           dispatch(reset())
     }, 
     [user, isError, isLoading, message, isSuccess, navigate, dispatch]

@@ -7,15 +7,16 @@ import { API } from '../../config'
 function Services(props) {
      const dashboard_id = props.dashboard_id;
      const service_id = props.service_id
-     const id = props.id
-     console.log(id)
+     const id = props.key
+     console.log(props.id)
      let navigate = useNavigate();
      const deleteService = () => {
+         alert("Are you sure you want to delete this service????")
         axios
-            .delete(`${API}/service/${id}`)
+            .delete(`${API}/service/${id}/remove`)
             .then((res) => {
                 if (res.status === 200) {
-                     alert("Student successfully deleted");
+                     alert("Module successfully deleted");
                      window.location.reload();
                      console.log(`${API}/service/${id}`)
                 } else Promise.reject();
@@ -54,9 +55,9 @@ function Services(props) {
                                 </div>
                                 <div className="modal-footer">
                                     <form>
-                                         <input type="hidden" name="service_id" value="" />
+                                         <input type="hidden" name="service_id" value={props.id} />
                                          <button type="button" className="btn btn-danger mr-1" data-dismiss="modal">Close</button>
-                                         <button type="submit" name="delete_service" className="btn btn-info" onClick={deleteService}>Yes</button>
+                                         <button type="submit" name="delete_service" className="btn btn-info" >Yes</button>
                                     </form>
                                 </div>
                             </div>
@@ -91,7 +92,7 @@ function Services(props) {
                          <Link to='/adminmodulepage' style={{ textDecoration: 'none' }} state={props}><button type="button" className="button-default cart-btn mr-1 mt-1 btn-info">Dashboard</button></Link>
                          <Link to='/editservice' style={{ textDecoration: 'none' }} state={props}><button type="button" className="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
                          <button type="button" className="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Block</button>
-                         <button type="button" className="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target="#del">Delete</button>
+                         <button type="button" className="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target="#del" onClick={deleteService}>Delete</button>
                     </div>
                  </div>
             </div>

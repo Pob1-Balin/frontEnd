@@ -7,12 +7,16 @@ import 'aos/dist/aos.css';
 import {validateRegistration} from '../../utils/inputValidations'
 import axios from 'axios'
 import { API } from "../../config";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import ParticlesBackground from "./ParticlesBackground";
+import {ToastContainer, toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function SetUserPasswordContent(){
     const navigate = useNavigate();
-    const [inputs, setInputs] = useState({password:"", confirm_password:""})
+    const location = useLocation();
+    console.log(location.state)
+    const [inputs, setInputs] = useState({password:""})
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
     const handleChange = event => {
@@ -23,7 +27,14 @@ function SetUserPasswordContent(){
         e.preventDefault();
         // setFormErrors(validateRegistration(inputs));
         setIsSubmit(true);
-        navigate('/userpasswordsetmessage')
+        // navigate('/userpasswordsetmessage')
+        console.log(inputs)
+        axios.post('http://localhost:7000/api/v1/users/'+location.state.id+'/'+location.state.token, {password:inputs.password}).then((res)=>{
+            toast.success("Successfull passward reset!!")
+        })
+        .catch((err)=>{
+            toast.error("Could not resset password. Pls Try again!!")
+        })
     }
 
     useEffect(() => {
@@ -51,7 +62,7 @@ function SetUserPasswordContent(){
                                     <p style={errorMessage}>{formErrors.password}</p>
                                     <div className="form-group">
                                         <label htmlFor="country" style={{marginBottom: "-12px"}} className="FormLable"><p>Confirm password</p></label>
-                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.confirm_password? "border-color": ""}`} type="password" name="confirm_password" placeholder="Enter confirm password" value ={inputs.confirm_password} onChange={handleChange} />
+                                        <input style={{height:'2.5rem'}} className={`form-control ${formErrors.confirm_password? "border-color": ""}`} type="password" placeholder="Enter confirm password" value ={inputs.confirm_password} onChange />
                                     </div>
                                     <p style={errorMessage}>{formErrors.confirm_password}</p>
                                     <div style={{marginTop: '2rem'}} className="form-group btn-auth">
@@ -73,6 +84,8 @@ function SetUserPasswordContent(){
                         </div>
                     </div>
                  </div>
+
+        <ToastContainer />
              </main>
 
         </>

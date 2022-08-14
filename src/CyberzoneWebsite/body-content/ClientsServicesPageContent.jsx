@@ -27,9 +27,8 @@ function ClientsServicesPageContent(props){
       useEffect(()=>{
         if(!user){
           navigate('/')
-          console.log('kjdshkj')
-          Aos.init({ duration: 2000 });
         }
+        Aos.init({ duration: 2000 });
       },[user, navigate])
 
       const onLogout = () => {
@@ -46,14 +45,6 @@ function ClientsServicesPageContent(props){
           }).catch((err) => {
               //  console.log("Something Went Wrong:", err)
           });
-
-          const id = "62f451bc149cacf97e1a9a6e";
-          axios.get(`${API}/serv/getserv/${id}`).then(({ data }) => {
-             setUserServs(data.data)
-          }).catch((err) => {
-              //  console.log("Something Went Wrong:", err)
-          });
-
       }, []);
 
     //   var userServices = [{}];

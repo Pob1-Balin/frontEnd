@@ -45,6 +45,20 @@ export const logout = createAsyncThunk('auth/logout', async()=>{
     await authService.logout()
 })
 
+//  Reset password
+
+export const resetPassword = createAsyncThunk('auth/mail',async(
+    user, thunkAPI
+)=>{
+    try{
+        return await authService.resetPassword(user)
+    }catch(error){
+        const message = (error.response && error.response.data && error.response.data.message) || error.message || error.toString()
+        return thunkAPI.rejectWithValue(message)
+    }
+})
+
+
 //////////////////////////////////////////
 export const getUsers = createAsyncThunk(
     
@@ -89,7 +103,7 @@ export const authSlice = createSlice({
             .addCase(register.rejected,(state, action)=>{
                 state.isLoading= false
                 state.isError = true
-                state.message = action.payload
+                state.message = "Could not register user. Try again!!!"
                 state.user = null
             })
 
@@ -100,14 +114,35 @@ export const authSlice = createSlice({
             .addCase(login.fulfilled, (state,action)=>{
                 state.isSuccess = true
                 state.isLoading = false
+                state.isError = true
                 state.user = action.payload
             })
             .addCase(login.rejected,(state, action)=>{
                 state.isLoading= false
                 state.isError = true
-                state.message = action.payload
+                state.message = "incorrect username or password"
                 state.user = null
             })
+
+            
+
+            .addCase(resetPassword.pending,(state)=>{
+                state.isLoading = true
+            })
+            .addCase(resetPassword.fulfilled, (state,action)=>{
+                state.isSuccess = true
+                state.isLoading = false
+                state.isError = true
+                state.user = action.payload
+            })
+            .addCase(resetPassword.rejected,(state,action)=>{
+                state.isLoading= false
+                state.isError = true
+                state.message = "Email does not exist"
+                state.user = null
+            })
+
+
             .addCase(logout.fulfilled, (state) => {
                 state.user = null
               })

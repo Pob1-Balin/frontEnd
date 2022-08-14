@@ -9,9 +9,14 @@ import axios from 'axios'
 import { API } from "../../config";
 import { useNavigate } from "react-router-dom";
 import ParticlesBackground from "./ParticlesBackground";
+import { useSelector, useDispatch } from 'react-redux'
+import { resetPassword, reset } from '../../redux/auth/authSlice'
+import {ToastContainer, toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function UserForgotPasswordContent(){
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const [inputs, setInputs] = useState({email:""})
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
@@ -19,10 +24,29 @@ function UserForgotPasswordContent(){
         setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
     }
 
+    const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
+
+    useEffect(()=>{
+        if (isError) {
+            // alert(message)
+            toast.error("User does not exist")
+          } 
+          if (isSuccess) {
+            // alert(message)
+            toast.success("Reset link sent to your email")
+          } 
+          dispatch(reset())
+    }, 
+    [user, isError, isLoading, message, isSuccess, navigate, dispatch]
+    )
     const handleSubmit = e =>{
         e.preventDefault();
+        const userEmail = {
+            email: inputs.email
+        }
         setFormErrors(validateRegistration(inputs));
         setIsSubmit(true);
+        dispatch(resetPassword(userEmail))
     }
 
 
@@ -67,6 +91,8 @@ function UserForgotPasswordContent(){
                         </div>
                     </div>
                  </div>
+
+        <ToastContainer />
              </main>
 
         </>

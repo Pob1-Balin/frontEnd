@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate, useSearchParams } from 'react-router-dom';
 
 import HomePage from './ClientsDashboard/pages/HomePage'
 import MyProfile from './ClientsDashboard/pages/MyProfile'
@@ -76,6 +76,7 @@ import SubscribeForService from './ClientsDashboard/pages/SubscribeForService'
 import PaymentForm from './ClientsDashboard/pages/PaymentForm';
 /*========================= main site pages =======================*/
 import SiteHomePage from './CyberzoneWebsite/pages/SiteHomePage';
+import Test from './test';
 
 
 function Navigation() {
@@ -123,6 +124,8 @@ function Navigation() {
                 <Route path='/adminregister' exact element={<AdminRegistrationPage/>}/>
                 <Route path='/adminlogin' exact element={<AdminLoginContent/>}/>
                 <Route path='/adminforgotpassword' exact element={<AdminForgotPasswordPage/>}/>
+                <Route path='/password-reset/:id/:token' element={<Test/>}/>
+                
 
 
 

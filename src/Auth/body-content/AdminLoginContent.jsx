@@ -10,12 +10,33 @@ import { useNavigate } from "react-router-dom";
 import {validateRegistration} from '../../utils/inputValidations'
 import ParticlesBackground from "./ParticlesBackground";
 import "./background.css"
+import { useSelector, useDispatch } from 'react-redux'
+import { login, reset } from '../../redux/auth/authSlice'
+
 
 function AdminLoginContent(){
+    const dispatch = useDispatch()
     const [inputs, setInputs] = useState({email:"", password:""})
     const navigate = useNavigate();
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
+    
+
+    const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
+    // navigate(0)
+    useEffect(()=>{
+        if (isError) {
+            alert(message)
+          }
+      
+          if (isSuccess) {
+            navigate('/home')
+          }
+          dispatch(reset())
+    }, 
+    [user, isError, isLoading, message, isSuccess, navigate, dispatch]
+    )
+
 
     const handleChange = event => {
         setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
@@ -23,24 +44,18 @@ function AdminLoginContent(){
 
     const handleSubmit = e =>{
         e.preventDefault();
-        // console.log(inputs)
-        setFormErrors(validateRegistration(inputs));
-        setIsSubmit(true);
-        axios.post(`${API}/user/login`, inputs)
-        .then((response)=>{
-            // console.log(response)
-            const status = response.data.status
-            if(status === "success"){
-                // Store the data in local storage for later use
-                const user = response.data.data
-                localStorage.setItem("user", JSON.stringify(user))
-                navigate("/")
-            }
-        }).catch((error)=>{
-            console.log(error)
-        })
 
+        const userData = {
+            email: inputs.email,
+            password: inputs.password,
+        }
+        dispatch(login(userData))
     }
+
+  useEffect(() => {
+      Aos.init({ duration: 1000 });
+  }, []);
+
 
   useEffect(() => {
       Aos.init({ duration: 3000 });
@@ -58,7 +73,7 @@ function AdminLoginContent(){
                         <div className="row">
                             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div data-aos="zoom-out-right" data-aos-offset="100" className="portlet-title">
-                                    <p className="text-center Login-name">LOGIN</p>
+                                    <p className="text-center Login-name">ADMIN LOGIN</p>
                                 </div>
                                 {/* ======= form ========== */}
                                 <form onSubmit={handleSubmit} data-aos="zoom-out-right" data-aos-offset="100" >
@@ -95,10 +110,6 @@ function AdminLoginContent(){
                     </div>
                  </div>
              </main>
-
-
-             {/* <script src="./particles/particles"></script>
-             <script src="./particles/app"></script> */}
 
         </>
     )

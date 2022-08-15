@@ -1,13 +1,24 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import logo from './log.png'
 import HomeIcon from '@mui/icons-material/Home';
 import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
 import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import './Admindashboardsidebar.css'
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
+import { useSelector, useDispatch } from 'react-redux'
+import { logout, reset } from '../../redux/auth/authSlice'
 
 function AdminDashboardSidebar() {
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
+    const { user } = useSelector((state) => state.auth)
+  
+    const onLogout = () => {
+      dispatch(logout())
+      dispatch(reset())
+      navigate('/')
+    }
     return (
          <>
              <aside className="sidebar sidebar-icons-left sidebar-icons-boxed sidebar-expand-lg sider-1 pt-0" style={{maxWidth: '14rem'}}>
@@ -47,12 +58,12 @@ function AdminDashboardSidebar() {
                         <li class="nav-item">
                             <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link">
                                  <img src="./images/logo.jpg" alt="" />
-                                 <span class="admin-name" style={{color:'white'}}>Mr Baron</span>
+                                 <span class="admin-name" style={{color:'white'}}>{user.first_name}</span>
                                  <i style={{color:'white'}} class="fa fa-angle-down edu-icon edu-down-arrow admin-profile-arrow"></i>
                             </a>
                             <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                                 <li><a href="/adminprofile"><span class="edu-icon edu-user-rounded author-log-ic"></span>My Profile</a></li>
-                                 <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span>Log Out</a></li>
+                                 <li><Link to="/adminprofile"><span class="edu-icon edu-user-rounded author-log-ic"></span>My Profile</Link></li>
+                                 <li><button onClick={onLogout}><span class="edu-icon edu-locked author-log-ic"></span>Log Out</button></li>
                             </ul>
                         </li>
                     </ul>
@@ -64,9 +75,9 @@ function AdminDashboardSidebar() {
                                  <ExitToAppIcon className='logoutIcon' />
                              </a>
                              <ul role="menu menu2" className="dropdown-header-top author-log dropdown-menu animated zoomIn" style={{marginLeft:'40%'}}>
-                                 <li><a href="/adminprofile"><span className="edu-icon edu-user-rounded author-log-ic"></span>My Profile</a></li>
-                                 <li><a href="#"><span className="edu-icon edu-locked author-log-ic"></span>Log Out</a></li>
-                             </ul>
+                                 <li><Link to="/adminprofile"><span className="edu-icon edu-user-rounded author-log-ic"></span>My Profile</Link></li>
+                                 <li><button onClick={onLogout}><span class="edu-icon edu-locked author-log-ic"></span>Log Out</button></li>
+                            </ul>
                          </li>
                      </ul>
                  </div>

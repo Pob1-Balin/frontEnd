@@ -9,8 +9,9 @@ function Services(props) {
      const service_name = props.service_name;
      const service = '#'+service_name;
      const deleteService = () => {
+         alert("Are you sure you want to delete this service????")
         axios
-            .delete(`${API}/service/${id}`)
+            .delete(`${API}/service/${id}/remove`)
             .then((res) => {
                 if (res.status === 200) {
                      window.location.reload();
@@ -51,9 +52,9 @@ function Services(props) {
                                 </div>
                                 <div className="modal-footer">
                                     <form>
-                                         <input type="hidden" name="service_id" value="" />
+                                         <input type="hidden" name="service_id" value={props.id} />
                                          <button type="button" className="btn btn-danger mr-1" data-dismiss="modal">Close</button>
-                                         <button type="submit" name="delete_service" className="btn btn-info" onClick={deleteService}>Yes</button>
+                                         <button type="submit" name="delete_service" className="btn btn-info" >Yes</button>
                                     </form>
                                 </div>
                             </div>

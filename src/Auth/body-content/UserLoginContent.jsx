@@ -11,6 +11,8 @@ import {validateRegistration} from '../../utils/inputValidations'
 import { useSelector, useDispatch } from 'react-redux'
 import { login, reset } from '../../redux/auth/authSlice'
 import ParticlesBackground from "./ParticlesBackground";
+import {ToastContainer, toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function UserLoginContent(){
@@ -25,13 +27,18 @@ function UserLoginContent(){
     // navigate(0)
     useEffect(()=>{
         if (isError) {
-            alert(message)
+            // alert(message)
+            toast.error(message)
           }
       
           if (isSuccess) {
-            navigate('/home')
+            if(user.isAdmin){
+                navigate('/admindashboard')
+            }else{
+                navigate('/home')
+            }
             
-          }
+          }  
           dispatch(reset())
     }, 
     [user, isError, isLoading, message, isSuccess, navigate, dispatch]
@@ -55,6 +62,7 @@ function UserLoginContent(){
   useEffect(() => {
       Aos.init({ duration: 1000 });
   }, []);
+
 
     return(
         <>
@@ -101,7 +109,11 @@ function UserLoginContent(){
                         </div>
                     </div>
                  </div>
+                 <div>
+        <ToastContainer />
+      </div>
              </main>
+
 
 
              {/* <script src="./particles/particles"></script>

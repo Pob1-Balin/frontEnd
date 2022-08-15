@@ -1,8 +1,45 @@
-import React from "react";
+import axios from "axios";
+import React, { useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import "../admin.css";
+import {API} from '../../config'
 import Footer from '../components/Footer'
+import {ToastContainer, toast} from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 
 function EditClientContent(){
+    const location = useLocation()
+    const navigate = useNavigate()
+    console.log(location.state)
+    const [user, setUser]=useState({
+        firstName: location.state.firstName,
+        lastName: location.state.lastName,
+        email: location.state.email,
+        gender: location.state.gender,
+        country: location.state.country,
+        phone: location.state.phone
+    })
+
+    const handleChange = event =>{
+        setUser({...user, [event.target.name]:event.target.value})
+    }
+
+    const [updated, setUpdated]=useState(false)
+
+    const handleSubmit = ()=>{
+        axios.put(`${API}/users/${location.state.id}/update`,{
+            first_name: user.firstName,
+            last_name: user.lastName,
+            email: user.email,
+            gender: user.gender,
+            country: user.country,
+            phone_number: user.phone,
+        }).then(()=>{
+            toast.success('Update Successfully')
+        }).catch(()=>{
+            toast.error('Update failed!!!')
+        })
+    }
     return(
         <>
             <main className="px-md-4 wrapper2 dashboard-pages">
@@ -48,21 +85,24 @@ function EditClientContent(){
                                                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                     <div className="devit-card-custom">
                                                                         <div className="form-group">
-                                                                             <input type="text" className="form-control"/>
+                                                                             <input type="text" className="form-control" name="firstName" value={user.firstName} onChange={handleChange}/>
                                                                         </div>
                                                                         <div className="form-group">
-                                                                             <input type="number" className="form-control"/>
+                                                                             <input type="text" className="form-control" name="lastName" value={user.lastName} onChange={handleChange}/>
                                                                         </div>
                                                                         <div className="form-group">
-                                                                             <input type="" className="form-control"/>
+                                                                             <input type="text" className="form-control" name="email" value={user.email} onChange={handleChange}/>
                                                                         </div>
                                                                         <div className="form-group">
-                                                                             <input type="number" className="form-control"/>
+                                                                             <input type="number" className="form-control" name="phone" value={user.phone} onChange={handleChange}/>
                                                                         </div>
                                                                         <div className="form-group">
-                                                                             <input type="" className="form-control"/>
+                                                                             <input type="text" className="form-control" name="country" value={user.country} onChange={handleChange}/>
                                                                         </div>
-                                                                        <button className="mt-15 btn waves-effect waves-light pd-setting btn-info">Submit</button>
+                                                                        <div className="form-group">
+                                                                             <input type="text" className="form-control" name="gender" value={user.gender} onChange={handleChange}/>
+                                                                        </div>
+                                                                        <button onClick={handleSubmit} className="mt-15 btn waves-effect waves-light pd-setting btn-info">Submit</button>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -79,6 +119,7 @@ function EditClientContent(){
 
                 <div style={{marginTop: '3rem'}}></div>
                <div className="add-clients-footer"><Footer/></div>
+               <ToastContainer/>
             </main>
 
         </>

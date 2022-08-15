@@ -8,26 +8,79 @@ import {validateRegistration} from '../../utils/inputValidations'
 import axios from 'axios'
 import { API } from "../../config";
 import { useNavigate } from "react-router-dom";
+
+import { useSelector, useDispatch } from 'react-redux'
+import { register, reset } from '../../redux/auth/authSlice'
 import ParticlesBackground from "./ParticlesBackground";
 
 function AdminRegistrationContent(){
+    // const navigate = useNavigate();
+    // const [inputs, setInputs] = useState({first_name:"", last_name:"", gender: "", country:"", email:"", password:"", phone_number:"", confirm_password:""})
+    // const [formErrors, setFormErrors] = useState({});
+    // const [isSubmit, setIsSubmit] = useState(false);
+    // const handleChange = event => {
+    //     setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
+    // }
+
+    // const handleSubmit = e =>{
+    //     e.preventDefault();
+    //     setFormErrors(validateRegistration(inputs));
+    //     setIsSubmit(true);
+    // }
+
     const navigate = useNavigate();
-    const [inputs, setInputs] = useState({first_name:"", last_name:"", gender: "", country:"", email:"", password:"", phone_number:"", confirm_password:""})
+    const dispatch = useDispatch();
+
+    const [inputs, setInputs] = useState({ first_name: "", last_name: "", gender: "", country: "", email: "", password: "", phone_number: "", confirm_password: "" })
+
     const [formErrors, setFormErrors] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
+
+    const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
+
+
+    useEffect(()=>{
+        if(isError){
+            alert(message)
+        }
+
+        if(isSuccess || user){
+            navigate('/home')
+        }
+        dispatch(reset())
+        Aos.init({ duration: 2000 });
+    }, 
+    [user, isError, isLoading, message, isSuccess, navigate, dispatch]
+    )
+
+
     const handleChange = event => {
-        setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
+        setInputs(inputs => { return { ...inputs, [event.target.name]: event.target.value } })
     }
 
-    const handleSubmit = e =>{
+    const handleSubmit = e => {
         e.preventDefault();
         setFormErrors(validateRegistration(inputs));
-        setIsSubmit(true);
+        // setIsSubmit(true);
+
+        if (inputs.password !== inputs.confirm_password) {
+            alert('password do not match')
+        } else {
+            const userData = {
+                first_name: inputs.first_name,
+                last_name: inputs.last_name,
+                email: inputs.email,
+                password: inputs.password,
+                gender: inputs.gender,
+                phone_number: inputs.phone_number,
+                country: inputs.country,
+                isAdmin: true,
+                services: [],
+            }
+            dispatch(register(userData))
+        }
     }
 
-    useEffect(() => {
-        Aos.init({ duration: 2000 });
-    }, []);
     return(
         <>
              <main className="login" style={{height:"80rem"}}>
@@ -40,7 +93,7 @@ function AdminRegistrationContent(){
                         <div className="row">
                             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div data-aos="zoom-out-right" data-aos-offset="100" className="portlet-title">
-                                    <p className="text-center Login-name">Create Account</p>
+                                    <p className="text-center Login-name">Create Admin Account</p>
                                 </div>
                                 <form onSubmit={handleSubmit} data-aos="zoom-out-right" data-aos-offset="100" >
                                 <div className="form-group">

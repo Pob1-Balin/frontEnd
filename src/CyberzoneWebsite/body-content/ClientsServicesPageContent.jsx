@@ -27,9 +27,8 @@ function ClientsServicesPageContent(props){
       useEffect(()=>{
         if(!user){
           navigate('/')
-          console.log('kjdshkj')
-          Aos.init({ duration: 2000 });
         }
+        Aos.init({ duration: 2000 });
       },[user, navigate])
 
       const onLogout = () => {

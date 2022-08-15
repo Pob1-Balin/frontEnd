@@ -4,8 +4,23 @@ import Footer from '../components/Footer'
 import Chart from '../components/Chart';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
+import {useNavigate} from 'react-router-dom'
+import {useSelector} from 'react-redux'
+
 
 function HomepageContent() {
+    const navigate = useNavigate()
+
+    const {user} = useSelector((state)=>state.auth)
+  
+  
+    useEffect(()=>{
+      if(!user.isAdmin){
+        navigate('/')
+        console.log('kjdshkj')
+      }
+    },[user])
+    console.log(user.isAdmin)
     useEffect(() => {
         Aos.init({ duration: 2000 });
     }, []);

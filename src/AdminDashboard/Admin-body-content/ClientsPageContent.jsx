@@ -9,7 +9,7 @@ function ClientsPageContent (){
     const [ users, setUsers ] = useState([]);
     useEffect(() => {
       axios
-        .get(`${API}/user`)
+        .get(`${API}/users`)
         .then(({ data }) => {
             setUsers(data.data);
         })

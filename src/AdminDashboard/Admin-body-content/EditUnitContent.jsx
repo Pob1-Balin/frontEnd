@@ -63,7 +63,7 @@ function EditUnitContent(){
     const handleSubmit = (event) => {
         event.preventDefault();
         const { title, image} = values;
-        
+
         if(image != ''){
             submitUnit({
                 title,

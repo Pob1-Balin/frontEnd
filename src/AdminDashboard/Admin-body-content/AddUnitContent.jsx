@@ -61,13 +61,13 @@ function AddUnitContent() {
     const handleSubmit = (event) => {
         event.preventDefault();
         const { module_id, unit_name, title, image, questions_time } = values;
-
-        console.log("auhau auhau", unit_name)
+        const questions_answered = 0;
         submitModule({
             module_id,
             title,
             image,
-            questions_time
+            questions_time,
+            questions_answered,
         });
         navigate('/units', {state:{id:module_id, title: moduleInfo.title, module_name: moduleInfo.module_name}});
     }

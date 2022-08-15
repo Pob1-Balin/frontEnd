@@ -1,6 +1,8 @@
 import React, { useEffect, useState} from 'react';
+import { useNavigate } from 'react-router-dom'
 
 function CountDown(props){
+    const navigate = useNavigate();
     const [time, setTime] = useState("");
     const [stopTime, setStopTime] = useState(5000);
     const [timeRemaining, setTimeRemaining] = useState(0);
@@ -27,7 +29,7 @@ function CountDown(props){
 
         if(distance < 0){
             clearInterval(x);
-            setTime("ertrytuuij;o")
+            navigate('/unitsclients', {state:{id:props.module_id, title:props.title, module_name:props.module_name}});
         }
 
         }, 1000)

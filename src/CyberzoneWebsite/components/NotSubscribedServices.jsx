@@ -18,14 +18,14 @@ function NotSubscribedServices(props) {
             {slice.map((item, index) => <div data-aos="zoom-in" data-aos-offset="100" class="col-lg-3 col-md-6 col-sm-6 col-xs-12" >
                 <div class="courses-inner mg-t-30">
                     <div class="courses-title">
-                        <a href="#"><img src="./images/Cature.png" alt="" /></a>
+                        <a href="#"><img style={{height: "12rem", width:"20rem"}} src={`${API}/images/${item.image}`} alt="" /></a>
                         <h2>{item.name}</h2>
                     </div>
                     <div class="course-des" style={{ paddingLeft: ".3rem" }}>
                         <p><span></span> <b>{item.description}</b></p>
                     </div>
                     <div style={{ textAlign: "center" }}>
-                        <Link to='/subscribe' state={{id:item._id, service_info:servicesData[index], amount:item.amount, userData:userData}}><div class="product-buttons mt-1 mb-2 btn">
+                        <Link to='/subscribe' state={{id:item._id, service_info:{service_id:item._id, modules:item.modules}, amount:item.amount, userData:userData}}><div class="product-buttons mt-1 mb-2 btn">
                             Subscribe Now
                         </div></Link>
                     </div>

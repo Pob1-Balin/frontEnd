@@ -77,7 +77,7 @@ function Modules(props) {
           <div class="product-buttons" style={{ marginTop: '1.5rem', marginBottom: "-.5rem" }}>
             <Link to='/editmodule' style={{ textDecoration: 'none' }} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
             <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Disable</button>
-            <button type="button" class="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target={new_title}  >Delete</button>
+            <button type="button" class="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target={new_title} >Delete</button>
           </div>
           <Link to="/units" style={{ textDecoration: "none" }} state={props}>
             <div className='module_units_button' style={{ marginTop: "1.8rem", marginBottom: '-1.5rem' }}>

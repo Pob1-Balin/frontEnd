@@ -34,6 +34,81 @@ function StructureOneContent(props){
             })
       }
 
+
+
+
+//--------------------------------------------- calculate time spent on this page ----------------------------------------
+
+const submitUnit = (unitInfo) => {
+    axios.put(`${API}/unit/unit/${unitContent.id}`, unitInfo)
+        .then(res => {
+        })
+        .catch(err => {
+        })
+}
+
+var units = {};
+unitsData.map((item) => {
+    units = item
+});
+
+console.log("boy",units.time_spent)
+
+let timeSpentScrolling = 0;
+
+let isHalted = false;
+let haltedStartTime, haltedEndTime;
+let totalHaltedTime = 0;
+
+const update_halt_state = () => {
+    if (isHalted) {
+        isHalted = false;
+        haltedEndTime = new Date().getTime()
+        totalHaltedTime += (haltedEndTime - haltedStartTime)
+    } else {
+        isHalted = true;
+        haltedStartTime = new Date().getTime()
+    }
+}
+
+// Listen for scroll events
+window.addEventListener('scroll', () => {
+    timeSpentScrolling += 1.8;
+    update_halt_state()
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    const start = new Date().getTime();
+
+    // AVERAGE SCROLLING INTERVAL - 3 munites
+    setInterval(() => {
+        if (new Date().getTime() - start > 180000) {
+            update_halt_state()
+        }
+    }, 180000)
+
+    window.addEventListener("beforeunload", () => {
+        const end = new Date().getTime();
+        update_halt_state()
+
+        const totalTime = (end - start) - (timeSpentScrolling) - totalHaltedTime;
+        const final_time_spent = parseInt(totalTime) + parseInt(units.time_spent)
+        const time_spent = Math.round(final_time_spent);
+        submitUnit({
+            time_spent,
+        });
+
+    });
+
+});
+
+//------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
       const deleteUnitContent = () => {
         var unit_content = [{}];
         {unitsData.map((item) => {
@@ -75,7 +150,7 @@ function StructureOneContent(props){
                 {head == "admin" ?
                     <AdminHeaderSection prev='#' edit="editstructureone" destination="Accueil" id={unitContent.id} content={unitContent.content} index={unitContent.index} header_title={unitContent.content.page_title}/>
                     :
-                    <HeaderSection prev='#' destination="Accueil" header_title="Bienvenue" />
+                    <HeaderSection prev='#' destination="Accueil" header_title={unitContent.content.page_title} />
                 }
                 </div>
                 <div className="unites_divider_line"></div>

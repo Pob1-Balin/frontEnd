@@ -27,6 +27,5 @@ function EmptyPageContent(props){
     );
 }
 
-
 export default EmptyPageContent;
 

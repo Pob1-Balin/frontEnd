@@ -10,72 +10,7 @@ import EmptyPageContent from "../../CommonPageContents/EmptyPageContent";
 
 
 function ServicesContent(){
-
-    const id = "62f3c2e5be76be3cc1b6ebc7";
-    const submitUnit = (unitInfo) => {
-        axios.put(`${API}/unit/unit/${id}`, unitInfo)
-            .then(res => {
-            })
-            .catch(err => {
-            })
-    }
-
-    let timeSpentScrolling = 0;
-
-    let isHalted = false;
-    let haltedStartTime, haltedEndTime;
-    let totalHaltedTime = 0;
-
-    const update_halt_state = () => {
-      if (isHalted) {
-        isHalted = false;
-        haltedEndTime = new Date().getTime()
-        totalHaltedTime += (haltedEndTime - haltedStartTime) / 1000
-      } else {
-        isHalted = true;
-        haltedStartTime = new Date().getTime()
-      }
-    }
-
-    // Listen for scroll events
-    window.addEventListener('scroll', () => {
-      timeSpentScrolling += 1.8;
-      update_halt_state()
-    });
-
-    document.addEventListener("DOMContentLoaded", () => {
-      const start = new Date().getTime();
-
-      // AVERAGE SCROLLING INTERVAL - 39 seconds
-      setInterval(() => {
-        if (new Date().getTime() - start > 39000) {
-          update_halt_state()
-        }
-      }, 39000)
-
-      window.addEventListener("beforeunload", () => {
-        const end = new Date().getTime();
-        update_halt_state()
-
-        const totalTime = ((end - start) / 1000) - (timeSpentScrolling / 1000) - totalHaltedTime
-        const time_spent = Math.round(totalTime);
-        submitUnit({
-            time_spent,
-        });
-
-      });
-
-    });
-
-
-
-
-
-
-
-
-
-  const [service, setService] = useState([]);
+const [service, setService] = useState([]);
   useEffect(() => {
       axios.get(`${API}/service`).then(({data})=>{
         setService(data.data)

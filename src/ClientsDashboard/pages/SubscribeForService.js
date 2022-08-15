@@ -7,6 +7,7 @@ import { API } from "../../config";
 import {Link, useLocation, useNavigate} from "react-router-dom"
 
 function SubscribeForService(props) {
+    const navigate = useNavigate();
     const location = useLocation();
     const user = location.state.user;
 
@@ -23,14 +24,13 @@ function SubscribeForService(props) {
     const userId = "62f47d3b149cacf97e1a9a70";
 
     const [userServs, setUserServs] = useState([]);
-    console.log("user services:", userServs);
     const [modules, setModules] = useState([]);
     useEffect(() => {
         axios.get(`${API}/serv/getserv/${userId}`).then(({ data }) => {
-           setUserServs(data.data)
-        }).catch((err) => {
-            //  console.log("Something Went Wrong:", err)
-        });
+            setUserServs(data.data)
+         }).catch((err) => {
+             //  console.log("Something Went Wrong:", err)
+         });
 
         axios.get(`${API}/module/servModule/${serviceId}`).then(({data})=>{
             setModules(data.data)
@@ -40,28 +40,34 @@ function SubscribeForService(props) {
         })
     }, []);
 
-
-
 //Getting units for each module and asigning it to the units field of the module
      {modules.map((item) => {
+        item.module_id = item._id;
          axios.get(`${API}/unit/unit/${item._id}`).then(({data})=>{
+            data.data.map((item2) => {
+                 item2.unit_id = item2._id
+                 item2.unit_time_spent = "0"
+                 item2.unit_score = "0"
+                 item2.questions_answered = "0"
+            })
             item.units = data.data;
-            item.module_score = "20";
          }).catch((err)=>{
         })
     })}
 
-    var another_object = [{}];
-    {userServs.map((item) => {
-        another_object = item;
-   })}
-
-
-    subscribeService.score = "20";
     subscribeService.modules = modules;
 
-    console.log("user services:", userServs);
-    // console.log("subscribe services:", serviceId);
+    //service to be submitted
+    var another_object = [{}];
+    {userServs.map((item) => {
+        another_object = item.services;
+    })}
+
+    var service_to_be_submitted =  [{}];
+    service_to_be_submitted = [...another_object, subscribeService]
+
+    console.log("servs to be submitted:", service_to_be_submitted)
+
 
     const [inputs, setInputs] = useState({
         country_code: "",
@@ -87,19 +93,19 @@ function SubscribeForService(props) {
             .catch(err => {
             })
 
-            console.log("lets see", userSubscribeInfo.services);
-
-
+        navigate("/home");
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
         document.getElementById("disable_btn").disabled = "true";
 
-        const services = [...userServs, subscribeService]
+        const services = service_to_be_submitted;
         submitUserInfo({
             services,
         });
+
+        document.getElementById("clicked").click();
     }
 
     return (
@@ -131,7 +137,7 @@ function SubscribeForService(props) {
                                         <div style={{color:"gray", fontSize:"1rem", marginTop:"1.8rem"}}><b><p>Total: {new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3}).format(payable)}XAF</p></b></div>
 
                                         <div className="modal-footer" style={{borderTop:"1px solid #F5F5F5", marginTop:"1rem", marginBottom:"-2rem"}}>
-                                            <button type="button" className="btn btn-danger mr-1" data-dismiss="modal">Close</button>
+                                            <button type="button" id="clicked" className="btn btn-danger mr-1" data-dismiss="modal">Close</button>
                                             <button type="submit" id="disable_btn" className="btn btn-info">Pay Now</button>
                                         </div>
                                     </form>
@@ -164,7 +170,7 @@ function SubscribeForService(props) {
                                         <div style={{color:"gray", fontSize:"1rem", marginTop:"1.8rem"}}><b><p>Total: {new Intl.NumberFormat('en-IN', { maximumSignificantDigits: 3}).format(payable)}XAF</p></b></div>
 
                                         <div className="modal-footer" style={{borderTop:"1px solid #F5F5F5", marginTop:"1rem", marginBottom:"-2rem"}}>
-                                            <button type="button" className="btn btn-danger mr-1" data-dismiss="modal">Close</button>
+                                            <button type="button" id="clicked" className="btn btn-danger mr-1" data-dismiss="modal">Close</button>
                                             <button type="submit" className="btn btn-info">Pay Now</button>
                                         </div>
                                     </form>

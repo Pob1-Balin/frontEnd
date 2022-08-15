@@ -14,6 +14,8 @@ function ModulesPageContent(props) {
   const serviceId = serviceInfo.id
   const head = props.display;
 
+  console.log("serviceInfo", serviceInfo)
+
   const [module, setModule] = useState([]);
   useEffect(() => {
       axios.get(`${API}/module/servModule/${serviceId}`).then(({data})=>{
@@ -44,7 +46,7 @@ function ModulesPageContent(props) {
               <EmptyPageContent text="Oopps!!! no modules for this service have been added" directives="Click on the add modules button above to add a module."/>
               :
               <div style={{marginTop:"2rem"}} className="wrapper3">
-                 {module.map((moduleData, index)=><Module2 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} score={moduleData.score} service_id={serviceId} /> )}
+                 {module.map((moduleData, index)=><Module2 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} score={moduleData.score} service_id={serviceId}/> )}
               </div>
              }
             <div style={{marginTop:"14rem"}} className="space-creater"></div>
@@ -64,7 +66,7 @@ function ModulesPageContent(props) {
             <EmptyPageContent text="Oopps!!! no modules for this service have been added" directives="This service's modules will soon be added"/>
             :
             <div style={{marginTop:"2rem"}} className="wrapper3">
-              {module.map((moduleData, index)=><Module1 key={moduleData._id} id={moduleData._id} image="./images/Cature.png" title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} score={moduleData.score} />)}
+              {module.map((moduleData, index)=><Module1 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} serviceID={serviceId} score={moduleData.score} />)}
             </div>
           }
           <div style={{marginTop:"12rem"}} className="space-creater"></div>

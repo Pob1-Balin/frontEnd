@@ -22,7 +22,7 @@ function ClientsServicesPageContent(props){
 
   const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
 
-    console.log("user data", user)
+    // console.log("user data", user)
 
       useEffect(()=>{
         if(!user){
@@ -47,32 +47,33 @@ function ClientsServicesPageContent(props){
               //  console.log("Something Went Wrong:", err)
           });
 
-          const id = "62f451bc149cacf97e1a9a6e";
-          axios.get(`${API}/serv/getserv/${id}`).then(({ data }) => {
-             setUserServs(data.data)
-          }).catch((err) => {
-              //  console.log("Something Went Wrong:", err)
-          });
+          const userId = "62f47d3b149cacf97e1a9a70";
+          axios.get(`${API}/serv/getserv/${userId}`).then(({ data }) => {
+              setUserServs(data.data)
+           }).catch((err) => {
+               //  console.log("Something Went Wrong:", err)
+           });
 
       }, []);
 
-    //   var userServices = [{}];
-    //   var unsubscribedServices = [{}];
+    var userServices = [{}];
+    {userServs.map((item) => {
+        userServices = item.services;
+    })}
 
-    // {services.map((item) => {
-    //      {userServs.map((item2) => {
-    //          if(item._id == item2._id){
-    //             userServices = [...userServices, item];
-    //          }else{
-    //             unsubscribedServices = [...unsubscribedServices, item];
-    //          }
-    //      })}
-    // })}
+      var subscribed_services = [{}];
+      var unsubscribed_services = [{}];
 
-    // console.log("user_services:", userServices);
-    // console.log("services:", unsubscribedServices);
+    {services.map((item) => {
+        if(userServices.find(e => e.service_id === item._id)){
+             subscribed_services = [...subscribed_services, item];
+        }else{
+             unsubscribed_services = [...unsubscribed_services, item];
+        }
+    })}
 
-
+    subscribed_services.splice(0,1);
+    unsubscribed_services.splice(0,1);
 
     return(
         <>
@@ -114,7 +115,7 @@ function ClientsServicesPageContent(props){
                         <div class="container-fluid services">
                             <div class="row mg-b-15">
                                 {/* <ClientService user={props.user}/> */}
-                                <ClientService services={user.services}/>
+                                <ClientService services={subscribed_services}/>
                             </div>
                         </div>
                     </div>
@@ -131,7 +132,7 @@ function ClientsServicesPageContent(props){
                                 {/* {service.map(serviceData => <NotSubscribedServices key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} number_of_subscribers={serviceData.subscribers} short_description={serviceData.description}/>)} */}
                                 {/* <NotSubscribedServices user={props.user}/> */}
 
-                                <NotSubscribedServices userData={user} services={services}/>
+                                <NotSubscribedServices userData={user} services={unsubscribed_services}/>
                             </div>
                         </div>
                     </div>

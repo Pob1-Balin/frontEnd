@@ -9,7 +9,6 @@ import {Link, useLocation, useNavigate} from "react-router-dom"
 function SubscribeForService(props) {
     const navigate = useNavigate();
     const location = useLocation();
-    const user = location.state.user;
 
     const stateInfo = location.state;
     const serviceId = stateInfo.id;
@@ -20,18 +19,9 @@ function SubscribeForService(props) {
     const userData = stateInfo.userData;
     const userServices = userData.services;
 
-    // const userId = userData._id;
-    const userId = "62f47d3b149cacf97e1a9a70";
-
-    const [userServs, setUserServs] = useState([]);
+    const user = JSON.parse(window.localStorage.getItem("user"));
     const [modules, setModules] = useState([]);
     useEffect(() => {
-        axios.get(`${API}/serv/getserv/${userId}`).then(({ data }) => {
-            setUserServs(data.data)
-         }).catch((err) => {
-             //  console.log("Something Went Wrong:", err)
-         });
-
         axios.get(`${API}/module/servModule/${serviceId}`).then(({data})=>{
             setModules(data.data)
           //  console.log(data.data)
@@ -59,9 +49,7 @@ function SubscribeForService(props) {
 
     //service to be submitted
     var another_object = [{}];
-    {userServs.map((item) => {
-        another_object = item.services;
-    })}
+    another_object = user.services;
 
     var service_to_be_submitted =  [{}];
     service_to_be_submitted = [...another_object, subscribeService]
@@ -87,13 +75,17 @@ function SubscribeForService(props) {
 
         // MOMO API HERE
 
-        axios.put(`http://localhost:7000/api/v1/serv/update/${userId}`, userSubscribeInfo)
+        axios.put(`http://localhost:7000/api/v1/users/${user._id}/update`, userSubscribeInfo)
             .then(res => {
             })
             .catch(err => {
             })
 
-        navigate("/home");
+            const new_services = userSubscribeInfo.services;
+            user.services = new_services;
+            localStorage.setItem('user', JSON.stringify(user));
+
+        navigate("/home", {state:{refresh:"true"}});
     }
 
     const handleSubmit = (event) => {

@@ -68,6 +68,8 @@ import UnitStructures from './AdminDashboard/pages/structures';
 import EditQuestionPage from './AdminDashboard/pages/EditQuestionPage';
 import EditUnitHomePage from './AdminDashboard/pages/EditUnitHomePage';
 
+import Home from './CyberzoneWebsite/pages/Home';
+
 
 
 
@@ -125,10 +127,8 @@ function Navigation() {
                 <Route path='/adminlogin' exact element={<AdminLoginContent/>}/>
                 <Route path='/adminforgotpassword' exact element={<AdminForgotPasswordPage/>}/>
                 <Route path='/password-reset/:id/:token' element={<Test/>}/>
-                
 
-
-
+                <Route path='/sitehome' element={<Home/>}/>
 
                  {/*============================= Admin dashboard =============================*/}
                  <Route path='/admindashboard' exact element={<AdminHomePage />}/>

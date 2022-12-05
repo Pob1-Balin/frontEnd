@@ -7,22 +7,32 @@ import "../../AdminDashboard/admin.css";
 import SiteHeader from "../components/SiteHeader";
 import SiteFooter from "../components/SiteFooter";
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
-import { useNavigate } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../../redux/auth/authSlice'
 import axios from 'axios'
 import { API } from '../../config'
+
 import EmptyPageContent from "../../CommonPageContents/EmptyPageContent";
 
 function ClientsServicesPageContent(props){
 
     const navigate = useNavigate()
     const dispatch = useDispatch()
+    const location = useLocation();
+
+        if(location.state){
+           if(location.state.refresh === "true"){
+             window.location.reload();
+             navigate("/home", {state:{refresh:"false"}})
+           }
+        }
+
     //  const { user } = useSelector((state) => state.auth)
 
   const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
 
-    // console.log("user data", user)
+    console.log("user data", user)
 
       useEffect(()=>{
         if(!user){
@@ -38,30 +48,18 @@ function ClientsServicesPageContent(props){
       }
 
       const [services, setServices] = useState([]);
-      const [userServs, setUserServs] = useState([]);
       useEffect(() => {
           axios.get(`${API}/service`).then(({ data }) => {
               setServices(data.data)
           }).catch((err) => {
               //  console.log("Something Went Wrong:", err)
           });
-
-          const userId = "62f47d3b149cacf97e1a9a70";
-          axios.get(`${API}/serv/getserv/${userId}`).then(({ data }) => {
-              setUserServs(data.data)
-           }).catch((err) => {
-               //  console.log("Something Went Wrong:", err)
-           });
-
       }, []);
 
     var userServices = [{}];
-    {userServs.map((item) => {
-        userServices = item.services;
-    })}
-
-      var subscribed_services = [{}];
-      var unsubscribed_services = [{}];
+    userServices = user.services;
+    var subscribed_services = [{}];
+    var unsubscribed_services = [{}];
 
     {services.map((item) => {
         if(userServices.find(e => e.service_id === item._id)){
@@ -96,20 +94,6 @@ function ClientsServicesPageContent(props){
                         <p style={{fontSize:'1.5rem', marginTop:"2.5rem", color:"gray"}} className="text-center">Services you've subscribed for</p>
                         <hr style={{marginTop:"-.1rem", marginBottom:"2rem", width:"5rem",height:".2rem", fontWeight:"bold", color:"#4ab2cc"}}/>
                     </div>
-
-                    {/* {user.services.length == 0 ?
-                        <EmptyPageContent style={{fontSize:".1rem"}} text="Oopps!!! you have not subscribed to any service" directives="Click on the subscribe button on the cards bellow to subscribe for a service"/>
-                        :
-                        <div class="services-area ">
-                            <div class="container-fluid services">
-                                <div class="row mg-b-15"> */}
-                                    {/* <ClientService user={props.user}/> */}
-                                    {/* <ClientService services={user.services}/>
-                                </div>
-                            </div>
-                        </div>
-                    } */}
-
                     <div class="services-area ">
                         <div class="container-fluid services">
                             <div class="row mg-b-15">

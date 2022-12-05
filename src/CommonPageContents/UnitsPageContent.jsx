@@ -27,7 +27,6 @@ function UnitsPageContent(props){
         //    console.log("Something Went Wrong:", err)
        })
 
-       const userId = "62f47d3b149cacf97e1a9a70";
        axios.get(`${API}/serv/getserv/${userId}`).then(({ data }) => {
            setUserServs(data.data)
        }).catch((err) => {
@@ -100,7 +99,7 @@ function UnitsPageContent(props){
                 item.unit_time_spent = "0"
                 item.unit_score = "0"
                 item.questions_answered = "0"
-                units2.splice(3,0, item);
+                units2.splice(0,0, item);
             })
 
             service_modules.map((item) => {
@@ -120,9 +119,7 @@ function UnitsPageContent(props){
                 services,
             });
 
-            }else(
-                console.log("no")
-            )
+            }
     }
 
    const number_of_units = units.length;
@@ -134,7 +131,7 @@ function UnitsPageContent(props){
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Update user units dailog</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Units Updates</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                     <span aria-hidden="true">&times;</span>
                                 </button>

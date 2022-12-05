@@ -1,0 +1,18 @@
+.modal-body ul li:hover{
+    background-color: #0b426a;
+    color: white;
+    font-weight: bold;
+}
+/* .modal-body{
+    width: 100rem;
+} */
+.modal-body ul a{
+    color: gray;
+}
+.modal-body ul{
+    margin-top: -1rem;
+    margin-bottom: -1rem;
+    margin-left: -3rem;
+    margin-right: -1rem;
+    font-size: 15px;
+}

@@ -1,0 +1,46 @@
+.list{
+    color: white;
+    font-weight: bold;
+}
+
+.list:hover{
+    padding-left: 10px;
+    color: #4ab2cc;
+}
+.test1{
+    color: gray;
+    font-weight: 500;
+}
+
+.nav-icons{
+    margin-right: .6rem;
+}
+
+.test:hover{
+    color:#4ab2cc;
+}
+
+@media screen and (min-width: 992px){
+    .logout{
+        display: inline-block;
+        margin-right: 20%;
+        margin-left: 40%;
+    }
+}
+aside.sidebar ul.menu li{
+    font-size: 1rem;
+}
+
+@media screen and (min-width: 1500px){
+    aside.sidebar ul.menu li{
+        font-size: 1.6rem;
+    }
+    header.topbar div.header-right-info ul.nav li.nav-item a img{
+          width:3.5rem;
+    }
+    header.topbar div.header-right-info ul.nav li.nav-item a span.admin-name, header.topbar div.header-right-info ul.nav li.nav-item a i{
+          font-size: 1.5rem;
+    }
+}
+
+

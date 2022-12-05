@@ -4,11 +4,11 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 function HeaderSection(props){
     return(
-        <>  
+        <>
              <div className='Unit-footer-card'>
                  <center>
-                    <Link to='/'>
-                         <button className='unit-dashboard-footer-button success'><LockOutlinedIcon style={{marginRight: "1rem"}} />Visionnez la vidéo pour continuer</button>
+                    <Link to='#'>
+                         <button className='unit-dashboard-footer-button success'>{props.footer_text}</button>
                     </Link>
                  </center>
              </div>

@@ -1,0 +1,40 @@
+.modal-body ul li:hover{
+    background-color: #0b426a;
+    color: white;
+    font-weight: bold;
+}
+.modal-body ul a{
+    color: gray;
+}
+.modal-body ul{
+    margin-top: -1rem;
+    margin-bottom: -1rem;
+    margin-left: -3rem;
+    margin-right: -1rem;
+    font-size: 15px;
+}
+
+.select-service-list{
+    list-style: none;
+    margin: 0rem;
+    cursor: pointer;
+    padding-left: 2rem;
+    padding-top: .7rem;
+    height: 3rem;
+}
+
+@media screen and (min-width: 1500px){
+    div.modal div.modal-content{
+        width: 40rem;
+    }
+    div.modal div.modal-content .modal-header h5{
+        font-size: 1.8rem;
+    }
+    div.modal div.modal-content .modal-body ul li{
+        font-size: 1.6rem;
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+

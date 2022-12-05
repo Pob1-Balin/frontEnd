@@ -1,0 +1,9 @@
+.Home-page-hero-section{
+    background-image: url("capture.webp");
+    background-repeat: no-repeat;
+    background-size:cover;
+}
+.about{
+    font-size: 1.7rem;
+    font-weight: 550;
+}

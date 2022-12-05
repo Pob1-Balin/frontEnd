@@ -1,0 +1,13 @@
+.SideHeader{
+    background:linear-gradient(0deg, #55535498, #55535498), url('./bg.png');
+    background-size:cover;
+}
+.SideHeader h2{
+    font-weight: bold;
+}
+
+.navbar-focus:focus{
+    background-color: gray;
+}
+
+

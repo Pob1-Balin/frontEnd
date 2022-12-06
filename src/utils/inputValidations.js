@@ -1,111 +1,41 @@
+import * as yup from 'yup';
+
 export const validateRegistration = (values) => {
     const errors = {};
     const emailRegex = /^[^s@]+@[^\s@]+\.[^\s@]{2,}$/i;
     const usernameRegex = /^[a-zA-Z0-9]([._-](?![._-])|[a-zA-Z0-9]){1,18}[a-zA-Z0-9]$/i;
     const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/i;
-    if(!values.first_name){
-        errors.first_name = "First Name is required"
-    }else if(!usernameRegex.test(values.first_name)){
-      errors.first_name = "First name not Valide"
-    }
-    if(!values.last_name){
-        errors.last_name = "Last Name is required!"
-    }else if(!usernameRegex.test(values.last_name)){
-      errors.last_name = "Last name not Valide"
-    }
-    if(!values.email){
-        errors.email = "Email is required!"
-    }
-   //  else if(!emailRegex.test(values.email)){
-   //    errors.email = "This is not a valide email"
-   //  }
-    if(!values.phone_number){
-        errors.phone_number = "Phone number is required!"
-    }else if(values.phone_number.length < 9 || values.phone_number.length > 12){
-        errors.phone_number = "Phone number not Valide"
-      }
-    if(!values.gender){
-        errors.gender = "Gender is required!"
-    }
-    if(!values.country){
-        errors.country = "Country is required!"
-    }
-    if(!values.address){
-        errors.address = "Address is required"
-    }else if(!usernameRegex.test(values.address)){
-      errors.address = "Address is not Valide"
-    }
-    if(!values.skill){
-        errors.skill = "Skill is required"
-    }else if(!usernameRegex.test(values.skill)){
-      errors.skill = "Skill is not Valide!"
-    }
-    if(!values.educational_level){
-        errors.educational_level = "Your educational level is required!"
-    }else if(!usernameRegex.test(values.educational_level)){
-      errors.educational_level = "Educational level not Valide"
-    }
-    if(!values.page_name){
-       errors.page_name = "Page name is required!"
-    }else if(!usernameRegex.test(values.page_name)){
-       errors.page_name = "Page name is not Valide"
-    }
-    if(!values.page_title){
-       errors.page_title = "Page title is required!"
-    }else if(!usernameRegex.test(values.page_title)){
-       errors.page_title = "Page title is not Valide"
-    }
-    if(!values.carousel_one_text){
-       errors.carousel_one_text = "Carousel text is required!"
-    }else if(!usernameRegex.test(values.carousel_one_text)){
-       errors.carousel_one_text = "Invalide text"
-    }
-    if(!values.carousel_two_text){
-       errors.carousel_two_text = "Carousel text is required!"
-    }else if(!usernameRegex.test(values.carousel_two_text)){
-       errors.carousel_two_text = "Invalide text"
-    }
-    if(!values.carousel_three_text){
-       errors.carousel_three_text = "Carousel text is required!"
-    }else if(!usernameRegex.test(values.carousel_three_text)){
-       errors.carousel_three_text = "Invalide text"
-    }
-    if(!values.carousel_one_image){
-       errors.carousel_one_image = "Carousel image is required!"
-    }
-    if(!values.carousel_two_image){
-       errors.carousel_two_image = "Carousel image is required!"
-    }
-    if(!values.carousel_three_image){
-       errors.carousel_three_image = "Carousel image is required!"
-    }
-    if(!values.section_image){
-       errors.section_image = "Section image is required!"
-    }
-    if(!values.video_file){
-       errors.video_file = "Video file is required!"
-    }
-    if(!values.text_heading){
-       errors.text_heading = "Text heading is required"
-    }else if(!usernameRegex.test(values.text_heading)){
-       errors.text_heading = "Text heading not Valide"
-    }
-    if(!values.section_text){
-       errors.section_text = "Section text is required!"
-    }else if(!usernameRegex.test(values.section_text)){
-       errors.section_text = "Section text not Valide"
-    }
-    if(!values.password){
-        errors.password = "Password is required!"
-    }else if(!passwordRegex.test(values.password)){
-      errors.password = "Password must have a minimum of 8 characters, at least one lowercase, one uppercase, one number, and one special character"
-    }
-    if(!values.confirm_password){
-        errors.confirm_password = "Confirm password is required!"
-    }else if(values.password != values.confirm_password){
-      errors.confirm_password = "Confirm password does not match password"
-    }
+    
     return errors;
 };
 
 
+export const loginFormValidations = yup.object().shape({
+   email: yup.string().email("Ce n'est pas un format d'e-mail valide!").required("Obligatoire!"),
+   password: yup.string().min(8, "Doit contenir au moins 8 caractères").matches(/^(?=.*[a-z])/, 'Doit contenir au moins un caractère minuscule').matches(/^(?=.*[A-Z])/, "Doit contenir au moins un caractère majuscule").matches(1, 'Doit contenir au moins un chiffre').matches(/^(?=.*[0-9])/, "Doit contenir au moins un chiffre").matches(/^(?=.*[!@#%&])/, "Doit contenir au moins un caractère spécial").required("Obligatoire!"),
+});
+
+
+export const forgotPasswordFormValidations = yup.object().shape({
+   email: yup.string().email("Ce n'est pas un format d'e-mail valide!").required("Obligatoire!"),
+});
+
+export const registerFormValidations = yup.object().shape({
+   first_name: yup.string().min(3, "Doit comporter au moins 3 caractères").required("Obligatoire!"),
+   last_name: yup.string().min(3, "Doit comporter au moins 3 caractères").required("Obligatoire!"),
+   email: yup.string().email("Ce n'est pas un format d'e-mail valide!").required("Obligatoire!"),
+   phone_number: yup.string().required("Obligatoire!"),
+   gender: yup.string().required("Obligatoire!"),
+   country: yup.string().required("Obligatoire!"),
+   password: yup.string().min(8, "Doit contenir au moins 8 caractères").matches(/^(?=.*[a-z])/, 'Doit contenir au moins un caractère minuscule').matches(/^(?=.*[A-Z])/, "Doit contenir au moins un caractère majuscule").matches(1, 'Doit contenir au moins un chiffre').matches(/^(?=.*[0-9])/, "Doit contenir au moins un chiffre").matches(/^(?=.*[!@#%&])/, "Doit contenir au moins un caractère spécial").required("Obligatoire!"),
+   confirm_password: yup.string().oneOf([yup.ref('password'), null], "La confirmation du mot de passe ne correspond pas au mot de passe").required("Obligatoire!"),
+});
+
+export const resetPasswordFormValidations = yup.object().shape({
+   password: yup.string().min(8, "Doit contenir au moins 8 caractères").matches(/^(?=.*[a-z])/, 'Doit contenir au moins un caractère minuscule').matches(/^(?=.*[A-Z])/, "Doit contenir au moins un caractère majuscule").matches(1, 'Doit contenir au moins un chiffre').matches(/^(?=.*[0-9])/, "Doit contenir au moins un chiffre").matches(/^(?=.*[!@#%&])/, "Doit contenir au moins un caractère spécial").required("Obligatoire!"),
+   confirm_password: yup.string().oneOf([yup.ref('password'), null], "La confirmation du mot de passe ne correspond pas au mot de passe").required("Obligatoire!"),
+});
+
+
+ 
+ 

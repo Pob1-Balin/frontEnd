@@ -1078,41 +1078,9 @@ ul.country-state{
     color: gray;
 }
 
- .LoginCard{
-       margin: 5rem 20rem;
-  }
-  @media screen and (max-width: 1300px){
-    .LoginCard{
-        margin: 5rem 15rem;
-   }
- }
-  @media screen and (max-width: 1000px){
-    .LoginCard{
-        margin: 5rem 10rem;
-   }
- }
-  @media screen and (max-width: 800px){
-    .LoginCard{
-        margin: 5rem 8rem;
-   }
- }
-  @media screen and (max-width: 650px){
-    .LoginCard{
-        margin: 5rem 5rem;
-   }
- }
-  @media screen and (max-width: 550px){
-    .LoginCard{
-        margin: 5rem 1rem;
-   }
- }
-  @media screen and (max-width: 300px){
-    .LoginCard{
-        margin: 5rem .5rem;
-   }
- }
-
-
+.LoginCard{
+    padding-top: 6rem;
+}
 
  @media screen and (min-width: 400px){
     .inner-card-container{

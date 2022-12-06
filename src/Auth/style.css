@@ -1,0 +1,79 @@
+  @font-face {
+    font-family: 'MetropolisBold';
+    src: local('MetropolisBold'), url("../fonts/Metropolis_Font_family/Metropolis-Bold.otf") format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'MetropolisLight';
+    src: local('MetropolisLight'), url("../fonts/Metropolis_Font_family/Metropolis-Light.otf") format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'MetropolisExtraLight';
+    src: local('MetropolisExtraLight'), url("../fonts/Metropolis_Font_family/Metropolis-Thin.otf") format('truetype');
+  }
+  @font-face {
+    font-family: 'MetropolisSemiBold';
+    src: local('MetropolisSemiBold'), url("../fonts/Metropolis_Font_family/Metropolis-SemiBold.otf") format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'MetropolisRegular';
+    src: local('MetropolisRegular'), url("../fonts/Metropolis_Font_family/Metropolis-Regular.otf") format('truetype');
+  }
+  
+  .fontBold{
+    font-family: MetropolisSemiBold;
+  }
+
+  .fontRegular{
+    font-family: MetropolisRegular;
+  }
+
+  .fontSemiBold{
+    font-family: MetropolisSemiBold;
+  }
+  
+  .fontLight, .formExtra p{
+    font-family: MetropolisExtraLight;
+  }
+  
+  .LoginCard form input:focus{
+    color: rgb(35, 175, 203);
+    background-color: white;
+  }
+
+  form input{
+    background-color: white;
+    color: rgb(35, 175, 203);
+  }
+
+  form label p{
+    font-size: 1.2rem;
+    font-family: MetropolisExtraLight;
+  }
+ 
+
+.form-group span.error{
+    color: red;
+    font-family: MetropolisExtraLight;
+    font-size: 1.2rem;
+  }
+  
+  .form-control2{
+    margin-bottom: .5rem;
+  }
+
+   .error-boder{
+      border-color: red;
+    }
+
+  .form-control2::placeholder{
+    color: red;
+  }
+
+  @media screen and (max-width: 262px) {
+    .submitBtnf{
+     font-size: .1rem;
+    }  
+  }

@@ -1,28 +1,22 @@
 import React, { useEffect, useState } from "react";
-
-// import BackgroundVideo  from "./cyberzone.mp4";
 import "../../AdminDashboard/admin.css";
-import Aos from 'aos';
-import 'aos/dist/aos.css';
+import '../style.css'
 import axios from "axios";
 import { API } from "../../config";
-import { useNavigate } from "react-router-dom";
-import {validateRegistration} from '../../utils/inputValidations'
+import { useNavigate, Link } from "react-router-dom";
+import { loginFormValidations } from '../../utils/inputValidations'
 import { useSelector, useDispatch } from 'react-redux'
 import { login, reset } from '../../redux/auth/authSlice'
 import ParticlesBackground from "./ParticlesBackground";
 import {ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
+import { useFormik } from 'formik';
+
 
 
 function UserLoginContent(){
     const dispatch = useDispatch()
-    const [inputs, setInputs] = useState({email:"", password:""})
     const navigate = useNavigate();
-    const [formErrors, setFormErrors] = useState({});
-    const [isSubmit, setIsSubmit] = useState(false);
-    
-
     const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
     // navigate(0)
     useEffect(()=>{
@@ -44,68 +38,69 @@ function UserLoginContent(){
     [user, isError, isLoading, message, isSuccess, navigate, dispatch]
     )
 
-
-    const handleChange = event => {
-        setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
-    }
-
-    const handleSubmit = e =>{
-        e.preventDefault();
+    const onSubmit = (values, actions) => {
 
         const userData = {
-            email: inputs.email,
-            password: inputs.password,
+            email: values.email,
+            password: values.password,
         }
         dispatch(login(userData))
-    }
-
-  useEffect(() => {
-      Aos.init({ duration: 1000 });
-  }, []);
-
-
+        
+        // actions.resetForm();
+      };
+      
+      const { values, handleChange, handleBlur, touched, errors, isSubmitting, handleSubmit} = useFormik({
+        initialValues: {
+             email: "", password: ""
+        },
+        validationSchema: loginFormValidations,
+        onSubmit,
+      })
     return(
         <>
              <ParticlesBackground/>
-             <main className="login" id="particles-js">
+             <main className="login" id="particles-js" style={{marginTop:"-1.2rem"}}>
                  <div className="LoginCard">
                     <div className="container-fluid">
                         <div className="row">
-                            <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                <div data-aos="zoom-out-right" data-aos-offset="100" className="portlet-title">
-                                    <p className="text-center Login-name">LOGIN</p>
+                            <div className="col-lg-3 col-md-1 col-sm-12"></div>
+                            <div className="col-lg-6 col-md-10 col-sm-12">
+                                <div className="portlet-title">
+                                    <p className="text-center Login-name fontBold">S'identifier</p>
                                 </div>
                                 {/* ======= form ========== */}
-                                <form onSubmit={handleSubmit} data-aos="zoom-out-right" data-aos-offset="100" >
+                                <form onSubmit={handleSubmit} style={{marginLeft:"2rem", marginRight:"2rem"}}>
                                     <div className="form-group">
-                                        <label htmlFor="email" style={{marginBottom: "-12px"}} className="FormLable"><p>Email</p></label>
-                                        <input style={{height:'2.5rem'}} value={inputs.email} onChange={handleChange} className={`form-control ${formErrors.email? "border-color": ""}`} type="text" name="email" placeholder="Email" />
+                                        <label htmlFor="email" style={{marginBottom: "-12px"}} className="FormLable"><p>Adresses e-mail</p></label>
+                                        <input style={{height:'2.5rem', color:"rgb(35, 175, 203)"}} className={`form-control ${errors.email && touched.email && 'form-control2 border-color'}`} id="email" type="text" name="email" placeholder="Entrer votre mail" value={values.email} onChange={handleChange} onBlur={handleBlur} />
+                                        <span className='error'>{errors.email && touched.email ? errors.email : ''}</span>
                                     </div>
-                                    <p style={errorMessage}>{formErrors.email}</p>
-                                    <div className="form-group" style={{marginTop: '13px'}}>
-                                        <label htmlFor='password' style={{marginBottom: "-12px"}} className="FormLable"><p>Password</p></label>
-                                        <input style={{height:'2.5rem'}} value={inputs.password} onChange={handleChange} className={`form-control ${formErrors.password? "border-color": ""}`} type="password" placeholder="Password" name="password" />
+                                    <div className="form-group" style={{marginTop: '15px'}}>
+                                        <label htmlFor='password' style={{marginBottom: "-12px"}} className="FormLable"><p>Mot de passe</p></label>
+                                        <input style={{height:'2.5rem', color:"rgb(35, 175, 203)"}} className={`form-control ${errors.password && touched.password && 'form-control2 border-color'}`} id="password" type="password" placeholder="Tapez votre mot de passe" name="password" value={values.password} onChange={handleChange} onBlur={handleBlur} />
+                                        <span className='error'>{errors.password && touched.password ? errors.password : ''}</span>
+                                    </div> 
+                                    <div style={{marginTop: '1.5rem'}} className="form-group btn-auth">
+                                        <button type="submit" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn waves-effect waves-light submitBtn fontSemiBold">Me connecter</button>
                                     </div>
-                                    <p style={errorMessage}>{formErrors.password}</p>
-                                    <div style={{marginTop: '2rem'}} className="form-group btn-auth">
-                                        <button type="submit" data-aos="zoom-out-right" style={{height:'2.5rem', background:'#4ab2cc', color:'white', width:"100%", borderRadius:".4rem"}} className="btn waves-effect waves-light submitBtn ">LOGIN</button>
-                                    </div>
+                                    <div className="row" style={{marginTop:"-.5rem"}}>
+                                        <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div><hr style={{height:".4px", marginTop:"35px"}}/></div>
+                                        </div>
+                                        <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div style={{textAlign:"center", marginTop:'-3rem'}}><button className="Orbutton fontLight">OU</button></div>
+                                        </div>
+                                     </div>
                                 </form>
-                                <div className="row" style={{marginTop:"-.5rem"}}>
-                                    <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div data-aos="zoom-out-right" data-aos-offset="100"><hr style={{height:".4px", marginTop:"35px"}}/></div>
-                                    </div>
-                                    <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <div data-aos="zoom-out-right" data-aos-offset="100" style={{textAlign:"center", marginTop:'-3rem'}}><button className="Orbutton">OR</button></div>
-                                    </div>
-                                </div>
+                              
                                 <div className="row text-center mt-2 mb-4" style={{marginTop:"-.5rem"}}>
-                                    <div data-aos="zoom-out-right" className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                        <p style={{fontSize:".9rem", marginTop:"-.6rem"}}><span><a style={{color:"#4ab2cc"}} href="/forgotpassword">Forgot Password</a></span></p>
-                                        <p style={{fontSize:".9rem", marginTop:"-.6rem"}}>In need of an Account? <span style={{color:"#4ab2cc"}}><a style={{color:"#4ab2cc"}} href="/clientregister">Sign Up</a></span></p>
+                                    <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12 formExtra">
+                                        <p style={{fontSize:"1rem", marginTop:"-.6rem"}}><span><Link style={{color:"#4ab2cc"}} to="/forgotpassword">Mot de passe oublié ?</Link></span></p>
+                                        <p style={{fontSize:"1rem", marginTop:"-.6rem"}}>Besoin d'un compte ? <span style={{color:"#4ab2cc"}}><Link style={{color:"#4ab2cc"}} to="/clientregister">S'inscrire</Link></span></p>
                                     </div>
                                 </div>
                             </div>
+                            <div className="col-lg-3 col-md-1 col-sm-12"></div>
                         </div>
                     </div>
                  </div>
@@ -113,20 +108,8 @@ function UserLoginContent(){
         <ToastContainer />
       </div>
              </main>
-
-
-
-             {/* <script src="./particles/particles"></script>
-             <script src="./particles/app"></script> */}
-
         </>
     )
 }
 
 export default UserLoginContent;
-
-const errorMessage = {
-    color:"red",
-    fontSize:".8rem",
-    marginTop:"-.5rem"
-    };

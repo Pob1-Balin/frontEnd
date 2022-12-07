@@ -67,6 +67,7 @@ import ClientsServicesPage from './CyberzoneWebsite/pages/ClientsServicesPage';
 import UnitStructures from './AdminDashboard/pages/structures';
 import EditQuestionPage from './AdminDashboard/pages/EditQuestionPage';
 import EditUnitHomePage from './AdminDashboard/pages/EditUnitHomePage';
+import Profilepage from './CyberzoneWebsite/pages/Profilepage'
 
 import Home from './CyberzoneWebsite/pages/Home';
 
@@ -159,6 +160,7 @@ function Navigation() {
 
                  {/* main site home page */}
                  <Route path='/mainhomepage' exact element={<SiteHomePage/>}/>
+                 <Route path='/myprofile' exact element={<Profilepage/>}/>
                  <Route path='/*' exact element={<NotFoundPage/>}/>
 
                  <Route path='/subscribe' exact element={<SubscribeForService/>}/>
@@ -169,3 +171,4 @@ function Navigation() {
 }
 
 export default Navigation;
+

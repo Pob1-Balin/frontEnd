@@ -40,6 +40,7 @@ body{
     color: white;
     height: 2.5rem;
     text-decoration: none;
+    font-family: MetropolisSemiBold;
 }
 
 @media screen and (min-width: 992px){
@@ -1656,9 +1657,6 @@ ul.country-state{
    }
    .courses-inner{
     width: 40rem;
-   }
-   .time_passed, .score1 p.rating{
-      font-size: 1.3rem;
    }
    .score{
     margin-top: 1rem;

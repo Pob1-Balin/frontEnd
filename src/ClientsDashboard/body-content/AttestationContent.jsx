@@ -6,16 +6,16 @@ import Footer from '../components/Footer';
 function AttestationContent (){
     return(
         <>
-            <main className=" px-md-4">
-                <div className="top-margin d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                     <h1 className="heading" style={{color: '#0d3360'}}>Attestation page</h1>
+            <main className="ms-sm-auto px-md-4 ml-3 mr-1">
+                <div className="border-bottom headerTitle">
+                    <h1><p>Page d'attestation</p></h1>
                 </div>
                 <div className="Home_navigation">
-                     <p><Link className="return-home" style={{textDecoration: 'none'}} to='/clientservicedashboard'><span className="home">Home /</span></Link> <span>Attestation</span></p>
+                    <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem", paddingLeft:"0rem" }} to='/clientservicedashboard'><span className="home">Accueil /</span></Link> <span style={{color: '#0d3360'}}>Attestation</span></p>
                 </div>
                 <div className="profile_wrapper">
                     <div className="card profile_card attestation_card" style={{padding: "3rem"}}>
-                        <div className="attestation_card"><b><p style={{paddingLeft: '.6rem'}}>To obtain a certificate of achievement, you must <span style={{color: "#66b5ff"}}>follow all of the modules and obtain a score of over 80% in the assessments</span> of each of the units.</p></b></div>
+                        <div className="attestation_card"><b><p style={{paddingLeft: '.6rem'}}>Pour obtenir une attestation de réussite, vous devez <span style={{color: "#66b5ff"}}>suivre tous les modules et obtenir une note de plus de 80% aux évaluations</span> de chacune des unités.</p></b></div>
                         <div className="attestation_card">
                             <table className="table table-borderless">
                                 <thead >
@@ -63,7 +63,8 @@ function AttestationContent (){
                                 </tbody>
                             </table>
                         </div>
-                         <div className="attestation_card"><b><p style={{color: "#f4777c", marginBottom: '3rem', paddingLeft: '.6rem'}}>You do not meet the criteria required to edit your certificate. You have not followed 100% of the courses. You have not validated 80% of correct answers to all the assessments.</p></b></div>
+                         <div className="attestation_card"><b><p style={{color: "#f4777c", paddingLeft: '.6rem'}}>Vous ne répondez pas aux critères requis pour obtenir votre certificat. Vous n'avez pas suivi 100% des cours. Vous n'avez pas validé 80% de bonnes réponses à toutes les évaluations.</p></b></div>
+                         <div className="attestation_card"><b><p style={{color: "#08f26e", marginBottom: '3rem', paddingLeft: '.6rem'}}>Félicitations pour vos performances vous pouvez maintenant obtenir votre certificat de pentester certifié cyberzone</p></b></div>
                      </div>
                 </div>
 

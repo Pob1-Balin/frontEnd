@@ -36,7 +36,7 @@ function ClientService(props) {
     return (userServices.length == 0 ? <h1 className='text-center'>Oooopps!!! no subscribed service</h1> :
         <>
             {userServices.map((item) => {
-                return <div data-aos="zoom-in" data-aos-offset="100" class="col-lg-3 col-md-6 col-sm-6 col-xs-12" >
+                return <div data-aos="zoom-in" data-aos-offset="100" class="col-lg-6 col-md-6 col-sm-6 col-xs-12" >
                     <div class="courses-inner mg-t-30">
                         <div class="courses-title">
                             <a className="card_image" href="#"><img style={{height: "12rem", width:"20rem"}} src={`${API}/images/${item.image}`} alt="" /></a>

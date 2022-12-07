@@ -179,25 +179,27 @@ function ModulesPageContent(props) {
               :
 
               <>
-                <div className="module-resizing-cards justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom modulehome">
-                   <div style={{display:"flex", justifyContent:"space-between"}}>
-                      <h1 className="h2" style={{ color: '#0d3360' }}><b>MODULES</b></h1>
-                      <div>
-                        <button onClick={updateUsersModules} data-toggle="modal" data-target="#unitUpdated" className="add-buttons" style={{width:"9rem"}}>Update Modules</button>
-                      </div>
-                   </div>
-                </div>
-                <h4 style={{paddingTop:"7px"}}><p><Link className="return-home" style={{ textDecoration: 'none' }} to='/'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span>Modules</span></p></h4>
-
-                {module.length == 0 ?
-                  <EmptyPageContent text="Oopps!!! no modules for this service have been added" directives="This service's modules will soon be added"/>
-                  :
-                  <div style={{marginTop:"2rem"}} className="wrapper3">
-                    {module.map((moduleData, index)=><Module1 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} serviceID={serviceId} score={moduleData.score} />)}
+                <main className="ml-2 mr-1">
+                  <div className="border-bottom headerTitle">
+                    <div style={{display:"flex", justifyContent:"space-between", marginTop:"-5rem", marginBottom:"-1rem"}}>
+                      <h1><p>Modules</p></h1>
+                        <button onClick={updateUsersModules} data-toggle="modal" data-target="#unitUpdated" className="add-buttons" style={{width:"14rem", marginTop:"1.2rem"}}>Mettre à jour les modules</button>
+                    </div>
                   </div>
-                }
-                <div style={{marginTop:"12rem"}} className="space-creater"></div>
-                <Footer destination="/legalnotice" />
+                  <div className="Home_navigation">
+                      <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem", paddingLeft:"0rem" }} to='/clientservicedashboard'><span className="home">Accueil /</span></Link> <span style={{color: '#0d3360'}}>Modules</span></p>
+                  </div>
+
+                  {module.length == 0 ?
+                    <EmptyPageContent text="Oopps!!! no modules for this service have been added" directives="This service's modules will soon be added"/>
+                    :
+                    <div style={{marginTop:"2.5rem"}} className="wrapper3">
+                      {module.map((moduleData, index)=><Module1 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} serviceID={serviceId} score={moduleData.score} />)}
+                    </div>
+                  }
+                  <div style={{marginTop:"12rem"}} className="space-creater"></div>
+                  <Footer destination="/legalnotice" />
+                </main>
               </>
           }
        </main>

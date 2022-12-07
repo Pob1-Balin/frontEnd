@@ -169,15 +169,15 @@ function UnitsPageContent(props){
                     </>
                 :
                     <>
-                        <div className="module-resizing-cards justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom modulehome">
-                            <div style={{display:"flex", justifyContent:"space-between"}}>
-                                <h1 className="h2" style={{ color: '#0d3360' }}><b>{module_title != "" ?   module_name + " " + ":" + " " + module_title  : "" }</b></h1>
-                                <div>
-                                    <button onClick={updateUsersUnites} data-toggle="modal" data-target="#unitUpdated" className="add-buttons">Update Unites</button>
-                                </div>
+                        <div className="border-bottom headerTitle">
+                            <div style={{display:"flex", justifyContent:"space-between", marginTop:"-5rem", marginBottom:"-1rem"}}>
+                            <h1><p>{module_title != "" ?   module_name + " " + ":" + " " + module_title  : "" }</p></h1>
+                                <button onClick={updateUsersUnites} data-toggle="modal" data-target="#unitUpdated" className="add-buttons" style={{width:"13rem", marginTop:"1.2rem"}}>Mettre à jour les unités</button>
                             </div>
                         </div>
-                        <h4 style={{paddingTop:"7px"}}><p><Link className="return-home" style={{ textDecoration: 'none' }} to='/clientservicedashboard'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span>Unites</span></p></h4>
+                        <div className="Home_navigation">
+                            <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem", paddingLeft:"0rem" }} to='/clientservicedashboard'><span className="home">Accueil /</span></Link> <span style={{color: '#0d3360'}}>Unit</span></p>
+                        </div>
 
                         {units2.length == 0 ?
                              <EmptyPageContent text="Oopps!!! no units have been added for this module" directives="The module's units will soon be added"/>

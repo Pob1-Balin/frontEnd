@@ -9,12 +9,12 @@ function PdfCard(){
                  <div className="">
                      <div className="pdf_card_info">
                          <div className="title">
-                             <div><p className='title_text'>Guide des bonnes pratiques</p></div>
+                             <div><p className='title_text' style={{color:"gray"}}>Guide des bonnes pratiques</p></div>
                          </div>
                          <button disabled={true} className='pdf_card_title'>Fichier (PDF)</button>
                      </div>
                      <h3 className="pdf_text">L’ANSSI et la CPME présentent douze règles essentielles pour la sécurité des systèmes d’information des petites et moyennes entreprises.</h3>
-                     <center><button className="pdf_btn"><FaCloudDownloadAlt size='1.3rem' style={{marginBottom: '.1rem'}}/> Download</button></center>
+                     <center><button className="pdf_btn"><FaCloudDownloadAlt size='1.3rem' style={{marginBottom: '.1rem'}}/> Télécharger</button></center>
                  </div>
            </div>
         </>

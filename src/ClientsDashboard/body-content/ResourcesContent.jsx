@@ -8,7 +8,7 @@ function ResourceContent (props){
     const head = props.display;
     return(
         <>
-            <main className="px-md-4 res">
+            <main className="ms-sm-auto px-md-4 ml-3 mr-3">
 
                 {head=="admin" ?
                 <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
@@ -21,11 +21,11 @@ function ResourceContent (props){
                 </div>
                 :
                 <>
-                    <div className="top-margin d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                         <h1 className="heading" style={{color: '#0d3360'}}>Resource page</h1>
+                    <div className="border-bottom headerTitle">
+                        <h1><p>Page de ressources</p></h1>
                     </div>
-                    <div style={{marginBottom: "1.3rem"}} className="Home_navigation">
-                         <p><Link className="return-home" style={{textDecoration: 'none'}} to='/clientservicedashboard'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span>Resources</span></p>
+                    <div className="Home_navigation">
+                        <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem", paddingLeft:"0rem" }} to='/clientservicedashboard'><span className="home">Accueil /</span></Link> <span style={{color: '#0d3360'}}>Ressources</span></p>
                     </div>
                 </>
                 }

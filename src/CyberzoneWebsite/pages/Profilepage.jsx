@@ -15,7 +15,7 @@ function Profilepage() {
                 <h1><p>Page de profil</p></h1>
             </div>
             <div className="Home_navigation">
-                    <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem", paddingLeft:"0rem" }} to='/home'><span className="home">Accueil /</span></Link> <span style={{color: '#0d3360'}}>Mon profil</span></p>
+                <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem", paddingLeft:"0rem" }} to='/home'><span className="home">Accueil /</span></Link> <span style={{color: '#0d3360'}}>Mon profil</span></p>
             </div>
 
             <div className="profile_wrapper">
@@ -79,7 +79,7 @@ function Profilepage() {
                 </Form>
                 </div>
             </div>
-            <Footer destination="/legalnotice" />
+            <Footer destination="/legal" />
         </div>
       </main>
     </>

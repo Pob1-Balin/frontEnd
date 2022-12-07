@@ -1751,9 +1751,15 @@ ul.country-state{
 }
 
 .headerTitle h1 > p{
-    font-size: 1.7rem;
+    font-size: 2rem;
     font-weight: 500;
     color: #0d3360;
     font-family: MetropolisBold;
-    margin-top: 1rem;
+    margin-top: 1.5rem;
+}
+
+@media screen and (max-width: 767px){
+    .headerTitle h1 > p{
+        font-size: 1.5rem;
+    }
 }

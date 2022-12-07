@@ -105,7 +105,7 @@ function ClientsServicesPageContent(props){
                 </div>
 
                 <div style={{marginTop:"5rem"}}></div>
-                <Footer destination="/legalnotice" />
+                <Footer destination="/legal" />
              </main>
         </>
     );

@@ -1372,24 +1372,6 @@ ul.country-state{
 }
 
 /*------------------ Clients Services ----------------*/
-.services-section{
-    background-image: url("images.png");
-    background-repeat: no-repeat;
-    background-size:cover;
-    height:20rem;
-}
-
-@media screen and (max-width: 900px){
-    .services-section, .site-footer, .site-header{
-        max-width: 600rem;
-        min-width: 30rem;
-    }
-}
-
-.divider-line{
-    margin: 10px auto;
-}
-
 .about{
     font-size: 2rem;
     font-weight: 550;

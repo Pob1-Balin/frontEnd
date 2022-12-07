@@ -3,6 +3,7 @@ import ClientsServicesPageContent from '../body-content/ClientsServicesPageConte
 import {useEffect} from 'react'
 import {useNavigate} from 'react-router-dom'
 import {useSelector} from 'react-redux'
+import Sidebar from '../components/Sidebar';
 
 
 function ClientsServicesPage() {
@@ -20,6 +21,7 @@ function ClientsServicesPage() {
   console.log(user)
   return (
     <>
+     <Sidebar/>
       <main>
          <ClientsServicesPageContent user={user}/>
       </main>

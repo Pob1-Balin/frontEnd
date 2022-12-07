@@ -4,9 +4,6 @@ import NotSubscribedServices from "../components/NotSubscribedServices";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import "../../AdminDashboard/admin.css";
-import SiteHeader from "../components/SiteHeader";
-import SiteFooter from "../components/SiteFooter";
-import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { useNavigate, useLocation } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../../redux/auth/authSlice'
@@ -75,25 +72,7 @@ function ClientsServicesPageContent(props){
     return(
         <>
              <main className="">
-                <SiteHeader/>
-
-                <li class="nav-item">
-                    <a href="#" data-toggle="dropdown" role="button" aria-expanded="false" class="nav-link">
-                       <ExitToAppIcon className='logoutIcon' />
-                    </a>
-                    <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn">
-                       <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span><p><button onClick={onLogout}>LogOut</button></p></a></li>
-                    </ul>
-                </li>
-
-                <div data-aos="zoom-out-right" data-aos-offset="200" className="col-lg-12 col-md-12 col-sm-12 col-xs-12 services-section">
-                     <p className="about" style={{color:"white", fontSize:"2rem", textAlign:"center", paddingTop:"9rem"}}>Services</p>
-                </div>
                 <div className="px-md-4" style={{marginTop:"1rem", marginLeft:"4rem", marginRight:"4rem"}}>
-                    <div style={{marginLeft:"-3rem"}} data-aos="fade-left" data-aos-offset="200">
-                        <p style={{fontSize:'1.5rem', marginTop:"2.5rem", color:"gray"}} className="text-center">Services you've subscribed for</p>
-                        <hr style={{marginTop:"-.1rem", marginBottom:"2rem", width:"5rem",height:".2rem", fontWeight:"bold", color:"#4ab2cc"}}/>
-                    </div>
                     <div class="services-area ">
                         <div class="container-fluid services">
                             <div class="row mg-b-15">
@@ -122,7 +101,6 @@ function ClientsServicesPageContent(props){
                 </div>
 
                 <div style={{marginTop:"5rem"}}></div>
-                <SiteFooter/>
              </main>
         </>
     );

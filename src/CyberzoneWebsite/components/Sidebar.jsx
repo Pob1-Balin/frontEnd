@@ -2,12 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom'; 
 import logo from './log.png'
 import HomeIcon from '@mui/icons-material/Home';
-import AccountBalanceIcon from '@mui/icons-material/AccountBalance';
-import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import './sidebar.css';
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../../redux/auth/authSlice'
 
@@ -33,18 +31,12 @@ function Sidebar(props) {
            <h2 className="text-center text-white font-roboto fw-300 fs-18 letter-spacing-2 mx-auto"><img src={logo} width={110} height={120} className='my-5'/></h2>
          </header>
          <nav className="sidebar-navigation">
-            <ul className="menu menu-bordery pt- mt-5 text-left pl-4">
-                <li className="nav-item pt-5 list">
-                    <Link to='/clientservicedashboard' className='ml-4 test' style={{textDecoration:'none'}}><HomeIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Home</Link>
-                </li>
-                <li className="nav-item pt-4 list">
-                    <Link to='/res' className=' ml-4 test'><AccountBalanceIcon className='' style={{marginRight:"1rem", fontSize:"1.4rem"}}/>My resources</Link>
-                </li>
-                <li className="nav-item pt-4 list">
-                    <Link to='/attest' className='ml-4 test'><DocumentScannerIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>My attestation</Link>
+            <ul className="menu mt-5 text-left pl-4">
+                <li className="nav-item nav-item2 pt-4 list">
+                    <Link to='/home' className='ml-4 test' style={{textDecoration:'none'}} state={{id:service_id}}><HomeIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Home</Link>
                 </li>
                 <li className="nav-item pt-4 list active">
-                    <Link to='/profile' className=' ml-4 test' style={{textDecoration:'none'}}> <AccountCircleIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>My profile</Link>
+                    <Link to='/myprofile' className=' ml-4 test' style={{textDecoration:'none'}} state={{id:service_id}}> <AccountCircleIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>My profile</Link>
                 </li>
             </ul>
          </nav>

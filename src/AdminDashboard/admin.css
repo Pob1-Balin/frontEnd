@@ -1,3 +1,21 @@
+@font-face {
+    font-family: 'MetropolisBold';
+    src: local('MetropolisBold'), url("../fonts/Metropolis_Font_family/Metropolis-Bold.otf") format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'MetropolisExtraLight';
+    src: local('MetropolisExtraLight'), url("../fonts/Metropolis_Font_family/Metropolis-Thin.otf") format('truetype');
+  }
+  @font-face {
+    font-family: 'MetropolisSemiBold';
+    src: local('MetropolisSemiBold'), url("../fonts/Metropolis_Font_family/Metropolis-SemiBold.otf") format('truetype');
+  }
+  @font-face {
+    font-family: 'MetropolisLight';
+    src: local('MetropolisLight'), url("../fonts/Metropolis_Font_family/Metropolis-Light.otf") format('truetype');
+  }
+
 *,
 *::before,
 *::after {
@@ -1209,29 +1227,15 @@ ul.country-state{
     }
 }
 
-.modulehome{
-     margin-top: -.8rem;
-}
 @media screen and (min-width: 1900px){
     .wrapper3{
          display: grid;
          grid-template-columns: repeat(4, 1fr);
          margin: 5rem 1.2rem;
     }
-    .modulehome{
-         margin-top: 2rem;
-   }
-}
-@media screen and (min-width: 1400px){
-    .modulehome{
-         margin-top: 1.5rem;
-   }
 }
 @media screen and (max-width: 767px){
    .return-home{
-         margin-left: 1.5rem;
-   }
-   .modulehome{
          margin-left: 1.5rem;
    }
 }
@@ -1744,4 +1748,12 @@ ul.country-state{
     background-repeat: no-repeat;
     background-size:cover;
     height:20rem;
+}
+
+.headerTitle h1 > p{
+    font-size: 1.7rem;
+    font-weight: 500;
+    color: #0d3360;
+    font-family: MetropolisBold;
+    margin-top: 1rem;
 }

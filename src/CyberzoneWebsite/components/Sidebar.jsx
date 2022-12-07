@@ -33,15 +33,15 @@ function Sidebar(props) {
          <nav className="sidebar-navigation">
             <ul className="menu mt-5 text-left pl-4">
                 <li className="nav-item nav-item2 pt-4 list">
-                    <Link to='/home' className='ml-4 test' style={{textDecoration:'none'}} state={{id:service_id}}><HomeIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Home</Link>
+                    <Link to='/home' className='ml-4 test' style={{textDecoration:'none'}} state={{id:service_id}}><HomeIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Accueil</Link>
                 </li>
                 <li className="nav-item pt-4 list active">
-                    <Link to='/myprofile' className=' ml-4 test' style={{textDecoration:'none'}} state={{id:service_id}}> <AccountCircleIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>My profile</Link>
+                    <Link to='/myprofile' className=' ml-4 test' style={{textDecoration:'none'}} state={{id:service_id}}> <AccountCircleIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Mon profil</Link>
                 </li>
             </ul>
          </nav>
          <header className="sidebar-header">
-           <button style={{backgroundColor:"transparent", border:"none", outline:"none"}} className="services-subscribed text-center fw-300 fs-18 mx-auto"><Link to="/home">View all services</Link></button>
+           <button style={{backgroundColor:"transparent", border:"none", outline:"none"}} className="services-subscribed text-center fw-300 fs-18 mx-auto"><Link to="/home">Voir tous les services</Link></button>
          </header>
        </aside>
 
@@ -57,7 +57,7 @@ function Sidebar(props) {
                        <ExitToAppIcon className='logoutIcon' />
                     </a>
                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn" style={{maxHeight:"2.8rem", maxWidth:"1rem"}} >
-                       <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span><div className='logoutbtn' onClick={onLogout}>LogOut</div></a></li>
+                       <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span><div className='logoutbtn' onClick={onLogout}>Se déconnecter</div></a></li>
                     </ul>
                 </li>
             </ul>

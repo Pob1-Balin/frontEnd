@@ -11,6 +11,7 @@ import axios from 'axios'
 import { API } from '../../config'
 
 import EmptyPageContent from "../../CommonPageContents/EmptyPageContent";
+import Footer from "../../ClientsDashboard/components/Footer";
 
 function ClientsServicesPageContent(props){
 
@@ -71,7 +72,10 @@ function ClientsServicesPageContent(props){
 
     return(
         <>
-             <main className="">
+             <main className="ms-sm-auto px-md-4 ml-3 mr-1">
+                <div className="border-bottom headerTitle">
+                    <h1 className="h2"><p>Services souscrits</p></h1>
+                </div>
                 <div className="px-md-4" style={{marginTop:"1rem", marginLeft:"4rem", marginRight:"4rem"}}>
                     <div class="services-area ">
                         <div class="container-fluid services">
@@ -101,6 +105,7 @@ function ClientsServicesPageContent(props){
                 </div>
 
                 <div style={{marginTop:"5rem"}}></div>
+                <Footer destination="/legalnotice" />
              </main>
         </>
     );

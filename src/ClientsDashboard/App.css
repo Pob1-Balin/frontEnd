@@ -1,3 +1,21 @@
+@font-face {
+    font-family: 'MetropolisBold';
+    src: local('MetropolisBold'), url("../fonts/Metropolis_Font_family/Metropolis-Bold.otf") format('truetype');
+  }
+  
+  @font-face {
+    font-family: 'MetropolisExtraLight';
+    src: local('MetropolisExtraLight'), url("../fonts/Metropolis_Font_family/Metropolis-Thin.otf") format('truetype');
+  }
+  @font-face {
+    font-family: 'MetropolisSemiBold';
+    src: local('MetropolisSemiBold'), url("../fonts/Metropolis_Font_family/Metropolis-SemiBold.otf") format('truetype');
+  }
+  @font-face {
+    font-family: 'MetropolisLight';
+    src: local('MetropolisLight'), url("../fonts/Metropolis_Font_family/Metropolis-Light.otf") format('truetype');
+  }
+
 *,
 *::before,
 *::after {
@@ -328,9 +346,9 @@ a{
 
 .profile_title{
     color: #0d3360;
-    font-style: bold;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 900;
+    font-family: MetropolisSemiBold;
 }
 
 .profile_delete_btn{
@@ -341,15 +359,29 @@ a{
    width: 10rem;
    border-radius: 2rem;
    text-shadow: .1rem;
-   font-weight: 900;
    margin-bottom: 2rem;
+   font-weight: 900;
+   font-family: MetropolisSemiBold;
 }
 
+.form{
+    margin-left: 1px;
+}
+
+.form_input{
+    color: #4ab2cc;;
+}
+.form_input:focus{
+    color: #4ab2cc;;
+}
+
+
 .form_lable{
-     font-style: bold;
      font-weight: 550;
      color: #686868;
      font-size: 1rem;
+     font-family: MetropolisLight;
+     padding-top: 2rem;
 }
 
 .form_validation_text{
@@ -364,15 +396,16 @@ a{
     color: white;
     border: none;
     height: 2.5rem;
-    width: 8rem;
-    border-radius: 2rem;
+    width: 6rem;
+    border-radius: .5rem;
     text-shadow: .1rem;
     font-weight: 900;
     margin-bottom: 1rem;
+    font-family: MetropolisSemiBold;
 }
 
 @media screen and (max-width: 471px){
-   .profile_title_responsive{
+   .profile_title{
        font-size: 1.2rem;
    }
 
@@ -387,17 +420,6 @@ a{
         padding-left: 8rem;
         padding-right: 8rem;
     }
-}
-
-.Home_navigation{
-    margin-bottom: -3rem;
-    margin-top: 2rem;
-}
-
-.Home_navigation p{
-    font-weight: 500;
-    font-style: bold;
-    font-size: 1.3rem;
 }
 
 .return-home{
@@ -855,43 +877,18 @@ a{
 
 /*------------------- profile large -------------*/
 
+.Home_navigation{
+    font-size: 1.3rem;
+    font-family: MetropolisSemiBold;
+    margin-top: 1.2rem;
+}
+
 .top-margin{
     margin-top: 4.5rem;
 }
 h1.heading{
     font-size: 1.5rem;
 }
-@media screen and (min-width: 1500px){
-    h1.heading{
-        margin-top: 4.5rem;
-        margin-bottom: 1.5rem;
-        font-size: 3rem;
-    }
-    .Home_navigation p{
-        font-size: 2rem;
-        padding-top: 1rem;
-        padding-bottom:1rem;
-    }
-    .profile_title{
-        font-size: 2rem;
-    }
-    .profile_delete_btn, .profile_validate_btn{
-        font-size:1.5rem;
-        width: 17rem;
-        height: 4rem;
-    }
-    .profile_validate_btn{
-        width: 13rem;
-    }
-    .form_lable{
-        font-size:1.6rem;
-    }
-    .form_input{
-        height: 4rem;
-        font-size: 1.6rem;
-    }
-}
-
 
 /*------------------- attestation large -------------*/
 
@@ -1022,4 +1019,6 @@ h1.heading{
     }
 }
 
-
+.profile_wrapper{
+    margin-top: -2.5rem;
+}

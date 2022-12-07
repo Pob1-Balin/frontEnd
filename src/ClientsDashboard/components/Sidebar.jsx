@@ -35,21 +35,21 @@ function Sidebar(props) {
          <nav className="sidebar-navigation">
             <ul className="menu menu-bordery pt- mt-5 text-left pl-4">
                 <li className="nav-item pt-5 list">
-                    <Link to='/clientservicedashboard' className='ml-4 test' style={{textDecoration:'none'}}><HomeIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Home</Link>
+                    <Link to='/clientservicedashboard' className='ml-4 test' style={{textDecoration:'none'}}><HomeIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Accueil</Link>
                 </li>
                 <li className="nav-item pt-4 list">
-                    <Link to='/res' className=' ml-4 test'><AccountBalanceIcon className='' style={{marginRight:"1rem", fontSize:"1.4rem"}}/>My resources</Link>
+                    <Link to='/res' className=' ml-4 test'><AccountBalanceIcon className='' style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Mes ressources</Link>
                 </li>
                 <li className="nav-item pt-4 list">
-                    <Link to='/attest' className='ml-4 test'><DocumentScannerIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>My attestation</Link>
+                    <Link to='/attest' className='ml-4 test'><DocumentScannerIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Mon attestation</Link>
                 </li>
                 <li className="nav-item pt-4 list active">
-                    <Link to='/profile' className=' ml-4 test' style={{textDecoration:'none'}}> <AccountCircleIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>My profile</Link>
+                    <Link to='/profile' className=' ml-4 test' style={{textDecoration:'none'}}> <AccountCircleIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Mon profil</Link>
                 </li>
             </ul>
          </nav>
          <header className="sidebar-header">
-           <button style={{backgroundColor:"transparent", border:"none", outline:"none"}} className="services-subscribed text-center fw-300 fs-18 mx-auto"><Link to="/home">View all services</Link></button>
+           <button style={{backgroundColor:"transparent", border:"none", outline:"none"}} className="services-subscribed text-center fw-300 fs-18 mx-auto"><Link to="/home">Voir tous les services</Link></button>
          </header>
        </aside>
 
@@ -65,7 +65,7 @@ function Sidebar(props) {
                        <ExitToAppIcon className='logoutIcon' />
                     </a>
                     <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn" style={{maxHeight:"2.8rem", maxWidth:"1rem"}} >
-                       <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span><div className='logoutbtn' onClick={onLogout}>LogOut</div></a></li>
+                       <li><a href="#"><span class="edu-icon edu-locked author-log-ic"></span><div className='logoutbtn' onClick={onLogout}>Se déconnecter</div></a></li>
                     </ul>
                 </li>
             </ul>

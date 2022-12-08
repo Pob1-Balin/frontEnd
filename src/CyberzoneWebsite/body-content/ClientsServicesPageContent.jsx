@@ -4,12 +4,11 @@ import NotSubscribedServices from "../components/NotSubscribedServices";
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import "../../AdminDashboard/admin.css";
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate, useLocation, Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../../redux/auth/authSlice'
 import axios from 'axios'
 import { API } from '../../config'
-
 import EmptyPageContent from "../../CommonPageContents/EmptyPageContent";
 import Footer from "../../ClientsDashboard/components/Footer";
 
@@ -72,40 +71,33 @@ function ClientsServicesPageContent(props){
 
     return(
         <>
-             <main className="ms-sm-auto px-md-4 ml-3 mr-1">
-                <div className="border-bottom headerTitle">
-                    <h1 className="h2"><p>Services souscrits</p></h1>
+             <main className="">
+                <div className="border-bottom headerTitle ml-3 mr-1">
+                    <h1 className="h2"><p>Présentation du cours</p></h1>
                 </div>
-                <div className="px-md-4" style={{marginTop:"1rem", marginLeft:"4rem", marginRight:"4rem"}}>
-                    <div class="services-area ">
-                        <div class="container-fluid services">
-                            <div class="row mg-b-15">
-                                {/* <ClientService user={props.user}/> */}
-                                <ClientService services={subscribed_services}/>
-                            </div>
-                        </div>
-                    </div>
+                <div className="Home_navigation ml-3 mr-1">
+                    <p><span style={{color: '#0d3360', fontSize:"1.5rem"}}>Cours souscrits</span></p>
                 </div>
 
-                <div className="px-md-4" style={{marginLeft:"4rem", marginRight:"4rem"}}>
-                    <div style={{marginLeft:"-3rem"}} data-aos="fade-left" data-aos-offset="200">
-                        <p  style={{fontSize:'1.5rem', marginTop:"2.5rem", color:"gray", color:"gray"}} className="text-center">More Services to subscribe to</p>
-                        <hr style={{marginTop:"-.1rem", marginBottom:"5rem", width:"5rem",height:".2rem", fontWeight:"bold", color:"#4ab2cc"}}/>
-                    </div>
-                    <div  data-aos="zoom-in" data-aos-offset="200" class="services-area ">
-                        <div class="container-fluid services">
-                            <div class="row mg-b-15">
-                                {/* {service.map(serviceData => <NotSubscribedServices key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} number_of_subscribers={serviceData.subscribers} short_description={serviceData.description}/>)} */}
-                                {/* <NotSubscribedServices user={props.user}/> */}
+                <div className="wrapper3 services_wrapper" style={{marginTop:"3rem", marginBottom:"3rem"}}>
+                     {/* <ClientService user={props.user}/> */}
+                     <ClientService services={subscribed_services}/>
+                </div>
 
-                                <NotSubscribedServices userData={user} services={unsubscribed_services}/>
-                            </div>
-                        </div>
-                    </div>
+                <div className="border-bottom ml-3 mr-1"></div>
+                
+                <div className="Home_navigation ml-3 mr-1">
+                    <p><span style={{color: '#0d3360', fontSize:"1.5rem"}}>Plus de cours</span></p>
+                </div>
+
+                <div className="wrapper3 services_wrapper" style={{marginTop:"2.5rem"}}>
+                    {/* {service.map(serviceData => <NotSubscribedServices key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} number_of_subscribers={serviceData.subscribers} short_description={serviceData.description}/>)} */}
+                    <NotSubscribedServices userData={user} services={unsubscribed_services}/>
                 </div>
 
                 <div style={{marginTop:"5rem"}}></div>
                 <Footer destination="/legal" />
+
              </main>
         </>
     );

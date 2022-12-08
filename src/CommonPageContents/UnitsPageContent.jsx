@@ -158,7 +158,7 @@ function UnitsPageContent(props){
                             </Link>
                         </div>
                         {units.length == 0 ?
-                             <EmptyPageContent text="Oopps!!! no units have been added for this module" directives="Click on the add units button above to add a unit."/>
+                             <EmptyPageContent text="Oups!!! aucune unité n'a encore été ajoutée pour ce module" directives="Cliquez sur le bouton Ajouter des unités ci-dessus pour ajouter une unité."/>
                              :
                              <div style={{marginTop:"2rem"}} className="wrapper3">
                                  {units.map((unitData, index)=><UnitsCard key={unitData._id} id={unitData._id} unit_id={unitData._id} image={unitData.image} title={unitData.title} unit_name={"Units" + " " + (parseInt(index) + 1)} timePassed={unitData.time_spent} score={unitData.score} module_id={module_id} module_title={moduleInfo.title} module_name={moduleInfo.module_name}/>)}
@@ -169,6 +169,7 @@ function UnitsPageContent(props){
                     </>
                 :
                     <>
+                     <div className="ml-3 mr-1">
                         <div className="border-bottom headerTitle">
                             <div style={{display:"flex", justifyContent:"space-between", marginTop:"-5rem", marginBottom:"-1rem"}}>
                             <h1><p>{module_title != "" ?   module_name + " " + ":" + " " + module_title  : "" }</p></h1>
@@ -180,7 +181,7 @@ function UnitsPageContent(props){
                         </div>
 
                         {units2.length == 0 ?
-                             <EmptyPageContent text="Oopps!!! no units have been added for this module" directives="The module's units will soon be added"/>
+                             <EmptyPageContent text="Oups!!! aucune unité n'a encore été ajoutée pour ce module" directives="Les unités du module seront bientôt ajoutées"/>
                              :
                              <div style={{marginTop:"2rem"}} className="wrapper3">
                                  {units2.map((unitData, index)=><UnitsCard2 key={unitData._id} id={unitData._id} unit_id={unitData._id} image={unitData.image} title={unitData.title} unit_name={"Units" + " " + (parseInt(index) + 1)} timePassed={unitData.unit_time_spent} serviceID={moduleInfo.serviceID} modulesID={module_id} moduleTitle={moduleInfo.title} moduleName={moduleInfo.module_name} time_to_answer={unitData.time} score={unitData.unit_score}/>)}
@@ -189,6 +190,7 @@ function UnitsPageContent(props){
 
                         <div style={{marginTop:"15rem"}} className="space-creater"></div>
                         <Footer destination="/legalnotice" />
+                     </div>
                     </>
                 }
             </main>

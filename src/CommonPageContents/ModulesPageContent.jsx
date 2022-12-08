@@ -165,7 +165,7 @@ function ModulesPageContent(props) {
                     </Link>
                   </div>
                   {module.length == 0 ?
-                    <EmptyPageContent text="Oopps!!! no modules for this service have been added" directives="Click on the add modules button above to add a module."/>
+                    <EmptyPageContent text="Oups!!! aucun module pour ce service n'a été ajouté" directives="Cliquez sur le bouton Ajouter des modules ci-dessus pour ajouter un module."/>
                     :
                     <div style={{marginTop:"2rem"}} className="wrapper3">
                       {module.map((moduleData, index)=><Module2 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} score={moduleData.score} service_id={serviceId}/> )}
@@ -191,7 +191,7 @@ function ModulesPageContent(props) {
                   </div>
 
                   {module.length == 0 ?
-                    <EmptyPageContent text="Oopps!!! no modules for this service have been added" directives="This service's modules will soon be added"/>
+                    <EmptyPageContent text="Oups!!! aucun module pour ce service n'a été ajouté" directives="Les modules de ce service seront bientôt ajoutés"/>
                     :
                     <div style={{marginTop:"2.5rem"}} className="wrapper3">
                       {module.map((moduleData, index)=><Module1 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} serviceID={serviceId} score={moduleData.score} />)}

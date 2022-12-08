@@ -28,6 +28,10 @@ a{
     color: 4ab2cc;
 }
 
+.empty-card{
+    font-family: MetropolisSemiBold;
+}
+
 .card_module{
      font-size: .8rem;
      font-weight: 600;
@@ -42,6 +46,7 @@ a{
      padding-top: .5rem;
      color: #36474f;
 }
+
 
 .time, .score{
     display: flex;
@@ -109,9 +114,23 @@ a{
 .card{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px;
     border-radius: .4rem;
-    min-width: 10rem;
+    min-width: 20rem;
     display: flex;
+}
 
+.services_card{
+    min-width: 14rem;
+    display: flex;
+    background-color: white;
+    display: block;
+}
+
+
+@media screen and (min-width: 698px){
+   .services_wrapper{
+        margin-left: 2rem;
+        margin-right: 2rem;
+   }
 }
 
 .card_module{
@@ -127,12 +146,22 @@ a{
      font-weight: 600;
      padding-top: .5rem;
      color: #0b426a;
+     font-family: MetropolisBold;
 }
+
 
 .card_info{
     display: block;
     color: #686868;
+    font-family: MetropolisLight;
 }
+
+.services_more{
+    font-family: MetropolisBold;
+    color: #4ab2cc;
+}
+
+
 
 .time, .score{
     display: flex;
@@ -161,6 +190,11 @@ a{
 
 .card_image{
     width: cover;
+    height: 12rem;
+    object-fit: cover;
+}
+.services_card_image{
+    width: 100%;
     height: 12rem;
     object-fit: cover;
 }
@@ -929,4 +963,16 @@ h1.heading{
 
 .profile_wrapper{
     margin-top: -2.5rem;
+}
+
+.subscribe_service{
+    font-family: MetropolisLight;
+}
+
+.service_card_info:hover, .subscribe_service:hover{
+    color: #4ab2cc;
+}
+
+.subscribe_service:hover{
+    border-color: #4ab2cc;
 }

@@ -1224,7 +1224,7 @@ ul.country-state{
     .wrapper3{
          display: grid;
          grid-template-columns: repeat(2, 1fr);
-         margin: 5rem 1.2rem;
+         margin: 5rem 1rem;
     }
 }
 
@@ -1232,7 +1232,7 @@ ul.country-state{
     .wrapper3{
          display: grid;
          grid-template-columns: repeat(4, 1fr);
-         margin: 5rem 1.2rem;
+         margin: 5rem 1rem;
     }
 }
 @media screen and (max-width: 767px){
@@ -1244,7 +1244,7 @@ ul.country-state{
 @media screen and (max-width: 580px){
     .wrapper3{
         grid-template-columns: repeat(1, 1fr);
-        margin: 5rem 3rem;
+        margin: 5rem 1rem;
     }
 }
 
@@ -1434,163 +1434,6 @@ ul.country-state{
 .portlet-title .row form input, .portlet-title .row form button{
     height: 2.5rem;
 }
-@media screen and (min-width: 1500px){
-    .breadcome-area{
-        margin-top: -2rem;
-    }
-
-    .breadcome-heading p{
-         font-size: 2.5rem;
-    }
-    .breadcome-list{
-        height: 10rem;
-    }
-    .breadcome-list .row{
-        padding-top: 2rem;
-    }
-    .sr-input-func {
-        position: relative;
-        margin: 0;
-        width:27rem;
-    }
-    
-    .sr-input-func a {
-        position: absolute;
-        top: 18px;
-        right: -5px;
-        color: #999;
-        transition: .5s ease-out;
-        font-size:1.6rem;
-    }
-    .breadcome-heading .form-control, .sr-input-func .form-control:focus {
-        border: 3px solid #ececec;
-        font-size: 1.5rem;
-        height: 4rem;
-        color: #303030;
-        width: 30rem;
-    }
-    .breadcome-list .row ul.breadcome-menu li{
-        font-size: 1.6rem;
-    }
-    .analytics-sparkle-area .homedashbaord .analytics-content h5{
-        font-size: 1.8rem;
-    }
-    .analytics-sparkle-area .homedashbaord .analytics-content h2{
-        font-size: 1.8rem;
-    }
-    .analytics-sparkle-area .homedashbaord .analytics-content .progress-bar{
-        height: .4rem;
-    }
-    .analytics-sparkle-area .homedashbaord .analytics-content .percentage{
-        font-size: 1.3rem;
-    }
-    .white-box h3.box-title{
-        font-size: 2rem;
-        padding-top: 1rem;
-    }
-    .white-box h2{
-        font-size: 1.8rem;
-    }
-    .white-box small{
-        font-size: 1.4rem;
-    }
-    .white-box .country-progress{
-        font-size: 1.3rem;
-    }
-
-    /*-------- clients -------*/
-    .asset-inner table tr th{
-        font-size: 1.5rem;
-    }
-    .asset-inner table tr td{
-        font-size: 1.4rem;
-    }
-    .asset-inner table tr td i{
-        font-size: 1.5rem;
-    }
-    .asset-inner table tr td button.b{
-        font-size: 1.6rem;
-        font-weight: 550;
-        width: 6rem;
-        height: 2.8rem;
-    }
-    .add-product h4{
-        font-size: 2rem;
-    }
-    .clients-product-status .add-product a{
-        font-size:1.5rem;
-        height: 3.5rem;
-        width: 12rem;
-        padding-top: 17px;
-    }
-
-    /*=========== services ========*/
-    .product-payment-inner-st div p.mt-3{
-        font-size: 2rem;
-        padding-top: 1rem;
-        padding-bottom: .5rem;
-    }
-    .FormLable{
-        font-size: 1.4rem;
-        padding-bottom: .5rem
-    }
-    .input{
-        font-size: 1.5rem;
-        height: 3rem;
-    }
-    .add-service{
-        font-size: 1.4rem;
-        width: 8rem;
-        height: 3rem;
-        margin-top: .8rem;
-        margin-bottom: .8rem;
-    }
-    .courses-title h2{
-        font-size: 2rem;
-    }
-    .courses-alaltic span{
-        font-size: 1.4rem;
-        padding-top: 1rem;
-    }
-    .course-des{
-        padding-bottom: .6rem;
-    }
-    .course-des p{
-        font-size: 1.4rem;
-        padding-top: .6rem;
-    }
-    .modal-body{
-        width: 60rem;
-    }
-    .modal-body p{
-        font-size: 1.5rem;
-    }
-    .modal-footer button{
-        font-size: 1.4rem;
-    }
-    .product-buttons button{
-        font-size: 1.4rem;
-        height: 2.7rem;
-    }
-    .portlet-title .row span.graph-title b p{
-        font-size: 2rem;
-    }
-    .portlet-title .row .caption{
-        padding-top: 2.5rem;
-        padding-bottom: 2rem;
-    }
-    .portlet-title .row form{
-        margin-top: 2rem;
-        margin-bottom: 2rem;
-    }
-    .portlet-title .row form input, .portlet-title .row form button{
-        font-size: 1.5rem;
-        height: 4rem;
-    }
-}
-
-
-
 
 /*------------------- module card large -------------*/
 .space-creater{

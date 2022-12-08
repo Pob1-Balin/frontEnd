@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaChevronCircleRight } from "react-icons/fa";
+import { FaChevronRight, FaChevronCircleRight } from "react-icons/fa";
 import axios from 'axios'
 import { API } from '../../config'
 function ClientService(props) {
@@ -27,7 +27,7 @@ function ClientService(props) {
 
     // console.log('servic', services)
 
-    const [noOfElements, setnoOfElements] = useState(4);
+    const [noOfElements, setnoOfElements] = useState(1);
     const slice = userServices.slice(0, noOfElements);
     const loadMore = () => {
         setnoOfElements(noOfElements + noOfElements);
@@ -36,28 +36,29 @@ function ClientService(props) {
     return (userServices.length == 0 ? <h1 className='text-center'>Oooopps!!! no subscribed service</h1> :
         <>
             {userServices.map((item) => {
-                return <div data-aos="zoom-in" data-aos-offset="100" class="col-lg-6 col-md-6 col-sm-6 col-xs-12" >
-                    <div class="courses-inner mg-t-30">
-                        <div class="courses-title">
-                            <a className="card_image" href="#"><img style={{height: "12rem", width:"20rem"}} src={`${API}/images/${item.image}`} alt="" /></a>
-                            <h2 style={{ color: "gray" }}>{item.name}</h2>
+                return (
+                    <div className="services_card" data-aos="zoom-in-down" data-aos-offset="200">
+                        <div style={{margin:"1.3rem"}}><img className="services_card_image" src={`${API}/images/${item.image}`} /></div>
+                        <div className="card_body" style={{marginLeft:"1.3rem"}}>
+                            <h2 className="card_title services_card_title" style={{marginTop:"-.5rem", fontSize:"1.1rem"}}>{item.name}</h2>
+                            <Link to="">
+                                <div className="card_info service_card_info">
+                                <div>{item.description}<span className="services_more" style={{marginLeft:".5rem"}}>Suite<FaChevronRight style={{marginLeft:".1rem"}}/></span></div>
+                                </div>
+                            </Link>
+                            <Link to="/clientservicedashboard" style={{ textDecoration: "none" }} state={{ id: item._id, number_of_modules:item}} >
+                                <div className='module_units_button' style={{ marginTop: "1rem", marginBottom: '-1.3rem' }}>
+                                    <FaChevronCircleRight size='1rem' style={{ marginTop: '.5rem', marginLeft:".3rem" }} />
+                                    <p style={{ paddingLeft: ".2rem", paddingTop: ".25rem", fontSize: '.9rem' }}>Visite</p>
+                                </div>
+                            </Link>
                         </div>
-                        <div class="course-des" style={{ paddingLeft: ".3rem" }}>
-                            <p style={{ color: "gray" }}><span></span> <b>{item.description}</b></p>
-                        </div>
-
-                        <Link to="/clientservicedashboard" style={{ textDecoration: "none" }} state={{ id: item._id, number_of_modules:item}}>
-                            <div className='module_units_button' style={{ marginTop: "1rem", marginBottom: '-1.3rem' }}>
-                                <FaChevronCircleRight size='1rem' style={{ marginTop: '4.5px' }} />
-                                <p style={{ paddingLeft: ".2rem", paddingTop: ".1rem", fontSize: '1rem' }}>Visit</p>
-                            </div>
-                        </Link>
                     </div>
-                </div>
+                )
             })}
-            <div class="product-buttons mt-5 mb-2" style={{ textAlign: "center" }}>
+            {/* <div class="product-buttons mt-5 mb-2" style={{ textAlign: "center" }}>
                 <button onClick={() => loadMore()} style={{ textDecoration: 'none', textAlign: "center" }} type="button" class="button-default cart-btn mr-1 mt-1 btn-info"><FaChevronCircleRight style={{ paddingTop: "" }} size='1rem' color='#ffffff' /> View More</button>
-            </div>
+            </div> */}
         </>
     );
 }

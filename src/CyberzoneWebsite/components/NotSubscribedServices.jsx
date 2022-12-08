@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaChevronRight, FaChevronCircleRight } from "react-icons/fa";
+import { FaChevronRight } from "react-icons/fa";
 import axios from 'axios'
 import { API } from '../../config'
 function NotSubscribedServices(props) {

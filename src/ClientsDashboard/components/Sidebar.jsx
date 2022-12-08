@@ -49,7 +49,7 @@ function Sidebar(props) {
             </ul>
          </nav>
          <header className="sidebar-header">
-           <button style={{backgroundColor:"transparent", border:"none", outline:"none"}} className="services-subscribed text-center fw-300 fs-18 mx-auto"><Link to="/home">Voir tous les services</Link></button>
+           <button style={{backgroundColor:"transparent", border:"none", outline:"none"}} className="services-subscribed text-center fw-300 fs-18 mx-auto"><Link to="/home">Voir tous les cours</Link></button>
          </header>
        </aside>
 

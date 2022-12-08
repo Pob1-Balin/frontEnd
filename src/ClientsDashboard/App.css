@@ -37,6 +37,7 @@ a{
      font-weight: 600;
      color: #979796;
      margin-top: -.6rem;
+     font-family: MetropolisBold;
 }
 
 .card_title{
@@ -114,7 +115,7 @@ a{
 .card{
     box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px;
     border-radius: .4rem;
-    min-width: 20rem;
+    min-width: 15rem;
     display: flex;
 }
 
@@ -147,6 +148,11 @@ a{
      padding-top: .5rem;
      color: #0b426a;
      font-family: MetropolisBold;
+}
+
+.empty_card_text{
+    font-family: MetropolisBold;
+    margin-top: 1rem;
 }
 
 
@@ -337,13 +343,6 @@ a{
      margin-bottom: 1rem;
      font-family: MetropolisSemiBold;
 }
-
-@media screen and (min-width: 1500px){
-    .type{
-        height: 3.4rem;
-    }
-}
-
 
 @media screen and (max-width: 587px){
     .type{

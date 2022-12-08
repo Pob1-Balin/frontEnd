@@ -9,7 +9,6 @@ import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../../redux/auth/authSlice'
 import axios from 'axios'
 import { API } from '../../config'
-import EmptyPageContent from "../../CommonPageContents/EmptyPageContent";
 import Footer from "../../ClientsDashboard/components/Footer";
 
 function ClientsServicesPageContent(props){
@@ -78,8 +77,7 @@ function ClientsServicesPageContent(props){
                 <div className="Home_navigation ml-3 mr-1">
                     <p><span style={{color: '#0d3360', fontSize:"1.5rem"}}>Cours souscrits</span></p>
                 </div>
-
-                <div className="wrapper3 services_wrapper" style={{marginTop:"3rem", marginBottom:"3rem"}}>
+                <div className="wrapper3 services_wrapper" style={{marginTop:"2.5rem", marginBottom:"3rem"}}>
                      {/* <ClientService user={props.user}/> */}
                      <ClientService services={subscribed_services}/>
                 </div>

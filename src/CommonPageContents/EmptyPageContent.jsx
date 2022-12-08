@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import './styey.css';
 import Aos from 'aos';
 import 'aos/dist/aos.css';
-import file from "./file-regular.svg"
 import { FaFileAlt } from "react-icons/fa";
 
 function EmptyPageContent(props){

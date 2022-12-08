@@ -23,22 +23,51 @@ function Services(props) {
 
     return (
         <>
-            <div className="col-lg-4 col-md-6 col-sm-6 col-xs-12" >
-                 <div className="courses-inner mg-t-30">
-                     <div className="courses-title">
-                         <a href="#"><img src={`${API}/images/${props.image}`} style={{height: "12rem", width:"20rem"}} alt="Service image" /></a>
-                         <h2>{props.service_name}</h2>
-                     </div>
+
+
+            
+
+            <div className="services_card" data-aos="zoom-in-down" data-aos-offset="50">
+                <div style={{margin:"1.3rem"}}><img className="services_card_image" src={`${API}/images/${props.image}`} /></div>
+                <div className="card_body" style={{marginLeft:"1.3rem"}}>
+                    <h2 className="card_title services_card_title" style={{marginTop:"-.5rem", fontSize:"1.1rem"}}>{props.service_name}</h2>
+   
                      <div className="courses-alaltic" style={{ paddingLeft: ".3rem", fontSize: '1rem', color:"black"}}>
                          <span className="cr-ic-r"><span className="course-icon">XAF</span> {props.service_amount}</span>
                      </div>
                      <div className="course-des" style={{ paddingLeft: ".3rem" }}>
                          <p><span></span> <b>Number of subscribers:</b> {props.number_of_subscribers}+</p>
-                         <p><span></span> <b>Short description:</b>{props.short_description}</p>
+                         <p><span></span> <b className='card_info'>Short description:</b>{props.short_description}</p>
                      </div>
 
-                    {/*-- Modal =====*/}
-                    <div className="modal fade" id={service_name} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                        {/*-- Modal =====*/}
+                        <div className="modal fade" id={service_name} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div className="modal-dialog" role="document">
                             <div className="modal-content">
                                 <div className="modal-header">
@@ -91,7 +120,7 @@ function Services(props) {
                          <button type="button" className="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Block</button>
                          <button type="button" className="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target={service} >Delete</button>
                     </div>
-                 </div>
+                </div>
             </div>
         </>
     );

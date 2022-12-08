@@ -7,6 +7,7 @@ import { Link, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { API } from '../config'
 import EmptyPageContent from "./EmptyPageContent";
+import Loader from "./Loader";
 
 function ModulesPageContent(props) {
   const location = useLocation()
@@ -165,7 +166,7 @@ function ModulesPageContent(props) {
                     </Link>
                   </div>
                   {module.length == 0 ?
-                    <EmptyPageContent text="Oups!!! aucun module pour ce service n'a été ajouté" directives="Cliquez sur le bouton Ajouter des modules ci-dessus pour ajouter un module."/>
+                    <EmptyPageContent text="Oops!!! module pour ce cours n'a pas été ajouté" directives="Cliquez sur le bouton Ajouter des modules ci-dessus pour ajouter un module."/>
                     :
                     <div style={{marginTop:"2rem"}} className="wrapper3">
                       {module.map((moduleData, index)=><Module2 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} score={moduleData.score} service_id={serviceId}/> )}
@@ -191,7 +192,7 @@ function ModulesPageContent(props) {
                   </div>
 
                   {module.length == 0 ?
-                    <EmptyPageContent text="Oups!!! aucun module pour ce service n'a été ajouté" directives="Les modules de ce service seront bientôt ajoutés"/>
+                    <EmptyPageContent text="Oops!!! module pour ce cours n'a pas été ajouté" directives="Les modules de ce cours seront bientôt ajoutés"/>
                     :
                     <div style={{marginTop:"2.5rem"}} className="wrapper3">
                       {module.map((moduleData, index)=><Module1 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} serviceID={serviceId} score={moduleData.score} />)}
@@ -200,6 +201,7 @@ function ModulesPageContent(props) {
                   <div style={{marginTop:"12rem"}} className="space-creater"></div>
                   <Footer destination="/legalnotice" />
                 </main>
+                <Loader/>
               </>
           }
        </main>

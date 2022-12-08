@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { FaChevronRight, FaChevronCircleRight } from "react-icons/fa";
+import { FaChevronRight, FaChevronCircleRight, FaFileAlt } from "react-icons/fa";
 import axios from 'axios'
 import { API } from '../../config'
 function ClientService(props) {
@@ -33,7 +33,12 @@ function ClientService(props) {
         setnoOfElements(noOfElements + noOfElements);
     }
 
-    return (userServices.length == 0 ? <h1 className='text-center'>Oooopps!!! no subscribed service</h1> :
+    return (userServices.length == 0 ? 
+        <div style={{textAlign:"center", justifyContent:"center", width:"100%"}} className="col-12">
+            <FaFileAlt color="#0d3360" size="2.8rem"/>
+            <h4 style={{color:"#686868"}} className="empty_card_text">Oups!!! vous n'êtes encore inscrit à aucun cours</h4>
+        </div> 
+        :
         <>
             {userServices.map((item) => {
                 return (
@@ -56,9 +61,6 @@ function ClientService(props) {
                     </div>
                 )
             })}
-            {/* <div class="product-buttons mt-5 mb-2" style={{ textAlign: "center" }}>
-                <button onClick={() => loadMore()} style={{ textDecoration: 'none', textAlign: "center" }} type="button" class="button-default cart-btn mr-1 mt-1 btn-info"><FaChevronCircleRight style={{ paddingTop: "" }} size='1rem' color='#ffffff' /> View More</button>
-            </div> */}
         </>
     );
 }

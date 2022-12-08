@@ -69,12 +69,10 @@ const [service, setService] = useState([]);
                 {service.length == 0?
                     <EmptyPageContent text="Oopps!!! no services have been added" directives="Click on the add service button above to add a service."/>
                     :
-                    <div className="container-fluid services-area">
-                        <div className="container-fluid services">
-                        <div className="row mg-b-15">
-                            {service.map((serviceData, index) => <Services key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} index={index} number_of_subscribers={serviceData.subscribers} image={serviceData.image} display="admin" short_description={serviceData.description}  />)}
-                        </div>
-                        </div>
+
+                    <div className="wrapper3 services_wrapper" style={{marginTop:"2.5rem", marginLeft:"0rem"}}>
+                    {/* {service.map(serviceData => <NotSubscribedServices key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} number_of_subscribers={serviceData.subscribers} short_description={serviceData.description}/>)} */}
+                     {service.map((serviceData, index) => <Services key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} index={index} number_of_subscribers={serviceData.subscribers} image={serviceData.image} display="admin" short_description={serviceData.description}  />)}
                     </div>
                 }
                  <div style={{marginRight:"-1rem"}}><Footer/></div>

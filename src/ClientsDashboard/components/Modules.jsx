@@ -7,7 +7,7 @@ import { API } from '../../config'
 function Modules(props){
     return(
         <>
-             <div className="card" data-aos="zoom-in-down" data-aos-offset="200">
+             <div className="card" data-aos="zoom-in-down" data-aos-offset="50" style={{marginBottom:"1rem"}}>
                  <img className="card_image" src={`${API}/images/${props.image}`} />
                  <div className="card_body">
                      <h3 className="card_module">{props.module_name}</h3>
@@ -26,7 +26,7 @@ function Modules(props){
                      <Link  to='/unitsclients' state={props} style={{textDecoration: "none"}}>
                         <div className='module_units_button' style={{marginTop: "1.8rem", marginBottom: '-1.5rem'}}>
                              <FaChevronCircleRight size='1.1rem' style={{marginTop: '4.5px'}} />
-                             <p className='view-units' style={{fontSize:".7rem",paddingLeft: ".7rem", paddingTop: ".1rem"}}>View Units</p>
+                             <p className='view-units' style={{fontSize:".7rem",paddingLeft: ".5rem", paddingTop: ".1rem"}}>View Units</p>
                         </div>
                      </Link>
                  </div>

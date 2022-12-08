@@ -464,11 +464,6 @@ button.pd-setting-ed {
          margin-left: .2rem;
     }
  }
- @media screen and (min-width: 1500px){
-    .breadcome-area{
-        margin-top: 1.2rem;
-    }
- }
 
  .clients-product-status{
      padding-right: 16px;
@@ -1220,7 +1215,7 @@ ul.country-state{
     justify-content: center;
 }
 
-@media screen and (max-width: 872px){
+@media screen and (max-width: 900px){
     .wrapper3{
          display: grid;
          grid-template-columns: repeat(2, 1fr);
@@ -1447,7 +1442,8 @@ ul.country-state{
 
 
 .view-units{
-    font-size: .7rem
+    font-size: .7rem;
+    font-family: MetropolisSemiBold;
 }
 .score{
     margin-top: -.7rem;
@@ -1475,50 +1471,6 @@ ul.country-state{
 .add-module h4{
     margin-top: 1.5rem;
     margin-bottom: .2rem;
-}
-@media screen and (min-width: 1500px){
-   .card_module{
-      font-size: 1.3rem;
-   }
-   .module-margin h4 p, .module-margin h4 p .modulee{
-         font-size: 2rem;
-   }
-   .add-module h4 p, .add-module h4 p .add-modulee{
-         font-size: 2rem;
-   }
-   .add-module{
-        margin-top: -1.8rem;
-   }
-   .add-module-forms{
-         margin-left: -.1rem;
-   }
-   .add-module h4{
-    margin-bottom: 1.6rem;
-   }
-   .card_title{
-      font-size: 1.7rem;
-   }
-   .courses-inner{
-    width: 40rem;
-   }
-   .score{
-    margin-top: 1rem;
-   }
-   .score{
-       margin-top: .1rem;
-   }
-   .space-creater{
-    display: block;
-   }
-   .module-margin button{
-    font-size: 1.5rem;
-    width: 12rem;
-    height: 3.5rem;
-   }
-   .module-margin{
-    margin-top: 2.8rem;
-    margin-bottom: 1.5rem;
-   }
 }
 
 /*------- test --*/

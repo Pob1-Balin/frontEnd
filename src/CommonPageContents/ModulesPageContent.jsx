@@ -11,9 +11,11 @@ import Loader from "./Loader";
 
 function ModulesPageContent(props) {
   const [loading, setLoading] = useState(true);
+
   const location = useLocation()
   var serviceInfo = location.state
-  const serviceId = serviceInfo.id
+  
+  const serviceId = serviceInfo.id;
   const head = props.display;
 
   const userId = "62f47d3b149cacf97e1a9a70";

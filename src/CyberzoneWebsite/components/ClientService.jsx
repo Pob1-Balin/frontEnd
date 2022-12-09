@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FaChevronRight, FaChevronCircleRight, FaFileAlt } from "react-icons/fa";
 import axios from 'axios'
 import { API } from '../../config'
 function ClientService(props) {
     const userServices = props.services;
+    const navigate = useNavigate()
     
 
 
@@ -34,6 +35,14 @@ function ClientService(props) {
         setnoOfElements(noOfElements + noOfElements);
     }
 
+    const moveto = (e) => {
+        localStorage.removeItem("servId")
+        localStorage.setItem("servId", JSON.stringify(e));
+        navigate("/clientservicedashboard", {state:{id: e._id, number_of_modules:e}});
+    }
+
+    
+
     return (
         <>
             {userServices.map((item) => {
@@ -47,12 +56,12 @@ function ClientService(props) {
                                 <div>{item.description}<span className="services_more" style={{marginLeft:".5rem"}}>Suite<FaChevronRight style={{marginLeft:".1rem"}}/></span></div>
                                 </div>
                             </Link>
-                            <Link to="/clientservicedashboard" style={{ textDecoration: "none" }} state={{ id: item._id, number_of_modules:item}} >
-                                <div className='module_units_button' style={{ marginTop: "1rem", marginBottom: '-1.3rem' }}>
+                            {/* <Link to="/clientservicedashboard" style={{ textDecoration: "none" }} state={{ id: item._id, number_of_modules:item}} > */}
+                                <div onClick={() => moveto(item)} className='module_units_button' style={{ marginTop: "1rem", marginBottom: '-1.3rem' }}>
                                     <FaChevronCircleRight size='1rem' style={{ marginTop: '.5rem', marginLeft:".3rem" }} />
                                     <p style={{ paddingLeft: ".2rem", paddingTop: ".25rem", fontSize: '.9rem' }}>Visite</p>
                                 </div>
-                            </Link>
+                            {/* </Link> */}
                         </div>
                     </div>
                 )

@@ -69,45 +69,51 @@ function ClientRegisterContent() {
                                 <form onSubmit={handleSubmit} style={{marginLeft:"2rem", marginRight:"2rem"}}>
                                     <div className="form-group">
                                         <label htmlFor="first_name" style={{ marginBottom: "-12px" }} className="FormLable"><p>Nom *</p></label>
-                                        <input style={{ height: '2.5rem' }} className={`form-control ${errors.first_name && touched.first_name && 'form-control2 border-color'}`} type="text" name="first_name" placeholder="Entrez votre nom" value={values.first_name} onChange={handleChange} onBlur={handleBlur}/>
+                                        <input style={{ height: '2.5rem', background:"transparent", borderRadius:".25rem" }} className={`form-control ${errors.first_name && touched.first_name && 'form-control2 border-color'}`} type="text" name="first_name" placeholder="Entrez votre nom" value={values.first_name} onChange={handleChange} onBlur={handleBlur}/>
                                         <span className='error'>{errors.first_name && touched.first_name ? errors.first_name : ''}</span>
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="last_name" style={{ marginBottom: "-12px" }} className="FormLable"><p>Prénom *</p></label>
-                                        <input style={{ height: '2.5rem' }} className={`form-control ${errors.last_name && touched.last_name && 'form-control2 border-color'}`} type="text" name="last_name" placeholder="Entrez votre prénom" value={values.last_name} onChange={handleChange} onBlur={handleBlur}/>
+                                        <input style={{ height: '2.5rem', background:"transparent", borderRadius:".25rem" }} className={`form-control ${errors.last_name && touched.last_name && 'form-control2 border-color'}`} type="text" name="last_name" placeholder="Entrez votre prénom" value={values.last_name} onChange={handleChange} onBlur={handleBlur}/>
                                         <span className='error'>{errors.last_name && touched.last_name ? errors.last_name : ''}</span>
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="email" style={{ marginBottom: "-12px" }} className="FormLable"><p>Adresses e-mail *</p></label>
-                                        <input style={{ height: '2.5rem' }} className={`form-control ${errors.email && touched.email && 'form-control2 border-color'}`} type="text" name="email" placeholder="Entrez votre mail" value={values.email} onChange={handleChange} onBlur={handleBlur}/>
+                                        <input style={{ height: '2.5rem', background:"transparent", borderRadius:".25rem" }} className={`form-control ${errors.email && touched.email && 'form-control2 border-color'}`} type="text" name="email" placeholder="Entrez votre mail" value={values.email} onChange={handleChange} onBlur={handleBlur}/>
                                         <span className='error'>{errors.email && touched.email ? errors.email : ''}</span>
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="phone_number" style={{ marginBottom: "-12px" }} className="FormLable"><p>Téléphone *</p></label>
-                                        <input style={{ height: '2.5rem' }} className={`form-control ${errors.phone_number && touched.phone_number && 'form-control2 border-color'}`} type="number" name="phone_number" placeholder="Entrez votre numéro de téléphone" value={values.phone_number} onChange={handleChange} onBlur={handleBlur}/>
+                                        <input style={{ height: '2.5rem', background:"transparent", borderRadius:".25rem" }} className={`form-control ${errors.phone_number && touched.phone_number && 'form-control2 border-color'}`} type="number" name="phone_number" placeholder="Entrez votre numéro de téléphone" value={values.phone_number} onChange={handleChange} onBlur={handleBlur}/>
                                         <span className='error'>{errors.phone_number && touched.phone_number ? errors.phone_number : ''}</span>
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="gender" style={{ marginBottom: "-12px" }} className="FormLable"><p>Le genre</p></label>
-                                        <input style={{ height: '2.5rem' }} className={`form-control ${errors.gender && touched.gender && 'form-control2 border-color'}`} type="text" name="gender" placeholder="Sélectionnez votre sexe" value={values.gender} onChange={handleChange} onBlur={handleBlur}/>
+
+                                        <select style={{ height: '2.5rem', background:"transparent", borderRadius:".25rem", color:"#a7abae"}} className={`form-select form-control ${errors.gender && touched.gender && 'form-control2 border-color'}`} type="text" name="gender" placeholder="Sélectionnez votre sexe" value={values.gender} onChange={handleChange} onBlur={handleBlur}>
+                                            <option>Sélectionnez votre sexe</option>
+                                            <option value="Male">Male</option>
+                                            <option value="Female">Female</option>
+                                        </select>
+
                                         <span className='error'>{errors.gender && touched.gender ? errors.gender : ''}</span>
                                     </div>
                                     <div className="form-group">
                                         <label htmlFor="country" style={{ marginBottom: "-12px" }} className="FormLable"><p>Pays</p></label>
-                                        <input style={{ height: '2.5rem' }} className={`form-control ${errors.country && touched.country && 'form-control2 border-color'}`} type="text" name="country" placeholder="Entrez votre pays" value={values.country} onChange={handleChange} onBlur={handleBlur}/>
+                                        <input style={{ height: '2.5rem', background:"transparent", borderRadius:".25rem" }} className={`form-control ${errors.country && touched.country && 'form-control2 border-color'}`} type="text" name="country" placeholder="Choisissez le pays" value={values.country} onChange={handleChange} onBlur={handleBlur}/>
                                         <span className='error'>{errors.country && touched.country ? errors.country : ''}</span>
                                     </div>
                                     <div className="form-group" style={{ marginTop: '13px' }}>
                                         <label htmlFor="password" style={{ marginBottom: "-12px" }} className="FormLable"><p>Mot de passe *</p></label>
-                                        <input style={{ height: '2.5rem' }} className={`form-control ${errors.password && touched.password && 'form-control2 border-color'}`} type="password" placeholder="Entrez votre mot de passe" name="password" value={values.password} onChange={handleChange} onBlur={handleBlur}/>
+                                        <input style={{ height: '2.5rem', background:"transparent", borderRadius:".25rem" }} className={`form-control ${errors.password && touched.password && 'form-control2 border-color'}`} type="password" placeholder="Entrez votre mot de passe" name="password" value={values.password} onChange={handleChange} onBlur={handleBlur}/>
                                         <span className='error'>{errors.password && touched.password ? errors.password : ''}</span>
                                     </div>
                                     <div className="form-group" style={{ marginTop: '13px' }}>
                                         <label htmlFor="confirm_password" style={{ marginBottom: "-12px" }} className="FormLable"><p>Confirmez le mot de passe *</p></label>
-                                        <input style={{ height: '2.5rem' }} className={`form-control ${errors.confirm_password && touched.confirm_password && 'form-control2 border-color'}`} type="password" placeholder="Confirmez le mot de passe" name="confirm_password" value={values.confirm_password} onChange={handleChange} onBlur={handleBlur}/>
+                                        <input style={{ height: '2.5rem', background:"transparent", borderRadius:".25rem" }} className={`form-control ${errors.confirm_password && touched.confirm_password && 'form-control2 border-color'}`} type="password" placeholder="Confirmez le mot de passe" name="confirm_password" value={values.confirm_password} onChange={handleChange} onBlur={handleBlur}/>
                                         <span className='error'>{errors.confirm_password && touched.confirm_password ? errors.confirm_password : ''}</span>
                                     </div>
-                                    <div style={{ marginTop: '1.5rem' }} className="form-group">
+                                    <div style={{ marginTop: '1.5rem', background:"transparent", borderRadius:".25rem" }} className="form-group">
                                         <button type="submit" style={{ height: '2.5rem', background: '#4ab2cc', color: 'white', width: "100%", borderRadius: ".4rem" }} className="btn waves-effect waves-light submitBtn">S'inscrire</button>
                                     </div>
                                     <div className="row" style={{ marginTop: "-.5rem" }}>

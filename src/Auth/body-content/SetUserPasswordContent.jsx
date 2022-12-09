@@ -51,12 +51,12 @@ function SetUserPasswordContent(){
                                 <form onSubmit={handleSubmit} style={{marginLeft:"2rem", marginRight:"2rem"}}>
                                     <div className="form-group" style={{ marginTop: '13px' }}>
                                         <label htmlFor="password" style={{ marginBottom: "-12px" }} className="FormLable"><p>Mot de passe *</p></label>
-                                        <input style={{ height: '2.5rem' }} className={`form-control ${errors.password && touched.password && 'form-control2 border-color'}`} type="password" placeholder="Entrez votre mot de passe " name="password" value={values.password} onChange={handleChange} onBlur={handleBlur}/>
+                                        <input style={{ height: '2.5rem', background:"transparent", borderRadius:".25rem" }} className={`form-control ${errors.password && touched.password && 'form-control2 border-color'}`} type="password" placeholder="Entrez votre mot de passe " name="password" value={values.password} onChange={handleChange} onBlur={handleBlur}/>
                                         <span className='error'>{errors.password && touched.password ? errors.password : ''}</span>
                                     </div>
                                     <div className="form-group" style={{ marginTop: '13px' }}>
                                         <label htmlFor="confirm_password" style={{ marginBottom: "-12px" }} className="FormLable"><p>Confirmez le mot de passe *</p></label>
-                                        <input style={{ height: '2.5rem' }} className={`form-control ${errors.confirm_password && touched.confirm_password && 'form-control2 border-color'}`} type="password" placeholder="Confirmez le mot de passe" name="confirm_password" value={values.confirm_password} onChange={handleChange} onBlur={handleBlur}/>
+                                        <input style={{ height: '2.5rem', background:"transparent", borderRadius:".25rem" }} className={`form-control ${errors.confirm_password && touched.confirm_password && 'form-control2 border-color'}`} type="password" placeholder="Confirmez le mot de passe" name="confirm_password" value={values.confirm_password} onChange={handleChange} onBlur={handleBlur}/>
                                         <span className='error'>{errors.confirm_password && touched.confirm_password ? errors.confirm_password : ''}</span>
                                     </div>
                                     <div style={{marginTop: '2rem'}} className="form-group btn-auth">

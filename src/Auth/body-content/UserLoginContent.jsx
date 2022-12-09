@@ -72,12 +72,12 @@ function UserLoginContent(){
                                 <form onSubmit={handleSubmit} style={{marginLeft:"2rem", marginRight:"2rem"}}>
                                     <div className="form-group">
                                         <label htmlFor="email" style={{marginBottom: "-12px"}} className="FormLable"><p>Adresses e-mail</p></label>
-                                        <input style={{height:'2.5rem', color:"rgb(35, 175, 203)"}} className={`form-control ${errors.email && touched.email && 'form-control2 border-color'}`} id="email" type="text" name="email" placeholder="Entrer votre mail" value={values.email} onChange={handleChange} onBlur={handleBlur} />
+                                        <input style={{height:'2.5rem', color:"rgb(35, 175, 203)", background:"transparent", borderRadius:".25rem"}} className={`form-control ${errors.email && touched.email && 'form-control2 border-color'}`} id="email" type="text" name="email" placeholder="Entrer votre mail" value={values.email} onChange={handleChange} onBlur={handleBlur} />
                                         <span className='error'>{errors.email && touched.email ? errors.email : ''}</span>
                                     </div>
                                     <div className="form-group" style={{marginTop: '15px'}}>
                                         <label htmlFor='password' style={{marginBottom: "-12px"}} className="FormLable"><p>Mot de passe</p></label>
-                                        <input style={{height:'2.5rem', color:"rgb(35, 175, 203)"}} className={`form-control ${errors.password && touched.password && 'form-control2 border-color'}`} id="password" type="password" placeholder="Tapez votre mot de passe" name="password" value={values.password} onChange={handleChange} onBlur={handleBlur} />
+                                        <input style={{height:'2.5rem', color:"rgb(35, 175, 203)", background:"transparent", borderRadius:".25rem"}} className={`form-control ${errors.password && touched.password && 'form-control2 border-color'}`} id="password" type="password" placeholder="Tapez votre mot de passe" name="password" value={values.password} onChange={handleChange} onBlur={handleBlur} />
                                         <span className='error'>{errors.password && touched.password ? errors.password : ''}</span>
                                     </div> 
                                     <div style={{marginTop: '1.5rem'}} className="form-group btn-auth">

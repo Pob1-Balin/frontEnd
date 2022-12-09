@@ -5,6 +5,7 @@ import axios from 'axios'
 import { API } from '../../config'
 function ClientService(props) {
     const userServices = props.services;
+    
 
 
     // const comServ = props.user.services  //['62beae1368a6026244db706a','62c56e866122d005004fa3a8'];
@@ -33,16 +34,11 @@ function ClientService(props) {
         setnoOfElements(noOfElements + noOfElements);
     }
 
-    return (userServices.length == 0 ? 
-        <div style={{textAlign:"center", justifyContent:"center", width:"100%"}} className="col-12">
-            <FaFileAlt color="#0d3360" size="2.8rem"/>
-            <h4 style={{color:"#686868"}} className="empty_card_text">Oups!!! vous n'êtes encore inscrit à aucun cours</h4>
-        </div> 
-        :
+    return (
         <>
             {userServices.map((item) => {
                 return (
-                    <div className="services_card" data-aos="zoom-in-down" data-aos-offset="200">
+                    <div className="services_card" data-aos="zoom-in-down" data-aos-offset="50">
                         <div style={{margin:"1.3rem"}}><img className="services_card_image" src={`${API}/images/${item.image}`} /></div>
                         <div className="card_body" style={{marginLeft:"1.3rem"}}>
                             <h2 className="card_title services_card_title" style={{marginTop:"-.5rem", fontSize:"1.1rem"}}>{item.name}</h2>

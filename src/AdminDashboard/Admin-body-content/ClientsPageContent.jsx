@@ -66,7 +66,7 @@ function ClientsPageContent (){
                                                  <th>Country</th>
                                                  <th>Phone</th>
                                                  <th>Email</th>
-                                                 <th>Status</th>
+                                                 <th>Lastly visited</th>
                                                  <th>Visit</th>
                                                  <th>Setting</th>
                                             </tr>

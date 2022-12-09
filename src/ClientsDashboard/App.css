@@ -53,6 +53,14 @@ a{
     display: flex;
 }
 
+option{
+    height: 2rem;
+}
+
+option:hover{
+    background-color: #4ab2cc;
+}
+
 .time_passed, .rating{
      font-size: .7rem;
      font-style: bold;
@@ -975,3 +983,13 @@ h1.heading{
 .subscribe_service:hover{
     border-color: #4ab2cc;
 }
+
+.servicess{
+    margin-right: .1rem;
+ }
+
+ @media screen and (max-width: 1000px){
+    .servicess{
+        margin-right: -1rem;
+     }
+ }

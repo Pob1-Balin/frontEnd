@@ -478,9 +478,6 @@ button.pd-setting-ed {
     .clients-product-status{
          margin-right: -3.5rem;
     }
-    .breadcome-area{
-        margin-right: -3rem;
-    }
  }
  @media screen and (max-width: 993px){
     .add-clients-page{
@@ -1556,3 +1553,22 @@ ul.country-state{
         font-size: 1.5rem;
     }
 }
+
+@media screen and (max-width: 1000px){
+    .dashboard-pages{
+        margin-right: 1rem;
+    }
+    .breadcome-area{
+        margin-right: -2.3rem;
+    }
+ }
+ 
+@media screen and (max-width: 800px){
+    .dashboard-pages{
+        margin-right: 2.5rem;
+        margin-left: 1.5rem;
+    }
+    .breadcome-area{
+        margin-left: -1.3rem;
+    }
+ }

@@ -68,7 +68,7 @@ function UserForgotPasswordContent(){
                                 <form onSubmit={handleSubmit} style={{marginLeft:"2rem", marginRight:"2rem"}}>
                                     <div className="form-group">
                                         <label htmlFor="email" style={{marginBottom: "-12px"}} className="FormLable"><p>Adresses e-mail</p></label>
-                                        <input style={{height:'2.5rem', color:"rgb(35, 175, 203)"}} className={`form-control ${errors.email && touched.email && 'form-control2 border-color'}`} id="email" type="text" name="email" placeholder="Entrer votre mail" value={values.email} onChange={handleChange} onBlur={handleBlur} />
+                                        <input style={{height:'2.5rem', color:"rgb(35, 175, 203)", background:"transparent", borderRadius:".25rem"}} className={`form-control ${errors.email && touched.email && 'form-control2 border-color'}`} id="email" type="text" name="email" placeholder="Entrer votre mail" value={values.email} onChange={handleChange} onBlur={handleBlur} />
                                         <span className='error'>{errors.email && touched.email ? errors.email : ''}</span>
                                     </div>
                                     <div style={{marginTop: '1.5rem'}} className="form-group btn-auth">

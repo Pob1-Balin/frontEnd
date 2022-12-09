@@ -79,7 +79,7 @@ function AddModuleContent() {
                             <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <div className="product-payment-inner-st">
                                     <div><p className="mt-3 mb-4" style={{ color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Add Module</p></div>
-                                    <div id="myTabContent" class="tab-content custom-product-edit">
+                                    <div id="myTabContent" className="tab-content custom-product-edit">
                                         <div class="product-tab-list">
                                             <div class="row">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -88,7 +88,6 @@ function AddModuleContent() {
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <div className="devit-card-custom">
                                                                     <form onSubmit={handleSubmit}>
-                                                                        {/* <input type="hiden" className="form-control" placeholder="Enter module name" name="name" value={number_of_modules} onChange={handleChange} /> */}
                                                                         <div className="form-group">
                                                                             <label htmlFor='title' style={{ marginBottom: "-12px" }} className="FormLable"><p>Title</p></label>
                                                                             <input type="text" className="form-control input" placeholder="Enter module title" name="title" value={values.title} onChange={handleChange} />

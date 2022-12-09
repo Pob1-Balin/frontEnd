@@ -10,6 +10,7 @@ import EmptyPageContent from "./EmptyPageContent";
 import Loader from "./Loader";
 
 function ModulesPageContent(props) {
+  const [loading, setLoading] = useState(true);
   const location = useLocation()
   var serviceInfo = location.state
   const serviceId = serviceInfo.id
@@ -29,6 +30,7 @@ function ModulesPageContent(props) {
 
       axios.get(`${API}/serv/getserv/${userId}`).then(({ data }) => {
         setUserServs(data.data)
+        setLoading(false)
       }).catch((err) => {
         //  console.log("Something Went Wrong:", err)
       });
@@ -132,79 +134,82 @@ function ModulesPageContent(props) {
   const number_of_modules = module.length;
   return (
     <>
-       <main className="px-md-4 wrapper2">
-          {/*-- Modal =====*/}
-          <div class="modal fade" id="unitUpdated" tabindex="-1" role="dialog" aria-hidden="true">
-              <div class="modal-dialog" role="document">
-                  <div class="modal-content">
-                      <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Modules Updates</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                              <span aria-hidden="true">&times;</span>
-                          </button>
-                      </div>
-
-                      <div class="modal-body">
-                          <p style={{color:"gray"}}>Your modules have been updated!!!</p>
-                      </div>
-
-                      <div style={{borderTop:"1px solid #F5F5F5"}} class="modal-footer">
-                          <button style={{width:"4rem"}} type="submit" data-dismiss="modal" name="update unites" class="btn btn-info">ok</button>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          {head === "admin" ?
-              <>
-                <div>
-                  <div className="module-margin d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-3 border-bottom modulehome">
-                    <h4><p><Link className="return-home" style={{textDecoration: 'none'}} to='/services'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span className="modulee" style={{color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Modules</span></p></h4>
-                    <Link className="return-home" style={{textDecoration: 'none'}} state={{id:serviceId, numberOfModules:number_of_modules}} to='/addmodule' >
-                      <div>
-                        <button className="add-buttons mb-2">Add Modules</button>
-                      </div>
-                    </Link>
-                  </div>
-                  {module.length == 0 ?
-                    <EmptyPageContent text="Oops!!! module pour ce cours n'a pas été ajouté" directives="Cliquez sur le bouton Ajouter des modules ci-dessus pour ajouter un module."/>
-                    :
-                    <div style={{marginTop:"2rem"}} className="wrapper3">
-                      {module.map((moduleData, index)=><Module2 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} score={moduleData.score} service_id={serviceId}/> )}
+      {loading ?
+        <Loader/>
+        :
+        <main className="px-md-4 wrapper2">
+        {/*-- Modal =====*/}
+        <div class="modal fade" id="unitUpdated" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modules Updates</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
                     </div>
-                  }
-                  <div style={{marginTop:"14rem"}} className="space-creater"></div>
-                  <Footer destination="/adminlegal" />
+
+                    <div class="modal-body">
+                        <p style={{color:"gray"}}>Your modules have been updated!!!</p>
+                    </div>
+
+                    <div style={{borderTop:"1px solid #F5F5F5"}} class="modal-footer">
+                        <button style={{width:"4rem"}} type="submit" data-dismiss="modal" name="update unites" class="btn btn-info">ok</button>
+                    </div>
                 </div>
-              </>
-
-              :
-
-              <>
-                <main className="ml-2 mr-1">
-                  <div className="border-bottom headerTitle">
-                    <div style={{display:"flex", justifyContent:"space-between", marginTop:"-5rem", marginBottom:"-1rem"}}>
-                      <h1><p>Modules</p></h1>
-                        <button onClick={updateUsersModules} data-toggle="modal" data-target="#unitUpdated" className="add-buttons" style={{width:"14rem", marginTop:"1.2rem"}}>Mettre à jour les modules</button>
+            </div>
+        </div>
+        {head === "admin" ?
+            <>
+              <div>
+                <div className="module-margin d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-3 border-bottom modulehome">
+                  <h4><p><Link className="return-home" style={{textDecoration: 'none'}} to='/services'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span className="modulee" style={{color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Modules</span></p></h4>
+                  <Link className="return-home" style={{textDecoration: 'none'}} state={{id:serviceId, numberOfModules:number_of_modules}} to='/addmodule' >
+                    <div>
+                      <button className="add-buttons mb-2">Add Modules</button>
                     </div>
+                  </Link>
+                </div>
+                {module.length == 0 ?
+                  <EmptyPageContent text="Oops!!! module pour ce cours n'a pas été ajouté" directives="Cliquez sur le bouton Ajouter des modules ci-dessus pour ajouter un module."/>
+                  :
+                  <div style={{marginTop:"2rem"}} className="wrapper3">
+                    {module.map((moduleData, index)=><Module2 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} score={moduleData.score} service_id={serviceId}/> )}
                   </div>
-                  <div className="Home_navigation">
-                      <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem", paddingLeft:"0rem" }} to='/clientservicedashboard'><span className="home">Accueil /</span></Link> <span style={{color: '#0d3360'}}>Modules</span></p>
-                  </div>
+                }
+                <div style={{marginTop:"14rem"}} className="space-creater"></div>
+                <Footer destination="/adminlegal" />
+              </div>
+            </>
 
-                  {module.length == 0 ?
-                    <EmptyPageContent text="Oops!!! module pour ce cours n'a pas été ajouté" directives="Les modules de ce cours seront bientôt ajoutés"/>
-                    :
-                    <div style={{marginTop:"2.5rem"}} className="wrapper3">
-                      {module.map((moduleData, index)=><Module1 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} serviceID={serviceId} score={moduleData.score} />)}
-                    </div>
-                  }
-                  <div style={{marginTop:"12rem"}} className="space-creater"></div>
-                  <Footer destination="/legalnotice" />
-                </main>
-                <Loader/>
-              </>
-          }
-       </main>
+            :
+
+            <>
+              <main className="ml-2 mr-1">
+                <div className="border-bottom headerTitle">
+                  <div style={{display:"flex", justifyContent:"space-between", marginTop:"-5rem", marginBottom:"-1rem"}}>
+                    <h1><p>Modules</p></h1>
+                      <button onClick={updateUsersModules} data-toggle="modal" data-target="#unitUpdated" className="add-buttons" style={{width:"14rem", marginTop:"1.2rem"}}>Mettre à jour les modules</button>
+                  </div>
+                </div>
+                <div className="Home_navigation">
+                    <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem", paddingLeft:"0rem" }} to='/clientservicedashboard'><span className="home">Accueil /</span></Link> <span style={{color: '#0d3360'}}>Modules</span></p>
+                </div>
+
+                {module.length == 0 ?
+                  <EmptyPageContent text="Oops!!! module pour ce cours n'a pas été ajouté" directives="Les modules de ce cours seront bientôt ajoutés"/>
+                  :
+                  <div style={{marginTop:"2.5rem"}} className="wrapper3">
+                    {module.map((moduleData, index)=><Module1 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} serviceID={serviceId} score={moduleData.score} />)}
+                  </div>
+                }
+                <div style={{marginTop:"12rem"}} className="space-creater"></div>
+                <Footer destination="/legalnotice" />
+              </main>
+            </>
+        }
+     </main>
+      }
     </>
   )
 }

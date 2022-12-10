@@ -7,14 +7,12 @@ import DocumentScannerIcon from '@mui/icons-material/DocumentScanner';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import './sidebar.css';
-import { useNavigate, useLocation } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../../redux/auth/authSlice'
 
 function Sidebar(props) {
-  // const location = useLocation();
   const service = JSON.parse(localStorage.getItem("servId"))
-
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { user } = useSelector((state) => state.auth)
@@ -35,7 +33,7 @@ function Sidebar(props) {
          <nav className="sidebar-navigation">
             <ul className="menu menu-bordery pt- mt-5 text-left pl-4">
                 <li className="nav-item pt-5 list">
-                    <Link to='/clientservicedashboard' className='ml-4 test' style={{textDecoration:'none'}} state={{ id: service._id, number_of_modules:service}}><HomeIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Accueil</Link>
+                    <Link to='/clientservicedashboard' className='ml-4 test' style={{textDecoration:'none'}} state={{ service_id: service._id, modules: service.modules}}><HomeIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Accueil</Link>
                 </li>
                 <li className="nav-item pt-4 list">
                     <Link to='/res' className=' ml-4 test'><AccountBalanceIcon className='' style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Mes ressources</Link>

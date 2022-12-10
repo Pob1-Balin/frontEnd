@@ -82,6 +82,10 @@ option:hover{
      color: #75a8da;
 }
 
+.module_units_button:hover{
+    cursor: pointer;
+}
+
 .card_image{
     width: cover;
     height: 11rem;

@@ -18,8 +18,8 @@ function SubscribeForService(props) {
 
     const userData = stateInfo.userData;
     const userServices = userData.services;
-
     const user = JSON.parse(window.localStorage.getItem("user"));
+
     const [modules, setModules] = useState([]);
     useEffect(() => {
         axios.get(`${API}/module/servModule/${serviceId}`).then(({data})=>{
@@ -51,6 +51,8 @@ function SubscribeForService(props) {
     var another_object = [{}];
     another_object = user.services;
 
+    console.log("subscribeService:", another_object)
+
     var service_to_be_submitted =  [{}];
     service_to_be_submitted = [...another_object, subscribeService]
 
@@ -69,6 +71,7 @@ function SubscribeForService(props) {
         })
     }
 
+
     const submitUserInfo = (userSubscribeInfo) => {
         const { country_code, phone_number, amount } = inputs;
         const complete_phone_number = country_code + phone_number;
@@ -84,9 +87,12 @@ function SubscribeForService(props) {
             const new_services = userSubscribeInfo.services;
             user.services = new_services;
             localStorage.setItem('user', JSON.stringify(user));
+            localStorage.removeItem("refresh")
+            localStorage.setItem('refresh', JSON.stringify("true"));
 
-        navigate("/home", {state:{refresh:"true"}});
+            navigate("/home");
     }
+
 
     const handleSubmit = (event) => {
         event.preventDefault();

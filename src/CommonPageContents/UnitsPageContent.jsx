@@ -11,6 +11,7 @@ import Loader from "./Loader";
 
 function UnitsPageContent(props){
     const [loading, setLoading] = useState(true)
+    const navigate = useNavigate()
     const head = props.display;
     const location = useLocation();
     const moduleInfo = location.state

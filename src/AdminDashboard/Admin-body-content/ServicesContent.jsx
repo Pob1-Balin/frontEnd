@@ -72,7 +72,7 @@ const [service, setService] = useState([]);
 
                     <div className="wrapper3 services_wrapper servicess" style={{marginTop:"2.2rem", marginLeft:"0rem"}}>
                     {/* {service.map(serviceData => <NotSubscribedServices key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} number_of_subscribers={serviceData.subscribers} short_description={serviceData.description}/>)} */}
-                     {service.map((serviceData, index) => <Services key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} index={index} number_of_subscribers={serviceData.subscribers} image={serviceData.image} display="admin" short_description={serviceData.description}  />)}
+                     {service.map((serviceData, index) => <Services key={serviceData._id} service_id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} index={index} number_of_subscribers={serviceData.subscribers} image={serviceData.image} display="admin" short_description={serviceData.description}  />)}
                     </div>
                 }
                  <div style={{marginRight:"-1rem"}}><Footer/></div>

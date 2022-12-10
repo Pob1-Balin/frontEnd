@@ -15,10 +15,8 @@ function ClientsServicesPage() {
   useEffect(()=>{
     if(!user){
       navigate('/login')
-      console.log('kjdshkj')
     }
   },[user, navigate])
-  console.log(user)
   return (
     <>
      <Sidebar/>

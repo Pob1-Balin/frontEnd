@@ -10,14 +10,10 @@ import { useSelector, useDispatch } from 'react-redux'
 import { logout, reset } from '../../redux/auth/authSlice'
 
 function Sidebar(props) {
-  // const location = useLocation();
-  const service_id = props.service_id;
-
   const navigate = useNavigate()
   const dispatch = useDispatch()
   const { user } = useSelector((state) => state.auth)
 
-  console.log("service id", service_id);
   const onLogout = () => {
     dispatch(logout())
     dispatch(reset())
@@ -33,10 +29,10 @@ function Sidebar(props) {
          <nav className="sidebar-navigation">
             <ul className="menu mt-5 text-left pl-4">
                 <li className="nav-item nav-item2 pt-4 list">
-                    <Link to='/home' className='ml-4 test' style={{textDecoration:'none'}} state={{id:service_id}}><HomeIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Accueil</Link>
+                    <Link to='/home' className='ml-4 test' style={{textDecoration:'none'}}><HomeIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Accueil</Link>
                 </li>
                 <li className="nav-item pt-4 list active">
-                    <Link to='/myprofile' className=' ml-4 test' style={{textDecoration:'none'}} state={{id:service_id}}> <AccountCircleIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Mon profil</Link>
+                    <Link to='/myprofile' className=' ml-4 test' style={{textDecoration:'none'}}> <AccountCircleIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Mon profil</Link>
                 </li>
             </ul>
          </nav>

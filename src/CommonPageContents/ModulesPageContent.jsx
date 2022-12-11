@@ -49,24 +49,20 @@ function ModulesPageContent(props) {
       .then(res => {
       })
       .catch(err => {
-        console.log("err", err)
       })
-      console.log("yeeeeeeee")
   }
 
   //compare them both
   const upadteModules = () => {
     if(module.length != currentUserModules.length){
       var modules_not_added = [];
-      module.map((item) => {
+  module.map((item) => {
     if(currentUserModules.find(e => e.module_id === item._id)){
     }else{
-      
        delete item.service_id
        delete item.createdAt
        delete item.updatedAt
        delete item.__v
-       delete item.updatedAt
        modules_not_added = [...modules_not_added, item];
     }
       })
@@ -111,9 +107,6 @@ function ModulesPageContent(props) {
   })}
 
   var currentUserModules2 = currentUserService2.modules
-
-  console.log(module)
-
   const number_of_modules = module.length;
 
   return (
@@ -184,7 +177,7 @@ function ModulesPageContent(props) {
                   <EmptyPageContent text="Oops!!! module pour ce cours n'a pas été ajouté" directives="Les modules de ce cours seront bientôt ajoutés"/>
                   :
                   <div style={{marginTop:"2.5rem"}} className="wrapper3">
-                    {currentUserModules2.map((moduleData, index)=><Module1 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} serviceID={serviceId} score={moduleData.score} />)}
+                    {currentUserModules2.map((moduleData, index)=><Module1 key={moduleData._id} id={moduleData._id} moduleUnits={moduleData.units} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} serviceID={serviceId} score={moduleData.score} />)}
                   </div>
                 }
                 <div style={{marginTop:"12rem"}} className="space-creater"></div>

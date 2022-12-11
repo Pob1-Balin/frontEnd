@@ -1,7 +1,6 @@
 import React from 'react';
 import { FaStar, FaRegClock, FaChevronCircleRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import { API } from '../../config'
 
 function Modules(props){

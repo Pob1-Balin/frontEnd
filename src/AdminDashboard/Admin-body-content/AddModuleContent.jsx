@@ -14,8 +14,8 @@ function AddModuleContent() {
     const [values, setValues] = useState({
         title: '',
         image: '',
-        time_spent: '',
-        score: "",
+        time_spent: '0',
+        score: '0',
     })
 
     // Destructing so as to be able to send to the backend

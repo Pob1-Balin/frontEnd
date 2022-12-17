@@ -1,11 +1,12 @@
 import React from 'react';
-import { FaStar, FaRegClock, FaChevronCircleRight } from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import { FaChevronCircleRight } from "react-icons/fa";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API } from '../../config'
 import '../admin.css'
 
 function Modules(props) {
+  const navigate = useNavigate();
   const id = props.id;
   const title = props.title;
   const new_title = '#'+title;
@@ -21,6 +22,13 @@ function Modules(props) {
         })
         .catch((err) => alert("Something went wrong"));
 }
+
+const moveto = () => {
+  localStorage.setItem('redirectmod', true);
+  window.location.reload()
+  navigate("/units", {state:{...props}});
+}
+
   return (
     <>
       <div className="card">
@@ -34,17 +42,17 @@ function Modules(props) {
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Delete Module</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Supprimer le module</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                   <p style={{color:"gray"}}>Are you sure you want to permanently delete this module?</p>
+                   <p style={{color:"gray"}}>Êtes-vous sûr de vouloir supprimer définitivement ce module ?</p>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Close</button>
-                    <button type="submit" name="delete_service" class="btn btn-info" onClick={deleteService}>Yes</button>
+                    <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Fermé</button>
+                    <button type="submit" name="delete_service" class="btn" style={{backgroundColor: "#3363ad", color:"white"}} onClick={deleteService}>Oui</button>
                 </div>
               </div>
             </div>
@@ -55,36 +63,33 @@ function Modules(props) {
             <div class="modal-dialog" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Disable Module</h5>
+                  <h5 class="modal-title" id="exampleModalLabel">Désactiver le module</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
                 </div>
                 <div class="modal-body">
-                  Are you sure you want to disable this module?
+                   Êtes-vous sûr de vouloir désactiver ce module ?
                 </div>
                 <div class="modal-footer">
-                  <form action="php-code.php" method="POST">
-                    <input type="hidden" name="service_id" value="<?php echo $row['service_id']; ?>" />
-                    <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Close</button>
-                    <button type="submit" name="delete_service" class="btn btn-info">Yes</button>
-                  </form>
+                    <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Fermé</button>
+                    <button type="submit" name="delete_service" class="btn" style={{backgroundColor: "#3363ad", color:"white"}}>Oui</button>
                 </div>
               </div>
             </div>
           </div>
 
-          <div class="product-buttons" style={{ marginTop: '1.5rem', marginBottom: "-.5rem" }}>
-            <Link to='/editmodule' style={{ textDecoration: 'none' }} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
-            <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Disable</button>
-            <button type="button" class="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target={new_title} >Delete</button>
+          <div class="product-buttons" style={{ marginTop: '1.3rem'}}>
+            <Link to='/editmodule' style={{ textDecoration: 'none' }} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Éditer</button></Link>
+            <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" style={{outline:"none", border:"none", boxShadow:"none"}} data-target="#bl">Désactiver</button>
+            <button type="button" class="button-default cart-btn btn-danger mt-1" data-toggle="modal" style={{outline:"none", border:"none", boxShadow:"none"}} data-target={new_title} >Effacer</button>
           </div>
-          <Link to="/units" style={{ textDecoration: "none" }} state={props}>
-            <div className='module_units_button' style={{ marginTop: "1.8rem", marginBottom: '-1.5rem' }}>
-              <FaChevronCircleRight size='1.1rem' style={{ marginTop: '4.5px' }} />
-              <p style={{ paddingLeft: ".7rem", paddingTop: ".1rem", fontSize: '.7rem' }}>View Units</p>
+          <a onClick={() => moveto()} href="#" style={{ textDecoration: "none" }}>
+            <div className='module_units_button' style={{ marginTop: "1.2rem", marginBottom: '-1.3rem' }}>
+                <FaChevronCircleRight size='1rem' style={{ marginTop: '.5rem', marginLeft:".3rem" }} />
+                <p style={{ paddingLeft: ".2rem", paddingTop: ".25rem", fontSize: '.9rem' }}>Unités</p>
             </div>
-          </Link>
+          </a>
         </div>
       </div>
     </>

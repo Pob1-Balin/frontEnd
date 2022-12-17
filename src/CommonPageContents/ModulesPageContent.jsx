@@ -3,15 +3,26 @@ import Footer from '../ClientsDashboard/components/Footer';
 import Module1 from '../ClientsDashboard/components/Modules';
 import Module2 from '../AdminDashboard/components/Modules';
 import "../AdminDashboard/admin.css";
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import axios from 'axios';
 import { API } from '../config'
 import EmptyPageContent from "./EmptyPageContent";
 import Loader from "./Loader";
-import { display } from "@mui/system";
 
 function ModulesPageContent(props) {
+    const navigation = useNavigate();
+    
+    window.addEventListener("beforeunload", (event) => {
+       localStorage.setItem('redirectserv', false);
+    });
+
+  if(JSON.parse(localStorage.getItem("refreshmodules")) == "true"){
+    localStorage.removeItem("refreshmodules")
+    localStorage.setItem('refreshmodules', JSON.stringify("false"));
+    window.location.reload();
+  }
+ 
   const [loading, setLoading] = useState(true);
   const location = useLocation()
   var serviceInfo = location.state
@@ -23,6 +34,7 @@ function ModulesPageContent(props) {
   //get all service modules ----------------
   const [module, setModule] = useState([]);
   useEffect(() => {
+      window.scrollTo(0, 0);
       axios.get(`${API}/module/servModule/${serviceId}`).then(({data})=>{
           setModule(data.data)
           setLoading(false)
@@ -115,38 +127,22 @@ function ModulesPageContent(props) {
         <Loader/>
         :
         <main className="px-md-4 wrapper2">
-        {/*-- Modal =====*/}
-        <div class="modal fade" id="unitUpdated" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modules Updates</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-
-                    <div class="modal-body">
-                        <p style={{color:"gray"}}>Your modules have been updated!!!</p>
-                    </div>
-
-                    <div style={{borderTop:"1px solid #F5F5F5"}} class="modal-footer">
-                        <button style={{width:"4rem"}} type="submit" data-dismiss="modal" name="update unites" class="btn btn-info">ok</button>
-                    </div>
-                </div>
-            </div>
-        </div>
         {head === "admin" ?
             <>
-              <div>
-                <div className="module-margin d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center mb-3 border-bottom modulehome">
-                  <h4><p><Link className="return-home" style={{textDecoration: 'none'}} to='/services'><span className="home">Home</span></Link> <span className="stroke_color">/</span> <span className="modulee" style={{color: 'gray', fontStyle: 'bold', fontWeight: '550' }}>Modules</span></p></h4>
-                  <Link className="return-home" style={{textDecoration: 'none'}} state={{id:serviceId, numberOfModules:number_of_modules}} to='/addmodule' >
-                    <div>
-                      <button className="add-buttons mb-2">Add Modules</button>
-                    </div>
-                  </Link>
+              <div className="ml-2 mr-1">
+                <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom resource-page">
+                    <h4 style={{marginTop:'2rem', color: '#0d3360'}}>
+                      <div className="returnHome2">
+                           <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem"}} to='/services'><span className="home">Accueil</span></Link> <span>/</span> <span style={{fontStyle: 'bold'}}>Modules</span></p>
+                      </div>
+                    </h4>
+                    <Link className="return-home" style={{textDecoration: 'none'}} to='/addmodule' state={{id:serviceId, numberOfModules:number_of_modules}}>
+                        <div>
+                            <button className="add-buttons" style={{width:"11rem"}}>Ajouter un module</button>
+                        </div>
+                    </Link>
                 </div>
+                
                 {module.length == 0 ?
                   <EmptyPageContent text="Oops!!! module pour ce cours n'a pas été ajouté" directives="Cliquez sur le bouton Ajouter des modules ci-dessus pour ajouter un module."/>
                   :
@@ -154,6 +150,7 @@ function ModulesPageContent(props) {
                     {module.map((moduleData, index)=><Module2 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} score={moduleData.score} service_id={serviceId}/> )}
                   </div>
                 }
+                 <div style={{marginTop:"10rem"}}></div>
                 <div style={{marginTop:"14rem"}} className="space-creater"></div>
                 <Footer destination="/adminlegal" />
               </div>
@@ -170,7 +167,7 @@ function ModulesPageContent(props) {
                   </div>
                 </div>
                 <div className="Home_navigation">
-                    <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem", paddingLeft:"0rem" }} to='/clientservicedashboard'><span className="home">Accueil /</span></Link> <span style={{color: '#0d3360'}}>Modules</span></p>
+                    <p><span className="home return-home">Accueil /</span> <span style={{color: '#0d3360'}}>Modules</span></p>
                 </div>
 
                 {currentUserModules2.length == 0 ?

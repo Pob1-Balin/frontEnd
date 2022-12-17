@@ -32,7 +32,7 @@ function Sidebar(props) {
                     <Link to='/home' className='ml-4 test' style={{textDecoration:'none'}}><HomeIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Accueil</Link>
                 </li>
                 <li className="nav-item pt-4 list active">
-                    <Link to='/myprofile' className=' ml-4 test' style={{textDecoration:'none'}}> <AccountCircleIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Mon profil</Link>
+                    <Link to='/myprofile' className=' ml-4 test' style={{textDecoration:'none'}}> <AccountCircleIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Votre profil</Link>
                 </li>
             </ul>
          </nav>

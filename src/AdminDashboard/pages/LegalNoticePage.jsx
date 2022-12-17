@@ -6,7 +6,7 @@ function LegalNoticePage() {
   return (
     <>
       <AdminSidebar/>
-      <main>
+      <main className=''>
          <LegalPageNoticeContent display="admin"/>
       </main>
     </>

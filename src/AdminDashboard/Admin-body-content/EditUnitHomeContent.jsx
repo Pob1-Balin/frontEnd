@@ -14,6 +14,7 @@ function EditUnitHomeContent() {
 
     const [unitsData, setUnitsData] = useState([]);
     useEffect(() => {
+        window.scrollTo(0, 0);
         axios.get(`${API}/unit/unitsdata/${units_content.id}`).then(({data})=>{
             setUnitsData(data.data)
         }).catch((err)=>{

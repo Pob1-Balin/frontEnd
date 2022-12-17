@@ -17,12 +17,12 @@ function HomepageContent() {
     useEffect(()=>{
       if(!user.isAdmin){
         navigate('/')
-        console.log('kjdshkj')
       }
     },[user])
-    console.log(user.isAdmin)
+    
     useEffect(() => {
-        Aos.init({ duration: 2000 });
+        window.scrollTo(0, 0);
+        Aos.init({ duration: 1000 });
     }, []);
     return (
         <>

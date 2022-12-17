@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../App.css";
 import { Link } from 'react-router-dom';
 import { Form, Row, Col} from "react-bootstrap";
@@ -6,6 +6,10 @@ import Footer from '../components/Footer';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 function ProfileContent (){
+    const service = JSON.parse(localStorage.getItem("servId"))
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
     return(
         <>
             <main>
@@ -14,7 +18,7 @@ function ProfileContent (){
                         <h1><p>Page de profil</p></h1>
                     </div>
                     <div className="Home_navigation">
-                            <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem", paddingLeft:"0rem" }} to='/clientservicedashboard'><span className="home">Accueil /</span></Link> <span style={{color: '#0d3360'}}>Mon profil</span></p>
+                            <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem", paddingLeft:"0rem" }} to='/clientservicedashboard' state={{ service_id: service._id, modules: service.modules}}><span className="home">Accueil /</span></Link> <span style={{color: '#0d3360'}}>Mon profil</span></p>
                     </div>
 
                     <div className="profile_wrapper">

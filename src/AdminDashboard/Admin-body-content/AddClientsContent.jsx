@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect} from "react";
 import "../admin.css";
 import Footer from '../components/Footer'
 
 function AddClientsContent(){
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
     return(
         <>
             <main className="px-md-4 wrapper2 dashboard-pages">

@@ -21,7 +21,7 @@ function NotSubscribedServices(props) {
                     <h2 className="card_title services_card_title" style={{marginTop:"-.5rem", fontSize:"1.1rem"}}>{item.name}</h2>
                     <Link to="">
                         <div className="card_info service_card_info">
-                        <div>{item.description}<span className="services_more" style={{marginLeft:".5rem"}}>Suite<FaChevronRight style={{marginLeft:".1rem"}}/></span></div>
+                        <div>{item.description}<span className="services_more" style={{marginLeft:".5rem"}}>Voir plus<FaChevronRight style={{marginLeft:".1rem"}}/></span></div>
                         </div>
                     </Link>
                     <div style={{ textAlign: "center", marginTop:"2rem"}}>

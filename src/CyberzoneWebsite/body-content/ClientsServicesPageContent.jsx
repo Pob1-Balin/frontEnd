@@ -13,15 +13,14 @@ import { FaFileAlt } from "react-icons/fa";
 import Loader from '../../CommonPageContents/Loader'
 
 function ClientsServicesPageContent(props){
-    const [loading, setLoading] = useState(true)
-    const navigate = useNavigate()
-
     if(JSON.parse(localStorage.getItem("refresh")) == "true"){
         localStorage.removeItem("refresh")
         localStorage.setItem('refresh', JSON.stringify("false"));
         window.location.reload();
     }
-
+    
+    const [loading, setLoading] = useState(true)
+    const navigate = useNavigate()
     const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
 
     useEffect(()=>{
@@ -33,6 +32,7 @@ function ClientsServicesPageContent(props){
 
     const [services, setServices] = useState([]);
     useEffect(() => {
+        window.scrollTo(0, 0);
         axios.get(`${API}/service`).then(({ data }) => {
             setServices(data.data)
             setLoading(false)
@@ -72,27 +72,33 @@ function ClientsServicesPageContent(props){
             {subscribed_services.length == 0 ? 
                 <div style={{textAlign:"center", justifyContent:"center", width:"100%", marginTop:"3rem", marginBottom:"4rem"}} className="col-12">
                     <FaFileAlt color="#0d3360" size="2.8rem"/>
-                    <h4 style={{color:"#686868"}} className="empty_card_text">Oups!!! vous n'êtes encore inscrit à aucun cours</h4>
+                    <h4 style={{color:"#686868"}} className="empty_card_text">Oops!!! vous n'êtes encore inscrit à aucun cours</h4>
                 </div>
                 :
                 <div className="wrapper3 services_wrapper" style={{marginTop:"2.5rem", marginBottom:"3rem"}}>
                     <ClientService services={subscribed_services}/>
                 </div>
             } 
-
-            <div className="border-bottom ml-3 mr-1"></div>
             
-            <div className="Home_navigation ml-3 mr-1">
-                <p><span style={{color: '#0d3360', fontSize:"1.5rem"}}>Plus de cours</span></p>
-            </div>
+            {unsubscribed_services == 0 ?
+                <></>
+                :
+                <>
+                    <div className="border-bottom ml-3 mr-1"></div>
+            
+                    <div className="Home_navigation ml-3 mr-1">
+                        <p><span style={{color: '#0d3360', fontSize:"1.5rem"}}>Plus de cours</span></p>
+                    </div>
 
-            <div className="wrapper3 services_wrapper" style={{marginTop:"2.5rem"}}>
-                <NotSubscribedServices userData={user} services={unsubscribed_services}/>
-            </div>
+                    <div className="wrapper3 services_wrapper" style={{marginTop:"2.5rem"}}>
+                        <NotSubscribedServices userData={user} services={unsubscribed_services}/>
+                    </div>
+                </>
+               
+            }
 
             <div style={{marginTop:"5rem"}}></div>
-            <Footer destination="/legal" />
-
+                <Footer destination="/legal" />
             </main>
         }
              

@@ -7,7 +7,13 @@ import {API} from '../../config'
 import { Link } from "react-router-dom";
 function ProfilePageContent (){
     const [admin, setAdmin] = useState([])
+
+    window.addEventListener("beforeunload", (event) => {
+        localStorage.setItem('redirecthome', false);
+    }); 
+    
     useEffect(()=>{
+        window.scrollTo(0, 0);
         axios.get(`${API}/users/admin`).then(({data})=>{
             setAdmin(data.data)
             console.log(data.data)

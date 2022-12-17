@@ -32,17 +32,17 @@ function UnitsCard(props){
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Delete Unite</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Supprimer Unir</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
-                      <p style={{color:"gray"}}>Are you sure you want to permanently delete this unite?</p>
+                      <p style={{color:"gray"}}>Êtes-vous sûr de vouloir supprimer définitivement cette unité ?</p>
                   </div>
                   <div class="modal-footer">
-                    <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Close</button>
-                    <button type="submit" name="delete_service" class="btn btn-info" onClick={deleteService}>Yes</button>
+                    <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Fermé</button>
+                    <button type="submit" name="delete_service" class="btn" style={{backgroundColor: "#3363ad", color:"white"}} onClick={deleteService}>Oui</button>
                   </div>
                 </div>
               </div>
@@ -53,19 +53,19 @@ function UnitsCard(props){
                 <div class="modal-dialog" role="document">
                   <div class="modal-content">
                     <div class="modal-header">
-                      <h5 class="modal-title" id="exampleModalLabel">Disable Unite</h5>
+                      <h5 class="modal-title" id="exampleModalLabel">Désactiver l'unité</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure you want to disable this unite?</p>
+                        <p style={{color:"gray"}}>Êtes-vous sûr de vouloir désactiver cette unité ?</p>
                     </div>
                     <div class="modal-footer">
                       <form action="php-code.php" method="POST">
                           <input type="hidden" name="service_id" value="<?php echo $row['service_id']; ?>"/>
-                            <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Close</button>
-                            <button type="submit" name="delete_service" class="btn btn-info">Yes</button>
+                            <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Fermé</button>
+                            <button type="submit" name="delete_service" class="btn" style={{backgroundColor: "#3363ad", color:"white"}} >Oui</button>
                       </form>
                     </div>
                   </div>
@@ -73,11 +73,11 @@ function UnitsCard(props){
              </div>
 
             <div class="product-buttons" style={{marginTop:'1.5rem', marginBottom:"-.5rem"}}>
-               <Link to='/adminunitcontent' style={{textDecoration:'none'}} state={{id: id}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">To start</button></Link>
-               <Link to='/editunit' style={{textDecoration:'none'}} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
-               <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Disable</button>
-               <button type="button" class="button-default cart-btn btn-danger mt-1 mr-1" data-toggle="modal" data-target={new_title} >Delete</button>
-               <Link to='/admintest' style={{textDecoration: "none"}} state={{id: id}}><button style={{backgroundColor: '#4ab2cc'}} type="button" class="button-default cart-btn mt-1 mr-1">Questions</button></Link>
+               <Link to='/adminunitcontent' style={{textDecoration:'none'}} state={{id: id}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">Commencer</button></Link>
+               <Link to='/editunit' style={{textDecoration:'none'}} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Éditer</button></Link>
+               <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl" style={{outline:"none", border:"none", boxShadow:"none"}}>Désactiver</button>
+               <button type="button" class="button-default cart-btn btn-danger mt-1 mr-1" data-toggle="modal" data-target={new_title} style={{outline:"none", border:"none", boxShadow:"none"}} >Effacer</button>
+               <Link to='/admintest' style={{textDecoration: "none"}} state={{id: id, moduleId: props.module_id, moduleName: props.module_name, moduleTitle: props.module_title}}><button style={{backgroundColor: '#4ab2cc'}} type="button" class="button-default cart-btn mt-1 mr-1">Des questions</button></Link>
             </div>
          </div>
       </div>

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useEffect } from "react";
 import "../admin.css";
 import Footer from '../components/Footer'
 import {useLocation, useNavigate} from 'react-router-dom'
@@ -6,6 +6,9 @@ import axios from "axios";
 import {API} from '../../config'
 
 function EditAdminContent(){
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
     const location = useLocation()
     const navigate = useNavigate()
     console.log(location.state)

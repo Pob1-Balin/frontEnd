@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useLocation } from 'react-router-dom'
 import "../admin.css";
 import Footer from '../components/Footer'
+import UserServices from '../components/UserServices'
 
 function SpecificClientContent(){
+    const Location = useLocation();
+    const userData = Location.state;
+    const userServices = userData.services
+    console.log("hhajkhsjka", userServices)
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
     return(
         <>
             <main className="px-md-4 wrapper2 dashboard-pages">
@@ -15,15 +24,15 @@ function SpecificClientContent(){
                                         <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12">
                                             <div className="breadcome-heading">
                                                 <form role="search" className="sr-input-func">
-                                                <input type="text" placeholder="Search..." className="search-int col-xs-12 form-control mobile-menu-search"/>
+                                                <input type="text" style={{color:'#4ab2cc'}} placeholder="Chercher..." className="search-int col-xs-12 form-control mobile-menu-search"/>
                                                     <a href="#"><i className="fa fa-search"></i></a>
                                                 </form>
                                             </div>
                                         </div>
                                         <div className="col-lg-6 col-md-6 col-sm-6 col-xs-12 mobile-menu-links">
                                             <ul className="breadcome-menu">
-                                                <li><a style={{fontSize:'1rem', color:'#4ab2cc'}} href="admindashboard">Dashboard /</a></li>
-                                                <li style={{fontSize:'1rem', color:'gray'}}><span className="bread-blod">Specific Client</span></li>
+                                                <li><a style={{fontSize:'1rem', color:'#4ab2cc'}} href="admindashboard">Tableau de bord /</a></li>
+                                                <li style={{fontSize:'1rem', color:'gray'}}><span className="bread-blod">Utilisateurs</span></li>
                                             </ul>
                                         </div>
                                     </div>
@@ -44,34 +53,14 @@ function SpecificClientContent(){
                                         <table>
                                             <tr>
                                                 <th>No</th>
-                                                <th>Services</th>
+                                                <th>Cours</th>
                                                 <th>Date</th>
-                                                <th>Total time spent</th>
+                                                <th>Temps total passé</th>
                                                 <th>Score</th>
-                                                <th>Attestation</th>
+                                                <th>Certification</th>
                                             </tr>
-                                            <tr>
-                                                <td>1</td>
-                                                <td>Name of service</td>
-                                                <td>Date subscried</td>
-                                                <td>567</td>
-                                                <td>90%</td>
-                                                <td>
-                                                     <button className="pd-setting btn-info">View</button>
-                                                </td>
-                                            </tr>
+                                            <UserServices/>
                                         </table>
-                                    </div>
-                                    <div className="custom-pagination">
-                                        <nav aria-label="Page navigation example">
-                                            <ul className="pagination">
-                                                <li className="page-item"><a className="page-link" href="#">Previous</a></li>
-                                                <li className="page-item"><a className="page-link" href="#">1</a></li>
-                                                <li className="page-item"><a className="page-link" href="#">2</a></li>
-                                                <li className="page-item"><a className="page-link" href="#">3</a></li>
-                                                <li className="page-item"><a className="page-link" href="#">Next</a></li>
-                                            </ul>
-                                        </nav>
                                     </div>
                                 </div>
                             </div>

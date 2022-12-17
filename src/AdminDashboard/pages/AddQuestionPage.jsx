@@ -8,7 +8,7 @@ function AddQuestionPage() {
     <>
       <AdminDashboardSidebar/>
       <AdminSelectService/>
-      <main>
+      <main style={{marginBottom:"0rem"}}>
          <AddQuestionContent/>
       </main>
     </>

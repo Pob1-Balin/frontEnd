@@ -30,7 +30,7 @@ function SubscribeForService(props) {
         })
     }, []);
 
-//Getting units for each module and asigning it to the units field of the module
+    //Getting units for each module and asigning it to the units field of the module
      {modules.map((item) => {
         item.module_id = item._id;
          axios.get(`${API}/unit/unit/${item._id}`).then(({data})=>{
@@ -51,13 +51,8 @@ function SubscribeForService(props) {
     var another_object = [{}];
     another_object = user.services;
 
-    console.log("subscribeService:", another_object)
-
     var service_to_be_submitted =  [{}];
     service_to_be_submitted = [...another_object, subscribeService]
-
-    console.log("servs to be submitted:", service_to_be_submitted)
-
 
     const [inputs, setInputs] = useState({
         country_code: "",

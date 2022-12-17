@@ -59,4 +59,24 @@ margin-left: -.5rem;
     min-width: 2rem;
     max-width: 60rem;
     border-radius: .4rem;
+    padding: 5rem 0rem;
+  }
+  .empty-card .p1{
+    font-size: 1.5rem;
+  }
+  .empty-card .p2{
+    font-size: 1rem;
+  }
+
+  @media screen and (max-width: 700px) {
+    .empty-card{
+      padding: 4rem 2rem;
+    }
+    .empty-card .p1{
+      font-size: 1.3rem;
+    }
+    .empty-card .p2{
+      font-size: .9rem;
+    }
+  
   }

@@ -44,12 +44,14 @@ class EditQuestions extends React.Component{
         const question = Questions;
         const answer = addQuestions;
         const correct_answer = addCorrectAnswers;
-        if(correct_answer.length !== 0 && answer.length !== 0 && question !== 0){
+
+        if(correct_answer.length != 0 && answer.length != 0 && question != 0){
             this.updateQuestions({
                 question,
                 answer,
                 correct_answer
             });
+            localStorage.setItem('refreshanswer', JSON.stringify("true"));
             navigate('/admintest', {state:{id:unitId}});
         }
     }
@@ -163,9 +165,9 @@ class EditQuestions extends React.Component{
                             <div className="row">
                                 <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                     <div className="caption pro-sl-hd" style={{paddingBottom:"1rem", paddingTop:"-.5rem"}}>
-                                        <span style={{color: 'gray', fontStyle: 'bold', fontWeight: '550'}} className="caption-subject questt">Enter Question</span>
+                                        <span style={{color: 'gray', fontStyle: 'bold', fontWeight: '550'}} className="caption-subject questt ansers">Modifier la question</span>
                                         <div style={{marginTop:".8rem"}}>
-                                             <textarea width="100%" className="form-control" name="question" value={Questions} onChange={(e) => {this.handleChange(e)}}></textarea>
+                                             <textarea width="100%" className="form-control input" name="question" value={Questions} onChange={(e) => {this.handleChange(e)}}></textarea>
                                         </div>
                                     </div>
                                 </div>
@@ -181,12 +183,12 @@ class EditQuestions extends React.Component{
                 <div className="col-lg-5 col-md-12 col-sm-12 col-xs-12">
                     <div className="white-box analytics-info-cs mg-b-10 res-mg-t-30 table-mg-t-pro-n res-mg-b-30 tb-sm-res-d-n dk-res-t-d-n visits2 visits">
                         <div>
-                            <form ref={input => this.addForm = input} onSubmit={(e) => {this.addAnswer(e)}}>
-                                <div style={{marginBottom:"1rem"}}><span style={{marginTop:".4rem", color: 'gray', fontStyle: 'bold', fontWeight: '550' }} className="caption-subject questt questt1">Answers List</span></div>
+                            <form ref={input => this.addForm = input} onSubmit={(e) => {this.addAnswer(e)}} style={{margin:"0rem"}}>
+                                <div style={{marginBottom:"1rem"}}><span style={{marginTop:".4rem", color: 'gray', fontStyle: 'bold', fontWeight: '550' }} className="caption-subject questt questt1 ansers">Liste de réponses</span></div>
                                 <div className="input-group" style={{marginBottom:"1.7rem", marginTop:"1rem"}}>
-                                    <input ref={input => this.newAnswer = input} type="text" className="form-control correct-input" placeholder="Add answers" />
+                                    <input ref={input => this.newAnswer = input} type="text" className="form-control correct-input input" placeholder="Ajouter une réponse" />
                                     <div className="input-group-append">
-                                        <button type="submit" style={{fontWeight:"550", background:'#4ab2cc', color:'white', width:"100%"}} className="btn correct-input">Add</button>
+                                        <button type="submit" style={{fontWeight:"550", background:'#4ab2cc', color:'white', width:"100%"}} className="btn correct-input ansers">Ajouter</button>
                                     </div>
                                 </div>
                                 <div style={{marginTop:"-.6rem"}}>
@@ -200,7 +202,7 @@ class EditQuestions extends React.Component{
                                     return <>
                                         <div style={{display:"flex",justifyContent:"space-between", borderRadius:".2rem", height:"auto", color:"gray"}} className=" mb-3 addanswers">
                                             <ul>
-                                                <li className="ansers-display" style={{marginLeft:"-1.7rem", padding:"1rem", paddingBottom:".1rem", listStyle:"none"}} key={answer}>{answer}</li>
+                                                <li className="ansers-display answer_list" style={{marginLeft:"-1.7rem", padding:"1rem", paddingBottom:".1rem", listStyle:"none"}} key={answer}>{answer}</li>
                                             </ul>
                                             <ClearRounded onClick={(e) => this.removeAnswer(answer)} style={{color:"red", fontSize:"1.3rem", fontWeight:"900", marginTop:".7rem", marginRight:".5rem"}} className="delete-answer-btn"/>
                                         </div>
@@ -211,18 +213,18 @@ class EditQuestions extends React.Component{
                                 addQuestions.length > 1 &&
                                     <div style={{display:"flex", justifyContent:"space-between", marginTop:"1.5rem"}}> 
                                         <div></div>
-                                        <div className="btn" onClick={(e) => this.clearList()}>Clear list</div>
+                                        <div className="btn answer_list" onClick={(e) => this.clearList()}>Effacer la liste</div>
                                     </div>
                             }
 
                             {/* add correctanswers */}
 
-                            <form ref={input => this.addForm2 = input} onSubmit={(e) => {this.appendCorrectAnswers(e)}}>
-                                <div style={{marginBottom:"1rem", marginTop:".2rem"}}><span style={{marginTop:".4rem", color: 'gray', fontStyle: 'bold', fontWeight: '550' }} className="caption-subject questt">Correct answer/answers</span></div>
+                            <form ref={input => this.addForm2 = input} onSubmit={(e) => {this.appendCorrectAnswers(e)}} style={{margin:"1rem 0rem"}}>
+                                <div style={{marginBottom:"1rem", marginTop:".2rem"}}><span style={{marginTop:".4rem", color: 'gray', fontStyle: 'bold', fontWeight: '550' }} className="caption-subject questt">Bonne réponse/réponses</span></div>
                                 <div className="input-group" style={{marginBottom:"1.7rem", marginTop:"1rem"}}>
-                                    <input ref={input => this.newCorrectAnswer = input} type="text" className="form-control correct-input" placeholder="Add correctanswers" />
+                                    <input ref={input => this.newCorrectAnswer = input} type="text" className="form-control correct-input input" placeholder="Ajouter les bonnes réponses" />
                                     <div className="input-group-append">
-                                        <button type="submit" style={{fontWeight:"550", background:'#4ab2cc', color:'white', width:"100%"}} className="btn correct-input">Add</button>
+                                        <button type="submit" style={{fontWeight:"550", background:'#4ab2cc', color:'white', width:"100%"}} className="btn correct-input ansers">Ajouter</button>
                                     </div>
                                 </div>
                                 <div style={{marginTop:"-.6rem"}}>
@@ -236,7 +238,7 @@ class EditQuestions extends React.Component{
                                     return <>
                                         <div style={{display:"flex",justifyContent:"space-between", borderRadius:".2rem", height:"auto", color:"gray"}} className=" mb-3 addanswers">
                                             <ul>
-                                                <li className="ansers-display" style={{marginLeft:"-1.7rem", padding:"1rem",paddingBottom:".1rem", listStyle:"none"}} key={correctanswer}>{correctanswer}</li>
+                                                <li className="ansers-display answer_list" style={{marginLeft:"-1.7rem", padding:"1rem",paddingBottom:".1rem", listStyle:"none"}} key={correctanswer}>{correctanswer}</li>
                                             </ul>
                                             <ClearRounded onClick={(e) => this. removeCorrectAnswer(correctanswer)} style={{color:"red", fontSize:"1.3rem", fontWeight:"900", marginTop:".7rem", marginRight:".5rem"}} className="delete-answer-btn"/>
                                         </div>
@@ -247,11 +249,11 @@ class EditQuestions extends React.Component{
                                 addCorrectAnswers.length > 1 &&
                                     <div style={{display:"flex", justifyContent:"space-between", marginTop:"1.5rem"}}>
                                         <div></div>
-                                        <div className="btn clear-btn" onClick={(e) => this.clearCorrectAnswersList()}>Clear list</div>
+                                        <div className="btn clear-btn answer_list" onClick={(e) => this.clearCorrectAnswersList()}>Effacer la liste</div>
                                     </div>
                             }
                             <div style={{ marginTop:"1.5rem"}}>
-                                <button onClick={(e) => this.handleSubmit()} style={{fontWeight:"550", background:'#0b426a', color:'white', width:"100%", borderRadius:".4rem"}} className="btn add-questions">SUBMIT</button>
+                                <button onClick={(e) => this.handleSubmit()} style={{fontWeight:"550", background:'#0b426a', color:'white', width:"100%", borderRadius:".4rem"}} className="btn add-questions ansers">Envoyer</button>
                             </div>
                         </div>
                     </div>

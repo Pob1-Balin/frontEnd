@@ -71,6 +71,29 @@ option:hover{
   padding-left: .5rem;
 }
 
+div.justify-content-between h4{
+    font-family: MetropolisBold;
+    font-size: 1.5rem;
+}
+
+.add-buttons{
+    font-family: MetropolisSemiBold;
+}
+
+@media screen and (max-width: 412px){
+    .return-home{
+      margin-bottom: 1rem;
+      margin-top: -1rem;
+    }
+}
+
+@media screen and (max-width: 500px){
+    div.justify-content-between h4{
+        font-size: 1.3rem;
+    }
+}
+
+
 .module_units_button p{
      font-style: bold;
      font-size: 12px;
@@ -102,6 +125,7 @@ option:hover{
 .wrapper2{
     margin-top: 5rem;
 }
+
 @media screen and (max-width: 872px){
     .wrapper{
          display: grid;
@@ -258,7 +282,7 @@ option:hover{
      color: rgb(163, 167, 170);;
      border: none;
      height: 3rem;
-     min-width: 7.5rem;
+     min-width: 9rem;
      border-radius: 2rem;
      text-align:center;
      font-weight: 600;
@@ -338,13 +362,13 @@ option:hover{
 .pdf_text{
     margin-top: 1.4rem;
      font-size: 1rem;
-     padding-left: .7rem;
+     padding: 0rem 1rem;
      margin-bottom: 3.3rem;
      font-family: MetropolisSemiBold;
 }
 
 .pdf_btn{
-    background:#4ab2cc;
+     background:#4ab2cc;
      color: white;
      border: none;
      height: 2.5rem;
@@ -352,7 +376,8 @@ option:hover{
      border-radius: 2rem;
      text-shadow: .1rem;
      font-weight: 900;
-     margin-bottom: 1rem;
+     margin-bottom: 1.8rem;
+     margin-top: -1rem;
      font-family: MetropolisSemiBold;
 }
 
@@ -462,6 +487,7 @@ option:hover{
 
 .return-home:hover{
       color: #0d3360;
+      cursor: pointer;
 }
 
 .profile_navigation p .home:hover{

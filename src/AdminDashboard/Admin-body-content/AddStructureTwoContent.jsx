@@ -16,6 +16,7 @@ function AddStructureTwoContent() {
 
     const [unitsData, setUnitsData] = useState([]);
     useEffect(() => {
+        window.scrollTo(0, 0);
         axios.get(`${API}/unit/unitsdata/${unitID}`).then(({data})=>{
             setUnitsData(data.data)
         }).catch((err)=>{

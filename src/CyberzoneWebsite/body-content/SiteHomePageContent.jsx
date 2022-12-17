@@ -8,6 +8,7 @@ import "../admins.css";
 
 function SiteHomePageContent (){
     useEffect(() => {
+        window.scrollTo(0, 0);
         Aos.init({ duration: 2000 });
       }, []);
     

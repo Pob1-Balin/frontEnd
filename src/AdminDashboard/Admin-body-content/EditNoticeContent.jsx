@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from '../../ClientsDashboard/components/Footer';
 import "../admin.css";
 import { Link } from 'react-router-dom';
 
 function EditNoticeContent(){
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
     return(
         <>
             <main className="px-md-4 wrapper2">

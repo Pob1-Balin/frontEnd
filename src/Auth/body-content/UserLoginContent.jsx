@@ -29,7 +29,21 @@ function UserLoginContent(){
             if(user.isAdmin){
                 navigate('/admindashboard')
             }else{
-                navigate('/home')
+                const submitUserInfo = (userSubscribeInfo) => {
+                    axios.put(`http://localhost:7000/api/v1/users/${user._id}/update`, userSubscribeInfo)
+                        .then(res => {
+                        })
+                        .catch(err => {
+                        })
+                        navigate("/home");
+                }
+                
+                const day = new Date();
+                // const last_seen = day.toUTCString();
+                const last_seen = day.toDateString();
+                submitUserInfo({
+                    last_seen,
+                });
             }
             
           }  
@@ -59,7 +73,7 @@ function UserLoginContent(){
     return(
         <>
              <ParticlesBackground/>
-             <main className="login" id="particles-js" style={{marginTop:"-1.2rem"}}>
+             <main className="login" id="particles-js" style={{marginTop:"-1.3rem"}}>
                  <div className="LoginCard">
                     <div className="container-fluid">
                         <div className="row">

@@ -84,6 +84,9 @@ import Test from './test';
 
 
 function Navigation() {
+    const auth = JSON.parse(localStorage.getItem("redirectserv"))
+    const authhome = JSON.parse(localStorage.getItem("redirecthome"))
+    const authmod = JSON.parse(localStorage.getItem("redirectmod"))
     return (
         <BrowserRouter>
             <Routes>
@@ -134,16 +137,16 @@ function Navigation() {
 
                  {/*============================= Admin dashboard =============================*/}
                  <Route path='/admindashboard' exact element={<AdminHomePage />}/>
-                 <Route path='/clients' exact element={<ClientsPage />}/>
-                 <Route path='/adminprofile' exact element={<ProfilePage />}/>
-                 <Route path='/adminmodulepage' exact element={<AdminModulePage />}/>
+                 <Route path='/clients' exact element={authhome ? <ClientsPage/> : <AdminHomePage/>}/>
+                 <Route path='/adminprofile' exact element={authhome ? <ProfilePage/> : <AdminHomePage/>}/>
+                 <Route path='/adminmodulepage' exact element={auth ? <AdminModulePage/> : <ServicePage/>}/>
                  <Route path='/addmodule' exact element={<AddModulePage />}/>
                  <Route path='/adminlegal' exact element={<AdminLegalNoticePage />}/>
 
-                 <Route path='/units' exact element={<UnitsPage/>}/>
+                 <Route path='/units' exact element={authmod ? <UnitsPage/> : <AdminModulePage/> }/>
                  <Route path='/editlegalnotice' exact element={<EditNoticePage />}/>
                  <Route path='/addclients' exact element={<AddClientsPage />}/>
-                 <Route path='/services' exact element={<ServicePage />}/>
+                 <Route path='/services' exact element={authhome ? <ServicePage/> : <AdminHomePage/>}/>
                  <Route path='/editservice' exact element={<EditServicePage />}/>
                  <Route path='/editadminprofile' exact element={<EditAdminProfilePage />}/>
                  <Route path='/specificclient' exact element={<SpecificClientPage />}/>

@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../App.css";
 import { Link } from 'react-router-dom';
 import Footer from '../components/Footer';
 
 function AttestationContent (){
+    const service = JSON.parse(localStorage.getItem("servId"))
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
     return(
         <>
             <main className="ms-sm-auto px-md-4 ml-3 mr-1">
@@ -11,7 +15,7 @@ function AttestationContent (){
                     <h1><p>Page d'attestation</p></h1>
                 </div>
                 <div className="Home_navigation">
-                    <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem", paddingLeft:"0rem" }} to='/clientservicedashboard'><span className="home">Accueil /</span></Link> <span style={{color: '#0d3360'}}>Attestation</span></p>
+                    <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem", paddingLeft:"0rem" }} to='/clientservicedashboard' state={{ service_id: service._id, modules: service.modules}}><span className="home">Accueil /</span></Link> <span style={{color: '#0d3360'}}>Attestation</span></p>
                 </div>
                 <div className="profile_wrapper">
                     <div className="card profile_card attestation_card" style={{padding: "3rem"}}>

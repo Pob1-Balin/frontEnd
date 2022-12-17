@@ -1,124 +1,88 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useNavigate } from "react-router-dom";
+import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
 import { API } from '../../config'
 
 function Services(props) {
-     const id = props.id;
-     const service_name = props.service_name;
-     const service = '#'+service_name;
+    const navigate = useNavigate();
+    const [lgShow, setLgShow] = useState(false); 
+    const [blockShow, setblockShow] = useState(false); 
+     const id = props.service_id;
      const deleteService = () => {
-         alert("Are you sure you want to delete this service????")
         axios
             .delete(`${API}/service/${id}/remove`)
             .then((res) => {
-                if (res.status === 200) {
-                     window.location.reload();
-                } else Promise.reject();
+                window.location.reload();
             })
-            .catch((err) => alert("Something went wrong"));
+            .catch((err) => {
+            });
     }
+    const moveto = () => {
+        localStorage.removeItem("servId")
+        localStorage.setItem("servId", JSON.stringify(props.service_id));
 
+        localStorage.removeItem("redirectserv")
+        localStorage.setItem('redirectserv', true);
+        window.location.reload();
+        navigate("/adminmodulepage", {state:{props, service_id: props.service_id}});
+    }
 
     return (
         <>
-
-
-            
-
             <div className="services_card" data-aos="zoom-in-down" data-aos-offset="50">
                 <div style={{margin:"1.3rem"}}><img className="services_card_image" src={`${API}/images/${props.image}`} /></div>
                 <div className="card_body" style={{marginLeft:"1.3rem"}}>
                     <h2 className="card_title services_card_title" style={{marginTop:"-.5rem", fontSize:"1.1rem"}}>{props.service_name}</h2>
    
-                     <div className="courses-alaltic" style={{ paddingLeft: ".3rem", fontSize: '1rem', color:"black"}}>
-                         <span className="cr-ic-r"><span className="course-icon">XAF</span> {props.service_amount}</span>
-                     </div>
-                     <div className="course-des" style={{ paddingLeft: ".3rem" }}>
-                         <p><span></span> <b>Number of subscribers:</b> {props.number_of_subscribers}+</p>
-                         <p><span></span> <b className='card_info'>Short description:</b>{props.short_description}</p>
-                     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                        {/*-- Modal =====*/}
-                        <div className="modal fade" id={service_name} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div className="modal-dialog" role="document">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLabel">Delete Service</h5>
-                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                         <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div className="modal-body">
-                                     <p style={{color: "gray"}}>Are you sure you want to permanently delete this service?</p>
-                                </div>
-                                <div className="modal-footer">
-                                    <form>
-                                         <input type="hidden" name="service_id" value={props.id} />
-                                         <button type="button" className="btn btn-danger mr-1" data-dismiss="modal">Close</button>
-                                         <button type="submit" name="delete_service" className="btn btn-info" >Yes</button>
-                                    </form>
-                                </div>
-                            </div>
+                    <div style={{marginLeft:"-.2rem"}}>
+                        <div className="courses-alaltic" style={{ paddingLeft: ".3rem", fontSize: '1rem', color:"black"}}>
+                            <span className="course_price" style={{fontWeight:"900"}}>{props.service_amount} <span className="course-icon">xaf</span></span>
                         </div>
-                    </div>
-
-                    {/*-- Modal =====*/}
-                    <div className="modal fade" id="bl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div className="modal-dialog" role="document">
-                            <div className="modal-content">
-                                <div className="modal-header">
-                                    <h5 className="modal-title" id="exampleModalLabel">Block Service</h5>
-                                    <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                         <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div className="modal-body">
-                                     <p>Are you sure you want to block this service?</p>
-                                </div>
-                                <div className="modal-footer">
-                                    <form action="php-code.php" method="POST">
-                                         <input type="hidden" name="service_id" value="<?php echo $row['service_id']; ?>" />
-                                         <button type="button" className="btn btn-danger mr-1" data-dismiss="modal">Close</button>
-                                         <button type="submit" name="delete_service" className="btn btn-info">Yes</button>
-                                    </form>
-                                </div>
-                            </div>
+                        <div className="course-des" style={{ paddingLeft: ".3rem" }}>
+                            <p><b className='card_info' style={{marginTop:"-.3rem"}}>{props.short_description}</b></p>
                         </div>
+                        <Modal size="md" show={lgShow} onHide={() => setLgShow(false)}>
+                            <Modal.Header>
+                                <h5 className="modal-title" id="exampleModalLabel">Supprimer le cours</h5>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div style={{margin:"-1rem"}} className="modal-body">
+                                    <p style={{color: "gray"}}>Êtes-vous sûr de vouloir supprimer définitivement ce cours ?</p>
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <div style={{margin:"-1rem"}} className='modal-footer'>
+                                    <button type="button" class="btn btn-danger mr-1" onClick={() => setLgShow(false)} >Fermé</button>
+                                    <button type="submit" class="btn" style={{backgroundColor: "#3363ad", color:"white"}} onClick={deleteService}>Oui</button>
+                                </div>
+                               
+                            </Modal.Footer>
+                        </Modal>
+
+                        <Modal size="md" show={blockShow} onHide={() => setLgShow(false)}>
+                            <Modal.Header>
+                                <h5 className="modal-title" id="exampleModalLabel">Désactiver ce cours</h5>
+                            </Modal.Header>
+                            <Modal.Body>
+                                <div style={{margin:"-1rem"}} className='modal-body'>
+                                    <p style={{color: "gray"}}>Êtes-vous sûr de vouloir désactiver ce cours ?</p>
+                                </div>
+                            </Modal.Body>
+                            <Modal.Footer>
+                                <div style={{margin:"-1rem"}} className='modal-footer'>
+                                    <button type="button" class="btn btn-danger mr-1" onClick={() => setblockShow(false)} >Fermé</button>
+                                    <button type="submit" class="btn" style={{backgroundColor: "#3363ad", color:"white"}}>Oui</button>
+                                </div>
+                            </Modal.Footer>
+                        </Modal>
                     </div>
 
                     <div className="product-buttons">
-                         <Link to='/adminmodulepage' style={{ textDecoration: 'none' }} state={props}><button type="button" className="button-default cart-btn mr-1 mt-1 btn-info">Dashboard</button></Link>
-                         <Link to='/editservice' style={{ textDecoration: 'none' }} state={props}><button type="button" className="button-default cart-btn mr-1 mt-1 btn-success">Edit</button></Link>
-                         <button type="button" className="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl">Block</button>
-                         <button type="button" className="button-default cart-btn btn-danger mt-1" data-toggle="modal" data-target={service} >Delete</button>
+                         <button onClick={() => moveto()} type="button" className="button-default cart-btn mr-1 mt-1 btn-info">Modules</button>
+                         <Link to='/editservice' style={{ textDecoration: 'none' }} state={props}><button type="button" className="button-default cart-btn mr-1 mt-1 btn-success">Éditer</button></Link>
+                         <button type="button" className="button-default cart-btn mr-1 mt-1 block" style={{outline:"none", border:"none", boxShadow:"none"}} onClick={() => setblockShow(true)}>Bloquer</button>
+                         <button type="button" style={{outline:"none", border:"none", boxShadow:"none"}} className="button-default cart-btn btn-danger mt-1" onClick={() => setLgShow(true)}>Effacer</button>
                     </div>
                 </div>
             </div>

@@ -49,11 +49,9 @@ function ClientService(props) {
                         <div style={{margin:"1.3rem"}}><img className="services_card_image" src={`${API}/images/${item.image}`} /></div>
                         <div className="card_body" style={{marginLeft:"1.3rem"}}>
                             <h2 className="card_title services_card_title" style={{marginTop:"-.5rem", fontSize:"1.1rem"}}>{item.name}</h2>
-                            <Link to="">
-                                <div className="card_info service_card_info">
-                                <div>{item.description}<span className="services_more" style={{marginLeft:".5rem"}}>Suite<FaChevronRight style={{marginLeft:".1rem"}}/></span></div>
-                                </div>
-                            </Link>
+                            <div className="card_info service_card_info">
+                                <div>{item.description}<span className="services_more" style={{marginLeft:".5rem"}}></span></div>
+                            </div>
                             <div onClick={() => moveto(item)} className='module_units_button' style={{ marginTop: "1rem", marginBottom: '-1.3rem' }}>
                                 <FaChevronCircleRight size='1rem' style={{ marginTop: '.5rem', marginLeft:".3rem" }} />
                                 <p style={{ paddingLeft: ".2rem", paddingTop: ".25rem", fontSize: '.9rem' }}>Visite</p>

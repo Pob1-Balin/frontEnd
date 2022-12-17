@@ -22,12 +22,22 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+
 }
 
 body{
      overflow-x: hidden;
      color: #ffffff;
 }
+
+/* .legal_background{
+    width: 100%;
+    height: 100vh;
+    background-image: url("./bg.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: fixed;
+} */
 
 .add-buttons{
     background: #4ab2cc;
@@ -40,6 +50,34 @@ body{
     color: white;
     height: 2.5rem;
     text-decoration: none;
+    font-family: MetropolisSemiBold;
+}
+
+.answer-footer-btns{
+    display: flex;
+    justify-content: space-between;
+}
+
+@media screen and (max-width: 400px){
+    .answer-footer-btns{
+        display: block;
+        margin-top: 1.8rem;
+    }
+ }
+
+.input{
+    font-family: MetropolisExtraLight;
+    color: #4ab2cc;
+}
+.input:hover, .input:focus{
+   border-color: #4ab2cc;
+}
+
+option{
+    margin-top: 5rem;
+}
+
+.marquee{
     font-family: MetropolisSemiBold;
 }
 
@@ -107,18 +145,27 @@ body{
 .header-right-info ul.header-right-menu li .dropdown-header-top.author-log li{
      display:block;
 }
-.header-right-info ul.header-right-menu li .dropdown-header-top.author-log li a{
+.header-right-info ul.header-right-menu li .dropdown-header-top.author-log li a, .loggout{
    padding:10px 20px;
    display:block;
    color:#303030;
-   font-size:14px;
+   font-size:15px;
+   font-weight: bold;
+   font-family: MetropolisSemiBold;
 }
 
 .header-right-info ul.header-right-menu li .dropdown-header-top.author-log li a:hover, .header-right-info ul.header-right-menu li .dropdown-header-top.author-log li a:focus{
-   background: #3363ad;
+   font-weight:600;
    color: #fff;
-   font-weight:550;
 }
+
+.adminUser li:hover, .adminUser li:focus{
+    background: #3363ad;
+    color: #fff;
+    font-weight:600;
+    cursor: pointer;
+ }
+ 
 
 .header-right-info .admin-name{
 	display: inline-block;
@@ -126,6 +173,7 @@ body{
     position: relative;
     top: 2px;
 	margin-left:2px;
+    font-family: MetropolisSemiBold;
 }
 .header-right-info .nav>li>a>img{
 	width: 26px;
@@ -187,18 +235,26 @@ body{
     width: 200px;
 }
 .breadcome-heading .form-control:focus {
-    border: 1px solid #006DF0;
+    border: 1px solid #4ab2cc;
 }
 ul.breadcome-menu {
     padding-top: 8px;
+    font-family: MetropolisExtraLight;
 }
+
 ul.breadcome-menu {
     text-align: right;
 }
+input.search-int{
+    font-family: MetropolisExtraLight;
+}
 ul.breadcome-menu li {
-    font-size: 14px;
+    font-size: 16px;
     display: inline-block;
 	color:#444;
+}
+.bread-blod{
+    margin-left: .25rem;
 }
 ul.breadcome-menu li a{
     color:#444;
@@ -223,6 +279,16 @@ ul.breadcome-menu li a:hover{
     .breadcome-area{
         margin-left: -2.5rem;
         margin-right: -2.5rem;
+    }
+ }
+
+@media screen and (max-width: 710px){
+    .returnHome, .returnHome2{
+        margin-left: 1rem;
+    }
+    .returnHome{
+        margin-top: -1rem;
+        margin-bottom: 1rem;
     }
  }
 
@@ -315,6 +381,25 @@ h1, h2, h3, h4, h5, h6 {
     color: #fff;
     border-radius: 4px;
 }
+
+.add-product{
+    font-family: MetropolisSemiBold;
+}
+
+.admin-footer{
+    font-family: MetropolisBold;
+}
+
+.course_price{
+    font-size: .95rem;
+    font-family: MetropolisSemiBold;
+    color: #686868;
+}
+
+.button-default{
+    font-family: MetropolisSemiBold;
+}
+
 .product-status-wrap h4 {
     font-size: 20px;
     color: #303030;
@@ -728,6 +813,7 @@ button.pd-setting-ed {
 .professor-stds-int{
 	display:flex;
 }
+
 .contact-stat span, .contact-stat strong {
     font-size: 13px;
     color: #fff;
@@ -735,6 +821,7 @@ button.pd-setting-ed {
 .product-payment-inner-st{
 	padding:20px;
 	background:#fff;
+    font-family: MetropolisBold;
 }
 #myTab3.tab-review-design, #myTabedu1.tab-review-design{
 	padding: 0px 0px 20px 0px;
@@ -1159,11 +1246,20 @@ ul.country-state{
 .editService{
     margin-left: -1.5rem;
 }
-@media screen and (max-width: 576px){
-    .editService{
-        margin-left: -2.5rem;
-    }
- }
+
+.modal-title{
+    font-family: MetropolisBold;
+    color: gray;
+    font-size: 1.2rem;
+}
+.modal-body{
+    font-family: MetropolisExtraLight;
+    font-size: 1rem;
+}
+.modal-footer button{
+    font-family: MetropolisBold;
+}
+
 @media screen and (max-width: 991px){
     .editService{
          margin-top: -.4rem;
@@ -1177,7 +1273,7 @@ ul.country-state{
     .editService{
          margin-top: 2rem;
     }
- }
+ } 
 
  .addservice{
     margin-bottom: 1.2rem;
@@ -1200,7 +1296,6 @@ ul.country-state{
         margin-right: -3.6rem;
    }
  }
-
 
 /******************************* module and services cards ***************************/
 
@@ -1313,7 +1408,6 @@ ul.country-state{
 }
 @media screen and (max-width: 399px){
     .add-questions{
-         margin-top: -1rem;
          margin-bottom: 1rem;
     }
 }
@@ -1413,15 +1507,21 @@ ul.country-state{
     font-size: 1.5rem;
 }
 
-.product-payment-inner-st div p.mt-3{
-    font-size: 1.3rem;
+.add-service{
+    font-family: MetropolisSemiBold;
+    margin-bottom: 2rem;
+    outline: none;
+    margin-top: .3rem;
+    border: none;
 }
+
+
+.product-payment-inner-st div p.mt-4{
+    font-size: 1.5rem;
+}
+
 .portlet-title .row span.graph-title b p{
     font-size: 1rem;
-}
-.portlet-title .row .caption{
-    padding-top: 1rem;
-    padding-bottom: 1rem;
 }
 .portlet-title .row form input, .portlet-title .row form button{
     height: 2.5rem;
@@ -1437,6 +1537,10 @@ ul.country-state{
     margin-right: -1.5rem;
 }
 
+.devit-card-custom form input.form-control{
+    font-family: MetropolisExtraLight;
+    color: #4ab2cc;
+}
 
 .view-units{
     font-size: .7rem;
@@ -1474,6 +1578,12 @@ ul.country-state{
 .test-margin{
     margin-top: -.2rem;
 }
+.ansers{
+    font-family: MetropolisSemiBold;
+}
+.answer_list{
+    font-family: MetropolisExtraLight;
+}
 .testt, .questt{
     font-size: 1.3rem;
 }
@@ -1482,6 +1592,7 @@ ul.country-state{
 }
 .ansers-display{
     font-size: .9rem;
+    font-family: MetropolisExtraLight;
 }
 .questt1{
     margin-top: .2rem;
@@ -1504,6 +1615,15 @@ ul.country-state{
 }
 .admin-question{
     font-size: 1.3rem;
+    font-family: MetropolisSemiBold;
+}
+
+.caption ul{
+    font-family: MetropolisExtraLight;
+}
+
+.caption ul li{
+    list-style: disc;
 }
 
 @media screen and (min-width: 1200px){
@@ -1572,3 +1692,40 @@ ul.country-state{
         margin-left: -1.3rem;
     }
  }
+
+ .asset-inner tr{
+    font-family: MetropolisExtraLight;
+}
+.add-product h4{
+    font-family: MetropolisBold;
+}
+
+.asset-inner tr th{
+    font-family: MetropolisBold;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.addCourseInfo{
+    color: gray;
+    font-family: MetropolisSemiBold;
+    font-size: 1rem;
+}
+
+@media screen and (max-width: 995px){
+    .question-container{
+        margin-right: 1rem;
+    }
+}
+
+@media screen and (max-width: 765px){
+    .question-container{
+        margin-right: 2rem;
+        margin-left: 1rem;
+    }
+}
+
+
+.question-container2{
+    margin-left: -.5rem;
+}

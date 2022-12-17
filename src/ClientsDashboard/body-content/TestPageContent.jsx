@@ -20,6 +20,7 @@ function TestPageContent(){
     const [answers, setAnswers] = useState([]);
     const [units, setUnits] = useState([]);
     useEffect(() => {
+        window.scrollTo(0, 0);
         axios.get(`${API}/answer/answer/${testUnit_id}`).then(({data})=>{
             setAnswers(data.data)
         }).catch((err)=>{

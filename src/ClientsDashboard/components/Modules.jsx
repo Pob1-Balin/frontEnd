@@ -21,13 +21,16 @@ function Modules(props){
                              <FaStar style={{paddingTop: ".2rem"}} size='1rem' color='#0b426a'/>
                              <div className='score1'><p className='rating'>Score: {props.score}%</p></div>
                          </div>
-                     </div>
-                     <Link  to='/unitsclients' state={props} style={{textDecoration: "none"}}>
-                        <div className='module_units_button' style={{marginTop: "1.8rem", marginBottom: '-1.5rem'}}>
-                             <FaChevronCircleRight size='1.1rem' style={{marginTop: '4.5px'}} />
-                             <p className='view-units' style={{fontSize:".7rem",paddingLeft: ".5rem", paddingTop: ".1rem"}}>View Units</p>
+                    </div>
+
+                    <Link  to='/unitsclients' state={props} style={{textDecoration: "none"}}>
+                        <div className='module_units_button' style={{ marginTop: "1rem", marginBottom: '-1.3rem' }}>
+                            <FaChevronCircleRight size='1rem' style={{ marginTop: '.5rem', marginLeft:".3rem" }} />
+                            <p style={{ paddingLeft: ".2rem", paddingTop: ".25rem", fontSize: '.8rem' }}>Unités</p>
                         </div>
-                     </Link>
+                    </Link>
+
+                   
                  </div>
              </div>
         </>

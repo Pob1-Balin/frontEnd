@@ -36,6 +36,27 @@ export const resetPasswordFormValidations = yup.object().shape({
    confirm_password: yup.string().oneOf([yup.ref('password'), null], "La confirmation du mot de passe ne correspond pas au mot de passe").required("Obligatoire!"),
 });
 
+export const courseFormValidations = yup.object().shape({
+   name: yup.string().min(3, "Doit comporter au moins 3 caractères").required("Obligatoire!"),
+   description: yup.string().min(10, "Doit comporter au moins 10 caractères").max(142, "Trop long").required("Obligatoire!"),
+   amount: yup.number().positive().required("Obligatoire!"),
+});
+
+export const addcourseFormValidations = yup.object().shape({
+   name: yup.string().min(3, "Doit comporter au moins 3 caractères").required("Obligatoire!"),
+   description: yup.string().min(10, "Doit comporter au moins 10 caractères").max(142, "Trop long").required("Obligatoire!"),
+   amount: yup.number().positive().required("Obligatoire!"),
+   resource_description: yup.string().min(10, "Doit comporter au moins 10 caractères").max(142, "Trop long").required("Obligatoire!"),
+});
+
+export const editcourseResourceFormValidations = yup.object().shape({
+   resource_description: yup.string().min(10, "Doit comporter au moins 10 caractères").max(142, "Trop long").required("Obligatoire!"),
+});
+
+export const moduleaddFormValidations = yup.object().shape({
+   title: yup.string().min(3, "Doit comporter au moins 3 caractères").required("Obligatoire!"),
+});
+
 
  
  

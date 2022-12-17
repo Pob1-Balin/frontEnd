@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../admin.css";
 import {API} from '../../config'
@@ -8,6 +8,9 @@ import {ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 
 function EditClientContent(){
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    });
     const location = useLocation()
     const navigate = useNavigate()
     console.log(location.state)

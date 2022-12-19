@@ -13,27 +13,11 @@ function AdminDashboardSidebar() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const { user } = useSelector((state) => state.auth)
-
-    const movetoserv = () => {
-        localStorage.setItem('redirecthome', true);
-        navigate("/services");
-    }
-    const movetocliets = () => {
-        localStorage.setItem('redirecthome', true);
-        navigate("/clients");
-    }
-    const movetoaddprofile = () => {
-        localStorage.setItem('redirecthome', true);
-        navigate("/adminprofile");
-    }
-
-  
     const onLogout = () => {
       dispatch(logout())
       dispatch(reset())
       localStorage.removeItem("refreshservice")
       localStorage.removeItem("redirectserv")
-      localStorage.removeItem("redirecthome")
       localStorage.removeItem("refreshmodules")
       localStorage.removeItem("refreshunit")
       localStorage.removeItem("refreshanswer")
@@ -52,10 +36,10 @@ function AdminDashboardSidebar() {
                              <Link to='/admindashboard' className='ml-4 test1' style={{textDecoration:'none'}}><HomeIcon className='nav-icons'/>Tableau de bord</Link>
                         </li>
                         <li className="nav-item pt-4 list">
-                             <a onClick={() => movetoserv()} href='#' className=' ml-4 test1'><LibraryBooksIcon className='nav-icons'/>Cours</a>
+                             <Link to="/services" className=' ml-4 test1'><LibraryBooksIcon className='nav-icons'/>Cours</Link>
                         </li>
                         <li className="nav-item pt-4 list">
-                             <a onClick={() => movetocliets()} href='#' className='ml-4 test1' style={{textDecoration:'none'}}><People className='nav-icons'/>Utilisateurs</a>
+                             <Link to="/clients" className='ml-4 test1' style={{textDecoration:'none'}}><People className='nav-icons'/>Utilisateurs</Link>
                         </li>
                     </ul>
                 </nav>
@@ -83,7 +67,7 @@ function AdminDashboardSidebar() {
                                  <i style={{color:'white'}} class="fa fa-angle-down edu-icon edu-down-arrow admin-profile-arrow"></i>
                             </a>
                             <ul role="menu" class="dropdown-header-top author-log border-bottom dropdown-menu animated zoomIn adminUser">
-                                 <li><a onClick={() => movetoaddprofile()} href="#"><span class="edu-icon edu-user-rounded author-log-ic border-bottom"></span>Votre profil</a></li>
+                                 <li><Link to="/adminprofile" href="#"><span class="edu-icon edu-user-rounded author-log-ic border-bottom"></span>Votre profil</Link></li>
                                  <li className='loggout'><span class="edu-icon edu-user-rounded author-log-ic"><div onClick={onLogout}>Se déconnecter</div></span></li>
                             </ul>
                             <select className='change_language' style={{ height: '1rem', border:"none", outline:"none", color:"white", background:"transparent",}}>
@@ -100,7 +84,7 @@ function AdminDashboardSidebar() {
                                  <ExitToAppIcon className='logoutIcon' />
                              </a>
                              <ul role="menu" class="dropdown-header-top author-log dropdown-menu animated zoomIn adminUser">
-                                 <li><a onClick={() => movetoaddprofile()} href="#"><span class="edu-icon edu-user-rounded author-log-ic border-bottom"></span>Votre profil</a></li>
+                                 <li><Link to="/adminprofile"><span class="edu-icon edu-user-rounded author-log-ic border-bottom"></span>Votre profil</Link></li>
                                  <li className='loggout'><span class="edu-icon edu-user-rounded author-log-ic"><div onClick={onLogout}>Se déconnecter</div></span></li>
                             </ul>
                             <select className='change_language' style={{ height: '1rem', border:"none", outline:"none", color:"gray", marginLeft:".2rem", marginTop:".6rem", fontSize:"1rem", background:"transparent",}}>

@@ -52,6 +52,7 @@ class AddQuestions extends React.Component{
                 unit_id,
             });
             localStorage.setItem('refreshanswer', JSON.stringify("true"));
+            localStorage.setItem('redirectunit', true);
             navigate('/admintest', {state:{id:unitId}});
         }
     }

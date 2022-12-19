@@ -1,3 +1,21 @@
+@font-face {
+  font-family: 'MetropolisBold';
+  src: local('MetropolisBold'), url("../fonts/Metropolis_Font_family/Metropolis-Bold.otf") format('truetype');
+}
+
+@font-face {
+  font-family: 'MetropolisExtraLight';
+  src: local('MetropolisExtraLight'), url("../fonts/Metropolis_Font_family/Metropolis-Thin.otf") format('truetype');
+}
+@font-face {
+  font-family: 'MetropolisSemiBold';
+  src: local('MetropolisSemiBold'), url("../fonts/Metropolis_Font_family/Metropolis-SemiBold.otf") format('truetype');
+}
+@font-face {
+  font-family: 'MetropolisLight';
+  src: local('MetropolisLight'), url("../fonts/Metropolis_Font_family/Metropolis-Light.otf") format('truetype');
+}
+
 .side_bar {
     height: 100%;
     width: 0;
@@ -79,4 +97,53 @@ margin-left: -.5rem;
       font-size: .9rem;
     }
   
+  }
+
+  #BodyContent{
+    color: #0d3360;
+    padding-top: 7rem;
+  }
+  .m404{
+    background-image: linear-gradient(to bottom right, rgb(35, 175, 203) 5%, rgb(14, 20, 47) 95%);
+    background-clip: text;
+    color: transparent;
+    font-family: MetropolisBold;
+    font-size: 8rem;
+    height: 10rem;
+    padding-top: 5rem;
+  }
+
+  .err{
+    font-family: MetropolisSemiBold;
+    font-size: 1.3rem;
+    padding-left: 1rem;
+  }
+  .copy{
+    font-family: MetropolisBold;
+    font-size: 1rem;
+    padding-top: 3rem;
+  }
+  .message{
+    font-family: MetropolisExtraLight;
+    font-size: 1.1rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .button > button{
+    background-image: linear-gradient(to bottom right, rgb(35, 175, 203) 5%, rgb(14, 20, 47) 95%);
+    color: white;
+    border: none;
+    outline: none;
+    font-size: 1.2rem;
+    font-style: bold;
+    font-weight: 550;
+    padding: .6rem 1.5rem;
+    border-radius: 3rem;
+    text-decoration: none;
+    font-family: MetropolisExtraLight;
+}
+
+  .button > button:hover{
+    background-image: linear-gradient(to bottom right, rgb(14, 20, 47) 5%, rgb(35, 175, 203) 95%);
   }

@@ -11,17 +11,15 @@ import EmptyPageContent from "./EmptyPageContent";
 import Loader from "./Loader";
 
 function ModulesPageContent(props) {
-    const navigation = useNavigate();
-    
-    window.addEventListener("beforeunload", (event) => {
-       localStorage.setItem('redirectserv', false);
-    });
+  const navigation = useNavigate();
+  // if(JSON.parse(localStorage.getItem("refreshmodules")) == "true"){
+  //   localStorage.setItem('refreshmodules', JSON.stringify("false"));
+  //   window.location.reload();
+  // }
 
-  if(JSON.parse(localStorage.getItem("refreshmodules")) == "true"){
-    localStorage.removeItem("refreshmodules")
-    localStorage.setItem('refreshmodules', JSON.stringify("false"));
-    window.location.reload();
-  }
+  window.addEventListener("beforeunload", (event) => {
+    localStorage.setItem('redirectserv', false);
+  });
  
   const [loading, setLoading] = useState(true);
   const location = useLocation()

@@ -3,7 +3,7 @@ import UnitsCard from '../AdminDashboard/components/UnitsCard';
 import UnitsCard2 from '../ClientsDashboard/components/UnitsCard';
 import Footer from '../ClientsDashboard/components/Footer';
 import "../AdminDashboard/admin.css";
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux'
 import axios from 'axios';
 import { API } from '../config'
@@ -11,11 +11,12 @@ import EmptyPageContent from "./EmptyPageContent";
 import Loader from "./Loader";
 
 function UnitsPageContent(props){
-    if(JSON.parse(localStorage.getItem("refreshunit")) == "true"){
-        localStorage.removeItem("refreshunit")
-        localStorage.setItem('refreshunit', JSON.stringify("false"));
-        window.location.reload();
-    }
+    const navigate = useNavigate()
+    // if(JSON.parse(localStorage.getItem("refreshunit")) == "true"){
+    //     localStorage.removeItem("refreshunit")
+    //     localStorage.setItem('refreshunit', JSON.stringify("false"));
+    //     window.location.reload();
+    // }
 
     window.addEventListener("beforeunload", (event) => {
         localStorage.setItem('redirectmod', false);
@@ -136,6 +137,12 @@ function UnitsPageContent(props){
       }
     }
 
+    const moveto = () => {
+        localStorage.setItem('redirectserv', true);
+        navigate("/adminmodulepage", {state:{ service_id: serv_id }});
+    }
+
+
    const number_of_units = units.length;
     return(
         <>
@@ -148,7 +155,7 @@ function UnitsPageContent(props){
                             <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
                                 <h4 style={{marginTop:'2rem', color: '#0d3360'}}>
                                     <div className="returnHome2">
-                                        <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem"}} to='/adminmodulepage' state={{ service_id: serv_id }}><span className="home">Accueil</span></Link> <span>/</span> <span className="modulee" style={{fontStyle: 'bold', fontWeight: '550' }}>{module_title != "" ?   module_name + " " + ":" + " " + module_title  : "" }</span></p>
+                                        <p><a onClick={() => moveto()} className="return-home" style={{textDecoration: 'none', marginLeft:"0rem"}} href='#'><span className="home">Accueil</span></a> <span>/</span> <span className="modulee" style={{fontStyle: 'bold', fontWeight: '550' }}>{module_title != "" ?   module_name + " " + ":" + " " + module_title  : "" }</span></p>
                                     </div>
                                 </h4>
                                 <Link className="return-home" state={{id:module_id, numberOfUnits:number_of_units, title:moduleInfo.title, module_name:moduleInfo.module_name}} style={{textDecoration: 'none'}} to='/addunite'>

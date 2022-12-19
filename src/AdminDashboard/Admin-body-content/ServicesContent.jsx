@@ -13,15 +13,9 @@ import SearchBar from "../components/SearchBar";
 
 function ServicesContent(){
     if(JSON.parse(localStorage.getItem("refreshservice")) == "true"){
-        localStorage.removeItem("refreshservice")
-        localStorage.setItem('refreshservice', JSON.stringify("false"));
+        localStorage.setItem('refreshservice', false);
         window.location.reload();
     }
-
-    window.addEventListener("beforeunload", (event) => {
-        localStorage.setItem('redirecthome', false);
-    }); 
-    
     const [loading, setLoading] = useState(true);
     const [service, setService] = useState([]);
     useEffect(() => {

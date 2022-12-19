@@ -1,9 +1,10 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API } from '../../config'
 
 function UnitsCard(props){
+  const navigate = useNavigate();
   const id = props.id;
   const title = props.title;
   const new_title = '#'+title;
@@ -18,6 +19,11 @@ function UnitsCard(props){
             } else Promise.reject();
         })
         .catch((err) => alert("Something went wrong"));
+}
+
+const moveto = () => {
+  localStorage.setItem('redirectunit', true);
+  navigate("/admintest", {state:{id: id, moduleId: props.module_id, moduleName: props.module_name, moduleTitle: props.module_title}});
 }
   return(
     <>
@@ -77,7 +83,7 @@ function UnitsCard(props){
                <Link to='/editunit' style={{textDecoration:'none'}} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Éditer</button></Link>
                <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl" style={{outline:"none", border:"none", boxShadow:"none"}}>Désactiver</button>
                <button type="button" class="button-default cart-btn btn-danger mt-1 mr-1" data-toggle="modal" data-target={new_title} style={{outline:"none", border:"none", boxShadow:"none"}} >Effacer</button>
-               <Link to='/admintest' style={{textDecoration: "none"}} state={{id: id, moduleId: props.module_id, moduleName: props.module_name, moduleTitle: props.module_title}}><button style={{backgroundColor: '#4ab2cc'}} type="button" class="button-default cart-btn mt-1 mr-1">Des questions</button></Link>
+               <a onClick={() => moveto()} href='#' style={{textDecoration: "none"}}><button style={{backgroundColor: '#4ab2cc'}} type="button" class="button-default cart-btn mt-1 mr-1">Des questions</button></a>
             </div>
          </div>
       </div>

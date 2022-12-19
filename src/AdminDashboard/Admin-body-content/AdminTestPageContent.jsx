@@ -19,6 +19,10 @@ function HomepageContent(props) {
         localStorage.setItem('refreshanswer', false);
         window.location.reload();
     }
+
+    window.addEventListener("beforeunload", (event) => {
+        localStorage.setItem('redirectunit', false);
+    });
     const location = useLocation()
     var TestUnitInfo = location.state
     const testUnit_id = TestUnitInfo.id

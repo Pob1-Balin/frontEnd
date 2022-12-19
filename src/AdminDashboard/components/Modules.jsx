@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaChevronCircleRight } from "react-icons/fa";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API } from '../../config'
 import '../admin.css'
+import Modal from 'react-bootstrap/Modal';
 
 function Modules(props) {
+  const [lgShow, setLgShow] = useState(false); 
   const navigate = useNavigate();
   const id = props.id;
   const title = props.title;
@@ -25,7 +27,6 @@ function Modules(props) {
 
 const moveto = () => {
   localStorage.setItem('redirectmod', true);
-  window.location.reload()
   navigate("/units", {state:{...props}});
 }
 
@@ -37,26 +38,23 @@ const moveto = () => {
           <h3 className="card_module">{props.module_name}</h3>
           <h2 className="card_title">{props.title}</h2>
 
-          {/*-- Modal =====*/}
-          <div class="modal fade" id={title} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Supprimer le module</h5>
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                  </button>
+        <Modal size="md" show={lgShow} onHide={() => setLgShow(false)}>
+            <Modal.Header>
+                <h5 className="modal-title" id="exampleModalLabel">Supprimer le module</h5>
+            </Modal.Header>
+            <Modal.Body>
+                <div style={{margin:"-1rem"}} className="modal-body">
+                    <p style={{color: "gray"}}>Êtes-vous sûr de vouloir supprimer définitivement ce module ?</p>
                 </div>
-                <div class="modal-body">
-                   <p style={{color:"gray"}}>Êtes-vous sûr de vouloir supprimer définitivement ce module ?</p>
+            </Modal.Body>
+            <Modal.Footer>
+                <div style={{margin:"-1rem"}} className='modal-footer'>
+                    <button type="button" class="btn btn-danger mr-1" onClick={() => setLgShow(false)} >Fermé</button>
+                    <button type="submit" class="btn" style={{backgroundColor: "#3363ad", color:"white"}} onClick={deleteService}>Oui</button>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Fermé</button>
-                    <button type="submit" name="delete_service" class="btn" style={{backgroundColor: "#3363ad", color:"white"}} onClick={deleteService}>Oui</button>
-                </div>
-              </div>
-            </div>
-          </div>
+                
+            </Modal.Footer>
+        </Modal>
 
           {/*-- Modal =====*/}
           <div class="modal fade" id="bl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -82,7 +80,7 @@ const moveto = () => {
           <div class="product-buttons" style={{ marginTop: '1.3rem'}}>
             <Link to='/editmodule' style={{ textDecoration: 'none' }} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Éditer</button></Link>
             <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" style={{outline:"none", border:"none", boxShadow:"none"}} data-target="#bl">Désactiver</button>
-            <button type="button" class="button-default cart-btn btn-danger mt-1" data-toggle="modal" style={{outline:"none", border:"none", boxShadow:"none"}} data-target={new_title} >Effacer</button>
+            <button type="button" class="button-default cart-btn btn-danger mt-1" data-toggle="modal" style={{outline:"none", border:"none", boxShadow:"none"}} onClick={() => setLgShow(true)} >Effacer</button>
           </div>
           <a onClick={() => moveto()} href="#" style={{ textDecoration: "none" }}>
             <div className='module_units_button' style={{ marginTop: "1.2rem", marginBottom: '-1.3rem' }}>

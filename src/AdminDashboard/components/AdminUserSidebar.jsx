@@ -14,6 +14,11 @@ function AdminUserSidebar() {
     const { user } = useSelector((state) => state.auth)
     const serv_id = JSON.parse(localStorage.getItem("servId"));
 
+    const moveto = () => {
+        localStorage.setItem('redirectserv', true);
+        navigate("/adminmodulepage", {state:{service_id: serv_id }});
+    }
+
     const onLogout = () => {
       dispatch(logout())
       dispatch(reset())
@@ -31,7 +36,7 @@ function AdminUserSidebar() {
                 <nav className="sidebar-navigation">
                     <ul className="menu menu-bordery pt- mt-3 text-left pl-4">
                         <li className="nav-item pt-5 list">
-                                <Link to='/adminmodulepage' className='ml-4 test' style={{textDecoration:'none'}} state={{ service_id: serv_id }}><HomeIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Tableau de bord</Link>
+                                <a onClick={() => moveto()} href='#' className='ml-4 test' style={{textDecoration:'none'}}><HomeIcon style={{marginRight:"1rem", fontSize:"1.4rem"}}/>Tableau de bord</a>
                         </li>
                         <li className="nav-item pt-4 list">
                                 <Link to='/adminresource' className=' ml-4 test' style={{textDecoration:'none'}}><AccountBalanceIcon style={{marginRight:"1rem", fontSize:"1.4rem"}} />Mes ressources</Link>

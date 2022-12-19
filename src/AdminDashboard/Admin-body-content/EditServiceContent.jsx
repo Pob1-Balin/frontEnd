@@ -72,9 +72,7 @@ function AddServiceContent() {
             });
         }
         
-        localStorage.removeItem("refreshservice")
         localStorage.setItem('refreshservice', JSON.stringify("true"));
-        localStorage.setItem('redirecthome', true);
         navigate('/services');
     };
     

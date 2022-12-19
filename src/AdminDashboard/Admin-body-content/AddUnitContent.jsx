@@ -4,11 +4,13 @@ import "../admin.css";
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { API } from '../../config'
+import { useSelector } from 'react-redux'
 import { moduleaddFormValidations } from "../../utils/inputValidations"
 import { useFormik } from 'formik';
 
 function AddUnitContent() {
     const location = useLocation()
+    const { user } = useSelector((state) => state.auth)
     const moduleInfo = location.state
     const title = moduleInfo.title
     const module_name = moduleInfo.module_name
@@ -62,10 +64,13 @@ function AddUnitContent() {
             questions_time,
             questions_answered,
         });
-        localStorage.removeItem("refreshunit")
-        localStorage.setItem('refreshunit', JSON.stringify("true"));
-        localStorage.setItem('redirectmod', true);
-        navigate('/units', {state:{id:module_id, title: moduleInfo.title, module_name: moduleInfo.module_name}});
+        // localStorage.removeItem("refreshunit")
+        // localStorage.setItem('refreshunit', JSON.stringify("true"));
+        // localStorage.setItem('redirectmod', true);
+        // navigate('/units', {state:{id:module_id, title: moduleInfo.title, module_name: moduleInfo.module_name}});
+
+        const serv_id = JSON.parse(localStorage.getItem("servId"));
+        navigate("/adminmodulepage", {state:{service_id: serv_id }});
     };
 
 

@@ -19,12 +19,8 @@ function Services(props) {
             });
     }
     const moveto = () => {
-        localStorage.removeItem("servId")
         localStorage.setItem("servId", JSON.stringify(props.service_id));
-
-        localStorage.removeItem("redirectserv")
         localStorage.setItem('redirectserv', true);
-        window.location.reload();
         navigate("/adminmodulepage", {state:{props, service_id: props.service_id}});
     }
 

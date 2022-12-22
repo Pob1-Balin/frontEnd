@@ -1,12 +1,9 @@
 import axios from "axios";
 import { API } from "../../config";
 
-const API_URL = 'http://localhost:7000/api/v1/users/'
-
-
 // Register
 const register = async (userData) => {
-    const response = await axios.post(API_URL + 'register', userData)
+    const response = await axios.post(`${API}/users/register`, userData)
 
     if (response.data) {
         localStorage.setItem('user', JSON.stringify(response.data))
@@ -18,7 +15,7 @@ const register = async (userData) => {
 // Login
 
 const login = async (userData) => {
-    const response = await axios.post(API_URL + 'login', userData)
+    const response = await axios.post(`${API}/users/login`, userData)
 
     if (response.data) {
         localStorage.setItem('user', JSON.stringify(response.data))
@@ -39,13 +36,13 @@ const getUser = async (token) => {
         },
       }
 
-      const response = await axios.get(API_URL+'me', config)
+      const response = await axios.get(`${API}/users/login`, config)
       return response.data
 }
 
 // Password reset request
 const resetPassword = async (userData) => {
-    const response = await axios.post('http://localhost:7000/api/v1/users/request-mail', userData).then((res)=>{
+    const response = await axios.post(`${API}/users/request-mail`, userData).then((res)=>{
         console.log(res)
     }).catch((err)=>{
         console.log(err)

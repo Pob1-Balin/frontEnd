@@ -11,7 +11,7 @@ function Services(props) {
      const id = props.service_id;
      const deleteService = () => {
         axios
-            .delete(`${API}/service/${id}/remove`)
+            .delete(`/service/${id}/remove`)
             .then((res) => {
                 window.location.reload();
             })
@@ -27,7 +27,7 @@ function Services(props) {
     return (
         <>
             <div className="services_card" data-aos="zoom-in-down" data-aos-offset="50">
-                <div style={{margin:"1.3rem"}}><img className="services_card_image" src={`${API}/images/${props.image}`} /></div>
+                <div style={{margin:"1.3rem"}}><img className="services_card_image" src={`/images/${props.image}`} /></div>
                 <div className="card_body" style={{marginLeft:"1.3rem"}}>
                     <h2 className="card_title services_card_title" style={{marginTop:"-.5rem", fontSize:"1.1rem"}}>{props.service_name}</h2>
    

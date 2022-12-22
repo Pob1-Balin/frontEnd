@@ -16,7 +16,7 @@ function StructureThreeContent(props){
     const [unitsData, setUnitsData] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`${API}/unit/unitsdata/${unitContent.id}`).then(({data})=>{
+        axios.get(`/unit/unitsdata/${unitContent.id}`).then(({data})=>{
             setUnitsData(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
@@ -25,7 +25,7 @@ function StructureThreeContent(props){
       }, []);
 
       const submitUnitContent = (unitDataInfo) => {
-        axios.put(`${API}/unit/unit/${unitContent.id}`, unitDataInfo)
+        axios.put(`/unit/unit/${unitContent.id}`, unitDataInfo)
             .then(res => {
                 if (res.status === 200) {
                     window.location.reload();
@@ -39,7 +39,7 @@ function StructureThreeContent(props){
 //--------------------------------------------- calculate time spent on this page ----------------------------------------
 
 const submitUnit = (unitInfo) => {
-    axios.put(`${API}/unit/unit/${unitContent.id}`, unitInfo)
+    axios.put(`/unit/unit/${unitContent.id}`, unitInfo)
         .then(res => {
         })
         .catch(err => {

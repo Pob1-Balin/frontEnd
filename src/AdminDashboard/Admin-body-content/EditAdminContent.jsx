@@ -27,7 +27,7 @@ function EditAdminContent(){
         })
     }
     const submit = (admin)=>{
-        axios.put(`${API}/users/${id}/update`, admin)
+        axios.put(`/users/${id}/update`, admin)
                 .then(res => {
                     alert("Profile updated successfully")
                     navigate('/adminprofile')

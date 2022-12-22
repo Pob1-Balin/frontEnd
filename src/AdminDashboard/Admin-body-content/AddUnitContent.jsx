@@ -34,7 +34,7 @@ function AddUnitContent() {
         /// sending post request to upload file
         const formData = new FormData()
         formData.append('myFile', image)
-        axios.post(`${API}/upload`, formData, {
+        axios.post(`/upload`, formData, {
             headers:{
                 "content-tupe": "multipart/form-data"
             }
@@ -45,7 +45,7 @@ function AddUnitContent() {
         })
 
         ///////////
-        axios.post(`${API}/unit/unit`, unitInfo)
+        axios.post(`/unit/unit`, unitInfo)
           .then(res => {
           })
           .catch(err => {

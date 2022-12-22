@@ -30,7 +30,7 @@ function AddModuleContent() {
         // sending post request to upload file
         const formData = new FormData()
         formData.append('myFile', image)
-        axios.post(`${API}/upload`, formData, {
+        axios.post('/upload', formData, {
             headers:{
                 "content-tupe": "multipart/form-data"
             }
@@ -38,7 +38,7 @@ function AddModuleContent() {
         }).catch(err=>{
         })
         //////////////////////////
-        axios.post(`${API}/module/module`, moduleInfo)
+        axios.post('/module/module', moduleInfo)
             .then(res => {
             })
             .catch(err => {

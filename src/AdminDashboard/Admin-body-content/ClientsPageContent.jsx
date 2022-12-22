@@ -16,7 +16,7 @@ function ClientsPageContent (){
     useEffect(() => {
         window.scrollTo(0, 0);
         axios
-        .get(`${API}/users`)
+        .get(`/users`)
         .then(({ data }) => {
             setUsers(data.data);
             setLoading(false)

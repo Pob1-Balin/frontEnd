@@ -32,7 +32,7 @@ function AddServiceContent() {
              // sending post request to upload file
              const formData = new FormData()
              formData.append('myFile', image)
-             axios.post(`${API}/upload`, formData, {
+             axios.post(`/upload`, formData, {
                  headers:{
                      "content-tupe": "multipart/form-data"
                  }
@@ -40,7 +40,7 @@ function AddServiceContent() {
              }).catch(err=>{
              })
 
-            axios.put(`${API}/service/update/${id}`, serviceInfo)
+            axios.put(`/service/update/${id}`, serviceInfo)
                 .then(res => {
                 })
                 .catch(err => {
@@ -48,7 +48,7 @@ function AddServiceContent() {
         }
 
         const updateServiceWitOImg = (serviceInfo) => {
-            axios.put(`${API}/service/update/${id}`, serviceInfo)
+            axios.put(`/service/update/${id}`, serviceInfo)
                 .then(res => {
                 })
                 .catch(err => {

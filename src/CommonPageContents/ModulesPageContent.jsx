@@ -55,7 +55,7 @@ function ModulesPageContent(props) {
   var currentUserModules = currentUserService.modules
    
   const submitUserInfo = (userupdate) => {
-    axios.put(`http://localhost:7000/api/v1/users/${user._id}/update`, userupdate)
+    axios.put(`${API}/users/${user._id}/update`, userupdate)
       .then(res => {
       })
       .catch(err => {

@@ -73,7 +73,7 @@ function SubscribeForService(props) {
 
         // MOMO API HERE
 
-        axios.put(`http://localhost:7000/api/v1/users/${user._id}/update`, userSubscribeInfo)
+        axios.put(`${API}/users/${user._id}/update`, userSubscribeInfo)
             .then(res => {
             })
             .catch(err => {

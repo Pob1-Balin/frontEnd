@@ -5,19 +5,17 @@ import '../style.css'
 import { FaChevronCircleLeft, FaCheckCircle } from "react-icons/fa";
 import { resetPasswordFormValidations } from '../../utils/inputValidations'
 import axios from 'axios'
-import { API } from "../../config";
 import { useNavigate, useLocation } from "react-router-dom";
 import ParticlesBackground from "./ParticlesBackground";
 import {ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
 import { useFormik } from 'formik';
-
+import { API } from '../../config'
 function SetUserPasswordContent(){
     const navigate = useNavigate();
     const location = useLocation();
-
     const onSubmit = (values, actions) => {
-        axios.post('http://localhost:7000/api/v1/users/'+location.state.id+'/'+location.state.token, {password:values.password}).then((res)=>{
+        axios.post(`${API}/users/${location.state.id}${'/'}${location.state.token}, ${{password:values.password}}`).then((res)=>{
             toast.success("Successfull passward reset!!")
         })
         .catch((err)=>{

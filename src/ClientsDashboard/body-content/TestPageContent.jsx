@@ -113,7 +113,7 @@ function TestPageContent(){
 
     const submitUnit = (unitInfo) => {
         const userId = "62f47d3b149cacf97e1a9a70";
-        axios.put(`http://localhost:7000/api/v1/serv/update/${userId}`, unitInfo)
+        axios.put(`${API}/serv/update/${userId}`, unitInfo)
             .then(res => {
             })
             .catch(err => {

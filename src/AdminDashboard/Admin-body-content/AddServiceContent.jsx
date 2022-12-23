@@ -45,7 +45,7 @@ function AddServiceContent() {
             // sending post request to upload file
             const formData = new FormData()
             formData.append('myFile', file.image)
-            axios.post(`${API}/upload`, formData, {
+            axios.post('/upload', formData, {
                 headers:{
                     "content-tupe": "multipart/form-data"
                 }
@@ -65,7 +65,7 @@ function AddServiceContent() {
 
             const formData3 = new FormData()
             formData3.append('myFile', file.resource_file)
-            axios.post(`${API}/upload`, formData3, {
+            axios.post('/upload', formData3, {
                 headers:{
                     "content-tupe": "multipart/form-data"
                 }
@@ -75,7 +75,7 @@ function AddServiceContent() {
 
    
             ///////////
-           axios.post(`${API}/service/create`, serviceInfo)
+           axios.post('/service/create', serviceInfo)
                .then(res => {
                })
                .catch(err => {

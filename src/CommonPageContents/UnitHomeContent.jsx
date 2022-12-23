@@ -21,13 +21,13 @@ function UnitHomeContent(props){
     const [userServs, setUserServs] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`${API}/unit/unitsdata/${unitId.id}`).then(({data})=>{
+        axios.get(`/unit/unitsdata/${unitId.id}`).then(({data})=>{
             setUnitsData(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
         })
         
-        axios.get(`${API}/serv/getserv/${userId}`).then(({ data }) => {
+        axios.get(`/serv/getserv/${userId}`).then(({ data }) => {
             setUserServs(data.data)
          }).catch((err) => {
              //  console.log("Something Went Wrong:", err)

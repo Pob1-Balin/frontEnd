@@ -38,7 +38,7 @@ function EditResourceContent() {
             // sending post request to upload file
             const formData = new FormData()
             formData.append('myFile', file.resource_image)
-            axios.post(`${API}/upload`, formData, {
+            axios.post(`/upload`, formData, {
                 headers:{
                     "content-tupe": "multipart/form-data"
                 }
@@ -48,7 +48,7 @@ function EditResourceContent() {
 
             const formData2 = new FormData()
             formData2.append('myFile', file.resource_file)
-            axios.post(`${API}/upload`, formData2, {
+            axios.post(`/upload`, formData2, {
                 headers:{
                     "content-tupe": "multipart/form-data"
                 }
@@ -57,7 +57,7 @@ function EditResourceContent() {
             })
 
             ///////////
-            axios.put(`${API}/service/update/${service.service_id}`, serviceInfo)
+            axios.put(`/service/update/${service.service_id}`, serviceInfo)
             .then(res => {
             })
             .catch(err => {
@@ -65,7 +65,7 @@ function EditResourceContent() {
         }
 
         const resourceDescription = (serviceInfo) => {
-            axios.put(`${API}/service/update/${service.service_id}`, serviceInfo)
+            axios.put(`/service/update/${service.service_id}`, serviceInfo)
             .then(res => {
             })
             .catch(err => {
@@ -76,7 +76,7 @@ function EditResourceContent() {
             // sending post request to upload file
             const formData = new FormData()
             formData.append('myFile', file.resource_image)
-            axios.post(`${API}/upload`, formData, {
+            axios.post(`/upload`, formData, {
                 headers:{
                     "content-tupe": "multipart/form-data"
                 }
@@ -85,7 +85,7 @@ function EditResourceContent() {
             })
 
             ///////////
-            axios.put(`${API}/service/update/${service.service_id}`, serviceInfo)
+            axios.put(`/service/update/${service.service_id}`, serviceInfo)
             .then(res => {
             })
             .catch(err => {
@@ -96,7 +96,7 @@ function EditResourceContent() {
             // sending post request to upload file
             const formData = new FormData()
             formData.append('myFile', file.resource_file)
-            axios.post(`${API}/upload`, formData, {
+            axios.post(`/upload`, formData, {
                 headers:{
                     "content-tupe": "multipart/form-data"
                 }
@@ -105,7 +105,7 @@ function EditResourceContent() {
             })
 
             ///////////
-            axios.put(`${API}/service/update/${service.service_id}`, serviceInfo)
+            axios.put(`/service/update/${service.service_id}`, serviceInfo)
             .then(res => {
             })
             .catch(err => {

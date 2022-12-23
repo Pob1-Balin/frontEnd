@@ -30,7 +30,7 @@ function EditClientContent(){
     const [updated, setUpdated]=useState(false)
 
     const handleSubmit = ()=>{
-        axios.put(`${API}/users/${location.state.id}/update`,{
+        axios.put(`/users/${location.state.id}/update`,{
             first_name: user.firstName,
             last_name: user.lastName,
             email: user.email,

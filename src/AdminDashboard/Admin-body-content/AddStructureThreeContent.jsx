@@ -17,7 +17,7 @@ function AddStructureThreeContent() {
     const [unitsData, setUnitsData] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`${API}/unit/unitsdata/${unitID}`).then(({data})=>{
+        axios.get(`/unit/unitsdata/${unitID}`).then(({data})=>{
             setUnitsData(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
@@ -32,7 +32,7 @@ function AddStructureThreeContent() {
     }
 
     const submitUnitData = (unitDataInfo) => {
-        axios.put(`${API}/unit/unit/${unitID}`, unitDataInfo)
+        axios.put(`/unit/unit/${unitID}`, unitDataInfo)
             .then(res => {
                 alert(res)
             })

@@ -15,7 +15,7 @@ function SetUserPasswordContent(){
     const navigate = useNavigate();
     const location = useLocation();
     const onSubmit = (values, actions) => {
-        axios.post(`${API}/users/${location.state.id}${'/'}${location.state.token}, ${{password:values.password}}`).then((res)=>{
+        axios.post(`/users/${location.state.id}${'/'}${location.state.token}, ${{password:values.password}}`).then((res)=>{
             toast.success("Successfull passward reset!!")
         })
         .catch((err)=>{

@@ -3,7 +3,7 @@ import { API } from "../../config";
 
 // Register
 const register = async (userData) => {
-    const response = await axios.post(`${API}/users/register`, userData)
+    const response = await axios.post(`/users/register`, userData)
 
     if (response.data) {
         localStorage.setItem('user', JSON.stringify(response.data))
@@ -15,7 +15,7 @@ const register = async (userData) => {
 // Login
 
 const login = async (userData) => {
-    const response = await axios.post(`${API}/users/login`, userData)
+    const response = await axios.post(`/users/login`, userData)
 
     if (response.data) {
         localStorage.setItem('user', JSON.stringify(response.data))
@@ -36,13 +36,13 @@ const getUser = async (token) => {
         },
       }
 
-      const response = await axios.get(`${API}/users/login`, config)
+      const response = await axios.get(`/users/login`, config)
       return response.data
 }
 
 // Password reset request
 const resetPassword = async (userData) => {
-    const response = await axios.post(`${API}/users/request-mail`, userData).then((res)=>{
+    const response = await axios.post(`/users/request-mail`, userData).then((res)=>{
         console.log(res)
     }).catch((err)=>{
         console.log(err)

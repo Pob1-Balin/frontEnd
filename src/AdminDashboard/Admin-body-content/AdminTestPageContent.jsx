@@ -32,13 +32,13 @@ function HomepageContent(props) {
     const [unitTime, setUnitTime] = useState([{}]);
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`${API}/answer/answer/${testUnit_id}`).then(({data})=>{
+        axios.get(`/answer/answer/${testUnit_id}`).then(({data})=>{
             setAnswers(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
         })
 
-        axios.get(`${API}/unit/units/${testUnit_id}`).then(({data})=>{
+        axios.get(`/unit/units/${testUnit_id}`).then(({data})=>{
             setUnitTime(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
@@ -60,7 +60,7 @@ function HomepageContent(props) {
     }
 
     const submitQuestionsTime = (questionInfo) => {
-        axios.put(`${API}/unit/unit/${testUnit_id}`, questionInfo)
+        axios.put(`/unit/unit/${testUnit_id}`, questionInfo)
             .then(res => {
             })
             .catch(err => {

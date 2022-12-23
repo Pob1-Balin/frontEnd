@@ -7,7 +7,6 @@ import Questions from "../components/Questions";
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 import axios from "axios";
-import { API } from '../../config'
 import NumberOfQuestionsAndTime from "../components/NumberOfQuestionsAndTime";
 import Marquee from "react-fast-marquee";
 import Modal from 'react-bootstrap/Modal';

@@ -3,7 +3,6 @@ import Footer from '../../ClientsDashboard/components/Footer';
 import "../admin.css";
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import { API } from '../../config'
 import { useSelector } from 'react-redux'
 import { moduleaddFormValidations } from "../../utils/inputValidations"
 import { useFormik } from 'formik';

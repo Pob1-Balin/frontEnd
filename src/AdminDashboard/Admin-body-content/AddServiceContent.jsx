@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../admin.css";
 import Footer from '../components/Footer'
-import { API } from '../../config'
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { addcourseFormValidations } from "../../utils/inputValidations"
@@ -55,7 +54,7 @@ function AddServiceContent() {
 
             const formData2 = new FormData()
             formData2.append('myFile', file.resource_image)
-            axios.post(`${API}/upload`, formData2, {
+            axios.post(`/upload`, formData2, {
                 headers:{
                     "content-tupe": "multipart/form-data"
                 }

@@ -3,7 +3,6 @@ import Footer from '../../unitsDashboard/components/FooterSection';
 import Header from "../../unitsDashboard/components/Header";
 import "../admin.css";
 import axios from 'axios'
-import { API } from "../../config";
 import { useNavigate, useLocation } from "react-router-dom";
 import {validateRegistration} from '../../utils/inputValidations';
 

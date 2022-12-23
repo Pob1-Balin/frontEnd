@@ -3,7 +3,6 @@ import "../admin.css";
 import Footer from '../components/Footer'
 import UserData from '../components/UserData'
 import axios from "axios";
-import {API} from '../../config'
 import Loader from '../../CommonPageContents/Loader'
 function ClientsPageContent (){
     const [loading, setLoading] = useState(true);

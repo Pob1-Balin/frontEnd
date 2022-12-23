@@ -15,7 +15,7 @@ function Questions(props){
 
     const deleteQuestion = () => {
       axios
-          .delete(`${API}/answer/${id}`)
+          .delete(`/answer/${id}`)
           .then((res) => {
               if (res.status === 200) {
                   //  alert("Student successfully deleted");

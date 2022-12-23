@@ -16,7 +16,7 @@ function EditStructureThreeContent() {
     const [unitsData, setUnitsData] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`${API}/unit/unitsdata/${units_content.id}`).then(({data})=>{
+        axios.get(`/unit/unitsdata/${units_content.id}`).then(({data})=>{
             setUnitsData(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
@@ -37,7 +37,7 @@ function EditStructureThreeContent() {
     }
 
     const submitUnitData = (unitDataInfo) => {
-        axios.put(`${API}/unit/unit/${units_content.id}`, unitDataInfo)
+        axios.put(`/unit/unit/${units_content.id}`, unitDataInfo)
             .then(res => {
                 alert(res)
             })

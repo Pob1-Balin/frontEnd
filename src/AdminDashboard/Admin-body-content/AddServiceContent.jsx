@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../admin.css";
 import Footer from '../components/Footer'
-import { API } from '../../config'
 import { useNavigate, Link } from 'react-router-dom';
 import axios from 'axios';
 import { addcourseFormValidations } from "../../utils/inputValidations"
@@ -45,7 +44,7 @@ function AddServiceContent() {
             // sending post request to upload file
             const formData = new FormData()
             formData.append('myFile', file.image)
-            axios.post(`${API}/upload`, formData, {
+            axios.post('/upload', formData, {
                 headers:{
                     "content-tupe": "multipart/form-data"
                 }
@@ -55,7 +54,7 @@ function AddServiceContent() {
 
             const formData2 = new FormData()
             formData2.append('myFile', file.resource_image)
-            axios.post(`${API}/upload`, formData2, {
+            axios.post(`/upload`, formData2, {
                 headers:{
                     "content-tupe": "multipart/form-data"
                 }
@@ -65,7 +64,7 @@ function AddServiceContent() {
 
             const formData3 = new FormData()
             formData3.append('myFile', file.resource_file)
-            axios.post(`${API}/upload`, formData3, {
+            axios.post('/upload', formData3, {
                 headers:{
                     "content-tupe": "multipart/form-data"
                 }
@@ -75,7 +74,7 @@ function AddServiceContent() {
 
    
             ///////////
-           axios.post(`${API}/service/create`, serviceInfo)
+           axios.post('/service/create', serviceInfo)
                .then(res => {
                })
                .catch(err => {

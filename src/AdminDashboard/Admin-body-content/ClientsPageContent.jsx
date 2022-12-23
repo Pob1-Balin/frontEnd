@@ -3,7 +3,6 @@ import "../admin.css";
 import Footer from '../components/Footer'
 import UserData from '../components/UserData'
 import axios from "axios";
-import {API} from '../../config'
 import Loader from '../../CommonPageContents/Loader'
 function ClientsPageContent (){
     const [loading, setLoading] = useState(true);
@@ -16,7 +15,7 @@ function ClientsPageContent (){
     useEffect(() => {
         window.scrollTo(0, 0);
         axios
-        .get(`${API}/users`)
+        .get(`/users`)
         .then(({ data }) => {
             setUsers(data.data);
             setLoading(false)

@@ -3,7 +3,6 @@ import Footer from '../../unitsDashboard/components/FooterSection';
 import Header from "../../unitsDashboard/components/Header";
 import "../admin.css";
 import axios from 'axios'
-import { API } from "../../config";
 import { useNavigate, useLocation } from "react-router-dom";
 import {validateRegistration} from '../../utils/inputValidations'
 function AddStructureThreeContent() {
@@ -17,7 +16,7 @@ function AddStructureThreeContent() {
     const [unitsData, setUnitsData] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`${API}/unit/unitsdata/${unitID}`).then(({data})=>{
+        axios.get(`/unit/unitsdata/${unitID}`).then(({data})=>{
             setUnitsData(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
@@ -32,7 +31,7 @@ function AddStructureThreeContent() {
     }
 
     const submitUnitData = (unitDataInfo) => {
-        axios.put(`${API}/unit/unit/${unitID}`, unitDataInfo)
+        axios.put(`/unit/unit/${unitID}`, unitDataInfo)
             .then(res => {
                 alert(res)
             })

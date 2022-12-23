@@ -28,7 +28,7 @@ function ResourceContent (props){
     const [serviceInfo, setServiceInfo] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`${API}/service/${new_serv_id}`).then(({data})=>{
+        axios.get(`/service/${new_serv_id}`).then(({data})=>{
             setServiceInfo(data.data)
             setLoading(false)
         }).catch((err)=>{

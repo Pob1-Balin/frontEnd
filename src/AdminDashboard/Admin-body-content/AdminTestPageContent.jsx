@@ -7,7 +7,6 @@ import Questions from "../components/Questions";
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 import axios from "axios";
-import { API } from '../../config'
 import NumberOfQuestionsAndTime from "../components/NumberOfQuestionsAndTime";
 import Marquee from "react-fast-marquee";
 import Modal from 'react-bootstrap/Modal';
@@ -32,13 +31,13 @@ function HomepageContent(props) {
     const [unitTime, setUnitTime] = useState([{}]);
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`${API}/answer/answer/${testUnit_id}`).then(({data})=>{
+        axios.get(`/answer/answer/${testUnit_id}`).then(({data})=>{
             setAnswers(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
         })
 
-        axios.get(`${API}/unit/units/${testUnit_id}`).then(({data})=>{
+        axios.get(`/unit/units/${testUnit_id}`).then(({data})=>{
             setUnitTime(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
@@ -60,7 +59,7 @@ function HomepageContent(props) {
     }
 
     const submitQuestionsTime = (questionInfo) => {
-        axios.put(`${API}/unit/unit/${testUnit_id}`, questionInfo)
+        axios.put(`/unit/unit/${testUnit_id}`, questionInfo)
             .then(res => {
             })
             .catch(err => {

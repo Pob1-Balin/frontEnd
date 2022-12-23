@@ -28,7 +28,7 @@ class EditQuestions extends React.Component{
 
     updateQuestions(exerciseInfo){
         const {question_id} = this.state;
-        axios.put(`${API}/answer/answer/${question_id}`, exerciseInfo)
+        axios.put(`/answer/answer/${question_id}`, exerciseInfo)
         .then(res => {
         })
         .catch(err => {

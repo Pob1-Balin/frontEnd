@@ -3,7 +3,6 @@ import Footer from '../../ClientsDashboard/components/Footer';
 import "../admin.css";
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
-import { API } from '../../config'
 import { moduleaddFormValidations } from "../../utils/inputValidations"
 import { useFormik } from 'formik';
 
@@ -30,7 +29,7 @@ function AddModuleContent() {
         // sending post request to upload file
         const formData = new FormData()
         formData.append('myFile', image)
-        axios.post(`${API}/upload`, formData, {
+        axios.post('/upload', formData, {
             headers:{
                 "content-tupe": "multipart/form-data"
             }
@@ -38,7 +37,7 @@ function AddModuleContent() {
         }).catch(err=>{
         })
         //////////////////////////
-        axios.post(`${API}/module/module`, moduleInfo)
+        axios.post('/module/module', moduleInfo)
             .then(res => {
             })
             .catch(err => {

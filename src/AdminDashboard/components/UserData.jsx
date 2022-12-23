@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 function Modules(props){
     const [lgShow, setLgShow] = useState(false); 
     const deleteUser = ()=>{
-        axios.delete(`${API}/users/${props.id}/delete`).then(()=>{
+        axios.delete(`/users/${props.id}/delete`).then(()=>{
             window.location.reload()
         })
     }

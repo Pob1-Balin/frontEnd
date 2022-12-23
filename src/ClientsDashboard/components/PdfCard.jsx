@@ -20,7 +20,7 @@ function PdfCard(props){
     return(
         <>
            <div className="card pdf-card">
-                 <img className="pdf_card_image" src={`/images/${props.image}`} />
+                 <img className="pdf_card_image" src={`/api/v1/images/${props.image}`} />
                  <div className="">
                      <div className="pdf_card_info">
                          <div className="title">

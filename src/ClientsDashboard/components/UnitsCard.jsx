@@ -8,7 +8,7 @@ function UnitsCard(props){
   return(
     <>
        <div className="card">
-           <img className="card_image" src={`/images/${props.image}`} />
+           <img className="card_image" src={`/api/v1/images/${props.image}`} />
            <div className="card_body">
                <h3 className="card_module">{props.unit_name}</h3>
                <h2 className="card_title">{props.title}</h2>

@@ -12,9 +12,10 @@ import SearchBar from "../components/SearchBar";
 
 
 function ServicesContent(){
+    const [refresh, setRefresh] = useState(false);
     if(JSON.parse(localStorage.getItem("refreshservice")) == "true"){
+        setRefresh(JSON.parse(localStorage.getItem("refreshservice")))
         localStorage.setItem('refreshservice', false);
-        window.location.reload();
     }
     const [loading, setLoading] = useState(true);
     const [service, setService] = useState([]);
@@ -26,7 +27,9 @@ function ServicesContent(){
         }).catch((err)=>{
             setLoading(false)
         })
-    }, []);
+
+        console.log("yesssss")
+    }, refresh);
     return(
         <>
             {loading ?

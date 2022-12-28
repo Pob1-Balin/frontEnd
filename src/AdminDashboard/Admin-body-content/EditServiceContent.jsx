@@ -71,8 +71,6 @@ function AddServiceContent() {
                 image,
             });
         }
-        
-        localStorage.setItem('refreshservice', JSON.stringify("true"));
         navigate('/services');
     };
     

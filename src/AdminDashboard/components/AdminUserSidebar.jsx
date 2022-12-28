@@ -24,7 +24,9 @@ function AdminUserSidebar() {
       dispatch(reset())
       localStorage.removeItem("refreshservice")
       localStorage.removeItem("redirectserv")
+      localStorage.removeItem("servId")
       localStorage.removeItem("refreshmodules")
+      
       navigate('/')
     }
     return (

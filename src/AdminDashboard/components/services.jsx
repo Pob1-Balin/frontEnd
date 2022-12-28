@@ -13,7 +13,7 @@ function Services(props) {
         axios
             .delete(`${API}/service/${id}/remove`)
             .then((res) => {
-                window.location.reload();
+                localStorage.setItem('refreshservice', JSON.stringify("true"));
             })
             .catch((err) => {
             });

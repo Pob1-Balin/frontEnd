@@ -71,10 +71,8 @@ function EditModuleContent() {
             });
         }
 
-        // localStorage.setItem('refreshmodules', JSON.stringify("true"));
-        // localStorage.setItem('redirectserv', true);
-        // navigate('/adminmodulepage', {state:{service_id :service_id}});
-        navigate('/services');
+        localStorage.setItem('redirectserv', true);
+        navigate('/adminmodulepage', {state:{service_id :service_id}});
     };
 
     const { values, handleChange, handleBlur, touched, errors, handleSubmit} = useFormik({

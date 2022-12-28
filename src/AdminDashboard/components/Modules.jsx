@@ -18,7 +18,7 @@ function Modules(props) {
         .then((res) => {
             if (res.status === 200) {
                 //  alert("Student successfully deleted");
-                 window.location.reload();
+                //  window.location.reload();
                 //  console.log(`${API}/service/${id}`)
             } else Promise.reject();
         })

@@ -18,7 +18,9 @@ function AdminDashboardSidebar() {
       dispatch(reset())
       localStorage.removeItem("refreshservice")
       localStorage.removeItem("redirectserv")
+      localStorage.removeItem("servId")
       localStorage.removeItem("refreshmodules")
+
       localStorage.removeItem("refreshunit")
       localStorage.removeItem("refreshanswer")
       localStorage.removeItem("redirectmod")

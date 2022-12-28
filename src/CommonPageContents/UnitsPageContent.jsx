@@ -37,7 +37,7 @@ function UnitsPageContent(props){
     const [userServs, setUserServs] = useState([]);
     useEffect(() => {
        window.scrollTo(0, 0);
-       axios.get(`/unit/unit/${module_id}`).then(({data})=>{
+       axios.get(`${API}/unit/unit/${module_id}`).then(({data})=>{
            setUnits(data.data)
            setLoading(false)
        }).catch((err)=>{
@@ -122,7 +122,7 @@ function UnitsPageContent(props){
         var finalServices = [...otherService, newCurrentService]
 
         const UpdateUserInfo = (userupdate) => {
-            axios.put(`/users/${user._id}/update`, userupdate)
+            axios.put(`${API}/users/${user._id}/update`, userupdate)
             .then(res => {
             })
             .catch(err => {

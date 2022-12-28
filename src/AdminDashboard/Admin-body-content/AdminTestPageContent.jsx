@@ -11,6 +11,7 @@ import NumberOfQuestionsAndTime from "../components/NumberOfQuestionsAndTime";
 import Marquee from "react-fast-marquee";
 import Modal from 'react-bootstrap/Modal';
 import EmptyPageContent from "../../CommonPageContents/EmptyPageContent";
+import { API } from "../../config";
 
 function HomepageContent(props) {
     if(JSON.parse(localStorage.getItem("refreshanswer")) == "true"){
@@ -31,13 +32,13 @@ function HomepageContent(props) {
     const [unitTime, setUnitTime] = useState([{}]);
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`/answer/answer/${testUnit_id}`).then(({data})=>{
+        axios.get(`${API}/answer/answer/${testUnit_id}`).then(({data})=>{
             setAnswers(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
         })
 
-        axios.get(`/unit/units/${testUnit_id}`).then(({data})=>{
+        axios.get(`${API}/unit/units/${testUnit_id}`).then(({data})=>{
             setUnitTime(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
@@ -59,7 +60,7 @@ function HomepageContent(props) {
     }
 
     const submitQuestionsTime = (questionInfo) => {
-        axios.put(`/unit/unit/${testUnit_id}`, questionInfo)
+        axios.put(`${API}/unit/unit/${testUnit_id}`, questionInfo)
             .then(res => {
             })
             .catch(err => {

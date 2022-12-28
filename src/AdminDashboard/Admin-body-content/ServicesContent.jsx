@@ -20,7 +20,7 @@ function ServicesContent(){
     const [service, setService] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`/service`).then(({data})=>{
+        axios.get(`${API}/service`).then(({data})=>{
             setService(data.data)
             setLoading(false)
         }).catch((err)=>{

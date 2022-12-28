@@ -38,7 +38,7 @@ function PaymentForm(props) {
         finalUser={
             services:userServices
         }
-        axios.put(`/users/${id}`, finalUser)
+        axios.put(`${API}/users/${id}`, finalUser)
             .then(res => {
                 alert(res)
                 // if (res.status === 200)

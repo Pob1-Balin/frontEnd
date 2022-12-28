@@ -7,7 +7,6 @@ import { useFormik } from 'formik';
 import { useSelector, useDispatch } from 'react-redux'
 import { register, reset } from '../../redux/auth/authSlice'
 import ParticlesBackground from "./ParticlesBackground";
-
 function ClientRegisterContent() {
     const navigate = useNavigate();
     const dispatch = useDispatch();

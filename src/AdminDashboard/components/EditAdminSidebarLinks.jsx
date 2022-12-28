@@ -12,7 +12,7 @@ function EditAdminSidebarLinks(props) {
   const unit_id = props.unitsId;
 
   useEffect(() => {
-    axios.get(`/unit/unitsdata/${unit_id}`).then(({data})=>{
+    axios.get(`${API}/unit/unitsdata/${unit_id}`).then(({data})=>{
       setUnitsContent(data.data)
     }).catch((err)=>{
      //    console.log("Something Went Wrong:", err)

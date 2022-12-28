@@ -6,20 +6,13 @@ import axios from 'axios';
 import { addcourseFormValidations } from "../../utils/inputValidations"
 import { useFormik } from 'formik';
 import SearchBar from "../components/SearchBar";
+import { API } from '../../config'
 
 function AddServiceContent() {
     useEffect(() => {
         window.scrollTo(0, 0);
     });
     const navigate = useNavigate();
-    // const [imageName, setImageName] = useState('')
-    // const [image, setImage] = useState('')
-    // const handleImage = (event)=>{
-    //     var img = event.target.files[0]
-    //     setImage(img)
-    //     setImageName(img.name)
-    // }
-
 
     const [fileNames, setFileNames] = useState({
         image: '', resource_image: '', resource_file: '',
@@ -44,7 +37,7 @@ function AddServiceContent() {
             // sending post request to upload file
             const formData = new FormData()
             formData.append('myFile', file.image)
-            axios.post('/upload', formData, {
+            axios.post(`${API}/upload`, formData, {
                 headers:{
                     "content-tupe": "multipart/form-data"
                 }
@@ -54,7 +47,7 @@ function AddServiceContent() {
 
             const formData2 = new FormData()
             formData2.append('myFile', file.resource_image)
-            axios.post(`/upload`, formData2, {
+            axios.post(`${API}/upload`, formData2, {
                 headers:{
                     "content-tupe": "multipart/form-data"
                 }
@@ -64,7 +57,7 @@ function AddServiceContent() {
 
             const formData3 = new FormData()
             formData3.append('myFile', file.resource_file)
-            axios.post('/upload', formData3, {
+            axios.post(`${API}/upload`, formData3, {
                 headers:{
                     "content-tupe": "multipart/form-data"
                 }
@@ -74,7 +67,7 @@ function AddServiceContent() {
 
    
             ///////////
-           axios.post('/service/create', serviceInfo)
+           axios.post(`${API}/service/create`, serviceInfo)
                .then(res => {
                })
                .catch(err => {

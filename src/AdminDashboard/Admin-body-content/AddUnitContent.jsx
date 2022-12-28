@@ -6,6 +6,7 @@ import axios from 'axios';
 import { useSelector } from 'react-redux'
 import { moduleaddFormValidations } from "../../utils/inputValidations"
 import { useFormik } from 'formik';
+import { API } from "../../config";
 
 function AddUnitContent() {
     const location = useLocation()
@@ -33,7 +34,7 @@ function AddUnitContent() {
         /// sending post request to upload file
         const formData = new FormData()
         formData.append('myFile', image)
-        axios.post(`/upload`, formData, {
+        axios.post(`${API}/upload`, formData, {
             headers:{
                 "content-tupe": "multipart/form-data"
             }
@@ -44,7 +45,7 @@ function AddUnitContent() {
         })
 
         ///////////
-        axios.post(`/unit/unit`, unitInfo)
+        axios.post(`${API}/unit/unit`, unitInfo)
           .then(res => {
           })
           .catch(err => {

@@ -21,13 +21,13 @@ function TestPageContent(){
     const [units, setUnits] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`/answer/answer/${testUnit_id}`).then(({data})=>{
+        axios.get(`${API}/answer/answer/${testUnit_id}`).then(({data})=>{
             setAnswers(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
         })
 
-        axios.get(`/unit/units/${testUnit_id}`).then(({data})=>{
+        axios.get(`${API}/unit/units/${testUnit_id}`).then(({data})=>{
             setUnits(data.data)
             }).catch((err)=>{
             //    console.log("Something Went Wrong:", err)
@@ -64,7 +64,7 @@ function TestPageContent(){
     const [userServs, setUserServs] = useState([]);
     const handleFetchData = async (e) => {
         const userId = "62f47d3b149cacf97e1a9a70";
-        axios.get(`/serv/getserv/${userId}`).then(({ data }) => {
+        axios.get(`${API}/serv/getserv/${userId}`).then(({ data }) => {
             setUserServs(data.data)
         }).catch((err) => {
             //  console.log("Something Went Wrong:", err)
@@ -113,7 +113,7 @@ function TestPageContent(){
 
     const submitUnit = (unitInfo) => {
         const userId = "62f47d3b149cacf97e1a9a70";
-        axios.put(`/serv/update/${userId}`, unitInfo)
+        axios.put(`${API}/serv/update/${userId}`, unitInfo)
             .then(res => {
             })
             .catch(err => {

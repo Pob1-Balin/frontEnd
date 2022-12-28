@@ -22,7 +22,7 @@ function SubscribeForService(props) {
 
     const [modules, setModules] = useState([]);
     useEffect(() => {
-        axios.get(`/module/servModule/${serviceId}`).then(({data})=>{
+        axios.get(`${API}/module/servModule/${serviceId}`).then(({data})=>{
             setModules(data.data)
           //  console.log(data.data)
         }).catch((err)=>{
@@ -33,7 +33,7 @@ function SubscribeForService(props) {
     //Getting units for each module and asigning it to the units field of the module
      {modules.map((item) => {
         item.module_id = item._id;
-         axios.get(`/unit/unit/${item._id}`).then(({data})=>{
+         axios.get(`${API}/unit/unit/${item._id}`).then(({data})=>{
             data.data.map((item2) => {
                  item2.unit_id = item2._id
                  item2.unit_time_spent = "0"
@@ -73,7 +73,7 @@ function SubscribeForService(props) {
 
         // MOMO API HERE
 
-        axios.put(`/users/${user._id}/update`, userSubscribeInfo)
+        axios.put(`${API}/users/${user._id}/update`, userSubscribeInfo)
             .then(res => {
             })
             .catch(err => {

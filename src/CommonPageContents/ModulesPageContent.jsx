@@ -33,7 +33,7 @@ function ModulesPageContent(props) {
   const [module, setModule] = useState([]);
   useEffect(() => {
       window.scrollTo(0, 0);
-      axios.get(`/module/servModule/${serviceId}`).then(({data})=>{
+      axios.get(`${API}/module/servModule/${serviceId}`).then(({data})=>{
           setModule(data.data)
           setLoading(false)
       }).catch((err)=>{
@@ -55,7 +55,7 @@ function ModulesPageContent(props) {
   var currentUserModules = currentUserService.modules
    
   const submitUserInfo = (userupdate) => {
-    axios.put(`/users/${user._id}/update`, userupdate)
+    axios.put(`${API}/users/${user._id}/update`, userupdate)
       .then(res => {
       })
       .catch(err => {
@@ -79,7 +79,7 @@ function ModulesPageContent(props) {
 
      {modules_not_added.map((item) => {
       item.module_id = item._id;
-      axios.get(`/unit/unit/${item._id}`).then(({data})=>{
+      axios.get(`${API}/unit/unit/${item._id}`).then(({data})=>{
           data.data.map((item2) => {
               item2.unit_id = item2._id
               item2.unit_time_spent = "0"

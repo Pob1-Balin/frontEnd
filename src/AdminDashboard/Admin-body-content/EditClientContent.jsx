@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "../admin.css";
-import {API} from '../../config'
+import { API } from '../../config'
 import Footer from '../components/Footer'
 import {ToastContainer, toast} from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css';
@@ -30,7 +30,7 @@ function EditClientContent(){
     const [updated, setUpdated]=useState(false)
 
     const handleSubmit = ()=>{
-        axios.put(`/users/${location.state.id}/update`,{
+        axios.put(`${API}/users/${location.state.id}/update`,{
             first_name: user.firstName,
             last_name: user.lastName,
             email: user.email,

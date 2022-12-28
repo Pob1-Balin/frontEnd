@@ -3,7 +3,7 @@ import "../admin.css";
 import Footer from '../components/Footer'
 import {useLocation, useNavigate} from 'react-router-dom'
 import axios from "axios";
-import {API} from '../../config'
+import { API } from '../../config'
 
 function EditAdminContent(){
     useEffect(() => {
@@ -27,7 +27,7 @@ function EditAdminContent(){
         })
     }
     const submit = (admin)=>{
-        axios.put(`/users/${id}/update`, admin)
+        axios.put(`${API}/users/${id}/update`, admin)
                 .then(res => {
                     alert("Profile updated successfully")
                     navigate('/adminprofile')

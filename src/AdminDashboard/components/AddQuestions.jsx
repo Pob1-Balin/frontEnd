@@ -25,7 +25,7 @@ class AddQuestions extends React.Component{
     }
 
     submitQuestions(exerciseInfo){
-        axios.post(`/answer/answer`, exerciseInfo)
+        axios.post(`${API}/answer/answer`, exerciseInfo)
             .then(res => {
             // alert("course Added Successfully")
             })

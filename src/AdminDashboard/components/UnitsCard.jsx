@@ -10,7 +10,7 @@ function UnitsCard(props){
   const new_title = '#'+title;
   const deleteService = () => {
     axios
-        .delete(`/unit/unit/${id}`)
+        .delete(`${API}/unit/unit/${id}`)
         .then((res) => {
             if (res.status === 200) {
                 //  alert("Student successfully deleted");
@@ -28,7 +28,7 @@ const moveto = () => {
   return(
     <>
       <div className="card">
-         <img className="card_image" src={`/api/v1/images/${props.image}`} />
+         <img className="card_image" src={`${API}/images/${props.image}`} />
          <div className="card_body">
            <h3 className="card_module">{props.unit_name}</h3>
            <h2 className="card_title">{props.title}</h2>

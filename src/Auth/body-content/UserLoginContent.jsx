@@ -29,7 +29,7 @@ function UserLoginContent(){
                 navigate('/admindashboard')
             }else{
                 const submitUserInfo = (userSubscribeInfo) => {
-                    axios.put(`${API}/users/${user._id}/update`, userSubscribeInfo)
+                    axios.put(`/users/${user._id}/update`, userSubscribeInfo)
                         .then(res => {
                         })
                         .catch(err => {

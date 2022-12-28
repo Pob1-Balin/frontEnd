@@ -5,6 +5,7 @@ import { Link, useNavigate, useLocation } from 'react-router-dom';
 import axios from 'axios';
 import { moduleaddFormValidations } from "../../utils/inputValidations"
 import { useFormik } from 'formik';
+import { API } from '../../config'
 
 function AddModuleContent() {
     const navigate = useNavigate();
@@ -29,7 +30,7 @@ function AddModuleContent() {
         // sending post request to upload file
         const formData = new FormData()
         formData.append('myFile', image)
-        axios.post('/upload', formData, {
+        axios.post(`${API}/upload`, formData, {
             headers:{
                 "content-tupe": "multipart/form-data"
             }
@@ -37,7 +38,7 @@ function AddModuleContent() {
         }).catch(err=>{
         })
         //////////////////////////
-        axios.post('/module/module', moduleInfo)
+        axios.post(`${API}/module/module`, moduleInfo)
             .then(res => {
             })
             .catch(err => {

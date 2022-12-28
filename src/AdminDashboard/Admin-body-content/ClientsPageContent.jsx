@@ -4,6 +4,7 @@ import Footer from '../components/Footer'
 import UserData from '../components/UserData'
 import axios from "axios";
 import Loader from '../../CommonPageContents/Loader'
+import { API } from "../../config";
 function ClientsPageContent (){
     const [loading, setLoading] = useState(true);
     const [ users, setUsers ] = useState([]);
@@ -15,7 +16,7 @@ function ClientsPageContent (){
     useEffect(() => {
         window.scrollTo(0, 0);
         axios
-        .get(`/users`)
+        .get(`${API}/users`)
         .then(({ data }) => {
             setUsers(data.data);
             setLoading(false)

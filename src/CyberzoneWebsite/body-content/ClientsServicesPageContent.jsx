@@ -33,7 +33,7 @@ function ClientsServicesPageContent(props){
     const [services, setServices] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`/service`).then(({ data }) => {
+        axios.get(`${API}/service`).then(({ data }) => {
             setServices(data.data)
             setLoading(false)
         }).catch((err) => {

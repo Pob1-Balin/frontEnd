@@ -15,7 +15,7 @@ function EditStructureOneContent() {
     const [unitsData, setUnitsData] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`/unit/unitsdata/${units_content.id}`).then(({data})=>{
+        axios.get(`${API}/unit/unitsdata/${units_content.id}`).then(({data})=>{
             setUnitsData(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
@@ -52,7 +52,7 @@ function EditStructureOneContent() {
         const formData = new FormData()
         formData.append('myFile', video)
 
-        axios.post(`/uploadVideo`, formData, {
+        axios.post(`${API}/uploadVideo`, formData, {
             headers:{
                 "content-tupe": "multipart/form-data"
             }
@@ -61,7 +61,7 @@ function EditStructureOneContent() {
         })
 
         //////////
-        axios.put(`/unit/unit/${units_content.id}`, unitDataInfo)
+        axios.put(`${API}/unit/unit/${units_content.id}`, unitDataInfo)
             .then(res => {
                 alert(res)
             })

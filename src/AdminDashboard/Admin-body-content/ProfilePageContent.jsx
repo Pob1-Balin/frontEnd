@@ -14,7 +14,7 @@ function ProfilePageContent (){
     
     useEffect(()=>{
         window.scrollTo(0, 0);
-        axios.get(`/users/admin`).then(({data})=>{
+        axios.get(`${API}/users/admin`).then(({data})=>{
             setAdmin(data.data)
             console.log(data.data)
         }).catch((err)=>{

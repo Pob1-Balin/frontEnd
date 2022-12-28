@@ -46,7 +46,7 @@ function ClientService(props) {
             {userServices.map((item) => {
                 return (
                     <div className="services_card" data-aos="zoom-in-down" data-aos-offset="50">
-                        <div style={{margin:"1.3rem"}}><img className="services_card_image" src={`/images/${item.image}`} /></div>
+                        <div style={{margin:"1.3rem"}}><img className="services_card_image" src={`${API}/images/${item.image}`} /></div>
                         <div className="card_body" style={{marginLeft:"1.3rem"}}>
                             <h2 className="card_title services_card_title" style={{marginTop:"-.5rem", fontSize:"1.1rem"}}>{item.name}</h2>
                             <div className="card_info service_card_info">

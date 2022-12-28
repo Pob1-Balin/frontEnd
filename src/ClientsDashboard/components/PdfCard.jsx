@@ -4,7 +4,7 @@ import { API } from '../../config'
 function PdfCard(props){
     const downloadDocument = () => {
          // using Java Script method to get PDF file
-         fetch(`/images/${props.file}`).then(response => {
+         fetch(`${API}/images/${props.file}`).then(response => {
             response.blob().then(blob => {
                 // Creating new object of PDF file
                 const fileURL = window.URL.createObjectURL(blob);
@@ -20,7 +20,7 @@ function PdfCard(props){
     return(
         <>
            <div className="card pdf-card">
-                 <img className="pdf_card_image" src={`/api/v1/images/${props.image}`} />
+                 <img className="pdf_card_image" src={`${API}/images/${props.image}`} />
                  <div className="">
                      <div className="pdf_card_info">
                          <div className="title">

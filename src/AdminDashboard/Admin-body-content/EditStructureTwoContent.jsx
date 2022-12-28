@@ -16,7 +16,7 @@ function EditStructureTwoContent() {
     const [unitsData, setUnitsData] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`/unit/unitsdata/${units_content.id}`).then(({data})=>{
+        axios.get(`${API}/unit/unitsdata/${units_content.id}`).then(({data})=>{
             setUnitsData(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
@@ -102,7 +102,7 @@ function EditStructureTwoContent() {
            /// sending post request to upload file
            const formData = new FormData()
            formData.append('myFile', image)
-           axios.post(`/upload`, formData, {
+           axios.post(`${API}/upload`, formData, {
                headers:{
                    "content-tupe": "multipart/form-data"
                }
@@ -112,7 +112,7 @@ function EditStructureTwoContent() {
 
            const formData1 = new FormData()
            formData1.append('myFile', image1)
-           axios.post(`/upload`, formData1, {
+           axios.post(`${API}/upload`, formData1, {
                headers:{
                    "content-tupe": "multipart/form-data"
                }
@@ -122,7 +122,7 @@ function EditStructureTwoContent() {
 
            const formData2 = new FormData()
            formData2.append('myFile', image2)
-           axios.post(`/upload`, formData2, {
+           axios.post(`${API}/upload`, formData2, {
                headers:{
                    "content-tupe": "multipart/form-data"
                }
@@ -132,7 +132,7 @@ function EditStructureTwoContent() {
 
            const formData3 = new FormData()
            formData3.append('myFile', image3)
-           axios.post(`/upload`, formData3, {
+           axios.post(`${API}/upload`, formData3, {
                headers:{
                    "content-tupe": "multipart/form-data"
                }
@@ -140,7 +140,7 @@ function EditStructureTwoContent() {
            }).catch(err=>{
            })
 
-        axios.put(`/unit/unit/${units_content.id}`, unitDataInfo)
+        axios.put(`${API}/unit/unit/${units_content.id}`, unitDataInfo)
             .then(res => {
                 alert(res)
             })

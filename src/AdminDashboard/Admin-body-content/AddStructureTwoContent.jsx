@@ -5,6 +5,7 @@ import "../admin.css";
 import axios from 'axios'
 import { useNavigate, useLocation } from "react-router-dom";
 import {validateRegistration} from '../../utils/inputValidations'
+import { API } from "../../config";
 
 function AddStructureTwoContent() {
     const navigate = useNavigate();
@@ -16,7 +17,7 @@ function AddStructureTwoContent() {
     const [unitsData, setUnitsData] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0);
-        axios.get(`/unit/unitsdata/${unitID}`).then(({data})=>{
+        axios.get(`${API}/unit/unitsdata/${unitID}`).then(({data})=>{
             setUnitsData(data.data)
         }).catch((err)=>{
          //    console.log("Something Went Wrong:", err)
@@ -67,7 +68,7 @@ function AddStructureTwoContent() {
         /// sending post request to upload file
         const formData = new FormData()
         formData.append('myFile', image)
-        axios.post(`/upload`, formData, {
+        axios.post(`${API}/upload`, formData, {
             headers:{
                 "content-tupe": "multipart/form-data"
             }
@@ -77,7 +78,7 @@ function AddStructureTwoContent() {
 
         const formData1 = new FormData()
         formData1.append('myFile', image1)
-        axios.post(`/upload`, formData1, {
+        axios.post(`${API}/upload`, formData1, {
             headers:{
                 "content-tupe": "multipart/form-data"
             }
@@ -87,7 +88,7 @@ function AddStructureTwoContent() {
 
         const formData2 = new FormData()
         formData2.append('myFile', image2)
-        axios.post(`/upload`, formData2, {
+        axios.post(`${API}/upload`, formData2, {
             headers:{
                 "content-tupe": "multipart/form-data"
             }
@@ -97,7 +98,7 @@ function AddStructureTwoContent() {
 
         const formData3 = new FormData()
         formData3.append('myFile', image3)
-        axios.post(`/upload`, formData3, {
+        axios.post(`${API}/upload`, formData3, {
             headers:{
                 "content-tupe": "multipart/form-data"
             }
@@ -105,7 +106,7 @@ function AddStructureTwoContent() {
         }).catch(err=>{
         })
 
-        axios.put(`/unit/unit/${unitID}`, unitDataInfo)
+        axios.put(`${API}/unit/unit/${unitID}`, unitDataInfo)
             .then(res => {
                 alert(res)
             })

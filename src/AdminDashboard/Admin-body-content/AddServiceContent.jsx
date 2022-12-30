@@ -8,7 +8,12 @@ import { useFormik } from 'formik';
 import SearchBar from "../components/SearchBar";
 import { API } from '../../config'
 
+
 function AddServiceContent() {
+    window.addEventListener("beforeunload", (event) => {
+        localStorage.setItem('redirectaddserv', false);
+    });
+
     useEffect(() => {
         window.scrollTo(0, 0);
     });
@@ -88,7 +93,6 @@ function AddServiceContent() {
             resource_image,
             resource_file,
         });
-        localStorage.setItem('refreshservice', JSON.stringify("true"));
         navigate('/services');
     };
 

@@ -11,11 +11,11 @@ import EmptyPageContent from "./EmptyPageContent";
 import Loader from "./Loader";
 
 function ModulesPageContent(props) {
-  const navigation = useNavigate();
+  const navigate = useNavigate();
   window.addEventListener("beforeunload", (event) => {
     localStorage.setItem('redirectserv', false);
   });
- 
+  const [refresh, setRefresh] = useState(0);
   const [loading, setLoading] = useState(true);
   const location = useLocation()
   var serviceInfo = location.state
@@ -34,7 +34,7 @@ function ModulesPageContent(props) {
       }).catch((err)=>{
         setLoading(false)
       })
-  }, []);
+  }, [refresh]);
 
   var userServices = user.services
   var currentUserService = {};
@@ -114,6 +114,11 @@ function ModulesPageContent(props) {
   var currentUserModules2 = currentUserService2.modules
   const number_of_modules = module.length;
 
+  const moveTo = () => {
+    localStorage.setItem('redirectaddserv', true);
+    navigate("/addmodule", {state:{id:serviceId, numberOfModules:number_of_modules}});
+  }
+
   return (
     <>
       {loading ?
@@ -129,18 +134,18 @@ function ModulesPageContent(props) {
                            <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem"}} to='/services'><span className="home">Accueil</span></Link> <span>/</span> <span style={{fontStyle: 'bold'}}>Modules</span></p>
                       </div>
                     </h4>
-                    <Link className="return-home" style={{textDecoration: 'none'}} to='/addmodule' state={{id:serviceId, numberOfModules:number_of_modules}}>
+                    <a onClick={moveTo} className="return-home" style={{textDecoration: 'none'}}>
                         <div>
                             <button className="add-buttons" style={{width:"11rem"}}>Ajouter un module</button>
                         </div>
-                    </Link>
+                    </a>
                 </div>
                 
                 {module.length == 0 ?
                   <EmptyPageContent text="Oops!!! module pour ce cours n'a pas été ajouté" directives="Cliquez sur le bouton Ajouter des modules ci-dessus pour ajouter un module."/>
                   :
                   <div style={{marginTop:"2rem"}} className="wrapper3">
-                    {module.map((moduleData, index)=><Module2 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} score={moduleData.score} service_id={serviceId}/> )}
+                    {module.map((moduleData, index)=><Module2 key={moduleData._id} id={moduleData._id} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} score={moduleData.score} service_id={serviceId} refresh={refresh} setRefresh={setRefresh}/> )}
                   </div>
                 }
                  <div style={{marginTop:"10rem"}}></div>

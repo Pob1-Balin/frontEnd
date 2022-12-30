@@ -1,9 +1,8 @@
-import React, { useState, useEffect }  from "react";
+import React, { useState, useEffect, useContext }  from "react";
 import "../admin.css";
 import Footer from '../components/Footer'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Services from "../components/services";
-// import { timeSpentTimer } from "../../utils/Timer";
 import axios from "axios";
 import {API} from '../../config'
 import EmptyPageContent from "../../CommonPageContents/EmptyPageContent";
@@ -12,11 +11,8 @@ import SearchBar from "../components/SearchBar";
 
 
 function ServicesContent(){
-    const [refresh, setRefresh] = useState(false);
-    if(JSON.parse(localStorage.getItem("refreshservice")) == "true"){
-        setRefresh(JSON.parse(localStorage.getItem("refreshservice")))
-        localStorage.setItem('refreshservice', false);
-    }
+    const navigate = useNavigate(); 
+    const [refresh, setRefresh] = useState(0);
     const [loading, setLoading] = useState(true);
     const [service, setService] = useState([]);
     useEffect(() => {
@@ -28,8 +24,12 @@ function ServicesContent(){
             setLoading(false)
         })
 
-        console.log("yesssss")
-    }, refresh);
+    }, [refresh]);
+
+    const moveTo = () => {
+        localStorage.setItem('redirectaddserv', true);
+        navigate("/addservice");
+    }
     return(
         <>
             {loading ?
@@ -44,7 +44,7 @@ function ServicesContent(){
                                 <div className="product-status-wrap drp-lst" style={{background:'#f6f8fa'}}>
                                     <div className="add-product">
                                             <h4 style={{color:'gray'}}></h4>
-                                            <Link style={{background:'#4ab2cc'}} to="/addservice">Ajouter des cours</Link>
+                                            <a onClick={moveTo} href="#" style={{background:'#4ab2cc'}}>Ajouter des cours</a>
                                         </div>
                                     <div className="asset-inner">
                                     </div>
@@ -60,7 +60,7 @@ function ServicesContent(){
 
                     <div className="wrapper3 services_wrapper servicess" style={{marginTop:"2.2rem", marginLeft:"0rem"}}>
                     {/* {service.map(serviceData => <NotSubscribedServices key={serviceData._id} id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} number_of_subscribers={serviceData.subscribers} short_description={serviceData.description}/>)} */}
-                        {service.map((serviceData, index) => <Services key={serviceData._id} service_id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} index={index} number_of_subscribers={serviceData.subscribers} image={serviceData.image} display="admin" short_description={serviceData.description}  />)}
+                        {service.map((serviceData, index) => <Services key={serviceData._id} service_id={serviceData._id} service_name={serviceData.name} service_amount={serviceData.amount} index={index} number_of_subscribers={serviceData.subscribers} image={serviceData.image} display="admin" short_description={serviceData.description} refresh={refresh} setRefresh={setRefresh} />)}
                     </div>
                     }
                    <div style={{marginRight:"-1rem"}}><Footer/></div>

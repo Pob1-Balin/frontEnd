@@ -22,10 +22,12 @@ function AdminUserSidebar() {
     const onLogout = () => {
       dispatch(logout())
       dispatch(reset())
-      localStorage.removeItem("refreshservice")
       localStorage.removeItem("redirectserv")
       localStorage.removeItem("servId")
-      localStorage.removeItem("refreshmodules")
+      localStorage.removeItem("redirecteditserv")
+      localStorage.removeItem("redirectaddserv")
+      localStorage.removeItem("redirectmod")
+      localStorage.removeItem("redirectunit")
       
       navigate('/')
     }

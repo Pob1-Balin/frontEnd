@@ -10,6 +10,9 @@ import { moduleaddFormValidations } from "../../utils/inputValidations"
 import { useFormik } from 'formik';
 
 function EditModuleContent() {
+    window.addEventListener("beforeunload", (event) => {
+        localStorage.setItem('redirecteditserv', false);
+    });
     const location = useLocation()
     var modOldInfo = location.state
     const id = modOldInfo.id;

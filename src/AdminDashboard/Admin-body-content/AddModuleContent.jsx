@@ -8,6 +8,9 @@ import { useFormik } from 'formik';
 import { API } from '../../config'
 
 function AddModuleContent() {
+    window.addEventListener("beforeunload", (event) => {
+        localStorage.setItem('redirectaddserv', false);
+    });
     const navigate = useNavigate();
     const location = useLocation()
     var serviceID = location.state

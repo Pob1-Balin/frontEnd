@@ -4,7 +4,7 @@ import Footer from '../../ClientsDashboard/components/Footer'
 import Aos from 'aos';
 import 'aos/dist/aos.css';
 import Questions from "../components/Questions";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLocation } from 'react-router-dom'
 import axios from "axios";
 import NumberOfQuestionsAndTime from "../components/NumberOfQuestionsAndTime";
@@ -14,12 +14,7 @@ import EmptyPageContent from "../../CommonPageContents/EmptyPageContent";
 import { API } from "../../config";
 
 function HomepageContent(props) {
-    if(JSON.parse(localStorage.getItem("refreshanswer")) == "true"){
-        localStorage.removeItem("refreshanswer")
-        localStorage.setItem('refreshanswer', false);
-        window.location.reload();
-    }
-
+    const navigate = useNavigate();
     window.addEventListener("beforeunload", (event) => {
         localStorage.setItem('redirectunit', false);
     });
@@ -28,6 +23,7 @@ function HomepageContent(props) {
     const testUnit_id = TestUnitInfo.id
 
     const [lgShow, setLgShow] = useState(false); 
+    const [refresh, setRefresh] = useState(0);
     const [answers, setAnswers] = useState([]);
     const [unitTime, setUnitTime] = useState([{}]);
     useEffect(() => {
@@ -45,7 +41,7 @@ function HomepageContent(props) {
         })
 
         Aos.init({ duration: 2000 });
-    }, []);
+    }, [refresh]);
 
     const [values, setValues] = useState({
         number_of_question: "",
@@ -83,6 +79,11 @@ function HomepageContent(props) {
     const seconds = Math.floor((unitTime.time % (1000 * 60)) / 1000);
 
 const zion = 20;
+
+  const moveTo = () => {
+    localStorage.setItem('redirectaddserv', true);
+    navigate("/addquestion", {state:{id:testUnit_id, states: TestUnitInfo}});
+  }
 
     return (
         <>
@@ -129,11 +130,11 @@ const zion = 20;
                         <div>
                             <button style={{width: "9rem", background: "#3363ad", outline:"none"}} className="add-buttons add-questions" onClick={() => setLgShow(true)} >Régler le temps</button>
                         </div>
-                        <Link state={{id:testUnit_id, states: TestUnitInfo}} style={{textDecoration: 'none', marginLeft:".3rem"}} to='/addquestion'>
+                        <a onClick={moveTo} href="#" style={{textDecoration: 'none', marginLeft:".3rem"}}>
                             <div>
                                 <button style={{width: "12rem", outline:"none"}} className="add-buttons add-questions">Ajouter des questions</button>
                             </div>
-                        </Link>
+                        </a>
                     </div>
                 </div>
                 <Marquee speed="100" style={{height: "4rem", overflow:"hidden"}}>
@@ -156,7 +157,7 @@ const zion = 20;
                                             <div className="portlet-title">
                                                 <div className="row">
                                                     <div className="col-lg-12 col-md-12 col-sm-12 col-xs-12" style={{paddingTop:"1.5rem"}}>
-                                                        {answers.map((answerData, index) => <Questions key={answerData._id} questionId={answerData._id} id={answerData._id} question={answerData.question} index={index+1} answer={answerData.answer} testUnit_id={testUnit_id} correctAnswer={answerData.correct_answer} states={TestUnitInfo}/>)}
+                                                        {answers.map((answerData, index) => <Questions key={answerData._id} questionId={answerData._id} id={answerData._id} question={answerData.question} index={index+1} answer={answerData.answer} testUnit_id={testUnit_id} correctAnswer={answerData.correct_answer} states={TestUnitInfo} refresh={refresh} setRefresh={setRefresh}/>)}
                                                     </div>
                                                 </div>
                                             </div>

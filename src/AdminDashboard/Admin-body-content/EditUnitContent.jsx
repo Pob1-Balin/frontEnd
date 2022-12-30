@@ -9,6 +9,9 @@ import { moduleaddFormValidations } from "../../utils/inputValidations"
 import { useFormik } from 'formik';
 
 function EditUnitContent(){
+    window.addEventListener("beforeunload", (event) => {
+        localStorage.setItem('redirecteditserv', false);
+    });
     const location = useLocation();
     const { user } = useSelector((state) => state.auth)
     var unitOldInfo = location.state
@@ -67,13 +70,9 @@ function EditUnitContent(){
                 });
             }
 
-        // localStorage.removeItem("refreshunit")
-        // localStorage.setItem('refreshunit', JSON.stringify("true"));
-        // localStorage.setItem('redirectmod', true);
-        // navigate('/units', {state:{id:unitOldInfo.module_id, title:unitOldInfo.module_title, module_name:unitOldInfo.module_name}});
-     
-        const serv_id = JSON.parse(localStorage.getItem("servId"));
-        navigate("/adminmodulepage", {state:{service_id: serv_id }});
+        localStorage.setItem('refreshunit', JSON.stringify("true"));
+        localStorage.setItem('redirectmod', true);
+        navigate('/units', {state:{id:unitOldInfo.module_id, title:unitOldInfo.module_title, module_name:unitOldInfo.module_name}});     
     };
 
 

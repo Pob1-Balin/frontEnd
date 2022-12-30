@@ -11,13 +11,8 @@ import EmptyPageContent from "./EmptyPageContent";
 import Loader from "./Loader";
 
 function UnitsPageContent(props){
+    const [refresh, setRefresh] = useState(0);
     const navigate = useNavigate()
-    // if(JSON.parse(localStorage.getItem("refreshunit")) == "true"){
-    //     localStorage.removeItem("refreshunit")
-    //     localStorage.setItem('refreshunit', JSON.stringify("false"));
-    //     window.location.reload();
-    // }
-
     window.addEventListener("beforeunload", (event) => {
         localStorage.setItem('redirectmod', false);
     });
@@ -45,7 +40,7 @@ function UnitsPageContent(props){
        })
 
     
-    }, []);
+    }, [refresh]);
 
    if(!loading){
       if(head != "admin"){
@@ -142,6 +137,10 @@ function UnitsPageContent(props){
         navigate("/adminmodulepage", {state:{ service_id: serv_id }});
     }
 
+    const moveTo = () => {
+        localStorage.setItem('redirectaddserv', true);
+        navigate("/addunite", {state:{id:module_id, numberOfUnits:number_of_units, title:moduleInfo.title, module_name:moduleInfo.module_name}});
+    }
 
    const number_of_units = units.length;
     return(
@@ -158,17 +157,17 @@ function UnitsPageContent(props){
                                         <p><a onClick={() => moveto()} className="return-home" style={{textDecoration: 'none', marginLeft:"0rem"}} href='#'><span className="home">Accueil</span></a> <span>/</span> <span className="modulee" style={{fontStyle: 'bold', fontWeight: '550' }}>{module_title != "" ?   module_name + " " + ":" + " " + module_title  : "" }</span></p>
                                     </div>
                                 </h4>
-                                <Link className="return-home" state={{id:module_id, numberOfUnits:number_of_units, title:moduleInfo.title, module_name:moduleInfo.module_name}} style={{textDecoration: 'none'}} to='/addunite'>
+                                <a onClick={moveTo} href="#" className="return-home" style={{textDecoration: 'none'}}>
                                     <div>
                                         <button style={{width:"11rem"}} className="add-buttons">Ajouter des unités</button>
                                     </div>
-                                </Link>
+                                </a>
                             </div>
                             {units.length == 0 ?
                                 <EmptyPageContent text="Oops!!! aucune unité n'a encore été ajoutée pour ce module" directives="Cliquez sur le bouton Ajouter des unités ci-dessus pour ajouter une unité."/>
                                 :
                                 <div style={{marginTop:"2rem"}} className="wrapper3">
-                                    {units.map((unitData, index)=><UnitsCard key={unitData._id} id={unitData._id} unit_id={unitData._id} image={unitData.image} title={unitData.title} unit_name={"Unité" + " " + (parseInt(index) + 1)} timePassed={unitData.time_spent} score={unitData.score} module_id={module_id} module_title={moduleInfo.title} module_name={moduleInfo.module_name}/>)}
+                                    {units.map((unitData, index)=><UnitsCard key={unitData._id} id={unitData._id} unit_id={unitData._id} image={unitData.image} title={unitData.title} unit_name={"Unité" + " " + (parseInt(index) + 1)} timePassed={unitData.time_spent} score={unitData.score} module_id={module_id} module_title={moduleInfo.title} module_name={moduleInfo.module_name} refresh={refresh} setRefresh={setRefresh}/>)}
                                 </div>
                             }
                             <div style={{marginTop:"9rem"}}></div>

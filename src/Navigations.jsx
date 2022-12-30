@@ -73,8 +73,7 @@ import LegalnoticePage from './CyberzoneWebsite/pages/LegalnoticePage';
 import Home from './CyberzoneWebsite/pages/Home';
 
 
-
-
+import NotFoundPage2 from './CommonPageContents/NotFoundPage2';
 import NotFoundPage from './CommonPageContents/notFound';
 import SubscribeForService from './ClientsDashboard/pages/SubscribeForService' 
 import PaymentForm from './ClientsDashboard/pages/PaymentForm';
@@ -163,7 +162,7 @@ function Navigation() {
                  <Route path='/mainhomepage' exact element={<SiteHomePage/>}/>
                  <Route path='/myprofile' exact element={<Profilepage/>}/>
                  <Route path='/legal' exact element={<LegalnoticePage/>}/>
-                 <Route path='/*' exact element={<NotFoundPage/>}/>
+                 <Route path='/*' exact element={<NotFoundPage2/>}/>
 
                  <Route path='/subscribe' exact element={<SubscribeForService/>}/>
                  <Route path='/payment' exact element={<PaymentForm/>}/>

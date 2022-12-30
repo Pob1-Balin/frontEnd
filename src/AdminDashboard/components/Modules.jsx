@@ -6,20 +6,18 @@ import { API } from '../../config'
 import '../admin.css'
 import Modal from 'react-bootstrap/Modal';
 
-function Modules(props) {
+function Modules({ id, image, title, module_name, timePassed, score, service_id, refresh, setRefresh }) {
+  const props = {};
+  props.id = id; props.image = image; props.title = title; props.module_name = module_name; props.timePassed = timePassed; props.score = score; props.service_id = service_id;
   const [lgShow, setLgShow] = useState(false); 
   const navigate = useNavigate();
-  const id = props.id;
-  const title = props.title;
-  const new_title = '#'+title;
   const deleteService = () => {
     axios
         .delete(`${API}/module/${id}`)
         .then((res) => {
             if (res.status === 200) {
-                //  alert("Student successfully deleted");
-                //  window.location.reload();
-                //  console.log(`${API}/service/${id}`)
+              setLgShow(false)
+              setRefresh(refresh + 1)
             } else Promise.reject();
         })
         .catch((err) => alert("Something went wrong"));
@@ -29,7 +27,10 @@ const moveto = () => {
   localStorage.setItem('redirectmod', true);
   navigate("/units", {state:{...props}});
 }
-
+const moveEdit = () => {
+  localStorage.setItem('redirecteditserv', true);
+  navigate("/editmodule", {state:{...props}});
+}
   return (
     <>
       <div className="card">
@@ -38,23 +39,23 @@ const moveto = () => {
           <h3 className="card_module">{props.module_name}</h3>
           <h2 className="card_title">{props.title}</h2>
 
-        <Modal size="md" show={lgShow} onHide={() => setLgShow(false)}>
-            <Modal.Header>
-                <h5 className="modal-title" id="exampleModalLabel">Supprimer le module</h5>
-            </Modal.Header>
-            <Modal.Body>
-                <div style={{margin:"-1rem"}} className="modal-body">
-                    <p style={{color: "gray"}}>Êtes-vous sûr de vouloir supprimer définitivement ce module ?</p>
-                </div>
-            </Modal.Body>
-            <Modal.Footer>
-                <div style={{margin:"-1rem"}} className='modal-footer'>
-                    <button type="button" class="btn btn-danger mr-1" onClick={() => setLgShow(false)} >Fermé</button>
-                    <button type="submit" class="btn" style={{backgroundColor: "#3363ad", color:"white"}} onClick={deleteService}>Oui</button>
-                </div>
-                
-            </Modal.Footer>
-        </Modal>
+          <Modal size="md" show={lgShow} onHide={() => setLgShow(false)}>
+              <Modal.Header>
+                  <h5 className="modal-title" id="exampleModalLabel">Supprimer le module</h5>
+              </Modal.Header>
+              <Modal.Body>
+                  <div style={{margin:"-1rem"}} className="modal-body">
+                      <p style={{color: "gray"}}>Êtes-vous sûr de vouloir supprimer définitivement ce module ?</p>
+                  </div>
+              </Modal.Body>
+              <Modal.Footer>
+                  <div style={{margin:"-1rem"}} className='modal-footer'>
+                      <button type="button" class="btn btn-danger mr-1" onClick={() => setLgShow(false)} >Fermé</button>
+                      <button type="submit" class="btn" style={{backgroundColor: "#3363ad", color:"white"}} onClick={deleteService}>Oui</button>
+                  </div>
+                  
+              </Modal.Footer>
+          </Modal>
 
           {/*-- Modal =====*/}
           <div class="modal fade" id="bl" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -78,7 +79,7 @@ const moveto = () => {
           </div>
 
           <div class="product-buttons" style={{ marginTop: '1.3rem'}}>
-            <Link to='/editmodule' style={{ textDecoration: 'none' }} state={props}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Éditer</button></Link>
+            <a onClick={moveEdit} href="#" style={{ textDecoration: 'none' }}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Éditer</button></a>
             <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" style={{outline:"none", border:"none", boxShadow:"none"}} data-target="#bl">Désactiver</button>
             <button type="button" class="button-default cart-btn btn-danger mt-1" data-toggle="modal" style={{outline:"none", border:"none", boxShadow:"none"}} onClick={() => setLgShow(true)} >Effacer</button>
           </div>

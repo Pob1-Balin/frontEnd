@@ -1,18 +1,25 @@
 import React from 'react';
 import AdminDashboardSidebar from '../components/AdminUserSidebar';
-import AdminSelectService from '../components/AdminSelectService';
 import EditQuestionContent from '../Admin-body-content/EditQuestionContent';
+import NotFoundPage from '../../CommonPageContents/notFound';
 
 function EditQuestionPage() {
+  const auth = JSON.parse(localStorage.getItem("redirecteditserv"));
   return (
     <>
-      <AdminDashboardSidebar/>
-      <AdminSelectService/>
-      <main>
-        <EditQuestionContent/>
-      </main>
+      {auth ?
+        <>
+          <AdminDashboardSidebar/>
+          <main>
+            <EditQuestionContent/>
+          </main>
+        </>
+        :
+        <NotFoundPage/>
+      }
     </>
   );
 }
 
 export default EditQuestionPage;
+

@@ -6,6 +6,9 @@ import "../admin.css";
 import { Link } from 'react-router-dom';
 
 function AddQuestionContent() {
+    window.addEventListener("beforeunload", (event) => {
+        localStorage.setItem('redirectaddserv', false);
+    });
     useEffect(() => {
         window.scrollTo(0, 0);
     });
@@ -16,7 +19,7 @@ function AddQuestionContent() {
     return (
         <>
             <main className="px-md-4 wrapper2" style={{marginBottom:"0rem"}}>
-                <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom" style={{marginTop:"8rem"}}>
+                <div className="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom" style={{marginTop:"-1rem"}}>
                     <h4 style={{color: '#0d3360'}}>
                         <div className="returnHome2">
                             <h4><p><Link className="return-home" style={{ textDecoration: 'none', margin:"0rem"}} to='/admintest' state={{id: states.id, moduleId: states.moduleId, moduleName: states.moduleName, moduleTitle: states.moduleTitle}}><span className="home">Accueil</span></Link> <span className="stroke_color">/</span> <span className="testt" style={{fontStyle: 'bold', fontWeight: '550' }}>Questions et Réponses</span></p></h4>

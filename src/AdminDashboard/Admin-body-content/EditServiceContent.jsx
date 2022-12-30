@@ -12,6 +12,9 @@ import SearchBar from "../components/SearchBar";
 function AddServiceContent() {
     const location = useLocation()
     const navigate = useNavigate();
+    window.addEventListener("beforeunload", (event) => {
+        localStorage.setItem('redirecteditserv', false);
+    });
     var servOldInfo = location.state
     const id = servOldInfo.service_id;
     useEffect(() => {

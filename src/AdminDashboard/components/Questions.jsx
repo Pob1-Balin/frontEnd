@@ -1,54 +1,55 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from "axios";
 import { API } from '../../config'
+import Modal from 'react-bootstrap/Modal';
 
-function Questions(props){
-    const id = props.id;
-    const testUnit_id = props.testUnit_id;
+function Questions({ questionId, id, question, index, answer, testUnit_id, correctAnswer, states, refresh, setRefresh }){
+    const props = {}
+    props.questionId = questionId; props.id = id; props.question = question; props.index = index; props.answer = answer; props.testUnit_id = testUnit_id; props.correctAnswer = correctAnswer; props.states = states;
+    const navigate = useNavigate()
     var anwersArray = props.answer;
     var correctAnswerArray = props.correctAnswer;
-    var question = props.question;
-    const states = props.states
-    const delete_id = "del1" + props.index;
-    const new_delete_id = "#" + delete_id;
+    const [lgShow, setLgShow] = useState(false); 
 
     const deleteQuestion = () => {
       axios
           .delete(`${API}/answer/${id}`)
           .then((res) => {
               if (res.status === 200) {
-                  //  alert("Student successfully deleted");
-                   window.location.reload();
-                  //  console.log(`${API}/service/${id}`)
+                setLgShow(false)
+                setRefresh(refresh + 1)
               } else Promise.reject();
           })
           .catch((err) => alert("Something went wrong"));
+    }
+
+    const moveEdit = () => {
+        localStorage.setItem('redirecteditserv', true);
+        navigate("/editquestion", {state:{correctAnswerArray:correctAnswerArray, anwersArray, id:id, question:question, testUnit_id:testUnit_id, states: states}});
     }
 
   return(
     <>
         <div data-aos="fade-left" data-aos-offset="50" className="caption pro-sl-hd">
             {/*-- Modal =====*/}
-            <div class="modal fade" id={delete_id} tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Supprimer la question</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
+            <Modal size="md" show={lgShow} onHide={() => setLgShow(false)}>
+                <Modal.Header>
+                    <h5 className="modal-title" id="exampleModalLabel">Supprimer la question</h5>
+                </Modal.Header>
+                <Modal.Body>
+                    <div style={{margin:"-1rem"}} className="modal-body">
+                        <p style={{color: "gray"}}>Êtes-vous sûr de vouloir supprimer définitivement cette question ?</p>
                     </div>
-                    <div class="modal-body" style={{color:"black"}}>
-                        <p>Êtes-vous sûr de vouloir supprimer définitivement cette question ?</p>
+                </Modal.Body>
+                <Modal.Footer>
+                    <div style={{margin:"-1rem"}} className='modal-footer'>
+                        <button type="button" class="btn btn-danger mr-1" onClick={() => setLgShow(false)} >Fermé</button>
+                        <button type="submit" class="btn" style={{backgroundColor: "#3363ad", color:"white"}} onClick={deleteQuestion}>Oui</button>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger mr-1" data-dismiss="modal">Fermé</button>
-                        <button type="submit" name="" onClick={deleteQuestion} style={{backgroundColor: "#3363ad", color:"white"}} class="btn">Oui</button>
-                    </div>
-                    </div>
-                </div>
-            </div>
+                    
+                </Modal.Footer>
+            </Modal>
             <div className='question-inner-card'>
                 <div style={{color: 'gray', fontStyle: 'bold', fontWeight: '550', display:"flex"}}>
                     <div className="admin-question" style={{marginRight:".5rem"}}>{props.index}.</div>
@@ -70,8 +71,8 @@ function Questions(props){
             <div className='answer-footer-btns'>
                 <div></div>
                 <div style={{display:"flex"}}>
-                     <Link to="/editquestion" state={{correctAnswerArray:correctAnswerArray, anwersArray, id:id, question:question, testUnit_id:testUnit_id, states: states}}><button style={{width:"4.5rem", marginRight:".2rem", outline:"none"}} className="add-buttons question-actions">Éditer</button></Link>
-                     <button style={{width:"5rem", marginRight:"2rem", outline:"none"}} data-toggle="modal" data-target={new_delete_id} className="question-actions add-buttons bg-danger">Effacer</button>
+                     <a onClick={moveEdit} href="#"><button style={{width:"4.5rem", marginRight:".2rem", outline:"none"}} className="add-buttons question-actions">Éditer</button></a>
+                     <button style={{width:"5rem", marginRight:"2rem", outline:"none"}} className="question-actions add-buttons bg-danger" onClick={() => setLgShow(true)}>Effacer</button>
                 </div>
             </div>
             <hr/>

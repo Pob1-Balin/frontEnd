@@ -4,8 +4,17 @@ import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
 import { API } from '../../config'
 
-function Services(props) {
+function Services({ key, service_id, service_name, service_amount, index, image, display, short_description, refresh, setRefresh }) {
     const navigate = useNavigate();
+    const props = {};
+    props.key = key;
+    props.service_id = service_id;
+    props.service_name = service_name;
+    props.service_amount = service_amount;
+    props.index = index;
+    props.image = image;
+    props.display = display;
+    props.short_description = short_description;
     const [lgShow, setLgShow] = useState(false); 
     const [blockShow, setblockShow] = useState(false); 
      const id = props.service_id;
@@ -13,7 +22,8 @@ function Services(props) {
         axios
             .delete(`${API}/service/${id}/remove`)
             .then((res) => {
-                localStorage.setItem('refreshservice', JSON.stringify("true"));
+                setLgShow(false)
+                setRefresh(refresh + 1)
             })
             .catch((err) => {
             });
@@ -23,7 +33,10 @@ function Services(props) {
         localStorage.setItem('redirectserv', true);
         navigate("/adminmodulepage", {state:{props, service_id: props.service_id}});
     }
-
+    const moveEdit = () => {
+        localStorage.setItem('redirecteditserv', true);
+        navigate("/editservice", {state:{...props}});
+    }
     return (
         <>
             <div className="services_card" data-aos="zoom-in-down" data-aos-offset="50">
@@ -73,10 +86,9 @@ function Services(props) {
                             </Modal.Footer>
                         </Modal>
                     </div>
-
                     <div className="product-buttons">
                          <button onClick={() => moveto()} type="button" className="button-default cart-btn mr-1 mt-1 btn-info">Modules</button>
-                         <Link to='/editservice' style={{ textDecoration: 'none' }} state={props}><button type="button" className="button-default cart-btn mr-1 mt-1 btn-success">Éditer</button></Link>
+                         <a onClick={moveEdit} href='#' style={{ textDecoration: 'none' }}><button type="button" className="button-default cart-btn mr-1 mt-1 btn-success">Éditer</button></a>
                          <button type="button" className="button-default cart-btn mr-1 mt-1 block" style={{outline:"none", border:"none", boxShadow:"none"}} onClick={() => setblockShow(true)}>Bloquer</button>
                          <button type="button" style={{outline:"none", border:"none", boxShadow:"none"}} className="button-default cart-btn btn-danger mt-1" onClick={() => setLgShow(true)}>Effacer</button>
                     </div>

@@ -9,6 +9,9 @@ import { useFormik } from 'formik';
 import { API } from "../../config";
 
 function AddUnitContent() {
+    window.addEventListener("beforeunload", (event) => {
+        localStorage.setItem('redirectaddserv', false);
+    });
     const location = useLocation()
     const { user } = useSelector((state) => state.auth)
     const moduleInfo = location.state
@@ -64,13 +67,9 @@ function AddUnitContent() {
             questions_time,
             questions_answered,
         });
-        // localStorage.removeItem("refreshunit")
-        // localStorage.setItem('refreshunit', JSON.stringify("true"));
-        // localStorage.setItem('redirectmod', true);
-        // navigate('/units', {state:{id:module_id, title: moduleInfo.title, module_name: moduleInfo.module_name}});
-
-        const serv_id = JSON.parse(localStorage.getItem("servId"));
-        navigate("/adminmodulepage", {state:{service_id: serv_id }});
+        
+        localStorage.setItem('redirectmod', true);
+        navigate('/units', {state:{id:module_id, title: moduleInfo.title, module_name: moduleInfo.module_name}});
     };
 
 

@@ -2,13 +2,13 @@ import React from 'react'
 import './styey.css'
 import { Link } from 'react-router-dom'
 import {useSelector} from 'react-redux'
-function NotFoundPage(){
+function NotFoundPage2(){
     const {user} = useSelector((state)=>state.auth)
     return(
         <>
             <div id="BodyContent" className="">
                 <div style={{textAlign:"center"}}>
-                    <p className='m404'>500</p>
+                    <p className='m404'>404</p>
                     <p className='err'>Erreur interne !</p>
                     <p className='message'>Vous essayez de retrouver votre chemin ?</p>
                     {user.isAdmin ? 
@@ -28,4 +28,4 @@ function NotFoundPage(){
     )
 }
 
-export default NotFoundPage;
+export default NotFoundPage2;

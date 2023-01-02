@@ -4,15 +4,11 @@ import Footer from '../components/Footer';
 import "../App.css";
 import axios from 'axios';
 import { API } from '../../config'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Loader from '../../CommonPageContents/Loader.jsx'
 
 function ResourceContent (props){
-    if(JSON.parse(localStorage.getItem("refreshresource")) == "true"){
-        localStorage.removeItem("refreshresource")
-        localStorage.setItem('refreshresource', JSON.stringify("false"));
-        window.location.reload();
-    }
+    const navigate = useNavigate();
     const [loading, setLoading] = useState(true);
     const service = JSON.parse(localStorage.getItem("servId"))
     const head = props.display;
@@ -36,6 +32,12 @@ function ResourceContent (props){
         })
 
     }, []);
+
+    const moveTo = () => {
+        localStorage.setItem('redirecteditserv', true);
+        navigate("/editresource", {state:{service_id: service, description: serviceInfo.resource_description}});
+    }
+    
     return(
         <>
             {loading ?
@@ -49,11 +51,11 @@ function ResourceContent (props){
                                     <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem"}} to='/adminmodulepage' state={{service_id: service}}><span className="home">Accueil</span></Link> <span>/</span> <span style={{fontStyle: 'bold'}}>Resource</span></p>
                                 </div>
                             </h4>
-                            <Link className="return-home" style={{textDecoration: 'none'}} to='/editresource' state={{service_id: service, description: serviceInfo.resource_description}}>
+                            <a onClick={moveTo} href="#" className="return-home" style={{textDecoration: 'none'}}>
                                 <div>
                                     <button style={{width:"12rem"}} className="add-buttons">Modifier la ressource</button>
                                 </div>
-                            </Link>
+                            </a>
                         </div>
                     :
                     <>

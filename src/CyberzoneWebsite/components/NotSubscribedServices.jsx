@@ -7,6 +7,8 @@ function NotSubscribedServices(props) {
 
     const servicesData = props.services;
     const userData = props.userData;
+    const subscribed_services = props.subscribed_services;
+    const userModules = props.userModules;
 
     const [noOfElements, setnoOfElements] = useState(4);
     const slice = servicesData.slice(0, noOfElements);
@@ -25,7 +27,7 @@ function NotSubscribedServices(props) {
                         </div>
                     </Link>
                     <div style={{ textAlign: "center", marginTop:"2rem"}}>
-                        <Link to='/subscribe' state={{id:item._id, service_info:{service_id:item._id, modules:item.modules}, amount:item.amount, userData:userData}}><div className="subscribe_service product-buttons mt-1 mb-2 btn">
+                        <Link to='/subscribe' state={{id:item._id, service_info:{service_id:item._id, modules:item.modules}, amount:item.amount, userData:userData, subscribed_services:subscribed_services, userModules:userModules}}><div className="subscribe_service product-buttons mt-1 mb-2 btn">
                             Subscribe Now
                         </div></Link>
                     </div>

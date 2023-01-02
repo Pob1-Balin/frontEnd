@@ -12,6 +12,8 @@ function SubscribeForService(props) {
 
     const stateInfo = location.state;
     const serviceId = stateInfo.id;
+    const subscribed_services = stateInfo.subscribed_services
+    const userModules = stateInfo.userModules
     const subscribeService = stateInfo.service_info;
     const amount = stateInfo.amount;
     const payable = (parseInt((2/100) * amount)) + parseInt(amount);
@@ -24,35 +26,25 @@ function SubscribeForService(props) {
     useEffect(() => {
         axios.get(`${API}/module/servModule/${serviceId}`).then(({data})=>{
             setModules(data.data)
-          //  console.log(data.data)
         }).catch((err)=>{
-          //  console.log("Something Went Wrong:", err)
         })
     }, []);
 
     //Getting units for each module and asigning it to the units field of the module
-     {modules.map((item) => {
+    {modules.map((item) => {        
+        item.service_id = serviceId;
         item.module_id = item._id;
-         axios.get(`${API}/unit/unit/${item._id}`).then(({data})=>{
-            data.data.map((item2) => {
-                 item2.unit_id = item2._id
-                 item2.unit_time_spent = "0"
-                 item2.unit_score = "0"
-                 item2.questions_answered = "0"
-            })
-            item.units = data.data;
-         }).catch((err)=>{
-        })
+        item.time_spent = "0";
+        item.score = "0";
     })}
 
-    subscribeService.modules = modules;
 
     //service to be submitted
-    var another_object = [{}];
-    another_object = user.services;
-
-    var service_to_be_submitted =  [{}];
-    service_to_be_submitted = [...another_object, subscribeService]
+    var service_to_be_submitted =  [];
+    subscribed_services.map((item) => {
+        item.service_id = item._id;
+    })
+    service_to_be_submitted = [...subscribed_services, {service_id:serviceId}]
 
     const [inputs, setInputs] = useState({
         country_code: "",
@@ -61,11 +53,10 @@ function SubscribeForService(props) {
     });
 
     const handleChange = event => {
-        setInputs({
-            ...inputs, [event.target.name]: event.target.value
-        })
+        // setInputs({
+        //     ...inputs, [event.target.name]: event.target.value
+        // })
     }
-
 
     const submitUserInfo = (userSubscribeInfo) => {
         const { country_code, phone_number, amount } = inputs;
@@ -78,27 +69,18 @@ function SubscribeForService(props) {
             })
             .catch(err => {
             })
-
-            const new_services = userSubscribeInfo.services;
-            user.services = new_services;
-            localStorage.setItem('user', JSON.stringify(user));
-            localStorage.removeItem("refresh")
-            localStorage.setItem('refresh', JSON.stringify("true"));
-
             navigate("/home");
     }
-
 
     const handleSubmit = (event) => {
         event.preventDefault();
         document.getElementById("disable_btn").disabled = "true";
-
-        const services = service_to_be_submitted;
-        submitUserInfo({
-            services,
-        });
-
         document.getElementById("clicked").click();
+
+        submitUserInfo({
+            services: service_to_be_submitted,
+            modules: [...userModules, ...modules]
+        });
     }
 
     return (

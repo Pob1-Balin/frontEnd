@@ -10,6 +10,9 @@ import { API } from '../../config'
 import CountDown from "../components/CountDown";
 import { useNavigate } from 'react-router-dom'
 function TestPageContent(){
+    window.addEventListener("beforeunload", (event) => {
+        localStorage.setItem('redirectunit', false);
+    });
     const navigate = useNavigate();
     const location = useLocation()
     var TestUnitInfo = location.state

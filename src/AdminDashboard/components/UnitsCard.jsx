@@ -6,7 +6,7 @@ import Modal from 'react-bootstrap/Modal';
 
 function UnitsCard({ id, unit_id, image, title, unit_name, timePassed, score, module_id, module_title, module_name, refresh, setRefresh }){
   const props = {};
-  props.id = id; props.unit_id = unit_id; props.image = image; props.unit_name = unit_name; props.timePassed = timePassed; props.score = score; props.module_id = module_id; props.module_title = module_title; props.module_name = module_name;
+  props.id = id; props.unit_id = unit_id; props.image = image; props.title = title; props.unit_name = unit_name; props.timePassed = timePassed; props.score = score; props.module_id = module_id; props.module_title = module_title; props.module_name = module_name;
   const navigate = useNavigate();
   const [lgShow, setLgShow] = useState(false); 
   const deleteService = () => {

@@ -16,7 +16,6 @@ function UnitsPageContent(props){
     window.addEventListener("beforeunload", (event) => {
         localStorage.setItem('redirectmod', false);
     });
-
     const [loading, setLoading] = useState(true)
     const head = props.display;
     const location = useLocation();
@@ -27,109 +26,80 @@ function UnitsPageContent(props){
     const serv_id = JSON.parse(localStorage.getItem("servId"));
 
     const { user } = useSelector((state) => state.auth)
-
+    const [users, setUsers] = useState([]);
     const [units, setUnits] = useState([]);
-    const [userServs, setUserServs] = useState([]);
     useEffect(() => {
        window.scrollTo(0, 0);
+
+        if(head !=  'admin'){
+            axios.get(`${API}/users`).then(({ data }) => {
+                setUsers(data.data);
+            })
+            .catch((error) => {
+            });
+        }
+
        axios.get(`${API}/unit/unit/${module_id}`).then(({data})=>{
            setUnits(data.data)
            setLoading(false)
        }).catch((err)=>{
            setLoading(false)
        })
-
     
     }, [refresh]);
 
-   if(!loading){
-      if(head != "admin"){
-        
-        var moduleUnits = moduleInfo.moduleUnits
-        var moduleUnits2 = moduleInfo.moduleUnits
+    var currentUserUnits = [];
+    var userUnits = [];
+    var otherUnits = [];
 
-        units.map((item) => {
-            if(moduleUnits.find(e => e.unit_id === item._id)){
-            }else{
-                delete item.createdAt
-                delete item.updatedAt
-                delete item.__v
-                item.unit_id = item._id
-                item.unit_time_spent = "0"
-                item.unit_score = "0"
-                item.questions_answered = "0"
-                moduleUnits = [...moduleUnits, item]
-            }
-        })
+    if(head != "admin"){
+        const submitUserInfo = (userupdate) => {
+            axios.put(`${API}/users/${user._id}/update`, userupdate).then(res => {
 
-        // ---------------------------------------------------------
-        var moduleScore = 0;
-        var moduleTimeSpent = 0;
-        moduleUnits.map((item) => {
-            moduleScore += parseInt(item.unit_score, 10)
-            moduleTimeSpent += parseInt(item.unit_time_spent)
-        })
-        moduleScore = moduleScore/moduleUnits.length;
-        moduleTimeSpent = Math.floor((moduleTimeSpent % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)) + " heures";    
-        var userServices = user.services;
-        var currentService = []
-        var otherService = []
-        userServices.map((item) => {
-            if(item.service_id === moduleInfo.serviceID){
-            currentService = [...currentService, item]
-            }else{
-                otherService = [...otherService, item]
-            }
-        })
-
-        
-        var currentServiceModules = [];
-        currentService.map((item) => {
-        currentServiceModules = item.modules
-        })
-
-        // ============================================
-        var modulesUnitsUpdate = {};
-        var newcurrentServiceModules = [];
-        modulesUnitsUpdate.units = moduleUnits
-        currentServiceModules.map((item) => {
-            if(item.module_id === module_id){
-                modulesUnitsUpdate.image = item.image
-                modulesUnitsUpdate.module_id = item.module_id
-                modulesUnitsUpdate.score =  moduleScore
-                modulesUnitsUpdate.time_spent = moduleTimeSpent
-                modulesUnitsUpdate.title = item.title
-                modulesUnitsUpdate._id = item._id
-            }else{
-                newcurrentServiceModules = [...newcurrentServiceModules, item]
-            }
-        })
-
-        var finalServiceModules = [...newcurrentServiceModules, modulesUnitsUpdate]
-
-        var newCurrentService = {}
-        currentService.map((item) => {
-            newCurrentService.service_id = item.service_id;
-            newCurrentService.modules = finalServiceModules;
-            newCurrentService._id = item._id
-        })
-
-        var finalServices = [...otherService, newCurrentService]
-
-        const UpdateUserInfo = (userupdate) => {
-            axios.put(`${API}/users/${user._id}/update`, userupdate)
-            .then(res => {
-            })
-            .catch(err => {
-            })
-            moduleUnits2 = moduleUnits;
+              })
+              .catch(err => {
+              })
         }
 
-        const services = finalServices;
-        UpdateUserInfo({
-            services,
-        });
-      }
+        users.map((item) => {
+            if(item._id === user._id){
+                currentUserUnits = [...currentUserUnits, ...item.units]
+            }
+        })
+
+        currentUserUnits.map((item) => {
+            if(item.module_id == module_id){
+              userUnits = [...userUnits, item]
+            }else{
+              otherUnits = [...otherUnits, item]
+            }
+        })
+
+        var update = 0;
+        units.map((item) => {
+            if(userUnits.find(e => e._id === item._id)){
+            }else{
+              update += 1;
+              userUnits = [...userUnits, item];
+            }
+      
+            userUnits.map((item2) => {
+              if(item2._id === item._id){
+                if(item2.title != item.title){
+                  update += 1;
+                  item2.title = item.title;
+                }
+              }
+            })
+      
+        }) 
+       
+        if(update > 0){
+            submitUserInfo({
+                units: [...otherUnits, ...userUnits]
+            });
+        }
+
     }
 
     const moveto = () => {
@@ -187,11 +157,11 @@ function UnitsPageContent(props){
                                     <p><Link className="return-home" style={{textDecoration: 'none', marginLeft:"0rem", paddingLeft:"0rem" }} to='/clientservicedashboard'><span className="home">Accueil /</span></Link> <span style={{color: '#0d3360'}}>Unit</span></p>
                                 </div>
 
-                                {moduleUnits2.length == 0 ?
+                                {userUnits.length == 0 ?
                                     <EmptyPageContent text="Oops!!! aucune unité n'a encore été ajoutée pour ce module" directives="Les unités du module seront bientôt ajoutées"/>
                                     :
                                     <div style={{marginTop:"2rem"}} className="wrapper3">
-                                        {moduleUnits2.map((unitData, index)=><UnitsCard2 key={unitData._id} id={unitData._id} unit_id={unitData._id} image={unitData.image} title={unitData.title} unit_name={"Unité" + " " + (parseInt(index) + 1)} timePassed={unitData.unit_time_spent} serviceID={moduleInfo.serviceID} modulesID={module_id} moduleTitle={moduleInfo.title} moduleName={moduleInfo.module_name} time_to_answer={unitData.time} score={unitData.unit_score}/>)}
+                                        {userUnits.map((unitData, index)=><UnitsCard2 key={unitData._id} id={unitData._id} unit_id={unitData._id} image={unitData.image} title={unitData.title} unit_name={"Unité" + " " + (parseInt(index) + 1)} timePassed={unitData.unit_time_spent} serviceID={moduleInfo.serviceID} modulesID={module_id} moduleTitle={moduleInfo.title} moduleName={moduleInfo.module_name} time_to_answer={unitData.time} score={unitData.unit_score} currentUserUnits={currentUserUnits}/>)}
                                     </div>
                                 }
 

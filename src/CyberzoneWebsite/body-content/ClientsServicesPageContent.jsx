@@ -13,15 +13,10 @@ import { FaFileAlt } from "react-icons/fa";
 import Loader from '../../CommonPageContents/Loader'
 
 function ClientsServicesPageContent(props){
-    if(JSON.parse(localStorage.getItem("refresh")) == "true"){
-        localStorage.removeItem("refresh")
-        localStorage.setItem('refresh', JSON.stringify("false"));
-        window.location.reload();
-    }
-    
     const [loading, setLoading] = useState(true)
+    const [users, setUsers] = useState([]);
     const navigate = useNavigate()
-    const { user, isLoading, isError, isSuccess, message } = useSelector((state) => state.auth)
+    const { user } = useSelector((state) => state.auth)
 
     useEffect(()=>{
     if(!user){
@@ -33,6 +28,13 @@ function ClientsServicesPageContent(props){
     const [services, setServices] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0);
+
+        axios.get(`${API}/users`).then(({ data }) => {
+            setUsers(data.data);
+        })
+        .catch((error) => {
+        }); 
+
         axios.get(`${API}/service`).then(({ data }) => {
             setServices(data.data)
             setLoading(false)
@@ -41,10 +43,16 @@ function ClientsServicesPageContent(props){
         });
     }, []);
 
-    var userServices = [{}];
-    userServices = user.services;
-    var subscribed_services = [{}];
-    var unsubscribed_services = [{}];
+    var userServices = [];
+    var userModules = [];
+    users.map((item) => {
+        if(item._id === user._id){
+            userServices = [...userServices, ...item.services]
+            userModules = [...userModules, ...item.modules]
+        }
+    })
+    var subscribed_services = [];
+    var unsubscribed_services = [];
 
     {services.map((item) => {
         if(userServices.find(e => e.service_id === item._id)){
@@ -53,9 +61,6 @@ function ClientsServicesPageContent(props){
              unsubscribed_services = [...unsubscribed_services, item];
         }
     })}
-
-    subscribed_services.splice(0,1);
-    unsubscribed_services.splice(0,1);
 
     return(
         <>
@@ -91,7 +96,7 @@ function ClientsServicesPageContent(props){
                     </div>
 
                     <div className="wrapper3 services_wrapper" style={{marginTop:"2.5rem"}}>
-                        <NotSubscribedServices userData={user} services={unsubscribed_services}/>
+                        <NotSubscribedServices userData={user} services={unsubscribed_services} subscribed_services={subscribed_services} userModules={userModules}/>
                     </div>
                 </>
                

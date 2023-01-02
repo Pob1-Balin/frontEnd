@@ -12,22 +12,31 @@ import Loader from "./Loader";
 
 function ModulesPageContent(props) {
   const navigate = useNavigate();
-  window.addEventListener("beforeunload", (event) => {
-    localStorage.setItem('redirectserv', false);
-  });
+  // window.addEventListener("beforeunload", (event) => {
+  //   localStorage.setItem('redirectserv', false);
+  // });
   const [refresh, setRefresh] = useState(0);
   const [loading, setLoading] = useState(true);
   const location = useLocation()
   var serviceInfo = location.state
   const serviceId = serviceInfo.service_id;
   const head = props.display;
-
   const { user } = useSelector((state) => state.auth)
 
   //get all service modules ----------------
   const [module, setModule] = useState([]);
+  const [users, setUsers] = useState([]);
   useEffect(() => {
       window.scrollTo(0, 0);
+
+      if(head != 'admin'){
+        axios.get(`${API}/users`).then(({ data }) => {
+            setUsers(data.data);
+        })
+        .catch((error) => {
+        });
+      }
+
       axios.get(`${API}/module/servModule/${serviceId}`).then(({data})=>{
           setModule(data.data)
           setLoading(false)
@@ -35,85 +44,75 @@ function ModulesPageContent(props) {
         setLoading(false)
       })
   }, [refresh]);
+ 
+  var currentUserModules = [];
+  var currentUserUnits = [];
+  var userModules = [];
+  var otherModules = [];
+  var update = 0;
 
-  var userServices = user.services
-  var currentUserService = {};
-  var userOtherServices = [];
-  {userServices.map((item) => {
-    if(serviceId === item.service_id){
-      currentUserService = item;
-    }else{
-      userOtherServices = [...userOtherServices, item]
-    }
-  })}
+  if(!loading){
+    if(head != "admin"){
 
-  var currentUserModules = currentUserService.modules
-   
-  const submitUserInfo = (userupdate) => {
-    axios.put(`${API}/users/${user._id}/update`, userupdate)
-      .then(res => {
+      users.map((item) => {
+        if(item._id === user._id){
+            currentUserModules = [...currentUserModules, ...item.modules]
+            // currentUserUnits = [...currentUserUnits, ...item.units]
+        }
       })
-      .catch(err => {
+  
+      currentUserModules.map((item) => {
+        if(item.service_id == serviceId){
+          userModules = [...userModules, item]
+        }else{
+          otherModules = [...otherModules, item]
+        }
       })
-  }
-
-  //compare them both
-  const upadteModules = () => {
-    if(module.length != currentUserModules.length){
-      var modules_not_added = [];
-  module.map((item) => {
-    if(currentUserModules.find(e => e.module_id === item._id)){
-    }else{
-       delete item.service_id
-       delete item.createdAt
-       delete item.updatedAt
-       delete item.__v
-       modules_not_added = [...modules_not_added, item];
-    }
-      })
-
-     {modules_not_added.map((item) => {
-      item.module_id = item._id;
-      axios.get(`${API}/unit/unit/${item._id}`).then(({data})=>{
-          data.data.map((item2) => {
-              item2.unit_id = item2._id
-              item2.unit_time_spent = "0"
-              item2.unit_score = "0"
-              item2.questions_answered = "0"
+    
+      console.log("currentUserModules:", userModules)
+  
+      module.map((item) => {
+          if(userModules.find(e => e.module_id === item._id)){
+          }else{
+            update += 1;
+            item.service_id = serviceId;
+            item.module_id = item._id;
+            item.time_spent = "0";
+            item.score = "0";
+            userModules = [...userModules, item];
+          }
+    
+          userModules.map((item2) => {
+            if(item2.module_id === item._id){
+              if(item2.title != item.title){
+                update += 1;
+                item2.title = item.title;
+              }
+            }
           })
-          item.units = data.data;
-      }).catch((err)=>{
-      })
+    
+      })  
   
-     })}
-
-     var userCompleteModules = [...currentUserModules, ...modules_not_added]
-
-     serviceInfo.modules = userCompleteModules;
+    const submitUserInfo = (userupdate) => {
+      axios.put(`${API}/users/${user._id}/update`, userupdate)
+        .then(res => {
+        })
+        .catch(err => {
+        })
   
-    //service to be submitted
-    var service_to_be_submitted =  [...userOtherServices, serviceInfo];
-      const services = service_to_be_submitted;
+      }
+  
+      console.log("currentUser:", update)
+  
+    if(update > 0){
       submitUserInfo({
-          services,
+          modules: [...otherModules, ...userModules]
       });
     }
-  }
-
-  var userServices2 = user.services
-  var currentUserService2 = {};
-  var userOtherServices2 = [];
-  {userServices2.map((item) => {
-    if(serviceId === item.service_id){
-      currentUserService2 = item;
-    }else{
-      userOtherServices2 = [...userOtherServices2, item]
     }
-  })}
-
-  var currentUserModules2 = currentUserService2.modules
+  }
+   
   const number_of_modules = module.length;
-
   const moveTo = () => {
     localStorage.setItem('redirectaddserv', true);
     navigate("/addmodule", {state:{id:serviceId, numberOfModules:number_of_modules}});
@@ -161,18 +160,18 @@ function ModulesPageContent(props) {
                 <div className="border-bottom headerTitle">
                   <div style={{display:"flex", justifyContent:"space-between", marginTop:"-5rem", marginBottom:"-1rem"}}>
                     <h1><p>Modules</p></h1>
-                      <button onClick={() => upadteModules()} data-toggle="modal" data-target="#unitUpdated" className="add-buttons" style={{width:"14rem", marginTop:"1.2rem"}}>Mettre à jour les modules</button>
+                      {/* <button onClick={() => upadteModules()} data-toggle="modal" data-target="#unitUpdated" className="add-buttons" style={{width:"14rem", marginTop:"1.2rem"}}>Mettre à jour les modules</button> */}
                   </div>
                 </div>
                 <div className="Home_navigation">
                     <p><span className="home return-home">Accueil /</span> <span style={{color: '#0d3360'}}>Modules</span></p>
                 </div>
 
-                {currentUserModules2.length == 0 ?
+                {userModules.length == 0 ?
                   <EmptyPageContent text="Oops!!! module pour ce cours n'a pas été ajouté" directives="Les modules de ce cours seront bientôt ajoutés"/>
                   :
                   <div style={{marginTop:"2.5rem"}} className="wrapper3">
-                    {currentUserModules2.map((moduleData, index)=><Module1 key={moduleData._id} id={moduleData._id} moduleUnits={moduleData.units} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} serviceID={serviceId} score={moduleData.score} />)}
+                    {userModules.map((moduleData, index)=><Module1 key={moduleData._id} id={moduleData._id} moduleUnits={moduleData.units} image={moduleData.image} title={moduleData.title} module_name={"Module" + " " + (parseInt(index) + 1)} timePassed={moduleData.time_spent} serviceID={serviceId} score={moduleData.score} />)}
                   </div>
                 }
                 <div style={{marginTop:"12rem"}} className="space-creater"></div>

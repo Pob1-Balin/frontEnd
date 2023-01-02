@@ -38,6 +38,7 @@ function ClientService(props) {
     const moveto = (e) => {
         localStorage.removeItem("servId")
         localStorage.setItem("servId", JSON.stringify(e));
+        localStorage.setItem('redirectserv', true);
         navigate("/clientservicedashboard", {state:{service_id: e._id, modules: e.modules}});
     }
 

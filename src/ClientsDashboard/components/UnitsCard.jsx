@@ -1,10 +1,15 @@
 import React from 'react';
 import { FaStar, FaRegClock, FaChevronCircleRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { API } from '../../config'
 
 function UnitsCard(props){
+  const navigate = useNavigate()
+  const moveto = () => {
+    localStorage.setItem('redirectunit', true);
+    navigate("/test", {state:{...props}});
+  }
   return(
     <>
        <div className="card">
@@ -24,8 +29,8 @@ function UnitsCard(props){
                   </div>
                 </div>
                 <div class="product-buttons" style={{marginTop:'1.5rem', marginBottom:"-.5rem"}}>
-                    <Link to='/unitcontent' style={{textDecoration:'none'}} state={{id:props.id, serviceId:props.serviceID, moduleId:props.modulesID}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">To start</button></Link>
-                    <Link to='/test' style={{textDecoration: "none"}} state={props}><button style={{backgroundColor: '#4ab2cc'}} type="button" class="button-default cart-btn mt-1 mr-1">Assess yourself</button></Link>
+                    <Link to='/unitcontent' style={{textDecoration:'none'}} state={{id:props.id, serviceId:props.serviceID, moduleId:props.modulesID, currentUserUnits:props.currentUserUnits}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">To start</button></Link>
+                    <a onClick={moveto} href="#" style={{textDecoration: "none"}}><button style={{backgroundColor: '#4ab2cc'}} type="button" class="button-default cart-btn mt-1 mr-1">Assess yourself</button></a>
                 </div>
            </div>
        </div>

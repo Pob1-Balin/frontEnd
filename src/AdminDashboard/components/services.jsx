@@ -28,6 +28,7 @@ function Services({ key, service_id, service_name, service_amount, index, image,
             .catch((err) => {
             });
     }
+    
     const moveto = () => {
         localStorage.setItem("servId", JSON.stringify(props.service_id));
         localStorage.setItem('redirectserv', true);

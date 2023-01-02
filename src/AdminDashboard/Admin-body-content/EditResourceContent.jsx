@@ -8,6 +8,9 @@ import { useFormik } from 'formik';
 import axios from 'axios';
 
 function EditResourceContent() {
+    window.addEventListener("beforeunload", (event) => {
+        localStorage.setItem('redirecteditserv', false);
+    });
     const location = useLocation();
     const navigate = useNavigate();
     const service = location.state;
@@ -141,9 +144,6 @@ function EditResourceContent() {
                 });
             }
         }
-
-        localStorage.removeItem("refreshresource")
-        localStorage.setItem('refreshresource', JSON.stringify("true"));
         navigate('/adminresource');
     };
 

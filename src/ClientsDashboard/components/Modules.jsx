@@ -1,9 +1,31 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { FaStar, FaRegClock, FaChevronCircleRight } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { API } from '../../config'
+import axios from 'axios';
 
 function Modules(props){
+    const navigate = useNavigate();
+    const module_id = props.id;
+
+    var timeSpent = 0;
+    var moduleScore = 0;
+    var units = [];
+    // props.currentUserUnits.map((item) => {
+    //     if(item.module_id === module_id){
+    //         units = [...units, item]
+    //     }
+    // })
+    // units.map((item) => {
+    //     timeSpent += item.unit_time_spent;
+    //     moduleScore += item.unit_score;
+    // })
+    // moduleScore = (moduleScore / units.length)
+
+    const moveto = () => {
+        localStorage.setItem('redirectmod', true);
+        navigate("/unitsclients", {state:{...props}});
+    }
     return(
         <>
              <div className="card" data-aos="zoom-in-down" data-aos-offset="50" style={{marginBottom:"1rem"}}>
@@ -15,22 +37,20 @@ function Modules(props){
                      <div style={{marginTop: "1rem"}} className="card_info">
                          <div className="time">
                              <FaRegClock size='.9rem' style={{marginTop: ".2rem"}} color='#0b426a'/>
-                             <div><p className='time_passed'>Temps passé: {props.timePassed}</p></div>
+                             <div><p className='time_passed'>Temps passé: {timeSpent}</p></div>
                          </div>
                          <div className='score'>
                              <FaStar style={{paddingTop: ".2rem"}} size='1rem' color='#0b426a'/>
-                             <div className='score1'><p className='rating'>Score: {props.score}%</p></div>
+                             <div className='score1'><p className='rating'>Score: {moduleScore}%</p></div>
                          </div>
                     </div>
 
-                    <Link  to='/unitsclients' state={props} style={{textDecoration: "none"}}>
+                    <a onClick={moveto} style={{textDecoration: "none"}}>
                         <div className='module_units_button' style={{ marginTop: "1rem", marginBottom: '-1.3rem' }}>
                             <FaChevronCircleRight size='1rem' style={{ marginTop: '.5rem', marginLeft:".3rem" }} />
                             <p style={{ paddingLeft: ".2rem", paddingTop: ".25rem", fontSize: '.8rem' }}>Unités</p>
                         </div>
-                    </Link>
-
-                   
+                    </a>
                  </div>
              </div>
         </>

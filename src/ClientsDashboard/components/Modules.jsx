@@ -7,20 +7,26 @@ import axios from 'axios';
 function Modules(props){
     const navigate = useNavigate();
     const module_id = props.id;
-
     var timeSpent = 0;
     var moduleScore = 0;
     var units = [];
-    // props.currentUserUnits.map((item) => {
-    //     if(item.module_id === module_id){
-    //         units = [...units, item]
-    //     }
-    // })
-    // units.map((item) => {
-    //     timeSpent += item.unit_time_spent;
-    //     moduleScore += item.unit_score;
-    // })
-    // moduleScore = (moduleScore / units.length)
+    props.currentUserUnits.map((item) => {
+        if(item.module_id === module_id){
+            units = [...units, item]
+        }
+    });
+
+    units.map((item) => {
+        timeSpent += parseInt(item.unit_time_spent);
+        moduleScore += parseInt(item.unit_score);
+    })
+    if(parseInt(units.length) != 0){
+        moduleScore = moduleScore / parseInt(units.length);
+    }
+
+    const hours = Math.floor((timeSpent % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((timeSpent % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((timeSpent % (1000 * 60)) / 1000);
 
     const moveto = () => {
         localStorage.setItem('redirectmod', true);
@@ -37,7 +43,7 @@ function Modules(props){
                      <div style={{marginTop: "1rem"}} className="card_info">
                          <div className="time">
                              <FaRegClock size='.9rem' style={{marginTop: ".2rem"}} color='#0b426a'/>
-                             <div><p className='time_passed'>Temps passé: {timeSpent}</p></div>
+                             <div><p className='time_passed'>Temps passé: {hours + "h " + minutes + "m " + seconds + "s"}</p></div>
                          </div>
                          <div className='score'>
                              <FaStar style={{paddingTop: ".2rem"}} size='1rem' color='#0b426a'/>

@@ -78,9 +78,9 @@ function HomepageContent(props) {
     const minutes = Math.floor((unitTime.time % (1000 * 60 * 60)) / (1000 * 60));
     const seconds = Math.floor((unitTime.time % (1000 * 60)) / 1000);
 
-const zion = 20;
+    const zion = 20;
 
-  const moveTo = () => {
+    const moveTo = () => {
     localStorage.setItem('redirectaddserv', true);
     navigate("/addquestion", {state:{id:testUnit_id, states: TestUnitInfo}});
   }

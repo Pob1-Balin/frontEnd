@@ -5,7 +5,11 @@ import axios from "axios";
 import { API } from '../../config'
 
 function UnitsCard(props){
-  const navigate = useNavigate()
+  const navigate = useNavigate();
+
+  const hours = Math.floor((props.timePassed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((props.timePassed % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((props.timePassed % (1000 * 60)) / 1000);
   const moveto = () => {
     localStorage.setItem('redirectunit', true);
     navigate("/test", {state:{...props}});
@@ -21,7 +25,7 @@ function UnitsCard(props){
                 <div style={{marginTop: "1rem"}} className="card_info">
                   <div className="time">
                       <FaRegClock size='.9rem' style={{marginTop: ".2rem"}} color='#0b426a'/>
-                      <div><p className='time_passed'>Temps passé: {props.timePassed}</p></div>
+                      <div><p className='time_passed'>Temps passé: {hours + "h " + minutes + "m " + seconds + "s"}</p></div>
                   </div>
                   <div className='score'>
                       <FaStar style={{paddingTop: ".2rem"}} size='1rem' color='#0b426a'/>

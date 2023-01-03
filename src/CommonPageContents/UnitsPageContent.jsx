@@ -80,6 +80,8 @@ function UnitsPageContent(props){
             if(userUnits.find(e => e._id === item._id)){
             }else{
               update += 1;
+              item.unit_time_spent = "0";
+              item.unit_score = "0";
               userUnits = [...userUnits, item];
             }
       

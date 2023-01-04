@@ -30,7 +30,7 @@ function AdminSidebarLinks(props) {
                 <div className="list-group list-group-flush">
                     <header className="bg-dark" style={{minHeight:'28vh', padding:"0rem"}}>
                         <img className='image' style={{minHeight:'28vh', padding:"0rem", margin:"0rem"}} src={Bg}/>
-                         {/* <h2 className="text-left fs-33 text-white text-center letter-spacing-1 mx-auto">hyperconnected digital world</h2> */}
+                         <h2 className="text-left fs-33 text-white text-center letter-spacing-1 mx-auto" style={{marginTop:"-10rem"}}>hyperconnected digital world</h2>
                     </header>
                     <div><button className="add-buttons units-add-page" data-toggle="modal" data-target="#add" style={{width:"100%", backgroundColor:"#cac9ca98", borderRadius:"0rem"}}>Ajouter un chapitre</button></div>
                     <div className="list-group list-group-flush">

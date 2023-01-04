@@ -58,14 +58,14 @@ function AddUnitContent() {
     }
 
         const { module_id, title, questions_time } = values;
-        const questions_answered = 0;
         const image = imageName;
         submitModuleUnit({
             module_id,
             title,
             image,
             questions_time,
-            questions_answered,
+            questions_answered: "0",
+            number_of_question: "0"
         });
         
         localStorage.setItem('redirectmod', true);

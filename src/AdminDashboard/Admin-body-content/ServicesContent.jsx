@@ -26,6 +26,8 @@ function ServicesContent(){
 
     }, [refresh]);
 
+    console.log("service:", service)
+
     const moveTo = () => {
         localStorage.setItem('redirectaddserv', true);
         navigate("/addservice");

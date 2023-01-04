@@ -8,6 +8,8 @@ import { useFormik } from 'formik';
 import { API } from '../../config'
 
 function AddModuleContent() {
+
+    console.log("API:", `${API}/module/module`)
     window.addEventListener("beforeunload", (event) => {
         localStorage.setItem('redirectaddserv', false);
     });

@@ -66,7 +66,7 @@ const moveEdit = () => {
                       <h5 class="modal-title" id="exampleModalLabel">Désactiver l'unité</h5>
                       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
-                      </button>
+                      </button> 
                     </div>
                     <div class="modal-body">
                         <p style={{color:"gray"}}>Êtes-vous sûr de vouloir désactiver cette unité ?</p>

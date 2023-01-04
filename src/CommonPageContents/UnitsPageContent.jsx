@@ -52,6 +52,7 @@ function UnitsPageContent(props){
     var userUnits = [];
     var otherUnits = [];
 
+if(!loading){
     if(head != "admin"){
         const submitUserInfo = (userupdate) => {
             axios.put(`${API}/users/${user._id}/update`, userupdate).then(res => {
@@ -81,6 +82,8 @@ function UnitsPageContent(props){
             }else{
               update += 1;
               item.unit_time_spent = "0";
+              item.number_of_question = "0";
+              item.questions_answered = "0"
               item.unit_score = "0";
               userUnits = [...userUnits, item];
             }
@@ -90,6 +93,14 @@ function UnitsPageContent(props){
                 if(item2.title != item.title){
                   update += 1;
                   item2.title = item.title;
+                }
+                if(item2.image != item.image){
+                    update += 1;
+                    item2.image = item.image;
+                }
+                if(item2.number_of_question != item.number_of_question){
+                    update += 1;
+                    item2.number_of_question = item.number_of_question;
                 }
               }
             })
@@ -104,6 +115,7 @@ function UnitsPageContent(props){
 
     }
 
+}
     const moveto = () => {
         localStorage.setItem('redirectserv', true);
         navigate("/adminmodulepage", {state:{ service_id: serv_id }});
@@ -163,7 +175,7 @@ function UnitsPageContent(props){
                                     <EmptyPageContent text="Oops!!! aucune unité n'a encore été ajoutée pour ce module" directives="Les unités du module seront bientôt ajoutées"/>
                                     :
                                     <div style={{marginTop:"2rem"}} className="wrapper3">
-                                        {userUnits.map((unitData, index)=><UnitsCard2 key={unitData._id} id={unitData._id} unit_id={unitData._id} image={unitData.image} title={unitData.title} unit_name={"Unité" + " " + (parseInt(index) + 1)} timePassed={unitData.unit_time_spent} serviceID={moduleInfo.serviceID} modulesID={module_id} moduleTitle={moduleInfo.title} moduleName={moduleInfo.module_name} time_to_answer={unitData.time} score={unitData.unit_score} currentUserUnits={currentUserUnits}/>)}
+                                        {userUnits.map((unitData, index)=><UnitsCard2 key={unitData._id} id={unitData._id} unit_id={unitData._id} image={unitData.image} title={unitData.title} unit_name={"Unité" + " " + (parseInt(index) + 1)} timePassed={unitData.unit_time_spent} serviceID={moduleInfo.serviceID} modulesID={module_id} moduleTitle={moduleInfo.title} moduleName={moduleInfo.module_name} time_to_answer={unitData.time} number_of_question={unitData.number_of_question} questions_answered={unitData.questions_answered} currentUserUnits={currentUserUnits} />)}
                                     </div>
                                 }
 

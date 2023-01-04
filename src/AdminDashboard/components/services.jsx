@@ -25,7 +25,7 @@ function Services({ key, service_id, service_name, service_amount, index, image,
                 setLgShow(false)
                 setRefresh(refresh + 1)
             })
-            .catch((err) => {
+            .catch((err) => { 
             });
     }
     
@@ -42,7 +42,7 @@ function Services({ key, service_id, service_name, service_amount, index, image,
         <>
             <div className="services_card" data-aos="zoom-in-down" data-aos-offset="50">
                 <div style={{margin:"1.3rem"}}><img className="services_card_image" src={`${API}/images/${props.image}`} /></div>
-                <div className="card_body" style={{marginLeft:"1.3rem"}}>
+                <div className="card_body" style={{marginLeft:"1.3rem"}}> 
                     <h2 className="card_title services_card_title" style={{marginTop:"-.5rem", fontSize:"1.1rem"}}>{props.service_name}</h2>
    
                     <div style={{marginLeft:"-.2rem"}}>

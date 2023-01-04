@@ -12,9 +12,9 @@ import Loader from "./Loader";
 
 function ModulesPageContent(props) {
   const navigate = useNavigate();
-  // window.addEventListener("beforeunload", (event) => {
-  //   localStorage.setItem('redirectserv', false);
-  // });
+  window.addEventListener("beforeunload", (event) => {
+    localStorage.setItem('redirectserv', false);
+  });
   const [refresh, setRefresh] = useState(0);
   const [loading, setLoading] = useState(true);
   const location = useLocation()
@@ -85,6 +85,10 @@ function ModulesPageContent(props) {
               if(item2.title != item.title){
                 update += 1;
                 item2.title = item.title;
+              }
+              if(item2.image != item.image){
+                update += 1;
+                item2.image = item.image;
               }
             }
           })

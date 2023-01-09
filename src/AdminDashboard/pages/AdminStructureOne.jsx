@@ -14,7 +14,7 @@ function AdminStructureOne(){
             <div className="">
                 <AdminSidebarLinks/>
                 <AddModel unitsId={unitId.id}/>
-                <div id="BodyContent" style={{marginLeft:'18rem'}}>
+                <div id="BodyContent" style={{marginLeft:'18rem', paddingTop:"0rem"}}>
                     <div>
                          <ToggleButton />
                     </div>

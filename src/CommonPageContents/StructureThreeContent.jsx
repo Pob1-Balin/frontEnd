@@ -3,16 +3,16 @@ import { useLocation } from "react-router-dom";
 import HeaderSection from '../unitsDashboard/components/HeaderSection'
 import AdminHeaderSection from '../AdminDashboard/components/AdminHeaderSection'
 import FooterSection from '../unitsDashboard/components/FooterSection'
-import '../ClientsDashboard/App.css'
+import SecondUnitFooter from "../unitsDashboard/components/SecondUnitFooter";
 import axios from 'axios'
 import { API } from "../config"
-
+import Bg from './bg.png'
+import Bg2 from './dots.jpg'
+import ThirdFooter from "../unitsDashboard/components/ThirdFooter";
 function StructureThreeContent(props){
     var head = props.show;
     const location = useLocation();
     const unitContent = location.state;
-
-
     const [unitsData, setUnitsData] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0);
@@ -147,24 +147,46 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <div className="Unit-Dashboard-wrapper">
                 {head == "admin" ?
-                    <AdminHeaderSection edit="editstructurethree" prev="/cyberspace" destination="Leçon 2 - Cyberspace" id={unitContent.id} content={unitContent.content} index={unitContent.index} header_title={unitContent.content.page_title}/>
+                    <AdminHeaderSection edit="editstructurethree" prev="/cyberspace" destination="Leçon 2 - Cyberspace" index={unitContent.index} id={unitContent.id} content={unitContent.content} header_title={unitContent.content.page_title}/>
                     :
                     <HeaderSection prev="/cyberspace" destination="Leçon 2 - Cyberspace" header_title={unitContent.content.page_title}/>
                 }
                 </div>
-                <div className="bg-black" style={{height:'3px', marginTop:'-2.3%', marginLeft:'-2%'}}></div>
-                <div className="text-container">
-                    <div className="text-header">
+                <div className="" style={{marginTop:"-1.5rem", background:"white"}}>
+                    <div className="heading-image">
+                        <div className="heading-image-text"><p>yiuioiop danca jdcd</p></div>
+                        <div className="image-div"><img src={Bg}/></div>
+                    </div>
+
+                    <div className="heading-text">
+                        <p>wmdawds adjaiosd wijdi</p>
+                    </div>
+
+                    <div className="text-after-heading-image">
+                        <p>fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd </p>
+                        <p>fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd </p>
+                        <p>fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd </p>
+                        <p>fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd </p>
+                    </div>
+
+
+                    <div className="text-after-heading-image structure-images" style={{paddingBottom:"3rem"}}>
+                        <img src={Bg2} className="img-fluid" alt="screen capture codes"/>
+                    </div>
+
+                    {/* <div className="text-header">
                          <h4 className="fw-bold fs-5"><p>{unitContent.content.text_heading}</p></h4>
                     </div>
                     <div className="text-body">
                          <p>{unitContent.content.section_text}</p>
-                    </div>
+                    </div> */}
                 </div>
                 <div style={{marginTop:"2rem"}}></div>
-                <div className="units-dashboard-footer-wrapper">
+                {/* <SecondUnitFooter direction="fkladn andka ajndakj dksa"/> */}
+                <ThirdFooter destination="fkladn andka ajndakj dksa" />
+                {/* <div className="units-dashboard-footer-wrapper">
                      <FooterSection footer_text="Units content" />
-                 </div>
+                 </div> */}
             </div>
         </>
     )

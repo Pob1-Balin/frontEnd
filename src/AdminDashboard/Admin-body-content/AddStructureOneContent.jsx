@@ -27,6 +27,17 @@ function AddStructureOneContent() {
         // Aos.init({ duration: 2000 });
       }, []);
 
+      var unit_content = [];
+      const error = {};
+      error.error = "Erreur: "
+      var unitContent = {}
+      unitsData.map((item)=>{
+          unit_content = item.unit_content;
+          unitContent.title = item.title;
+          unitContent.image = item.image;
+          unitContent.id = item._id;
+      })  
+
     const [inputs, setInputs] = useState({});
     const [formErrors, setFormErrors] = useState({});
     const handleChange = event => {
@@ -81,14 +92,14 @@ function AddStructureOneContent() {
         submitUnitData({
              unit_content,
         });
-        navigate('/adminunitcontent', {state: {id:unitID}});
+        navigate('/adminunitcontent', {state: {id:unitID, title: unitContent.title, content:unit_content, image:unitContent.image}});
     }
 
 
     return (
         <>
             <main className="px-md-4" >
-                <Header header_title="Add structure One" />
+                <Header unit_content={unit_content} id={unitContent.id} title={unitContent.title} image={unitContent.image} header_title="Add structure One" />
                 <div class="edit-structures single-pro-review-area mt-t-30 mg-b-15 add-clients-page editService">
                     <div class="container-fluid">
                         <div class="row">

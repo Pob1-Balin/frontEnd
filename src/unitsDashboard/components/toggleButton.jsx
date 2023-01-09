@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import NotesIcon from '@mui/icons-material/Notes';
 import { height } from '@mui/system';
 import './togBut.css'
@@ -11,8 +11,31 @@ function ToggleButton() {
     document.getElementById("mySidebar").style.width = "18rem";
     document.getElementById("BodyContent").style.marginLeft = "18rem";
     setOpenbtn("close");
-    setClosebtn("open");
+    setClosebtn("open");   
   }
+
+  // const handleClick = (event) => {
+  //   document.getElementById("closebtn").click();
+  // }
+  
+  // const handleClick2 = (event) => {
+  //   document.getElementById("closebtn2").click();
+  // }
+  
+  // useEffect(() => {
+  //   if (window.innerWidth <= 1000) { 
+  //     handleClick()
+  //   }   
+  // });
+  // window.addEventListener('resize',(event) => {
+  //   if (window.innerWidth <= 1000) { 
+  //     handleClick()
+  //   }   
+  //   if (window.innerWidth > 1000) { 
+  //     handleClick2()
+  //   }   
+  // });
+
   var closeNav = function closeNav() {
     document.getElementById("mySidebar").style.width = "0";
     document.getElementById("BodyContent").style.marginLeft= "0";
@@ -23,8 +46,8 @@ function ToggleButton() {
       <>
         <nav className={`style navbar navbar-expand-lg navbar-light mb-2 position-absolute TogBut ${openbtn == "close" ? "style1" : ""}`} style={style}>
             <div className="container-fluid">
-                 <button onClick={openNav} className={`openbtn ${openbtn == "close" ? "close" : ""}`}><NotesIcon/></button>
-                 <button onClick={closeNav} className={`closebtn ${closebtn == "close" ? "close" : ""}`}><NotesIcon/></button>
+                 <button id="closebtn2" onClick={openNav} className={`openbtn ${openbtn == "close" ? "close" : ""}`}><NotesIcon/></button>
+                 <button id="closebtn" onClick={closeNav} className={`closebtn ${closebtn == "close" ? "close" : ""}`}><NotesIcon/></button>
             </div>
         </nav>
       </>

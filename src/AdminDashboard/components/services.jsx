@@ -3,7 +3,6 @@ import { Link, useNavigate } from "react-router-dom";
 import Modal from 'react-bootstrap/Modal';
 import axios from "axios";
 import { API } from '../../config'
-
 function Services({ key, service_id, service_name, service_amount, index, image, display, short_description, refresh, setRefresh }) {
     const navigate = useNavigate();
     const props = {};

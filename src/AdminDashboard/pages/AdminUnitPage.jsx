@@ -11,14 +11,14 @@ function AdminUnitPage(){
     return(
         <>
             <div className="">
-                <AdminSidebarLinks/>
+                {/* <AdminSidebarLinks/> */}
                 <AddModel unitsId={unitId.id}/>
-                <div id="BodyContent" style={{marginLeft:'18rem'}}>
-                    <div>
-                         <ToggleButton />
-                    </div>
+                <div id="BodyContent" style={{paddingTop:"0rem", marginTop:"0rem"}}>
+                    {/* <div>
+                        <ToggleButton />
+                    </div> */}
                     <div className="container-fluid px-0">
-                         <UnitHomeContent show="admin" />
+                         <UnitHomeContent unitsId={unitId.id} show="admin" />
                     </div>
                 </div>
             </div>

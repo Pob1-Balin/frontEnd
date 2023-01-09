@@ -13,9 +13,9 @@ import Loader from "./Loader";
 function UnitsPageContent(props){
     const [refresh, setRefresh] = useState(0);
     const navigate = useNavigate()
-    window.addEventListener("beforeunload", (event) => {
-        localStorage.setItem('redirectmod', false);
-    });
+    // window.addEventListener("beforeunload", (event) => {
+    //     localStorage.setItem('redirectmod', false);
+    // });
     const [loading, setLoading] = useState(true)
     const head = props.display;
     const location = useLocation();
@@ -151,7 +151,7 @@ if(!loading){
                                 <EmptyPageContent text="Oops!!! aucune unité n'a encore été ajoutée pour ce module" directives="Cliquez sur le bouton Ajouter des unités ci-dessus pour ajouter une unité."/>
                                 :
                                 <div style={{marginTop:"2rem"}} className="wrapper3">
-                                    {units.map((unitData, index)=><UnitsCard key={unitData._id} id={unitData._id} unit_id={unitData._id} image={unitData.image} title={unitData.title} unit_name={"Unité" + " " + (parseInt(index) + 1)} timePassed={unitData.time_spent} score={unitData.score} module_id={module_id} module_title={moduleInfo.title} module_name={moduleInfo.module_name} refresh={refresh} setRefresh={setRefresh}/>)}
+                                    {units.map((unitData, index)=><UnitsCard key={unitData._id} id={unitData._id} unit_id={unitData._id} image={unitData.image} title={unitData.title} unit_name={"Unité" + " " + (parseInt(index) + 1)} timePassed={unitData.time_spent} score={unitData.score} module_id={module_id} module_title={moduleInfo.title} module_name={moduleInfo.module_name} unit_content={unitData.unit_content} refresh={refresh} setRefresh={setRefresh}/>)}
                                 </div>
                             }
                             <div style={{marginTop:"9rem"}}></div>
@@ -175,7 +175,7 @@ if(!loading){
                                     <EmptyPageContent text="Oops!!! aucune unité n'a encore été ajoutée pour ce module" directives="Les unités du module seront bientôt ajoutées"/>
                                     :
                                     <div style={{marginTop:"2rem"}} className="wrapper3">
-                                        {userUnits.map((unitData, index)=><UnitsCard2 key={unitData._id} id={unitData._id} unit_id={unitData._id} image={unitData.image} title={unitData.title} unit_name={"Unité" + " " + (parseInt(index) + 1)} timePassed={unitData.unit_time_spent} serviceID={moduleInfo.serviceID} modulesID={module_id} moduleTitle={moduleInfo.title} moduleName={moduleInfo.module_name} time_to_answer={unitData.time} number_of_question={unitData.number_of_question} questions_answered={unitData.questions_answered} currentUserUnits={currentUserUnits} />)}
+                                        {userUnits.map((unitData, index)=><UnitsCard2 key={unitData._id} id={unitData._id} unit_id={unitData._id} image={unitData.image} title={unitData.title} unit_name={"Unité" + " " + (parseInt(index) + 1)} timePassed={unitData.unit_time_spent} serviceID={moduleInfo.serviceID} modulesID={module_id} moduleTitle={moduleInfo.title} moduleName={moduleInfo.module_name} time_to_answer={unitData.time} number_of_question={unitData.number_of_question} questions_answered={unitData.questions_answered} unit_content={unitData.unit_content} currentUserUnits={currentUserUnits} />)}
                                     </div>
                                 }
 

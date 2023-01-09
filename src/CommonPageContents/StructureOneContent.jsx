@@ -149,7 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <div className="Unit-Dashboard-wrapper">
                 {head == "admin" ?
-                    <AdminHeaderSection prev='#' edit="editstructureone" destination="Accueil" id={unitContent.id} content={unitContent.content} index={unitContent.index} header_title={unitContent.content.page_title}/>
+                    <AdminHeaderSection prev="/cyberspace" destination="Accueil" id={unitContent.id} content={unitContent.content} index={unitContent.index} header_title={unitContent.content.page_title}/>
                     :
                     <HeaderSection prev='#' destination="Accueil" header_title={unitContent.content.page_title} />
                 }

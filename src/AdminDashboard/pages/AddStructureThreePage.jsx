@@ -11,7 +11,7 @@ function AddStructureThreePage() {
   const unitId = location.state;
   return (
     <div className="">
-        <EditAdminSidebarLinks unitsId={unitId.id}/>
+        <AdminSidebarLinks unitsId={unitId.id}/>
         <AddModel unitsId={unitId.id}/>
         <div id="BodyContent" style={{marginLeft:'18rem'}}>
             <div>

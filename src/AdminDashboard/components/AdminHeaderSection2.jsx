@@ -1,16 +1,16 @@
 import React from 'react';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { Link } from "react-router-dom";
-
+import './styey.css'
 function AdminHeaderSection2(props){
     var body = props.show;
     return(
         <>
              <div className='Unit-header-card mt-2'>
-                 <div className='header-link'>
-                     <Link to={props.prev}>
-                         {/* <KeyboardArrowUpIcon style={{marginTop: '-1.8rem'}} />
-                         <p style={{marginTop: '-1.1rem'}}><b>{props.destination}</b></p> */}
+                 <div className='header-link' style={{background:"transparent"}}>
+                     <Link className='header-link-link' to={props.prev} style={{textDecoration:"none"}}>
+                         <KeyboardArrowUpIcon style={{marginTop: '-1.8rem'}} />
+                         <p style={{marginTop: '-1.1rem'}}><b>{props.destination}</b></p>
                      </Link>
                  </div>
 

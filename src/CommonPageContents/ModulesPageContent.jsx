@@ -12,9 +12,9 @@ import Loader from "./Loader";
 
 function ModulesPageContent(props) {
   const navigate = useNavigate();
-  window.addEventListener("beforeunload", (event) => {
-    localStorage.setItem('redirectserv', false);
-  });
+  // window.addEventListener("beforeunload", (event) => {
+  //   localStorage.setItem('redirectserv', false);
+  // });
   const [refresh, setRefresh] = useState(0);
   const [loading, setLoading] = useState(true);
   const location = useLocation()

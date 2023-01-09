@@ -10,7 +10,7 @@ function AdminStructureTwo(){
             <div className="">
                 <AdminSidebarLinks/>
                 <AddModel/>
-                <div id="BodyContent" style={{marginLeft:'18rem'}}>
+                <div id="BodyContent" style={{marginLeft:'18rem', paddingTop:"0rem"}}>
                     <ToggleButton/>
                     <div className="container-fluid">
                         <StructureTwoContent show="admin"/>

@@ -4,7 +4,7 @@ import axios from "axios";
 import { API } from '../../config'
 import Modal from 'react-bootstrap/Modal';
 
-function UnitsCard({ id, unit_id, image, title, unit_name, timePassed, score, module_id, module_title, module_name, refresh, setRefresh }){
+function UnitsCard({ id, unit_id, image, title, unit_name, timePassed, score, module_id, module_title, module_name, refresh, setRefresh, unit_content }){
   const props = {};
   props.id = id; props.unit_id = unit_id; props.image = image; props.title = title; props.unit_name = unit_name; props.timePassed = timePassed; props.score = score; props.module_id = module_id; props.module_title = module_title; props.module_name = module_name;
   const navigate = useNavigate();
@@ -83,7 +83,7 @@ const moveEdit = () => {
              </div>
 
             <div class="product-buttons" style={{marginTop:'1.5rem', marginBottom:"-.5rem"}}>
-               <Link to='/adminunitcontent' style={{textDecoration:'none'}} state={{id: id}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">Commencer</button></Link>
+               <Link to='/adminunitcontent' style={{textDecoration:'none'}} state={{id: id, title: props.title, content:unit_content, image:props.image}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">Commencer</button></Link>
                <a href='#' onClick={moveEdit} style={{textDecoration:'none'}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Éditer</button></a>
                <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl" style={{outline:"none", border:"none", boxShadow:"none"}}>Désactiver</button>
                <button type="button" class="button-default cart-btn btn-danger mt-1 mr-1" style={{outline:"none", border:"none", boxShadow:"none"}} onClick={() => setLgShow(true)} >Effacer</button>

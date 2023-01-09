@@ -85,13 +85,311 @@ margin-left: -.5rem;
     font-size: .8rem;
     font-family: MetropolisSemiBold;
     line-height: 1rem;
+    color: white;
   }
 
+  .side_bar .unit-nave:hover{
+    color: #08143c;
+    background: #D4D4D4;;
+  }
+  
 .side_bar{
-  background-color: red;
+  background-color: #08143c;
 }
 
 .sidebar-header image{
   width: cover;
   object-fit: cover;
+}
+
+.units-add-page{
+  font-family: MetropolisBold;
+  font-size: .9rem;
+  height: 3rem;
+}
+
+header > h2{
+  font-family: MetropolisBold;
+  line-height: 2rem;
+  font-size: 1.2rem;
+  padding: 0rem 1rem;
+
+}
+.header-link-link, .header-link{
+  font-family: MetropolisSemiBold;
+  font-size: .8rem;
+  color: #4ab2cc;
+}
+.header-link:hover{
+  cursor: pointer;
+}
+
+.navActiv{
+  background: #030d2e;
+}
+
+.header-title{
+  font-family: MetropolisBold;
+  line-height: 2.2rem;
+  padding-right: 6rem;
+  font-size: 2rem;
+  color: black;
+}
+
+.add-buttons{
+  font-family: MetropolisSemiBold;
+  font-size: 1rem;
+}
+
+.divider-line{
+  margin-top: 1.5rem;
+}
+
+.complete{
+  font-family: MetropolisExtraLight;
+  font-size: .7rem;
+}
+
+.complete-container{
+  margin: 1rem;
+  margin-bottom: 0rem;
+  margin-top: 2.5rem;
+}
+
+/* ---------------- styling structure 3 components ----------------- */
+.heading-image{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 25rem;
+}
+
+.image-div{
+  display: flex;
+  align-items: center;
+  width: 30rem;
+  height: 30rem;
+}
+
+.image-div > img{
+ width: cover;
+ object-fit: cover;
+}
+
+.heading-image-text{
+  font-family: MetropolisBold;
+  font-size: 1.8rem;
+  background-image: linear-gradient(to bottom right, rgb(35, 175, 203) 95%, rgb(14, 20, 47) 5%);
+  background-clip: text;
+  line-height: 2.3rem;
+  padding-right: 20rem;
+}
+
+.text-after-heading-image{
+  padding: 0rem 10rem;
+  padding-bottom: 1.8rem;
+  font-family: MetropolisExtraLight;
+  font-size: 1.1rem;
+}
+.text-after-heading-image > p{
+  background-image: linear-gradient(to bottom right, rgb(35, 175, 203) 95%, rgb(14, 20, 47) 5%);
+  background-clip: text;
+  line-height: 2rem;
+}
+
+.heading-text > p{
+    padding-top: 2.5rem;
+    padding-left: 5rem;
+    padding-bottom: 1rem;
+    font-family: MetropolisBold;
+    font-size: 2rem;
+    line-height: 2.3rem;
+}
+
+.unit-home-image{
+  text-align: center;
+  color: white;
+}
+.unit-home-image > img{
+  width: cover;
+  object-fit: cover;
+}
+.unit-home-image, .unit-home-image > img{
+  height: 30rem;
+  width: 100%;
+}
+.unit-home-image > div{
+  margin-top: -20rem;
+}
+
+.unit-home-image > div > div > button{
+  color: black;
+  font-size: .9rem;
+  font-family: MetropolisSemiBold;
+  background-color: white;
+  border: none;
+  padding: .5rem 1.8rem;
+  border-radius: 2rem;
+  outline: none;
+  margin-right: 1rem;
+}
+.unit-home-image > div > div{
+  display: flex;
+  justify-content: center;
+  padding-top: 1.3rem;
+  font-family: MetropolisSemiBold;
+  font-weight: 600;
+}
+.unit-home-image > div > div:hover{
+  cursor: pointer;
+}
+
+.unit-home-image > div > div > div{
+  font-size: .9rem;
+}
+
+.unit-home-image > div > p{
+  font-size: 2.5rem;
+  line-height: 3rem;
+}
+
+.home-page-links-container{
+  padding-bottom: 10rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+.home-page-links{
+  max-width: 50rem;
+  margin: 0rem auto;
+  margin-top: -2.5rem;
+}
+
+.home-page-links .unit-nave{
+  font-family: MetropolisSemiBold;
+  color: black;
+  font: 2rem;
+  font-weight: 600;
+}
+
+.home-page-links .unit-nave:hover{
+  background-color: #D4D4D4;
+}
+
+.not-content{
+  font-size: 1.5rem;
+  font-family: MetropolisSemiBold;
+  line-height: 1.8rem;
+}
+
+.add-structure-headings{
+  font-size: 1rem;
+  background-image: linear-gradient(to bottom right, rgb(35, 175, 203) 5%, rgb(14, 20, 47) 95%);
+  background-clip: text;
+  color: transparent;
+  font-family: MetropolisSemiBold;
+  font-weight: bolder;
+  margin-bottom: -.3rem;
+}
+
+.add-structure-headings .main-heading{
+  text-align: center;
+  font-size: 1.5rem;
+  background-image: linear-gradient(to bottom right, rgb(35, 175, 203) 5%, rgb(14, 20, 47) 95%);
+  background-clip: text;
+  color: transparent;
+  font-family: MetropolisBold;
+  font-weight: bolder;
+  padding-top: 1.1rem;
+  padding-bottom: 1.8rem;
+  margin-bottom: 0rem;
+}
+
+.error{
+  font-family: MetropolisExtraLight;
+  font-weight: 200;
+  font-size: 1rem;
+}
+
+@media screen and (max-width: 1500px) {
+  .heading-image-text{
+    padding-right: 3rem;
+  }
+  .text-after-heading-image{
+    padding: 0rem 8rem;
+    padding-bottom: 1.8rem;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .text-after-heading-image{
+    padding: 0rem 3rem;
+    padding-bottom: 1.8rem;
+  }
+  .heading-text > p{
+    padding-left: 2.5rem;
+  }
+}
+@media screen and (max-width: 900px) {
+  .header-title{
+    line-height: 2rem;
+  }
+  .heading-image-text{
+    line-height: 2rem;
+  }
+  .heading-image{
+    display: block;
+    justify-content: center;
+  }
+  .heading-image-text{
+    padding-top: 2rem;
+    padding-left: 3rem;
+  }
+
+  .image-div{
+    display: block;
+    justify-content: center;
+    margin: 0rem auto;
+  }
+
+  .heading-text > p{
+    font-size: 1.8rem;
+}
+}
+
+@media screen and (max-width: 600px) {
+  .unit-home-image .text-white{
+    font-size: 1.8rem;
+    line-height: 2.2rem;
+  }
+  .unit-home-image > div > div{
+    display: block;
+  }
+  .unit-home-image, .unit-home-image > img{
+    height: 20rem;
+  }
+  .unit-home-image > div{
+    margin-top: -14rem;
+  }
+  .unit-home-image > div > div{
+    margin-top: -1rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .header-title{
+    line-height: 2rem;
+  }  
+  .text-after-heading-image{
+    padding: 0rem 2rem;
+    padding-bottom: 1.8rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .image-div{
+    width: 20rem;
+    height: 20rem;
+  }
+  .heading-image{
+    height: 20rem;
+  }
 }

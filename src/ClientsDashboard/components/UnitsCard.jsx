@@ -7,6 +7,8 @@ import { API } from '../../config'
 function UnitsCard(props){
   const navigate = useNavigate();
 
+  console.log("-----", props.unit_content)
+
   const hours = Math.floor((props.timePassed % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   const minutes = Math.floor((props.timePassed % (1000 * 60 * 60)) / (1000 * 60));
   const seconds = Math.floor((props.timePassed % (1000 * 60)) / 1000);
@@ -38,7 +40,7 @@ function UnitsCard(props){
                   </div>
                 </div>
                 <div class="product-buttons" style={{marginTop:'1.5rem', marginBottom:"-.5rem"}}>
-                    <Link to='/unitcontent' style={{textDecoration:'none'}} state={{id:props.id, serviceId:props.serviceID, moduleId:props.modulesID, currentUserUnits:props.currentUserUnits}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">To start</button></Link>
+                    <Link to='/unitcontent' style={{textDecoration:'none'}} state={{id:props.id, serviceId:props.serviceID, moduleId:props.modulesID, currentUserUnits:props.currentUserUnits, title: props.title, content:props.unit_content, image:props.image}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">To start</button></Link>
                     {time_spent_score > 50 ?
                       <a onClick={moveto} href="#" style={{textDecoration: "none"}}><button style={{backgroundColor: '#4ab2cc'}} type="button" class="button-default cart-btn mt-1 mr-1">Assess yourself</button></a>
                       :
@@ -49,8 +51,7 @@ function UnitsCard(props){
        </div>
     </>
   );
-}
-
+}                 
 
 export default UnitsCard;
 

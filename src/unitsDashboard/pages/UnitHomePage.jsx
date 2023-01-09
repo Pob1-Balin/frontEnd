@@ -7,12 +7,10 @@ import {useLocation} from 'react-router-dom'
 function UnitHomePage(){
     const location =useLocation();
     const unit_id = location.id
-    console.log(unit_id);
     return(
         <>
             <div className="">
-                <SidebarLinks/>
-                <div id="BodyContent" style={{marginLeft:'18rem'}}>
+                <div id="BodyContent">
                     <div>
                          <ToggleButton />
                     </div>

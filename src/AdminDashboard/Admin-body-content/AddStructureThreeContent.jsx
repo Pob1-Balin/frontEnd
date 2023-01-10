@@ -16,6 +16,7 @@ function AddStructureThreeContent() {
     const unitID = unitId.id;
     const [unitsData, setUnitsData] = useState([]);
     const [newUnitContent, setNewUnitContent] = useState([]);
+    const [submitContent, setSubmitContent] = useState([]);
     useEffect(() => {
         window.scrollTo(0, 0);
         axios.get(`${API}/unit/unitsdata/${unitID}`).then(({data})=>{
@@ -35,7 +36,9 @@ function AddStructureThreeContent() {
         unitContent.title = item.title;
         unitContent.image = item.image;
         unitContent.id = item._id;
-    })   
+    })  
+    // setSubmitContent(unit_content) 
+
     const [heading, setHeading] = useState({
         structure: "heading",
         text: ""
@@ -108,21 +111,7 @@ function AddStructureThreeContent() {
         event.preventDefault()
         setNewUnitContent([...newUnitContent, secondHeading]);
     }
-
-    console.log("ooo", newUnitContent)
-
-
-
-
-
-
-
-    const [inputs, setInputs] = useState({});
-    const [formErrors, setFormErrors] = useState({});
-    const handleChange = event => {
-        setInputs(inputs=>{return{...inputs, [event.target.name]: event.target.value}})
-    }
-
+    
     const submitUnitData = (unitDataInfo) => {
         axios.put(`${API}/unit/unit/${unitID}`, unitDataInfo)
             .then(res => {
@@ -132,28 +121,22 @@ function AddStructureThreeContent() {
             })
     }
 
-   var unitsDataContent = [{}]
-
     const handleSubmit = e =>{
         e.preventDefault();
         // setFormErrors(validateRegistration(inputs))
-
-        {unitsData.map((item) => {
-            unitsDataContent = item.unit_content;
-          }
-        )}
-
-
+        
         const route = "three";
         const structure_name = "three"
-        inputs.route = route;
-        inputs.structure_name = structure_name;
-        const unit_content = [...unitsDataContent, inputs];
+        const structure_info = {};
+        structure_info.route = route;
+        structure_info.structure_name = structure_name;
+
+        const new_content = [...unit_content, [...newUnitContent, structure_info]];
 
         submitUnitData({
-             unit_content,
+             unit_content: new_content,
         });
-        navigate('/adminunitcontent', {state: {id:unitID, title: unitContent.title, content:unit_content, image:unitContent.image}});
+        navigate('/adminunitcontent', {state: {id:unitID, title: unitContent.title, content:new_content, image:unitContent.image, module_name:unitId.module_name, module_title:unitId.module_title }});
     }
 
     return (
@@ -174,30 +157,30 @@ function AddStructureThreeContent() {
                                                         <div class="row">
                                                             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                                                 <div class="devit-card-custom">
-                                                                    <form onSubmit={handleSubmit}>
+                                                                    {/* <form onSubmit={handleSubmit}>
                                                                         <div className="form-group">
                                                                             <label htmlFor="page_name" style={{marginBottom: "-10px"}} className="FormLable"><p>Page Name</p></label>
                                                                             <input value={inputs.sidebar_name} onChange={handleChange} type="text" className={`form-control input ${formErrors.page_name? "border-color": ""}`} placeholder="Enter page name" name="sidebar_name"/>
-                                                                            {/* <p style={errorMessage}>{formErrors.page_name}</p> */}
+                                                                            <p style={errorMessage}>{formErrors.page_name}</p>
                                                                         </div>
                                                                         <div style={{marginTop:"1rem"}} className="form-group">
                                                                             <label htmlFor="page_title" style={{marginBottom: "-10px"}} className="FormLable"><p>Page Title</p></label>
                                                                             <input value={inputs.page_title} onChange={handleChange} type="text" className={`form-control input ${formErrors.page_title? "border-color": ""}`} placeholder="Enter page title" name="page_title"/>
-                                                                            {/* <p style={errorMessage}>{formErrors.page_title}</p> */}
+                                                                            <p style={errorMessage}>{formErrors.page_title}</p>
                                                                         </div>
                                                                         <div style={{marginTop:"1rem"}} className="form-group">
                                                                             <label htmlFor="text_heading" style={{marginBottom: "-10px"}} className="FormLable"><p>Text Heading</p></label>
                                                                             <input value={inputs.text_heading} onChange={handleChange} type="text" className={`form-control input ${formErrors.text_heading? "border-color": ""}`} placeholder="Enter text heading" name="text_heading"/>
-                                                                            {/* <p style={errorMessage}>{formErrors.text_heading}</p> */}
+                                                                            <p style={errorMessage}>{formErrors.text_heading}</p>
                                                                         </div>
                                                                         <div style={{marginTop:"1rem"}} className="form-group">
                                                                             <label htmlFor="section_text" style={{marginBottom: "-10px"}} className="FormLable"><p>Text</p></label>
                                                                             <textarea value={inputs.section_text} onChange={handleChange} type="text" className={`form-control input ${formErrors.section_text? "border-color": ""}`} placeholder="Enter page title" name="section_text"></textarea>
-                                                                            {/* <p style={errorMessage}>{formErrors.section_text}</p> */}
+                                                                            <p style={errorMessage}>{formErrors.section_text}</p>
                                                                         </div>
                                                                         <button type="submit" style={{ background: '#4ab2cc', color: 'white', border:"none", marginTop:".4rem"}} className="add-service save-unit btn waves-effect waves-light">Save content</button>
-                                                                    </form>
-                                                                    {/* <div className="row">
+                                                                    </form> */}
+                                                                    <div className="row">
                                                                     <div className="add-structure-headings"><p className="main-heading">Ajouter des structures</p></div>
                                                                             <div className="col-lg-6 col-md-12">
                                                                             <form onSubmit={title} style={{margin:"0rem"}}>
@@ -257,7 +240,7 @@ function AddStructureThreeContent() {
                                                                                     </div>
                                                                                 </form>
                                                                             </div>
-                                                                    </div> */}
+                                                                    </div>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -274,48 +257,58 @@ function AddStructureThreeContent() {
 
                 <div className="" style={{marginTop:"-1.5rem", background:"white", marginLeft:"-1rem", marginRight:"-1rem"}}>
 
-                {/* {newUnitContent.length == 0?
+                {newUnitContent.length == 0?
                   <p>No data added</p>
                   :
+                   
                   <span>
-                    {newUnitContent.map((item, index)=>
-                        <>
-                            <span>
-                                {item.structure == "secondHeading" ?
-                                    <div className="heading-image">
-                                        <div className="heading-image-text"><p>{item.text}</p></div>
-                                        <div className="image-div"><img src={Bg}/></div>
-                                    </div>
-                                    :""
-                                }
-                            </span>
+
+                 {newUnitContent.map((item, index)=>
+                    <>
+                        <span>
+                            {item.structure == "secondHeading" ?
+                                <div className="heading-image">
+                                    <div className="heading-image-text"><p>{item.text}</p></div>
+                                    <div className="image-div"><img src={Bg}/></div>
+                                </div>
+                                :""
+                            }
+                        </span>
+                      
+                        {item.structure == "heading" ?  
                             <div className="heading-text">
-                               {item.structure == "heading" ?
-                                    <p>{item.text}</p>
-                                    :""
-                                }
+                                <p>{item.text}</p>
                             </div>
+                            :""
+                        }
+                        
+                        {item.structure == "paragraph" ?
                             <div className="text-after-heading-image">
-                                {item.structure == "paragraph" ?
-                                    <p>{item.text}</p>
-                                    :""
-                                }
+                                <p>{item.text}</p>
                             </div>
-                            <div className="text-after-heading-image structure-images" style={{paddingBottom:"3rem"}}>
-                                {item.structure == "image" ?
+                            :""
+                        }
+                       
+                            {item.structure == "image" ? 
+                                <div className="text-after-heading-image structure-images" style={{paddingBottom:"3rem"}}>
                                     <p>Image here</p>
-                                    :""
-                                }
-                            </div>
-                        </>
-                    )}
-                  </span>
-                } */}
+                                </div>
+                                :""
+                            }
+                        
+                    </>
+                )}
+                </span>
+                }
                    
                    
 
 
-                    
+                   <center>
+                        <div className="input-group-append" style={{maxWidth:"10rem"}}>
+                            <button onClick={handleSubmit} type="submit" style={{fontWeight:"550", background:'#4ab2cc', color:'white', width:"100%"}} className="btn correct-input ansers">Submit</button>
+                        </div>
+                    </center>
 
                     {/* <div className="text-header">
                          <h4 className="fw-bold fs-5"><p>{unitContent.content.text_heading}</p></h4>
@@ -324,12 +317,6 @@ function AddStructureThreeContent() {
                          <p>{unitContent.content.section_text}</p>
                     </div> */}
                 </div>
-
-                {/* <center>
-                    <div className="input-group-append" style={{maxWidth:"10rem"}}>
-                        <button onClick={handleSubmit} type="submit" style={{fontWeight:"550", background:'#4ab2cc', color:'white', width:"100%"}} className="btn correct-input ansers">Submit</button>
-                    </div>
-                </center> */}
 
                 <div style={{marginLeft:"-2rem", marginRight:"-2rem", marginTop:"1rem"}}>
                     <Footer footer_text="Units content" destination="admin" />
@@ -340,5 +327,22 @@ function AddStructureThreeContent() {
 }
 
 export default AddStructureThreeContent;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

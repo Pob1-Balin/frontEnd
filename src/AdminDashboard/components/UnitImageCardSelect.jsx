@@ -6,7 +6,7 @@ function UnitImageCardSelect(props){
   const link = props.link;
   const unitID = props.unitID;
   const handleClick = (event) => {
-    navigate(link, {state:{id:unitID}});
+    navigate(link, {state:{id:unitID, module_name:props.module_name, module_title:props.module_title}});
   }
   return(
     <>

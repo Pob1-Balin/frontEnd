@@ -12,7 +12,7 @@ function AdminUnitPage(){
         <>
             <div className="">
                 {/* <AdminSidebarLinks/> */}
-                <AddModel unitsId={unitId.id}/>
+                <AddModel unitsId={unitId.id} module_name={unitId.module_name} module_title={unitId.module_title}/>
                 <div id="BodyContent" style={{paddingTop:"0rem", marginTop:"0rem"}}>
                     {/* <div>
                         <ToggleButton />

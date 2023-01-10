@@ -92,7 +92,7 @@ function AddStructureOneContent() {
         submitUnitData({
              unit_content,
         });
-        navigate('/adminunitcontent', {state: {id:unitID, title: unitContent.title, content:unit_content, image:unitContent.image}});
+        navigate('/adminunitcontent', {state: {id:unitID, title: unitContent.title, content:unit_content, image:unitContent.image, module_name:unitsInfo.module_name, module_title:unitsInfo.module_title}});
     }
 
 

@@ -17,9 +17,9 @@ function AddModel(props){
                     </div>
                     <div style={{textDecoration:"none"}} className="modal-body modal-body-body">
                         <div className='structure-card-container'>
-                            <UnitImageCardSelect image="./images/structure1.png" unitID={units_id} link="/addstructureone"/>
-                            <UnitImageCardSelect image="./images/structure2.png" unitID={units_id} link="/addstructuretwo"/>
-                            <UnitImageCardSelect image="./images/structure3.png" unitID={units_id} link="/addstructurethree"/>
+                            <UnitImageCardSelect image="./images/structure1.png" unitID={units_id} module_name={props.module_name} module_title={props.module_title} link="/addstructureone"/>
+                            <UnitImageCardSelect image="./images/structure2.png" unitID={units_id} module_name={props.module_name} module_title={props.module_title} link="/addstructuretwo"/>
+                            <UnitImageCardSelect image="./images/structure3.png" unitID={units_id} module_name={props.module_name} module_title={props.module_title} link="/addstructurethree"/>
                         </div>
                     </div>
                 </div>

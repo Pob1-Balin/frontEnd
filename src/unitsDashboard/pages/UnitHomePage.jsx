@@ -9,12 +9,12 @@ function UnitHomePage(){
     const unit_id = location.id
     return(
         <>
-            <div className="">
+            <div className="" >
                 <div id="BodyContent">
                     <div>
                          <ToggleButton />
                     </div>
-                    <div className="container-fluid px-0">
+                    <div className="container-fluid px-0" style={{marginTop:"-8.5rem"}}>
                          <UnitHomeContent show="client" />
                     </div>
                 </div>

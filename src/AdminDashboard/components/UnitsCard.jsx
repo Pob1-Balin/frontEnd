@@ -83,7 +83,7 @@ const moveEdit = () => {
              </div>
 
             <div class="product-buttons" style={{marginTop:'1.5rem', marginBottom:"-.5rem"}}>
-               <Link to='/adminunitcontent' style={{textDecoration:'none'}} state={{id: id, title: props.title, content:unit_content, image:props.image}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">Commencer</button></Link>
+               <Link to='/adminunitcontent' style={{textDecoration:'none'}} state={{id: id, title: props.title, content:unit_content, image:props.image, module_title:module_title, module_name:module_name}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-info">Commencer</button></Link>
                <a href='#' onClick={moveEdit} style={{textDecoration:'none'}}><button type="button" class="button-default cart-btn mr-1 mt-1 btn-success">Éditer</button></a>
                <button type="button" class="button-default cart-btn mr-1 mt-1 block" data-toggle="modal" data-target="#bl" style={{outline:"none", border:"none", boxShadow:"none"}}>Désactiver</button>
                <button type="button" class="button-default cart-btn btn-danger mt-1 mr-1" style={{outline:"none", border:"none", boxShadow:"none"}} onClick={() => setLgShow(true)} >Effacer</button>

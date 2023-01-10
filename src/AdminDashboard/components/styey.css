@@ -153,7 +153,7 @@ header > h2{
 .complete-container{
   margin: 1rem;
   margin-bottom: 0rem;
-  margin-top: 2.5rem;
+  margin-top: 4rem;
 }
 
 /* ---------------- styling structure 3 components ----------------- */
@@ -309,6 +309,22 @@ header > h2{
   font-family: MetropolisExtraLight;
   font-weight: 200;
   font-size: 1rem;
+}
+
+.returntounit > p{
+  font-family: MetropolisExtraLight;
+  font-size: .9rem;
+  margin-left: -.1rem;
+  margin-top: -.1rem;
+}
+.returntounit{
+  margin-left: .7rem;
+  color: #12448b;
+  width: 10rem;
+}
+.returntounit:hover{
+  cursor: pointer;
+  margin-left: -.2rem;
 }
 
 @media screen and (max-width: 1500px) {

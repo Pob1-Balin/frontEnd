@@ -10,7 +10,7 @@ function AdminHeaderSection(props){
              <div className='Unit-header-card mt-2' style={{border: "none"}}>
                 {props.index == 0 ?
                     <div className='header-link' style={{background:"transparent"}}>
-                        <Link className='header-link-link' to='/adminunitcontent' style={{textDecoration:"none", paddingTop:"1rem"}}>
+                        <Link className='header-link-link' to='/adminunitcontent' state={{id:props.id, content:props.content, title:props.title, image:props.image, module_title:props.module_title, module_name:props.module_name}} style={{textDecoration:"none", paddingTop:"1rem"}}>
                             <KeyboardArrowUpIcon style={{marginTop: '-1.1rem'}} />
                             <p style={{marginTop: '-.8rem'}}><b>Accueil</b></p>
                         </Link>

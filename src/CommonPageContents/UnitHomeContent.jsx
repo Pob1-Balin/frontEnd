@@ -1,24 +1,17 @@
 import React, { useEffect, useState } from "react";
-import HeaderSection from '../unitsDashboard/components/HeaderSection'
-import AdminHeaderSection2 from '../AdminDashboard/components/AdminHeaderSection2'
-import FooterSection from '../unitsDashboard/components/FooterSection'
-import SecondUnitFooter from '../unitsDashboard/components/SecondUnitFooter'
 import '../ClientsDashboard/App.css'
-import PlayerExample from "../unitsDashboard/components/VideoCard";
 import { useLocation } from "react-router-dom"
 import axios from 'axios'
 import { API } from "../config"
 import { useSelector } from 'react-redux'
-import Bg from './dots.jpg'
 import logo from './log.png'
 import "../AdminDashboard/components/styey.css"
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { NavLink, Link } from 'react-router-dom';
-import NotesIcon from '@mui/icons-material/Notes';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import CircularProgress from '@mui/material/CircularProgress';
-import LinearProgress from '@mui/material/LinearProgress';
+import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
+import NavLinks from "./NavLinks";
+import { useNavigate } from "react-router-dom";
 function UnitHomeContent(props){
+    const navigate = useNavigate()
     var head = props.show;
     const { user } = useSelector((state) => state.auth)
     const location = useLocation();
@@ -46,10 +39,28 @@ function UnitHomeContent(props){
         
       }, []);
 
+    var module_id = ""
+    unitsData.map((item) => {
+        module_id = item.module_id;
+    })
+
+    console.log("unitsData", unitsData)
+
     function smoothScroll(){
         document.querySelector('.home-page-links-container').scrollIntoView({
             behavior: 'smooth'
         });
+    }
+
+    const handleClick = (event) => {
+        if(states.content.length != 0){
+            const structure_details = states.content[0][states.content[0].length - 1];
+            navigate("/adminstructure"+structure_details.route, {state: {id:states.id, content:states.content[0], index:0, module_name:location.state.module_name, module_title:location.state.module_title }});
+        }
+    }
+
+    const moveToUnit = (event) => {
+        navigate("/units", {state: {id:module_id, module_name:states.module_name, title:location.state.module_title }});
     }
 
     return(
@@ -73,13 +84,15 @@ function UnitHomeContent(props){
                 {/* <div className="units-dashboard-footer-wrapper">
                     <FooterSection footer_text="Units content"/>
                  </div> */}
-                 <div style={{height:"3rem", background:"white"}}></div>
+                 <div style={{height:"4rem", background:"white"}}>
+                    <div onClick={moveToUnit} className="returntounit" style={{display:"flex", paddingTop:"1.6rem"}}><KeyboardArrowLeftIcon style={{color:"#12448b", fontSize:"1.2rem"}}/><p>Retour à l'unité</p></div>
+                 </div>
                  <div className="unit-home-image">
                     <img src={`${API}/images/${states.image}`}/>
                     <div>
                         <p className='header-title text-white' style={{padding:"0rem"}}><b>{states.title}</b></p>
                         <div>
-                            <button>COMMENCER LE MODULE</button>
+                            <button onClick={handleClick}>COMMENCER LE MODULE</button>
                             <div onClick={smoothScroll} style={{paddingTop:".5rem"}}>DÉTAILS <KeyboardArrowDownIcon style={{fontSize:"1.8rem"}}/></div>
                         </div>
                     </div>
@@ -107,15 +120,7 @@ function UnitHomeContent(props){
                         })} */}
 
 
-                        {states.content.map((item2, index) =>
-                            <NavLink style={{textDecoration:"none", display:"flex", justifyContent:"space-between"}} to={"/adminstructure"+item2.route} state={{id:states.id, content:item2, index:index}} activeStyle={{ color: 'red' }} className="unit-nave p-3">
-                                <div style={{display:"flex", justifyContent:"center"}}>
-                                    <NotesIcon style={{fontSize:"1.3rem", color:"gray"}} className='mr-1'/>
-                                    {item2.sidebar_name}
-                                </div>
-                                <CheckCircleIcon style={{color:"#12448b", fontSize:"1.4rem", marginRight: "-.25rem"}}/>
-                            </NavLink>
-                        )}
+                        {states.content.map((item, index) =><NavLinks content={item} index={index} id={states.id} module_title={location.state.module_title} module_name={location.state.module_name} home="home" />)}
                        
                         {/* <NavLink style={{textDecoration:"none", display:"flex", justifyContent:"space-between"}} to={"/adminunitcontent"}  activeStyle={{ color: 'red' }} className="unit-nave p-3">
                             <div style={{display:"flex", justifyContent:"center"}}>

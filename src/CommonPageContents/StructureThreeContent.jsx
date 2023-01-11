@@ -153,7 +153,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <div className="Unit-Dashboard-wrapper">
                 {head == "admin" ?
-                    <AdminHeaderSection edit="editstructurethree" prev="/cyberspace" module_title={location.state.module_title} module_name={location.state.module_name} destination="Leçon 2 - Cyberspace" index={unitContent.index} id={unitContent.id} content={unitContent2} image={image} title={title} header_title={unitContent.content.page_title}/>
+                    <AdminHeaderSection edit="editstructurethree" prev="/cyberspace" module_title={location.state.module_title} module_name={location.state.module_name} destination="Leçon 2 - Cyberspace" index={unitContent.index} id={unitContent.id} content={unitContent2} image={image} title={title} header_title={unitContent.pageTitle}/>
                     :
                     <HeaderSection prev="/cyberspace" destination="Leçon 2 - Cyberspace" header_title={unitContent.content.page_title}/>
                 }
@@ -162,15 +162,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 {location.state.content.map((item, index)=>
                     <>
-                        <span>
-                            {item.structure == "secondHeading" ?
-                                <div className="heading-image">
-                                    <div className="heading-image-text"><p>{item.text}</p></div>
-                                    <div className="image-div"><img src={Bg}/></div>
-                                </div>
-                                :""
-                            }
-                        </span>
+                        
+                        {item.structure == "secondHeading" ?
+                            <div className="heading-image">
+                                <div className="heading-image-text"><p>{item.text}</p></div>
+                                <div className="image-div"><img src={`${API}/images/${item.image1}`}/></div>
+                            </div>
+                            :""
+                        }
                       
                         {item.structure == "heading" ?  
                             <div className="heading-text">
@@ -181,48 +180,31 @@ document.addEventListener("DOMContentLoaded", () => {
                         
                         {item.structure == "paragraph" ?
                             <div className="text-after-heading-image">
-                                <p>{item.text}</p>
+                                {item.text.map((item2) => 
+                                    <p>{item2}</p>
+                                )}
                             </div>
                             :""
                         }
                        
-                            {item.structure == "image" ? 
-                                <div className="text-after-heading-image structure-images" style={{paddingBottom:"3rem"}}>
-                                    <p>Image here</p>
-                                </div>
-                                :""
-                            }
-                        
+                        {item.structure == "image" ? 
+                            <div className="text-after-heading-image structure-images" style={{paddingBottom:"2rem"}}>
+                                <img src={`${API}/images/${item.image}`} style={{width:"100%"}} className="img-fluid" alt="screen capture codes"/>
+                            </div>
+                            :""
+                        }
                     </>
                 )}
-                    {/* <div className="heading-image">
-                        <div className="heading-image-text"><p>yiuioiop danca jdcd</p></div>
-                        <div className="image-div"><img src={Bg}/></div>
-                    </div>
-
-                    <div className="heading-text">
-                        <p>wmdawds adjaiosd wijdi</p>
-                    </div>
-
-                    <div className="text-after-heading-image">
-                        <p>fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd </p>
-                        <p>fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd </p>
-                        <p>fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd </p>
-                        <p>fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd d sndisd wjdopwadn oawdjoasnaodmosd ;owd lwilidniw duuwd dsofjsd sufefdi fjdfpo esfhioe efejhf uadl asdnm  adasd </p>
-                    </div>
+      
+            </div>
 
 
-                    <div className="text-after-heading-image structure-images" style={{paddingBottom:"3rem"}}>
-                        <img src={Bg2} className="img-fluid" alt="screen capture codes"/>
-                    </div> */}
 
-                    {/* <div className="text-header">
-                         <h4 className="fw-bold fs-5"><p>{unitContent.content.text_heading}</p></h4>
-                    </div>
-                    <div className="text-body">
-                         <p>{unitContent.content.section_text}</p>
-                    </div> */}
-                </div>
+
+
+
+
+
                 <div style={{marginTop:"2rem"}}></div>
                 {/* <SecondUnitFooter direction="fkladn andka ajndakj dksa"/> */}
                 <ThirdFooter destination="fkladn andka ajndakj dksa" />
@@ -235,3 +217,5 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 
 export default StructureThreeContent;
+
+           

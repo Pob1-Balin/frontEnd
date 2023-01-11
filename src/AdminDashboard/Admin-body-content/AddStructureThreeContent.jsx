@@ -5,10 +5,7 @@ import "../admin.css";
 import "../components/styey.css"
 import axios from 'axios'
 import { useNavigate, useLocation } from "react-router-dom";
-import {validateRegistration} from '../../utils/inputValidations'
 import { API } from "../../config";
-import Bg from '../../CommonPageContents/dots.jpg'
-import Bg2 from '../../CommonPageContents/dots.jpg'
 function AddStructureThreeContent() {
     const navigate = useNavigate();
     const location = useLocation();
@@ -16,7 +13,8 @@ function AddStructureThreeContent() {
     const unitID = unitId.id;
     const [unitsData, setUnitsData] = useState([]);
     const [newUnitContent, setNewUnitContent] = useState([]);
-    const [submitContent, setSubmitContent] = useState([]);
+    const [error, setError] = useState("");
+    const [update, setUpdate] = useState(0);
     useEffect(() => {
         window.scrollTo(0, 0);
         axios.get(`${API}/unit/unitsdata/${unitID}`).then(({data})=>{
@@ -28,8 +26,6 @@ function AddStructureThreeContent() {
       }, []);
 
     var unit_content = [];
-    const error = {};
-    error.error = "Erreur: "
     var unitContent = {}
     unitsData.map((item)=>{
         unit_content = item.unit_content;
@@ -37,7 +33,8 @@ function AddStructureThreeContent() {
         unitContent.image = item.image;
         unitContent.id = item._id;
     })  
-    // setSubmitContent(unit_content) 
+
+    console.log("[newUnitContent:", newUnitContent);
 
     const [heading, setHeading] = useState({
         structure: "heading",
@@ -46,12 +43,12 @@ function AddStructureThreeContent() {
     const [secondHeading, setSecondHeading] = useState({
         structure: "secondHeading",
         text: "",
-        image: ""
+        image1: ""
     });
-    const [paragraph, setParagraph] = useState({
-        structure: "paragraph",
-        text: ""
-    });
+
+    const [parag, setParag] = useState("");
+
+    const [pageTitle, setPageTitle] = useState('');
 
     const [image, setImage] = useState({
         structure: "image",
@@ -59,23 +56,27 @@ function AddStructureThreeContent() {
     });
 
     const [file, setFile] = useState({
-        image: '', image1: '',
+        image: [], image1: [],
     })
-    const [fileNames, setFileNames] = useState({
-        image: '', image1: '',
-    })
-
     const handleFile = event => {
         var fil = event.target.files[0]
-        setFile({
-            ...file, [event.target.name]: fil
-        })
-        setFileNames({
-            ...fileNames, [event.target.name]: fil.name
-        })
-        setSecondHeading({
-            ...secondHeading, [event.target.name]: fil.name}
-        )
+       if(event.target.name == 'image1'){
+            setFile({
+                ...file, [event.target.name]: [...file.image1, fil]
+            })
+            setSecondHeading({
+                ...secondHeading, [event.target.name]: fil.name}
+            )
+       }else{
+            setFile({
+                ...file, [event.target.name]: [...file.image, fil]
+            })
+            setImage({
+                ...image, [event.target.name]: fil.name}
+            )
+       }
+
+
     }
 
     const handleHeading = event => {
@@ -83,10 +84,14 @@ function AddStructureThreeContent() {
             ...heading, [event.target.name]: event.target.value
         })
     }
+
     const handleParagraph = event => {
-        setParagraph({
-            ...paragraph, [event.target.name]: event.target.value}
-        )
+        setParag(event.target.value)
+    }
+
+    const handlePageTitle = event => {
+        setPageTitle(event.target.value)
+        setError("");
     }
 
     const handleSecondHeading = event => {
@@ -97,25 +102,74 @@ function AddStructureThreeContent() {
 
     const paragraph2 = (event) => {
         event.preventDefault()
-        setNewUnitContent([...newUnitContent, paragraph]);
+        if(update == 0){
+            const paragraph = { structure: "paragraph", text: [parag] }
+            setNewUnitContent([...newUnitContent, paragraph]);
+        }else{
+            const structure_details = newUnitContent[newUnitContent.length - 1];
+            structure_details.text = [...structure_details.text, parag];
+            var new_unit_arr = [];
+            for (let i = 0; i < newUnitContent.length - 1; i++) {
+                new_unit_arr = [...new_unit_arr, newUnitContent[i]]
+              }
+            new_unit_arr = [...new_unit_arr, structure_details]
+            setNewUnitContent([...new_unit_arr]);
+        }
+        setUpdate(1)
+        event.target.reset()
     }
     const title = (event) => {
         event.preventDefault()
+        setUpdate(0)
         setNewUnitContent([...newUnitContent, heading]);
+        event.target.reset()
     }
     const images = (event) => {
         event.preventDefault()
+        setUpdate(0)
         setNewUnitContent([...newUnitContent, image]);
+        event.target.reset()
     }
     const imageTitle = (event) => {
         event.preventDefault()
+        setUpdate(0)
         setNewUnitContent([...newUnitContent, secondHeading]);
+        event.target.reset()
     }
-    
+
+
     const submitUnitData = (unitDataInfo) => {
+
+        if(file.image.length != 0){
+            file.image.map((item) => {
+                const formData = new FormData()
+                formData.append('myFile', item)
+                axios.post(`${API}/upload`, formData, {
+                    headers:{
+                        "content-tupe": "multipart/form-data"
+                    }
+                }).then(res=>{
+                }).catch(err=>{
+                })
+            });
+        }
+
+        if(file.image1.length != 0){
+            file.image.map((item) => {
+                const formData = new FormData()
+                formData.append('myFile', item)
+                axios.post(`${API}/upload`, formData, {
+                    headers:{
+                        "content-tupe": "multipart/form-data"
+                    }
+                }).then(res=>{
+                }).catch(err=>{
+                })
+            });
+        }
+
         axios.put(`${API}/unit/unit/${unitID}`, unitDataInfo)
             .then(res => {
-                alert(res)
             })
             .catch(err => {
             })
@@ -123,20 +177,24 @@ function AddStructureThreeContent() {
 
     const handleSubmit = e =>{
         e.preventDefault();
-        // setFormErrors(validateRegistration(inputs))
+        if(pageTitle != ""){
+            const route = "three";
+            const structure_name = "three"
+            const structure_info = {};
+            structure_info.route = route;
+            structure_info.structure_name = structure_name;
+            structure_info.pageTitle = pageTitle;
+    
+            const new_content = [...unit_content, [...newUnitContent, structure_info]];
+    
+            submitUnitData({
+                 unit_content: new_content,
+            });
+            navigate('/adminunitcontent', {state: {id:unitID, title: unitContent.title, content:new_content, image:unitContent.image, module_name:unitId.module_name, module_title:unitId.module_title }});
+        }else{
+            setError("Erreur: Vous n'avez pas ajouté le titre de la page");
+        }
         
-        const route = "three";
-        const structure_name = "three"
-        const structure_info = {};
-        structure_info.route = route;
-        structure_info.structure_name = structure_name;
-
-        const new_content = [...unit_content, [...newUnitContent, structure_info]];
-
-        submitUnitData({
-             unit_content: new_content,
-        });
-        navigate('/adminunitcontent', {state: {id:unitID, title: unitContent.title, content:new_content, image:unitContent.image, module_name:unitId.module_name, module_title:unitId.module_title }});
     }
 
     return (
@@ -180,18 +238,18 @@ function AddStructureThreeContent() {
                                                                         </div>
                                                                         <button type="submit" style={{ background: '#4ab2cc', color: 'white', border:"none", marginTop:".4rem"}} className="add-service save-unit btn waves-effect waves-light">Save content</button>
                                                                     </form> */}
-                                                                    <div className="row">
-                                                                    <div className="add-structure-headings"><p className="main-heading">Ajouter des structures</p></div>
+                                                                                                                                  <div className="row">
+                                                                       <div className="add-structure-headings"><p className="main-heading">Ajouter des structures</p></div>
                                                                             <div className="col-lg-6 col-md-12">
-                                                                            <form onSubmit={title} style={{margin:"0rem"}}>
-                                                                                <div className="add-structure-headings"><p>Titre</p></div>
-                                                                                <div className="input-group" style={{marginBottom:"1.7rem", marginTop:"1rem"}}>
-                                                                                    <input type="text" className="form-control correct-input input" placeholder="Ajouter des réponses" onChange={handleHeading} name="text" style={{color:"#4ab2cc"}} required/>
-                                                                                    <div className="input-group-append">
-                                                                                        <button type="submit" style={{fontWeight:"550", background:'#4ab2cc', color:'white', width:"100%"}} className="btn correct-input ansers">Ajouter</button>
+                                                                                <form id="title" onSubmit={title} style={{margin:"0rem"}}>
+                                                                                    <div className="add-structure-headings"><p>Titre</p></div>
+                                                                                    <div className="input-group" style={{marginBottom:"1.7rem", marginTop:"1rem"}}>
+                                                                                        <input type="text" className="form-control correct-input input" placeholder="Ajouter des réponses" onChange={handleHeading} name="text" style={{color:"#4ab2cc"}} required/>
+                                                                                        <div className="input-group-append">
+                                                                                            <button type="submit" style={{fontWeight:"550", background:'#4ab2cc', color:'white', width:"100%"}} className="btn correct-input ansers">Ajouter</button>
+                                                                                        </div>
                                                                                     </div>
-                                                                                </div>
-                                                                            </form>
+                                                                                </form>
                                                                             </div>
                                                                             <div className="col-lg-6 col-md-12">
                                                                                 <div className="add-structure-headings"><p>Paragraphe</p></div>
@@ -205,7 +263,7 @@ function AddStructureThreeContent() {
                                                                                 </form>
                                                                             </div>
 
-                                                                            <div className="col-12">
+                                                                            <div className="col-lg-6 col-md-12">
                                                                                 <div className="add-structure-headings" style={{marginTop:"-.7rem"}}><p>Image</p></div>
                                                                                 <form onSubmit={images} style={{margin:"0rem"}}>
                                                                                     <div className="input-group" style={{marginBottom:"1.7rem", marginTop:"1rem"}}>
@@ -213,6 +271,15 @@ function AddStructureThreeContent() {
                                                                                         <div className="input-group-append">
                                                                                             <button type="submit" style={{fontWeight:"550", background:'#4ab2cc', color:'white', width:"100%"}} className="btn correct-input ansers">Ajouter</button>
                                                                                         </div>
+                                                                                    </div>
+                                                                                </form>
+                                                                            </div>
+                                                                            
+                                                                            <div className="col-lg-6 col-md-12">
+                                                                                <div className="add-structure-headings" style={{marginTop:"-.7rem"}}><p>Titre de la page</p></div>
+                                                                                <form style={{margin:"0rem"}}>
+                                                                                    <div className="input-group" style={{marginBottom:"1.7rem", marginTop:"1rem"}}>
+                                                                                        <input type="text" className="form-control correct-input input" placeholder="Ajouter des réponses" style={{color:"#4ab2cc"}} name="pageTitle" onChange={handlePageTitle}  required/>
                                                                                     </div>
                                                                                 </form>
                                                                             </div>
@@ -231,15 +298,18 @@ function AddStructureThreeContent() {
                                                                                                 <input type="file" className="form-control correct-input input" placeholder="Ajouter des réponses" name="image1" onChange={handleFile} style={{color:"#4ab2cc"}} accept=".png, .jpg, .jpeg" required/>
                                                                                             </div>
                                                                                         </div>
-                                                                                        <center>
-                                                                                            <div className="input-group-append" style={{maxWidth:"10rem"}}>
-                                                                                                <button type="submit" style={{fontWeight:"550", background:'#4ab2cc', color:'white', width:"100%"}} className="btn correct-input ansers">Ajouter</button>
-                                                                                            </div>
-                                                                                        </center>
-                                                                                        <div className="add-structure-headings error"><p style={{color:"red"}}>{error.error}</p></div>
+                                                                                        <div className="input-group-append" style={{maxWidth:"8rem", marginTop:"-.8rem"}}>
+                                                                                            <button type="submit" style={{fontWeight:"550", background:'#4ab2cc', color:'white', width:"100%"}} className="btn correct-input ansers">Ajouter</button>
+                                                                                        </div>
                                                                                     </div>
                                                                                 </form>
                                                                             </div>
+                                                                            <div className="add-structure-headings error"><p style={{color:"red", paddingTop:"1rem"}}>{error}</p></div>
+                                                                            <center>
+                                                                                <div className="input-group-append" style={{maxWidth:"7rem"}}>
+                                                                                    <button onClick={handleSubmit} type="submit" style={{fontWeight:"550", background:'#4ab2cc', color:'white', width:"100%"}} className="btn correct-input ansers">Envoyer</button>
+                                                                                </div>
+                                                                            </center>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -269,7 +339,7 @@ function AddStructureThreeContent() {
                             {item.structure == "secondHeading" ?
                                 <div className="heading-image">
                                     <div className="heading-image-text"><p>{item.text}</p></div>
-                                    <div className="image-div"><img src={Bg}/></div>
+                                    <p>L'image que vous avez sélectionnée apparaîtra ici</p>
                                 </div>
                                 :""
                             }
@@ -284,31 +354,24 @@ function AddStructureThreeContent() {
                         
                         {item.structure == "paragraph" ?
                             <div className="text-after-heading-image">
-                                <p>{item.text}</p>
+                                {item.text.map((item2) => 
+                                    <p>{item2}</p>
+                                )}
                             </div>
                             :""
                         }
                        
-                            {item.structure == "image" ? 
-                                <div className="text-after-heading-image structure-images" style={{paddingBottom:"3rem"}}>
-                                    <p>Image here</p>
-                                </div>
-                                :""
-                            }
+                        {item.structure == "image" ? 
+                            <div className="text-after-heading-image structure-images" style={{paddingBottom:"3rem"}}>
+                                <p>L'image que vous avez sélectionnée apparaîtra ici</p>
+                            </div>
+                            :""
+                        }
                         
                     </>
                 )}
                 </span>
-                }
-                   
-                   
-
-
-                   <center>
-                        <div className="input-group-append" style={{maxWidth:"10rem"}}>
-                            <button onClick={handleSubmit} type="submit" style={{fontWeight:"550", background:'#4ab2cc', color:'white', width:"100%"}} className="btn correct-input ansers">Submit</button>
-                        </div>
-                    </center>
+                }                
 
                     {/* <div className="text-header">
                          <h4 className="fw-bold fs-5"><p>{unitContent.content.text_heading}</p></h4>

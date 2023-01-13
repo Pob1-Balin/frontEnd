@@ -14,19 +14,19 @@ function ToggleButton() {
     setClosebtn("open");   
   }
 
-  // const handleClick = (event) => {
-  //   document.getElementById("closebtn").click();
-  // }
+  const handleClick = (event) => {
+    document.getElementById("closebtn").click();
+  }
   
   // const handleClick2 = (event) => {
   //   document.getElementById("closebtn2").click();
   // }
   
-  // useEffect(() => {
-  //   if (window.innerWidth <= 1000) { 
-  //     handleClick()
-  //   }   
-  // });
+  useEffect(() => {
+    if (window.innerWidth <= 1000) { 
+      // handleClick()
+    }   
+  });
   // window.addEventListener('resize',(event) => {
   //   if (window.innerWidth <= 1000) { 
   //     handleClick()
@@ -44,10 +44,10 @@ function ToggleButton() {
   }
     return (
       <>
-        <nav className={`style navbar navbar-expand-lg navbar-light mb-2 position-absolute TogBut ${openbtn == "close" ? "style1" : ""}`} style={style}>
+        <nav className={`style navbar navbar-expand-lg navbar-light mb-2 position-absolute TogBut ${openbtn == "close" ? "style1" : ""}`} style={{margin:"0rem", marginLeft:"1rem"}}>
             <div className="container-fluid">
-                 <button id="closebtn2" onClick={openNav} className={`openbtn ${openbtn == "close" ? "close" : ""}`}><NotesIcon/></button>
-                 <button id="closebtn" onClick={closeNav} className={`closebtn ${closebtn == "close" ? "close" : ""}`}><NotesIcon/></button>
+                 <button id="closebtn2" style={{background:"transparent", color:"gray", fontSize:"1.5rem", border:"none", outline:"none"}} onClick={openNav} className={`openbtn ${openbtn == "close" ? "close" : ""}`}>☰</button>
+                 <button id="closebtn" style={{background:"transparent", color:"gray", fontSize:"1.5rem", border:"none", outline:"none"}} onClick={closeNav} className={`closebtn ${closebtn == "close" ? "close" : ""}`}>☰</button>
             </div>
         </nav>
       </>
@@ -58,8 +58,4 @@ function ToggleButton() {
 
 export default ToggleButton;
 
-const style = {
-    top: '15%',
-    height:'20px'
-}
 

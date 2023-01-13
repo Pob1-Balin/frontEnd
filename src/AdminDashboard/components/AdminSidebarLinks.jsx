@@ -33,6 +33,7 @@ function AdminSidebarLinks(props) {
 
   var navElement = document.getElementsByClassName("unit-nave");
   const navClicked = (event) => {
+    event.preventDefault()
     for (let i = 0; i < navElement.length; i++) {
       navElement[i].classList.remove("navActiv");
     }
@@ -50,6 +51,7 @@ function AdminSidebarLinks(props) {
      title = item.title;
      image = item.image;
   })
+
     return (
       <>
             <div id="mySidebar" className="side_bar border-end" style={{width:'18rem'}}>
@@ -72,12 +74,7 @@ function AdminSidebarLinks(props) {
                           </div>
                           <CheckCircleIcon style={{color:"#4ab2cc", fontSize:"1.4rem", marginRight: "-.25rem"}}/>
                         </NavLink> */}
-                        {
-                        cont.map((item, index) =>
-                            
-                              <span>
-                                {index == 0 ?
-                                  <NavLinks content={item} index={index} id={unit_id} module_title={location.state.module_title} module_name={location.state.module_name} />
+                        {cont.map((item, index)=><NavLinks content={item} index={index} id={unit_id} module_title={location.state.module_title} module_name={location.state.module_name}/>
                                   // <NavLink onClick={() => navClicked(index)} style={{textDecoration:"none", display:"flex", justifyContent:"space-between"}} to={"/adminstructure"+item2.route} state={{id:unit_id, content:item2, index:index}} activeStyle={{ color: 'red' }} className="unit-nave p-3">
                                   //   <div style={{display:"flex", justifyContent:"center"}}>
                                   //     <NotesIcon style={{fontSize:"1.3rem"}} className='mr-1'/>
@@ -88,8 +85,8 @@ function AdminSidebarLinks(props) {
                                   //     <span style={{position:"absolute", top: "0", left:"0"}}><CircularProgress variant="determinate" size="1.1rem" value={20} thickness={5} style={{'color': '#4ab2cc'}}/></span>
                                   //   </div>
                                   // </NavLink>
-                                  :
-                                  <NavLinks content={item} index={index} id={unit_id} module_title={location.state.module_title} module_name={location.state.module_name} />
+
+                                  // <NavLinks content={item} index={index} id={unit_id} module_title={location.state.module_title} module_name={location.state.module_name} />
                                   // <NavLink onClick={() => navClicked(index)} style={{textDecoration:"none", display:"flex", justifyContent:"space-between"}} to={"/adminstructure"+item2.route} state={{id:unit_id, content:item2, index:index}} activeStyle={{ color: 'red' }} className="unit-nave p-3">
                                   //   <div style={{display:"flex", justifyContent:"center"}}>
                                   //     <NotesIcon style={{fontSize:"1.3rem"}} className='mr-1'/>
@@ -100,8 +97,6 @@ function AdminSidebarLinks(props) {
                                   //     <span style={{position:"absolute", top: "0", left:"0"}}><CircularProgress variant="determinate" size="1.1rem" value={20} thickness={5} style={{'color': '#4ab2cc'}}/></span>
                                   //   </div>
                                   // </NavLink>
-                                  }
-                              </span>
 
                             )}
                           {/* <NavLink style={{textDecoration:"none", display:"flex", justifyContent:"space-between"}} to={"/adminunitcontent"} state={{id:unit_id}} activeStyle={{ color: 'red' }} className="unit-nave p-3">

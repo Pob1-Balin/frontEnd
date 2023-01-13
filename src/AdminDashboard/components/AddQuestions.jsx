@@ -241,7 +241,7 @@ class AddQuestions extends React.Component{
                                             <ul>
                                                 <li className="ansers-display answer_lists" style={{marginLeft:"-1.7rem", padding:"1rem",paddingBottom:".1rem", listStyle:"none"}} key={correctanswer}>{correctanswer}</li>
                                             </ul>
-                                            <ClearRounded onClick={(e) => this. removeCorrectAnswer(correctanswer)} style={{color:"red", fontSize:"1.3rem", fontWeight:"900", marginTop:".7rem", marginRight:".5rem"}} className="delete-answer-btn"/>
+                                            <ClearRounded onClick={(e) => this.removeCorrectAnswer(correctanswer)} style={{color:"red", fontSize:"1.3rem", fontWeight:"900", marginTop:".7rem", marginRight:".5rem"}} className="delete-answer-btn"/>
                                         </div>
                                             </>
                                 })

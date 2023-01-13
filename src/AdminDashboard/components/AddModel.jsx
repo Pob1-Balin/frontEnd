@@ -1,30 +1,29 @@
 import React from 'react';
-import UnitStructures from '../pages/structures';
 import './AddModel.css'
-import UnitImageCardSelect from './UnitImageCardSelect';
+import Modal from 'react-bootstrap/Modal';
+import { useNavigate } from 'react-router-dom';
 
-function AddModel(props){
-    const units_id = props.unitsId
+function AddModel({ unitsId, module_name, module_title, lgShow, setLgShow }){
+    const navigate = useNavigate();
+    const handleClick = (event) => {
+        navigate(event, {state:{id:unitsId, module_name:module_name, module_title:module_title}});
+    }
     return(
-        <div className="modal modal-modal fade" id="add" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div className="modal-dialog" role="document">
-                <div className="modal-content model-control">
-                    <div className="modal-header">
-                        <h5 style={{ color: "gray", fontWeight: "bold" }} className="modal-title" id="exampleModalLabel">Select page structure</h5>
-                        <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div style={{textDecoration:"none"}} className="modal-body modal-body-body">
+        <>
+            <Modal size="lg" show={lgShow} onHide={() => setLgShow(false)}>
+                <Modal.Header closeButton>
+                    <h5 className="modal-title" id="exampleModalLabel">Sélectionnez la structure de la page</h5>
+                </Modal.Header>
+                <Modal.Body>
+                    <div style={{textDecoration:"none"}} className="modal-body-body">
                         <div className='structure-card-container'>
-                            <UnitImageCardSelect image="./images/structure1.png" unitID={units_id} module_name={props.module_name} module_title={props.module_title} link="/addstructureone"/>
-                            <UnitImageCardSelect image="./images/structure2.png" unitID={units_id} module_name={props.module_name} module_title={props.module_title} link="/addstructuretwo"/>
-                            <UnitImageCardSelect image="./images/structure3.png" unitID={units_id} module_name={props.module_name} module_title={props.module_title} link="/addstructurethree"/>
+                            <div onClick={() => handleClick("/addstructureone")} className="card-image-container"></div>
+                            <div onClick={() => handleClick("/addstructurethree")} className="card-image-container card-image-container2"></div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                </Modal.Body>
+            </Modal>
+        </>
     );
 }
 

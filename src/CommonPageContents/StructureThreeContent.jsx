@@ -1,5 +1,5 @@
 import React, { useEffect, useState} from "react";
-import { useLocation } from "react-router-dom";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 import HeaderSection from '../unitsDashboard/components/HeaderSection'
 import AdminHeaderSection from '../AdminDashboard/components/AdminHeaderSection'
 import FooterSection from '../unitsDashboard/components/FooterSection'
@@ -8,11 +8,14 @@ import axios from 'axios'
 import { API } from "../config"
 import Bg from './bg.png'
 import ThirdFooter from "../unitsDashboard/components/ThirdFooter";
+import Modal from 'react-bootstrap/Modal';
 function StructureThreeContent(props){
+    const navigate = useNavigate();
     var head = props.show;
     const location = useLocation();
     const unitContent = location.state;
     const [unitsData, setUnitsData] = useState([]);
+    const [lgShow, setLgShow] = useState(false); 
     useEffect(() => {
         window.scrollTo(0, 0);
         axios.get(`${API}/unit/unitsdata/${unitContent.id}`).then(({data})=>{
@@ -22,16 +25,6 @@ function StructureThreeContent(props){
         })
         // Aos.init({ duration: 2000 });
       }, []);
-      const submitUnitContent = (unitDataInfo) => {
-        axios.put(`${API}/unit/unit/${unitContent.id}`, unitDataInfo)
-            .then(res => {
-                if (res.status === 200) {
-                    window.location.reload();
-                } else Promise.reject();
-            })
-            .catch(err => {
-            })
-      }
 
       var unitContent2  = []
       var title = ""
@@ -111,49 +104,51 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+const submitUnitContent = (unitDataInfo) => {
+    axios.put(`${API}/unit/unit/${unitContent.id}`, unitDataInfo)
+        .then(res => {
+            setLgShow(true);
+            navigate('/adminunitcontent', {state: {id:unitContent.id, content:unitContent2, title:title, image:image, module_title:unitContent.module_title, module_name:unitContent.module_name}})
+        })
+        .catch(err => {
+        })
+}
 
+const deleteUnitContent = () => {
+    var unit_content = [{}];
+    {unitsData.map((item) => {
+        item.unit_content.splice(unitContent.index,1);
+        unit_content = item.unit_content;
+    })}
 
-
-      const deleteUnitContent = () => {
-        var unit_content = [{}];
-        {unitsData.map((item) => {
-             item.unit_content.splice(unitContent.index,1);
-             unit_content = item.unit_content;
-        })}
-
-        submitUnitContent({
-            unit_content,
-        });
-      }
-
+    submitUnitContent({
+        unit_content,
+    });
+}
 
     return(
         <>
             <div className="">
-                {/*-- Modal =====*/}
-                <div className="modal fade" id="del" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div className="modal-dialog" role="document">
-                        <div className="modal-content">
-                            <div className="modal-header">
-                                <h5 className="modal-title" id="exampleModalLabel">Delete units content</h5>
-                                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <div className="modal-body">
-                                <p style={{color:"gray"}}>Are you sure you want to permanently delete this units content?</p>
-                            </div>
-                            <div className="modal-footer">
-                                <button type="button" className="btn btn-danger mr-1" data-dismiss="modal">Close</button>
-                                <button type="submit" name="delete_service" className="btn btn-info" onClick={deleteUnitContent}>Yes</button>
-                            </div>
+                <Modal size="md" show={lgShow} onHide={() => setLgShow(false)}>
+                    <Modal.Header>
+                        <h5 className="modal-title" id="exampleModalLabel">Delete units content</h5>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <div style={{margin:"-1rem"}} className="modal-body">
+                            <p style={{color: "gray"}}>Are you sure you want to permanently delete this units content?</p>
                         </div>
-                    </div>
-                </div>
-
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <div style={{margin:"-1rem"}} className='modal-footer'>
+                            <button type="button" class="btn btn-danger mr-1" onClick={() => setLgShow(false)} >Fermé</button>
+                            <button type="submit" class="btn" style={{backgroundColor: "#3363ad", color:"white"}} onClick={deleteUnitContent}>Oui</button>
+                        </div>
+                        
+                    </Modal.Footer>
+                </Modal>
                 <div className="Unit-Dashboard-wrapper">
                 {head == "admin" ?
-                    <AdminHeaderSection edit="editstructurethree" prev="/cyberspace" module_title={location.state.module_title} module_name={location.state.module_name} destination="Leçon 2 - Cyberspace" index={unitContent.index} id={unitContent.id} content={unitContent2} image={image} title={title} header_title={unitContent.pageTitle}/>
+                    <AdminHeaderSection edit="editstructurethree" prev="/cyberspace" module_title={unitContent.module_title} module_name={unitContent.module_name} destination="Leçon 2 - Cyberspace" index={unitContent.index} id={unitContent.id} content={unitContent2} image={image} title={title} header_title={unitContent.pageTitle} setLgShow={setLgShow} show={head}/>
                     :
                     <HeaderSection prev="/cyberspace" destination="Leçon 2 - Cyberspace" header_title={unitContent.content.page_title}/>
                 }
@@ -198,19 +193,11 @@ document.addEventListener("DOMContentLoaded", () => {
       
             </div>
 
-
-
-
-
-
-
-
-                <div style={{marginTop:"2rem"}}></div>
-                {/* <SecondUnitFooter direction="fkladn andka ajndakj dksa"/> */}
-                <ThirdFooter destination="fkladn andka ajndakj dksa" />
-                {/* <div className="units-dashboard-footer-wrapper">
-                     <FooterSection footer_text="Units content" />
-                 </div> */}
+            {/* <SecondUnitFooter direction="fkladn andka ajndakj dksa"/> */}
+            <ThirdFooter destination="fkladn andka ajndakj dksa" />
+            {/* <div className="units-dashboard-footer-wrapper">
+                    <FooterSection footer_text="Units content" />
+                </div> */}
             </div>
         </>
     )

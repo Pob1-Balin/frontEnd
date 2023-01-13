@@ -10,7 +10,9 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
 import NavLinks from "./NavLinks";
 import { useNavigate } from "react-router-dom";
+import AddModel from "../AdminDashboard/components/AddModel";
 function UnitHomeContent(props){
+    const [lgShow, setLgShow] = useState(false); 
     const navigate = useNavigate()
     var head = props.show;
     const { user } = useSelector((state) => state.auth)
@@ -44,8 +46,6 @@ function UnitHomeContent(props){
         module_id = item.module_id;
     })
 
-    console.log("unitsData", unitsData)
-
     function smoothScroll(){
         document.querySelector('.home-page-links-container').scrollIntoView({
             behavior: 'smooth'
@@ -55,7 +55,7 @@ function UnitHomeContent(props){
     const handleClick = (event) => {
         if(states.content.length != 0){
             const structure_details = states.content[0][states.content[0].length - 1];
-            navigate("/adminstructure"+structure_details.route, {state: {id:states.id, content:states.content[0], index:0, module_name:location.state.module_name, module_title:location.state.module_title }});
+            navigate("/adminstructure"+structure_details.route, {state: {id:states.id, content:states.content[0], index:0, module_name:states.module_name, module_title:states.module_title, pageTitle:structure_details.pageTitle }});
         }
     }
 
@@ -65,6 +65,7 @@ function UnitHomeContent(props){
 
     return(
         <>
+            <AddModel lgShow={lgShow} setLgShow={setLgShow} unitsId={states.id} module_name={states.module_name} module_title={states.module_title}/>
             <div className="" style={{paddingTop:"0rem", marginTop:"-2rem"}}>
                 {/* <div className="Unit-Dashboard-wrapper">
                     {head == "admin" ?
@@ -85,7 +86,7 @@ function UnitHomeContent(props){
                     <FooterSection footer_text="Units content"/>
                  </div> */}
                  <div style={{height:"4rem", background:"white"}}>
-                    <div onClick={moveToUnit} className="returntounit" style={{display:"flex", paddingTop:"1.6rem"}}><KeyboardArrowLeftIcon style={{color:"#12448b", fontSize:"1.2rem"}}/><p>Retour à l'unité</p></div>
+                    <div onClick={moveToUnit} className="returntounit" style={{display:"flex", paddingTop:"1.7rem"}}><KeyboardArrowLeftIcon style={{color:"#12448b", fontSize:"1.2rem"}}/><p>Retour à l'unité</p></div>
                  </div>
                  <div className="unit-home-image">
                     <img src={`${API}/images/${states.image}`}/>
@@ -98,7 +99,8 @@ function UnitHomeContent(props){
                     </div>
                  </div>
                  {user.isAdmin ?
-                    <div><button className="add-buttons units-add-page" data-toggle="modal" data-target="#add" style={{width:"100%", borderRadius:"0rem", border:"none", outline:"none", marginTop:"-.4rem", backgroundImage:"linear-gradient(to bottom right, rgb(35, 175, 203) 5%, rgb(14, 20, 47) 95%)"}}>Ajouter un chapitre</button></div>
+                //  data-toggle="modal" data-target="#add"
+                    <div><button onClick={() => setLgShow(true)} className="add-buttons units-add-page" style={{width:"100%", borderRadius:"0rem", border:"none", outline:"none", marginTop:"-.4rem", backgroundImage:"linear-gradient(to bottom right, rgb(35, 175, 203) 5%, rgb(14, 20, 47) 95%)"}}>Ajouter un chapitre</button></div>
                     // <div className="text-end" style={{paddingTop:"1rem", paddingRight:"2rem"}}><button className="add-buttons units-add-page" data-toggle="modal" data-target="#add" style={{width:"auto", borderRadius:"0rem", border:"none", outline:"none", marginTop:"-.4rem", backgroundImage:"linear-gradient(to bottom right, rgb(35, 175, 203) 5%, rgb(14, 20, 47) 95%)", padding:".5rem 1rem", borderRadius:".2rem"}}>Ajouter un chapitre</button></div>
                     :
                     ""

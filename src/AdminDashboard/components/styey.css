@@ -327,6 +327,13 @@ header > h2{
   margin-left: -.2rem;
 }
 
+.content{
+  background-image: linear-gradient(to bottom right, rgb(35, 175, 203) 5%, rgb(14, 20, 47) 95%);
+  background-clip: text;
+  color: transparent;
+  font-family: MetropolisSemiBold;
+}
+
 @media screen and (max-width: 1500px) {
   .heading-image-text{
     padding-right: 3rem;

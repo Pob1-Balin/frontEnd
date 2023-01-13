@@ -8,14 +8,10 @@ function EditStructureOnePage() {
   return (
     <div className="">
         <AdminSidebarLinks/>
-        <AddModel/>
         <div id="BodyContent" style={{marginLeft:'18rem'}}>
-            <div>
-                <ToggleButton />
-            </div>
-            <div className="container-fluid px-0">
-               <EditStructureOneContent/>
-            </div>
+          <div className="container-fluid px-0">
+              <EditStructureOneContent/>
+          </div>
         </div>
     </div>
   );

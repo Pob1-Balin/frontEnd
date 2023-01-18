@@ -10,7 +10,7 @@ function AddModel({ unitsId, module_name, module_title, lgShow, setLgShow }){
     }
     return(
         <>
-            <Modal size="lg" show={lgShow} onHide={() => setLgShow(false)}>
+            <Modal size="xl" show={lgShow} onHide={() => setLgShow(false)}>
                 <Modal.Header closeButton>
                     <h5 className="modal-title" id="exampleModalLabel">Sélectionnez la structure de la page</h5>
                 </Modal.Header>
@@ -18,6 +18,7 @@ function AddModel({ unitsId, module_name, module_title, lgShow, setLgShow }){
                     <div style={{textDecoration:"none"}} className="modal-body-body">
                         <div className='structure-card-container'>
                             <div onClick={() => handleClick("/addstructureone")} className="card-image-container"></div>
+                            <div onClick={() => handleClick("/addstructuretwo")} className="card-image-container"></div>
                             <div onClick={() => handleClick("/addstructurethree")} className="card-image-container card-image-container2"></div>
                         </div>
                     </div>
@@ -28,12 +29,3 @@ function AddModel({ unitsId, module_name, module_title, lgShow, setLgShow }){
 }
 
 export default AddModel;
-
-const style = {
-    listStyle: "none",
-    margin: "0rem",
-    cursor: "pointer",
-    paddingLeft: '2rem',
-    paddingTop: ".7rem",
-    height: "3rem",
-}

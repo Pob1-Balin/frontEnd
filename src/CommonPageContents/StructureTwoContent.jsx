@@ -36,8 +36,7 @@ function StructureTwoContent(props){
             })
       }
 
-
-
+      const structure_details = unitContent.content[unitContent.content.length - 1];
 
 
 //--------------------------------------------- calculate time spent on this page ----------------------------------------
@@ -50,78 +49,20 @@ const submitUnit = (unitInfo) => {
         })
 }
 
-let timeSpentScrolling = 0;
-
-let isHalted = false;
-let haltedStartTime, haltedEndTime;
-let totalHaltedTime = 0;
-
-const update_halt_state = () => {
-    if (isHalted) {
-        isHalted = false;
-        haltedEndTime = new Date().getTime()
-        totalHaltedTime += (haltedEndTime - haltedStartTime)
-    } else {
-        isHalted = true;
-        haltedStartTime = new Date().getTime()
-    }
-}
-
-// Listen for scroll events
-window.addEventListener('scroll', () => {
-    timeSpentScrolling += 1.8;
-    update_halt_state()
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-    const start = new Date().getTime();
-
-    // AVERAGE SCROLLING INTERVAL - 39 seconds
-    setInterval(() => {
-        if (new Date().getTime() - start > 39000) {
-            update_halt_state()
-        }
-    }, 39000)
-
-    window.addEventListener("beforeunload", () => {
-        const end = new Date().getTime();
-        update_halt_state()
-
-        const totalTime = (end - start) - (timeSpentScrolling) - totalHaltedTime;
-
-        var units = {};
-            unitsData.map((item) => {
-                units = item
-        });
-
-        const time_spent = Math.round(parseInt(totalTime) + parseInt(units.time_spent));
-        submitUnit({
-            time_spent,
-        });
-
-    });
-
-});
 
 //------------------------------------------------------------------------------------------------------------------------------------------
 
+const deleteUnitContent = () => {
+var unit_content = [{}];
+{unitsData.map((item) => {
+        item.unit_content.splice(unitContent.index,1);
+        unit_content = item.unit_content;
+})}
 
-
-
-
-
-      const deleteUnitContent = () => {
-        var unit_content = [{}];
-        {unitsData.map((item) => {
-             item.unit_content.splice(unitContent.index,1);
-             unit_content = item.unit_content;
-        })}
-
-        submitUnitContent({
-            unit_content,
-        });
-      }
-
+submitUnitContent({
+    unit_content,
+});
+}
 
     return(
         <>
@@ -149,18 +90,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 <div className="Unit-Dashboard-wrapper">
                 {head == "admin" ?
-                    <AdminHeaderSection edit="editstructuretwo" prev="/cyberspace" destination="Leçon 2 - Cyberspace" id={unitContent.id} content={unitContent.content} index={unitContent.index} header_title={unitContent.content.page_title}/>
+                    <AdminHeaderSection edit="editstructuretwo" prev="/cyberspace" destination="Leçon 2 - Cyberspace" id={unitContent.id} content={unitContent.content} index={unitContent.index} header_title={structure_details.pageTitle}/>
                     :
                     <HeaderSection prev="/cyberspace" destination="Leçon 2 - Cyberspace" header_title={unitContent.content.page_title}/>
                 }
                 </div>
-                <div className="unites_divider_line"></div>
-                <div className="">
-                     <ImageCard image={unitContent.content.section_image} />
+                <div className="" style={{marginTop:"-1.4rem"}}>
+                     <ImageCard image={structure_details.section_image} />
                 </div>
                <div className="carousel-wrapper">
-                    <CarouselCard image_one={unitContent.content.carousel_one_image} image_two={unitContent.content.carousel_two_image} image_three={unitContent.content.carousel_three_image} carousel_text_one={unitContent.content.carousel_one_text} carousel_text_two={unitContent.content.carousel_two_text} carousel_text_three={unitContent.content.carousel_three_text} />
-                        {/* <CarouselCard image_one="" image_two="" image_three=""  /> */}
+                    <CarouselCard image_one={unitContent.content[0].image} image_two={unitContent.content[1].image} image_three={unitContent.content[2].image} carousel_text_one={unitContent.content[0].text} carousel_text_two={unitContent.content[1].text} carousel_text_three={unitContent.content[2].text} />
                </div>
                  <div className="units-dashboard-footer-wrapper">
                      <FooterSection footer_text="Units content" />

@@ -36,6 +36,7 @@ function StructureOneContent(props){
       }
 
 
+      const structure_details = unitContent.content[unitContent.content.length - 1];
 
 
 //--------------------------------------------- calculate time spent on this page ----------------------------------------
@@ -146,16 +147,15 @@ document.addEventListener("DOMContentLoaded", () => {
                         </div>
                     </div>
                 </div>
-
                 <div className="Unit-Dashboard-wrapper">
-                {head == "admin" ?
-                    <AdminHeaderSection prev="/cyberspace" destination="Accueil" id={unitContent.id} content={unitContent.content} index={unitContent.index} header_title={unitContent.content.page_title}/>
-                    :
-                    <HeaderSection prev='#' destination="Accueil" header_title={unitContent.content.page_title} />
-                }
+                    {head == "admin" ?
+                        <AdminHeaderSection prev="/cyberspace" destination="Accueil" id={unitContent.id} content={unitContent.content} index={unitContent.index} header_title={structure_details.pageTitle}/>
+                        :
+                        <HeaderSection prev='#' destination="Accueil" header_title={unitContent.content.page_title} />
+                    }
                 </div>
-                <div className="unites_divider_line"></div>
-                <PlayerExample video_link={unitContent.content.video}/>
+                <div style={{marginTop:"1.52rem"}}></div>
+                <PlayerExample video_link={unitContent.content[0].video}/>
                 <div className="units-dashboard-footer-wrapper">
                      <FooterSection footer_text="Units content"/>
                  </div>

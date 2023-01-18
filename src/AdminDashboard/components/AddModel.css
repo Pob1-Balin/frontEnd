@@ -24,6 +24,10 @@
     background-position: center;
     background-color: #0a0b1f;
 }
+
+.card-image-container:hover{
+    cursor: pointer;
+}
 .card-image-container2{
     background-image: url("./log.png");
 }
@@ -34,7 +38,7 @@
     margin: .5rem 1.5rem;
     display: grid;
     gap: 1.5rem;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .select-card_image{
